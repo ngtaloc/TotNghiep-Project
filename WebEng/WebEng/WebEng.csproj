@@ -123,6 +123,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,6 +162,18 @@
     <Content Include="Content\js\agency.min.js" />
     <Content Include="Content\js\contact_me.js" />
     <Content Include="Content\js\jqBootstrapValidation.js" />
+    <Content Include="Content\Login\css\bootstrap.min.css" />
+    <Content Include="Content\Login\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\Login\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\Login\css\owl.carousel.min.css" />
+    <Content Include="Content\Login\css\style.css" />
+    <Content Include="Content\Login\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="Content\Login\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="Content\Login\fonts\icomoon\demo.html" />
+    <Content Include="Content\Login\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="Content\Login\fonts\icomoon\Read Me.txt" />
+    <Content Include="Content\Login\fonts\icomoon\style.css" />
+    <Content Include="Content\Login\images\bg_1.jpg" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -217,6 +230,14 @@
     <Content Include="Content\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Content\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Login\css\.DS_Store" />
+    <Content Include="Content\Login\css\bootstrap.min.css.map" />
+    <Content Include="Content\Login\fonts\.DS_Store" />
+    <Content Include="Content\Login\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\Login\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\Login\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="Content\Login\fonts\icomoon\selection.json" />
+    <Content Include="Content\Login\images\.DS_Store" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -242,6 +263,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
