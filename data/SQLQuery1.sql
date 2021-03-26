@@ -180,7 +180,11 @@ insert into TaiKhoan
 --Procedure
 
 --login
+<<<<<<< HEAD
+
+=======
 go
+>>>>>>> refs/remotes/origin/main
 create proc DangNhap(
 	@userName varchar(50),
 	@passWord char(32))
