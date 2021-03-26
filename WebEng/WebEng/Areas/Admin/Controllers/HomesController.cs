@@ -9,6 +9,8 @@ namespace WebEng.Areas.Admin.Controllers
     public class HomesController : Controller
     {
         // GET: Admin/Homes
+
+        [Authorize]
         public ActionResult Index()
         {
             return View();

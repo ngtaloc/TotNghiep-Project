@@ -17,7 +17,7 @@ namespace WebEng.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new {  action = "Index", controller = "Homes", id = UrlParameter.Optional }
+                new {  action = "Index", controller = "Login", id = UrlParameter.Optional }
             );
         }
     }
