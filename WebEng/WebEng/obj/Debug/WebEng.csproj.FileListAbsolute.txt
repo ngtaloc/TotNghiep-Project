@@ -117,3 +117,10 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\Models.dll.config
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.SqlServer.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.pdb
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.dll.config
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.SqlServer.xml

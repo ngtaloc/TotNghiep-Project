@@ -27,7 +27,7 @@ namespace WebEng.Areas.Admin.Controllers
             if (Membership.ValidateUser(model.userName,model.passWord) && ModelState.IsValid)
             {
                 FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                RedirectToAction("Index", "Homes");
+                return RedirectToAction("Index", "Homes");
             }
             else
             {
