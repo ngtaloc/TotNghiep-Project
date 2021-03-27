@@ -1,4 +1,4 @@
-﻿@model WebEng.Areas.Admin.Models.LoginModel 
+﻿@model WebEng.Models.LoginModel
 @{
     Layout = null;
 }
@@ -32,34 +32,34 @@
                             <div class="text-center mb-5">
                                 <h3 class="text-uppercase">Login to <strong>Colorlib</strong></h3>
                             </div>
-                            @using (Html.BeginForm())
+                            @using (Html.BeginForm("Login","Login",FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
-                                @Html.ValidationSummary(true,null,new {@class="alert alert-danger" })
+                                @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
                                 <div class="form-group first">
                                     <label for="username">Username</label>
-                                    @Html.TextBoxFor(model=>model.userName, new { @class="form-control" , @placeholder="Tên đăng nhập", @id="username", @autofocus="autofocus" })
-                                   
+                                    @Html.TextBoxFor(model => model.userName, new { @class = "form-control", @placeholder = "Tên đăng nhập", @id = "username", @autofocus = "autofocus", @required= "required" })
+
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
-                                    @Html.TextBoxFor(model => model.passWord, new { @class = "form-control", @placeholder = "Mật khẩu", @id = "password", @type = "password" })
-                                   
+                                    @Html.PasswordFor(model => model.passWord, new { @class = "form-control", @placeholder = "Mật khẩu", @id = "password" , @required= "required" })
+
                                 </div>
 
                                 <div class="d-sm-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-3 mb-sm-0">
                                         <span class="caption">Remember me</span>
                                         @Html.CheckBoxFor(model => model.rememberMe)
-                                        
+
                                         <div class="control__indicator"></div>
                                     </label>
-                                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                                    <span  class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                                 </div>
                                 <button type="submit" class="btn btn-block py-2 btn-primary">Đăng nhập</button>
-                                
-                                <span class="text-center my-3 d-block">or</span>
 
+                                <span class="text-center my-3 d-block">or</span>
+                                
 
                                 <div class="">
                                     <a href="#" class="btn btn-block py-2 btn-facebook">
@@ -68,7 +68,7 @@
                                     <a href="#" class="btn btn-block py-2 btn-google"><span class="icon-google mr-3"></span> Login with Google</a>
                                 </div>
                             }
-                            
+
                         </div>
                     </div>
                 </div>

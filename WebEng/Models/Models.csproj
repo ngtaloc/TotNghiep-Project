@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="Framework\BinhLuan.cs" />
     <Compile Include="Framework\CapDo.cs" />
     <Compile Include="Framework\ChucNang.cs" />

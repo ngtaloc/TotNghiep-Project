@@ -1,12 +1,12 @@
 ﻿create table NhomQuyen(	
-    ID INT IDENTITY(1,1) PRIMARY KEY,
+    ID INT IDENTITY(1,1) PRIMARY KEY, -- 0:admin 1:GV 2: HV
 	tenNhomQuyen nvarchar(50), 
 );
 create table TaiKhoan(	
     iD INT IDENTITY(1,1) PRIMARY KEY,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
-	trangThai int,
+	trangThai int, --0:khóa 1:mở
 	idNQ int not null,
 	foreign key(idNQ) references  NhomQuyen(id) ON DELETE CASCADE ,
 );
@@ -172,19 +172,16 @@ go
 insert into NhomQuyen
 	values ('Admin'),('GiangVien'),('HocVien');
 
-insert into TaiKhoan
-	values ('admin','admin',0,1);
+insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin
+	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,1); 
+
 -- chat giữa học viên và giáo viên
 
 
 --Procedure
 
 --login
-<<<<<<< HEAD
 
-=======
-go
->>>>>>> refs/remotes/origin/main
 create proc DangNhap(
 	@userName varchar(50),
 	@passWord char(32))
