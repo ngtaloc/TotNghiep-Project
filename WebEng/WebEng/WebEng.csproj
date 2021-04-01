@@ -2555,6 +2555,7 @@
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
