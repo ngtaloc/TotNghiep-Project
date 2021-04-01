@@ -10,6 +10,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Co
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+<<<<<<< HEAD
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
@@ -22,3 +23,17 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csp
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+=======
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.dll.config
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.pdb
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.xml
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
+C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.dll
+C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.pdb
+>>>>>>> 06aabde63104dac8ae1a3ff3c586e0ed1d3642ca

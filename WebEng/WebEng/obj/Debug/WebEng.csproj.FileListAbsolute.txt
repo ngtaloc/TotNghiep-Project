@@ -117,6 +117,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\Models.dll.config
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.xml
+<<<<<<< HEAD
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll.config
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\WebEng.pdb
@@ -180,3 +181,12 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csp
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+=======
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.SqlServer.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.pdb
+C:\loc\TotNhiep\WebEng\WebEng\bin\Models.dll.config
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\EntityFramework.SqlServer.xml
+>>>>>>> 06aabde63104dac8ae1a3ff3c586e0ed1d3642ca

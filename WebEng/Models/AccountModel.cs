@@ -17,13 +17,13 @@ namespace Models
         }
 
         public bool login(string userName, string passWord)
-        {
+        { 
             object[] sqlParams =
             {
                 new SqlParameter("@userName",userName),
                 new SqlParameter("@passWord",passWord),
             };
-            var rec = context.Database.SqlQuery<bool>("DangNhap @userName, @passWord", sqlParams).SingleOrDefault();
+            var rec = context.Database.SqlQuery<bool>("DangNhap '"+userName+"','"+passWord+"'").SingleOrDefault();
             return rec;
         }
     }
