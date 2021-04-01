@@ -131,6 +131,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
+<<<<<<< HEAD
+    <Compile Include="Areas\Admin\Controllers\HomesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
+=======
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\HocVienAreaRegistration.cs" />
@@ -138,6 +145,7 @@
     <Compile Include="Common\EncryptorMD5.cs" />
     <Compile Include="Common\TaiKhoanLogin.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+>>>>>>> 06aabde63104dac8ae1a3ff3c586e0ed1d3642ca
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2307,6 +2315,11 @@
     <Content Include="Content\Login\fonts\icomoon\fonts\icomoon.woff" />
     <Content Include="Content\Login\fonts\icomoon\selection.json" />
     <Content Include="Content\Login\images\.DS_Store" />
+<<<<<<< HEAD
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\web.config" />
+    <Content Include="Areas\GiaoVien\Views\GiaoVien\GiaoVien.cshtml" />
+=======
     <Content Include="Content\Template\build\config\.eslintrc.json" />
     <Content Include="Content\Template\build\npm\.eslintrc.json" />
     <Content Include="Content\Template\build\scss\adminlte.scss" />
@@ -2555,6 +2568,7 @@
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
+>>>>>>> 06aabde63104dac8ae1a3ff3c586e0ed1d3642ca
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2585,10 +2599,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
+    <Folder Include="Areas\GiaoVien\Data\" />
+    <Folder Include="Areas\GiaoVien\Views\Shared\" />
+    <Folder Include="Models\" />
+=======
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Areas\HocVien\Views\Shared\" />
     <Folder Include="Views\Base\" />
+>>>>>>> 06aabde63104dac8ae1a3ff3c586e0ed1d3642ca
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
