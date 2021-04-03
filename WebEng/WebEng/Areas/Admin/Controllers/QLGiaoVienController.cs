@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebEng.Common;
-using WebEng.Controllers;
 
 namespace WebEng.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class QLGiaoVienController : Controller
     {
-        // GET: Admin/Homes
-
-        
+        // GET: Admin/QLGiaoVien
         public ActionResult Index()
         {
-          
             return View();
         }
-       
     }
 }

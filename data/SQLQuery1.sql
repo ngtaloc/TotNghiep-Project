@@ -6,7 +6,7 @@ create table TaiKhoan(
     iD INT IDENTITY(1,1) PRIMARY KEY,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
-	trangThai int, --0:khóa 1:mở
+	trangThai int DEFAULT 1, --0:khóa 1:mở
 	idNQ int not null,
 	foreign key(idNQ) references  NhomQuyen(id) ON DELETE CASCADE ,
 );
