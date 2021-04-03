@@ -8,7 +8,7 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.Admin.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: Admin/Homes
 
@@ -16,6 +16,14 @@ namespace WebEng.Areas.Admin.Controllers
         public ActionResult Index()
         {
           
+            return View();
+        }
+        public ActionResult QLGiaoVien()
+        {
+            return View();
+        }
+        public ActionResult QLHocVien()
+        {
             return View();
         }
     }

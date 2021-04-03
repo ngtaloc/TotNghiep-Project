@@ -7,7 +7,7 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.HocVien.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: HocVien/Home
         public ActionResult Index()
