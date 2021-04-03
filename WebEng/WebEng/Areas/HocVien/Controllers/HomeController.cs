@@ -14,5 +14,9 @@ namespace WebEng.Areas.HocVien.Controllers
         {
             return View();
         }
-    }
+		public ActionResult chitietlophoc()
+		{
+			return View();
+		}
+	}
 }

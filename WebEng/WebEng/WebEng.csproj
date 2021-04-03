@@ -2717,10 +2717,14 @@
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Content\Login\vendor\jquery.cookie\component.json" />
     <Content Include="Content\Login\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Areas\Admin\Views\Home\QLGiaoVien.cshtml" />
     <Content Include="Areas\Admin\Views\Home\QLHocVien.cshtml" />
+=======
+    <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
+>>>>>>> fcd91367398a59b3c876fe2b43cd320ae491fecc
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
