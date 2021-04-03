@@ -34,3 +34,7 @@ F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Core
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.xml
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.xml

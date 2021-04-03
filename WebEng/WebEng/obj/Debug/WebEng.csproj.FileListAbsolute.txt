@@ -187,3 +187,7 @@ F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.Core
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+C:\loc\TotNhiep\WebEng\WebEng\bin\PagedList.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\PagedList.Mvc.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\PagedList.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\PagedList.Mvc.xml

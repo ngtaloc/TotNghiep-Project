@@ -41,7 +41,7 @@ create table Giangvien(
 	diachi nvarchar(100) ,
 	gioitinh nvarchar(3) ,
 	ngaysinh date,
-	gioithieu text,
+	gioithieu ntext,
 	email varchar(50) not null,
 	sdt varchar(10) not null,
 	idTK int not null,
@@ -54,7 +54,7 @@ create table CapDo(
 create table LopHoc(	
     ID INT IDENTITY(1,1) PRIMARY KEY,
     tenLopHoc nvarchar(50), 
-	mota text,
+	mota ntext,
 	soluong int,
 	yeucau nvarchar(50),
 	ngayBegin date,
@@ -70,7 +70,7 @@ create table DSLopHoc(
 	 idHV int,
 	 idLH int,
 	 danhgia int,
-	 binhluan text,
+	 binhluan ntext,
 	 foreign key(idHV) references  HocVien(id)ON UPDATE NO ACTION ,
 	 foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION,
 	 primary key (idHV, idLH),
@@ -107,7 +107,7 @@ create table LoaiTaiLieu(
 create table TaiLieu(	
 	ID INT IDENTITY(1,1) PRIMARY KEY,
     link varchar(max) not null,
-	moTa text,
+	moTa ntext,
 	idLoaiTL int,
 	idLH int,
 	idTK int,
@@ -126,7 +126,7 @@ create table BinhLuan(
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idTK int,
 	idLH int,
-	noiDung text,
+	noiDung ntext,
 	idCha int,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
 	foreign key(idCha) references  BinhLuan(id) ON UPDATE NO ACTION ,
@@ -136,7 +136,7 @@ create table BinhLuan(
 create table ThongBao(	
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idTK int,
-	noiDung text,
+	noiDung ntext,
 	foreign key(idTK) references  TaiKhoan(id),
 );
 create table Thu(	--thứ
@@ -168,20 +168,25 @@ create table TietHoc(
 	foreign key(idLopHoc) references  lopHoc(id),
 );
 go
-
+-- nhập liệu
 insert into NhomQuyen
 	values ('Admin'),('GiangVien'),('HocVien');
 
-insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin
-	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,1); 
+insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
+	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,1),
+		('loc','202cb962ac59075b964b07152d234b70',1,2); 
+	
+insert into Giangvien
+values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 
 -- chat giữa học viên và giáo viên
+
 
 
 --Procedure
 
 --login
-
+go
 create proc DangNhap(
 	@userName varchar(50),
 	@passWord char(32))
