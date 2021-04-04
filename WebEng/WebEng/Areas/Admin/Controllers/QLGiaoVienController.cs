@@ -1,4 +1,5 @@
 ﻿using Models.DAO;
+using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,34 @@ namespace WebEng.Areas.Admin.Controllers
             var model = dao.listAllPageList(page, pageSize);
             
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var dao = new GiangVienDAO();
+            var model = dao.GetByID(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Giangvien giangvien)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new GiangVienDAO();
+                bool kt = dao.Update(giangvien);
+                if (kt)
+                {
+                    ModelState.AddModelError("", "Cập nhât thành công");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhât không thành công");
+                }
+            }
+            return View("Index");
         }
     }
 }

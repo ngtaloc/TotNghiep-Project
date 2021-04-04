@@ -38,3 +38,7 @@ C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.dll
 C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.dll
 C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.xml
 C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml

@@ -22,6 +22,27 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.ID;
         }
+
+        public bool Update(Giangvien entity)
+        {
+            try
+            {
+                var gv = db.Giangvien.Find(entity.ID);
+                gv.hovaten = entity.hovaten;
+                gv.hinh = entity.hinh;
+                gv.gioitinh = entity.gioitinh;
+                gv.gioithieu = entity.gioithieu;
+                gv.ngaysinh = entity.ngaysinh;
+                gv.email = entity.email;
+                gv.diachi = entity.diachi;
+                gv.sdt = entity.sdt;
+                db.SaveChanges(); 
+                return true;
+            }catch( Exception ex)
+            {
+                return false;
+            }
+        }
         public IEnumerable<Giangvien> listAllPageList(int page, int pageSize)
         {
             return db.Giangvien.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
@@ -29,10 +50,10 @@ namespace Models.DAO
 
         public Giangvien GetByID(int id)
         {
-            return db.Giangvien.SingleOrDefault(x => x.ID == id);
+            return db.Giangvien.Find(id);
         }
 
-
+       
 
     }
 }
