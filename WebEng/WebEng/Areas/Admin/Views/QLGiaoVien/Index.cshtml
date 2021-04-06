@@ -145,10 +145,8 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        @item.hovaten
-                                                    }
+                                                    @Html.TextBoxFor(Model => Model[0].ID, new { @class = "form-control border-0 shadow form-control-lg", @placeholder = "Tên đăng nhập", @name = "username", @autofocus = "autofocus", @required = "required" })
+
                                                 </div>
                                                 <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
