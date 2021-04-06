@@ -2732,6 +2732,7 @@
     <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

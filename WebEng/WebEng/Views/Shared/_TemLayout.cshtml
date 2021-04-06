@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/daterangepicker/daterangepicker.css")">
     <!-- summernote -->
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/summernote/summernote-bs4.min.css")">
+    @RenderSection("css", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -208,7 +209,7 @@
         </aside>
 
 
-        
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -228,10 +229,6 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
-
-   
-
     <!-- jQuery -->
     <script src="@Url.Content("~/Content/Template/plugins/jquery/jquery.min.js")"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -266,6 +263,7 @@
     <script src="@Url.Content("~/Content/Template/dist/js/demo.js")"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="@Url.Content("~/Content/Template/dist/js/pages/dashboard.js")"></script>
+    @RenderSection("masterjs", required: false)
 
 
 </body>

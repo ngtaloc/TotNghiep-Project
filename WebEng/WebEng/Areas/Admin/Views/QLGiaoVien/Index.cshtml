@@ -1,6 +1,5 @@
-﻿@model PagedList.IPagedList<Models.Framework.Giangvien>
-@using PagedList.Mvc
-
+﻿@using Models.Framework;
+@model IEnumerable<Giangvien>
 @{
     ViewBag.Title = "Quản lý giáo viên";
     //Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -8,19 +7,13 @@
 }
 
 
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/fontawesome-free/css/all.min.css")">
-<!-- DataTables -->
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
-<!-- Theme style -->
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/dist/css/adminlte.min.css")">
+@section css
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
 
-
-<link href="~/Content/PagedList.css" rel="stylesheet" />
+}
 
 @section Header{
     QUẢN LÝ GIÁO VIÊN
@@ -70,131 +63,76 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    @Html.BeginForm("Edit", "QLGiaoVien", FormMethod.Get){
+                                <div>
 
-                                    <table id="example1" class="table table-striped table-hover card-text">
-                                        <thead>
-                                            <tr>
-                                                <th>Mã</th>
-                                                <th>Họ và tên</th>
-                                                <th>Hình ảnh</th>
-                                                <th>Giớ tính</th>
-                                                <th>Ngày sinh</th>
-                                                <th>giới thiệu</th>
-                                                <th>Email</th>
-                                                <th>Số điện thoại</th>
-                                                <th>Tên đăng nhập</th>
-                                                <th>Trạng thái</th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var item in Model)
-                                            {
+                                    @using (Html.BeginForm("Edit", "QLGiaoVien", FormMethod.Get))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                                        @Html.ValidationSummary()
+                                        <table id="example1" class="table table-striped table-hover card-text">
+                                            <thead>
                                                 <tr>
-                                                    <td>GV <p name="id">@item.ID</p></td>
-                                                    <td>@item.hovaten</td>
-                                                    <td><img src="@item.hinh" alt="@item.hovaten" width="40"</td>
-                                                    <td>@item.gioitinh</td>
-                                                    <td>@item.ngaysinh</td>
-                                                    <td>@item.gioithieu</td>
-                                                    <td>@item.email</td>
-                                                    <td>@item.sdt</td>
-                                                    <td>@item.TaiKhoan.tenDangNhap</td>
-                                                    <td>@item.TaiKhoan.trangThai</td>
-                                                    <td>
-
-                                                        <a class="btn btn-info btn-sm" href="/Admin/QLGiaoVien/Edit?id=@item.ID" data-toggle="modal" data-target="#modal-edit-lg">
-                                                            <i class="fas fa-pencil-alt">
-                                                            </i>
-                                                            Sửa
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Edit?id=@item.ID" data-toggle="modal" data-target="#modal-del-lg">
-                                                            <i class="fa fa-lock">
-                                                            </i>
-                                                            Khóa
-                                                        </a>
-                                                    </td>
+                                                    <th>Mã</th>
+                                                    <th>Họ và tên</th>
+                                                    <th>Hình ảnh</th>
+                                                    <th>Giớ tính</th>
+                                                    <th>Ngày sinh</th>
+                                                    <th>giới thiệu</th>
+                                                    <th>Email</th>
+                                                    <th>Số điện thoại</th>
+                                                    <th>Tên đăng nhập</th>
+                                                    <th>Trạng thái</th>
+                                                    <th></th>
+                                                    <th></th>
                                                 </tr>
-                                            }
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>GV <p name="id">@item.ID</p></td>
+                                                        <td>@item.hovaten</td>
+                                                        <td><img src="@item.hinh" alt="@item.hovaten" width="40"</td>
+                                                        <td>@item.gioitinh</td>
+                                                        <td>@item.ngaysinh</td>
+                                                        <td>@item.gioithieu</td>
+                                                        <td>@item.email</td>
+                                                        <td>@item.sdt</td>
+                                                        <td>@item.TaiKhoan.tenDangNhap</td>
+                                                        <td>@item.TaiKhoan.trangThai</td>
+                                                        <td>
+
+                                                            @*<a class="btn btn-info btn-sm" href="/Admin/QLGiaoVien/Index?id=@item.ID" data-toggle="modal" data-target="#modal-edit-lg">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Sửa
+                                </a>*@
+
+                                                            <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">Edit</button>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Index?id=@item.ID" data-toggle="modal" data-target="#modal-del-lg">
+                                                                <i class="fa fa-lock">
+                                                                </i>
+                                                                Khóa
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
 
 
-                                        </tbody>
+                                            </tbody>
 
-                                    </table>
+                                        </table>
 
-                                    }
+                                        }
+                                        <div id="showModal"></div>
 
 
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
-                                    @*Modal Edit*@
-                                    @Html.BeginForm("Edit", "QLGiaoVien", FormMethod.Post){
 
-                                    <div class="modal fade" id="modal-edit-lg">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Cập nhật thông tin giáo viên</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    @Html.TextBoxFor(Model => Model[0].ID, new { @class = "form-control border-0 shadow form-control-lg", @placeholder = "Tên đăng nhập", @name = "username", @autofocus = "autofocus", @required = "required" })
-
-                                                </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                                                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
                                     </div>
-
-                                    }
-
-                                    @*Modal Delete*@
-                                    @Html.BeginForm("Edit", "QLGiaoVien", FormMethod.Post){
-
-                                    <div class="modal fade" id="modal-del-lg">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Cập nhật thông tin giáo viên</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    @*@model Models.Framework.Giangvien
-                                                    @Html.TextBoxFor(model => model.hovaten, new { @class = "form-control border-0 shadow form-control-lg", @placeholder = "Tên đăng nhập", @name = "username", @autofocus = "autofocus", @required = "required" })*@
-
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        @item.hovaten
-                                                    }
-                                                </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                                                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-
-                                    }
-
-
-                                </div>
 
                             </div>
                             <!-- /.card-body -->
@@ -213,17 +151,9 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
-<!-- SweetAlert2 -->
-<script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
-<!-- Toastr -->
-<script src="../../plugins/toastr/toastr.min.js"></script>
-
-
-
-<!-- /.content -->
-<!-- ./wrapper -->
-<!-- DataTables  & Plugins -->
-@*<script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
+@section masterjs
+{
+    <script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
@@ -235,21 +165,54 @@
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
-
     <script>
         $(function () {
 
             $('#example1').DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-                "responsive": true,
+             
+                "scrollX": false,
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Xem _MENU_ mục",
+                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sPrevious": "Trước",
+                        "sNext": "Tiếp",
+                        "sLast": "Cuối"
+                    }
+                },
+                "processing": true, // tiền xử lý trước
+                "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
+                "order": [[1, 'desc']] //sắp xếp giảm dần theo cột thứ 1
             });
+
+            var ShowModal = $('#showModal'); 
+            $('button[data-toggle="ajax-modal"]').click(function (event) {
+
+                var url = $(this).data('url');
+                //var decodeUrl = decodeURIComponent(url);
+                $.get(url).done(function (data) {
+                    ShowModal.html(data);
+                    ShowModal.find('.modal').modal('show');
+                })
+            })
+
+           
+
         });
-    </script>*@
+    </script>
 
-
-
+}

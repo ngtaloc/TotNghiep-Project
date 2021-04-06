@@ -47,7 +47,10 @@ namespace Models.DAO
         {
             return db.Giangvien.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
         }
-
+        public IEnumerable<Giangvien> FindAll()
+        {
+            return db.Giangvien;
+        }
         public Giangvien GetByID(int id)
         {
             return db.Giangvien.Find(id);

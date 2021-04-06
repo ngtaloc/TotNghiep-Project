@@ -11,20 +11,20 @@ namespace WebEng.Areas.Admin.Controllers
     public class QLGiaoVienController : Controller
     {
         // GET: Admin/QLGiaoVien
-        public ActionResult Index(int page = 1, int pageSize = 1)
+        public ActionResult Index()
         {
             var dao = new GiangVienDAO();
-            var model = dao.listAllPageList(page, pageSize);
+            var model = dao.FindAll();
             
             return View(model);
         }
 
-        [HttpGet]
+       [HttpGet]
         public ActionResult Edit(int ID)
         {
             var dao = new GiangVienDAO();
             var model = dao.GetByID(ID);
-            return View(model);
+            return PartialView("Edit",model);
         }
 
         [HttpPost]
