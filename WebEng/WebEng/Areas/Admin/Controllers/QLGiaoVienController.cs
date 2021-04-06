@@ -20,10 +20,10 @@ namespace WebEng.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int ID)
         {
             var dao = new GiangVienDAO();
-            var model = dao.GetByID(id);
+            var model = dao.GetByID(ID);
             return View(model);
         }
 
