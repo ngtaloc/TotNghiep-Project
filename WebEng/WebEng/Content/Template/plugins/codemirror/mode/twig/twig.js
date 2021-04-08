@@ -3,9 +3,9 @@
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"),  require("../../addon/mode/multiplex"));
+    mod(require("@Url.Content("~/Content/Template/lib/codemirror"),  require("@Url.Content("~/Content/Template/addon/mode/multiplex"));
   else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror", "../../addon/mode/multiplex"], mod);
+    define(["@Url.Content("~/Content/Template/lib/codemirror", "@Url.Content("~/Content/Template/addon/mode/multiplex"], mod);
   else // Plain browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
