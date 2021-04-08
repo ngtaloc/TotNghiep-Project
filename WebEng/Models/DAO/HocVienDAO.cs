@@ -17,19 +17,19 @@ namespace Models.DAO
 
         public int Insert(HocVien entity)
         {
-            db.HocVien.Add(entity);
+            db.HocViens.Add(entity);
             db.SaveChanges();
             return entity.id;
         }
 
         public IEnumerable<HocVien> listAll()
         {
-            return db.HocVien;
+            return db.HocViens;
         }
 
         public HocVien GetByID(int id)
         {
-            return db.HocVien.SingleOrDefault(x => x.id == id);
+            return db.HocViens.SingleOrDefault(x => x.id == id);
         }
 
         

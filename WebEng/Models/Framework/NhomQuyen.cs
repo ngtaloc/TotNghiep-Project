@@ -12,8 +12,8 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhomQuyen()
         {
-            TaiKhoan = new HashSet<TaiKhoan>();
-            ChucNang = new HashSet<ChucNang>();
+            TaiKhoans = new HashSet<TaiKhoan>();
+            ChucNangs = new HashSet<ChucNang>();
         }
 
         public int ID { get; set; }
@@ -22,9 +22,9 @@ namespace Models.Framework
         public string tenNhomQuyen { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaiKhoan> TaiKhoan { get; set; }
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChucNang> ChucNang { get; set; }
+        public virtual ICollection<ChucNang> ChucNangs { get; set; }
     }
 }

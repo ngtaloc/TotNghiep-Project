@@ -46,5 +46,25 @@ namespace WebEng.Areas.Admin.Controllers
             }
             return View("Index");
         }
+
+        public ActionResult Lock(int id)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var dao = new GiangVienDAO();
+                bool kt = dao.Khoa(id);
+                if (kt)
+                {
+                    ModelState.AddModelError("", "Khóa thành công");
+                    
+                }
+                else
+                {
+                    ModelState.AddModelError("", "khóa không thành công");
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ThoiKhoaBieu()
         {
-            TietHoc = new HashSet<TietHoc>();
+            TietHocs = new HashSet<TietHoc>();
         }
 
         public int ID { get; set; }
@@ -27,9 +27,9 @@ namespace Models.Framework
 
         public virtual LopHoc LopHoc { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TietHoc> TietHoc { get; set; }
-
         public virtual Thu Thu { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TietHoc> TietHocs { get; set; }
     }
 }

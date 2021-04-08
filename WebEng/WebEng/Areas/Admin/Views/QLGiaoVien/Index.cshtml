@@ -15,7 +15,7 @@
 
 }
 
-@section Header{
+@section header{
     QUẢN LÝ GIÁO VIÊN
 }
 
@@ -93,30 +93,33 @@
                                                     <tr>
                                                         <td>GV <p name="id">@item.ID</p></td>
                                                         <td>@item.hovaten</td>
-                                                        <td><img src="@item.hinh" alt="@item.hovaten" width="40"</td>
+                                                        <td><img src="@item.hinh" alt="@item.hovaten" width="40" /></td>
                                                         <td>@item.gioitinh</td>
                                                         <td>@item.ngaysinh</td>
                                                         <td>@item.gioithieu</td>
                                                         <td>@item.email</td>
                                                         <td>@item.sdt</td>
                                                         <td>@item.TaiKhoan.tenDangNhap</td>
-                                                        <td>@item.TaiKhoan.trangThai</td>
+                                                        <td>@if (item.TaiKhoan.trangThai == 1) { <p>Mở</p> }
+                                                        else { <p>Khóa</p> }</td>
                                                         <td>
 
-                                                            @*<a class="btn btn-info btn-sm" href="/Admin/QLGiaoVien/Index?id=@item.ID" data-toggle="modal" data-target="#modal-edit-lg">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Sửa
-                                </a>*@
-
-                                                            <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">Edit</button>
+                                                            <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Index?id=@item.ID" data-toggle="modal" data-target="#modal-del-lg">
-                                                                <i class="fa fa-lock">
-                                                                </i>
-                                                                Khóa
-                                                            </a>
+                                                            @if (item.TaiKhoan.trangThai == 1)
+                                                            {
+                                                                <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Lock/@item.ID">
+                                                                    <i class="fa fa-lock"></i> Khóa
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a class="btn-sm btn-danger" href="/Admin/QLGiaoVien/Lock/@item.ID">
+                                                                    <i class="fa fa-unlock"></i> Mở
+                                                                </a>
+                                                            }
+
                                                         </td>
                                                     </tr>
                                                 }
@@ -175,7 +178,7 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
-             
+                "responsive": true,
                 "scrollX": false,
                 "language": {
                     "sProcessing": "Đang xử lý...",

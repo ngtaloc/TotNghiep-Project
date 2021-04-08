@@ -55,12 +55,13 @@ create table LopHoc(
     ID INT IDENTITY(1,1) PRIMARY KEY,
     tenLopHoc nvarchar(50), 
 	mota ntext,
+	hinh text,
 	soluong int,
 	yeucau nvarchar(50),
 	ngayBegin date,
 	ngayEnd date,
 	soBuoi int,
-	trangThai nvarchar(50), 
+	trangThai int DEFAULT 1, --0:đóng 1:mở(Df) 2:đang học;
 	idGV int,
 	
 	foreign key(idGV) references  GiangVien(id) ON DELETE CASCADE ,
@@ -178,6 +179,10 @@ insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2
 	
 insert into Giangvien
 values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
+
+insert into LopHoc
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1),
+(N'Cơ bản',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
 
 -- chat giữa học viên và giáo viên
 
