@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,9 @@ namespace WebEng.Areas.HocVien.Controllers
         // GET: HocVien/Home
         public ActionResult Index()
         {
-            return View();
+            var dao = new LopHocDAO();
+            var model = dao.FindAll();
+            return View(model);
         }
 		public ActionResult chitietlophoc()
 		{

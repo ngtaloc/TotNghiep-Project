@@ -14,7 +14,7 @@ namespace Models.Framework
         [Required]
         public string link { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column(TypeName = "ntext")]
         public string moTa { get; set; }
 
         public int? idLoaiTL { get; set; }

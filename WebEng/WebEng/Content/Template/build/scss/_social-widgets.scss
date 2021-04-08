@@ -27,7 +27,7 @@
     font-size: 25px;
     font-weight: 300;
     margin-bottom: 0;
-    margin-top: 0;
+    
     text-shadow: 0 1px 1px rgba($black, .2);
   }
 
@@ -39,7 +39,7 @@
   //User image container
   .widget-user-image {
     left: 50%;
-    margin-left: -45px;
+    /*margin-left: -45px;*/
     position: absolute;
     top: 80px;
 

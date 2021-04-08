@@ -22,6 +22,20 @@ C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.dll
 C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.pdb
+<<<<<<< HEAD
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+=======
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
@@ -34,3 +48,16 @@ F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Core
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.xml
+C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
+>>>>>>> refs/remotes/origin/main
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml

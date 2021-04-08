@@ -21,7 +21,7 @@ namespace Models.Framework
 
         public int? idLH { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column(TypeName = "ntext")]
         public string noiDung { get; set; }
 
         public int? idCha { get; set; }
