@@ -57,3 +57,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dl
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
 >>>>>>> refs/remotes/origin/main
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml

@@ -261,3 +261,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\PagedList.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.xml
 >>>>>>> refs/remotes/origin/main
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\PagedList.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\PagedList.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.xml

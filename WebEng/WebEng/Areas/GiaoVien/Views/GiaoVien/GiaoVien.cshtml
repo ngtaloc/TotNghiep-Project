@@ -3,52 +3,36 @@
     ViewBag.Title = "GiaoVien";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
 }
-<!DOCTYPE html>
-<title>AdminLTE 3 | DataTables</title>
 
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/fontawesome-free/css/all.min.css")">
-<!-- DataTables -->
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
-<!-- Theme style -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+@section css{
+    <!-- DataTables -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
 
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
 
 
-<link rel="stylesheet" href="@Url.Content("~/Content/Template/dist/css/adminlte.min.css")">
+
+}
+
+
+
+@section header{
+    Giáo viên
+}
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div style="margin:auto" class="modal-header">
                 <h4 style="text-align:center" class="modal-title">Tạo lớp học</h4>
             </div>
-            @*<div class="row">
-                    <div class="col-lg-5 col-md-5">
-                    <span>
-                        Tên lớp
-                    </span>
-                </div>
-                    <div class="col-lg-5 col-md-5">
-                        <span>
-                            Tên lớp
-                        </span>
-                    </div>
-                    <div class="col-lg-5 col-md-5">
-                        <span>
-                            abc
-                        </span>
-                    </div>
-                </div>*@
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Tên lớp</label>
@@ -56,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Số lượng</label>
-                    <input type="password" class="form-control" id="numBers" placeholder="Số lượng">
+                    <input type="number" class="form-control" id="numBers" placeholder="Số lượng">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Ngày khai giảng</label>
@@ -64,35 +48,11 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Số tháng</label>
-                    <input type="password" class="form-control" id="dayStudy" placeholder="Số tháng">
+                    <input type="number" class="form-control" id="dayStudy" placeholder="Số tháng">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Lịch học</label>
-                    <div class="row">
-                        <div style="margin-left:30px">
-                            <select class="select2" id="select" data-placeholder="Select a State" style="width: 100%;">
-                                <option>--thứ--</option>
-                                <option>thứ hai</option>
-                                <option>thứ ba</option>
-                                <option>thứ tư</option>
-                                <option>thứ năm</option>
-                                <option>thứ sáu</option>
-                                <option>thứ bảy</option>
-                                <option>Chủ nhật</option>
-                            </select>
-                        </div>
-                        <input id="start" type="time" style="height:25px;margin-left:40px" />
-                        <span>&ensp;đến&ensp;</span>
-                        <input id="end" type="time" style="height:25px;margin-left:10px" />
-                        <div>
-                            <button id="add">
-                                thêm
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="myInput">
+                    <label for="exampleInputPassword1">Số buổi trong tuần</label>
+                    <input type="number" class="form-control" id="numbersofweek" placeholder="Số buổi trong tuần">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputFile">Chọn ảnh</label>
@@ -109,7 +69,37 @@
             </div>
             <div class="modal-footer" style="text-align:center">
                 <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Tạo</button>
+                <button type="button" onclick="myFunction()" class="btn btn-md btn-secondary" data-toggle="modal" data-target="#creatlesson" data-dismiss="modal">Tiếp tục</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="creatlesson" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div style="margin:auto" class="modal-header">
+                <h4 style="text-align:center" class="modal-title">Tạo thời gian học</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div id="child" style="text-align:center" class="form-group col-xl-12 col-lg-12 col-xs-12 col-md-12">
+                        @*<div id="stt" class="row" style="text-align:left">
+                            </div>
+                            <div style="text-align:center" class="row">
+                                <div id="select1" style="margin-left:50px">
+                                </div>
+                                <div id="start" style="margin-left:25px">
+                                </div>
+                                <span>&ensp;đến&ensp;</span>
+                                <div id="end">
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Tạo</button>
+                </div>
             </div>
         </div>
     </div>
@@ -248,151 +238,133 @@
                         </div>
                     </div>
                 </td>
-                <td>
-                    <div class="card card-widget widget-user-2 shadow-sm">
-                        <div class="widget-user-header bg-warning">
-                            <div class="widget-user-image">
-                                <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
-                            </div>
-                            <h3 class="widget-user-username">Nadia Carmichael</h3>
-                            <h5 class="widget-user-desc">Lead Developer</h5>
-                        </div>
-                        <div class="card-footer p-0">
-                            <ul class="nav flex-column">
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Tên lớp:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Số lượng:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Khai giảng
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Lịch học:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Ngày kết thúc:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
+
             </tr>
         </tbody>
     </table>
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Create Event</h3>
-        </div>
-        <div class="card-body">
-            <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-                <ul class="fc-color-picker" id="color-chooser">
-                    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-                    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-                    <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-                    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-                    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-                </ul>
-            </div>
-            <!-- /btn-group -->
-            <div class="input-group">
-                <input id="new-event" type="text" class="form-control" placeholder="Event Title">
-
-                <div class="input-group-append">
-                    <button id="add-new-event" type="button" class="btn btn-primary">Add</button>
-                </div>
-                <!-- /btn-group -->
-            </div>
-            <!-- /input-group -->
-        </div>
-    </div>
 </div>
-<script src="@Url.Content("~/Content/Template/plugins/jquery/jquery.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/dataTables.buttons.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/jszip/jszip.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/pdfmake/pdfmake.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/pdfmake/vfs_fonts.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/dist/js/adminlte.min.js")"></script>
-<script src="@Url.Content("~/Content/Template/dist/js/demo.js")"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+@section masterjs
+        {
 
-<script>
-    //$(function () {
-    //    var day = $("#select").find(":selected").val()
-    //    var start_time = $("#start").val()
-    //    var end_time = $("#end").val();
+    <script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/jszip/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="@Url.Content("~/Content/Template/plugins/moment/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/fullcalendar/main.js")"></script>
 
-    //    $("#dayStudy").val(day)
+    <script>
+        // var dayofweek = $("#numbersofweek").val();
 
-    //});
-    $(function () {
-        $("#select").on('change', function () {
-            var day = $("#select").find(":selected").val();
-            var input = document.getElementById('myInput');
-            input.value = day + " ";
+        $(function () {
+
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+
+                "scrollX": false,
+                "language": {
+                    "sProcessing": "Đang xử lý...",
+                    "sLengthMenu": "Xem _MENU_ mục",
+                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
+                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
+                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Tìm:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "Đầu",
+                        "sPrevious": "Trước",
+                        "sNext": "Tiếp",
+                        "sLast": "Cuối"
+                    }
+                },
+                "processing": true, // tiền xử lý trước
+                "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
+                "order": [[1, 'desc']] //sắp xếp giảm dần theo cột thứ 1
+            });
+
+
+
+
         });
-        $("#start").on('change', function () {
-            var start_time = $("#start").val();
-            var input = document.getElementById('myInput');
-            input.value += start_time + " - ";
-        });
-        $("#end").on('change', function () {
-            var end_time = $("#end").val();
-            var input = document.getElementById('myInput');
-            input.value += end_time;
-        });
-    });
+        // tạo modal thời gian biểu
+        function myFunction() {
+            alert($("#numbersofweek").val())
+            for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
+                var stt_lesson = document.createElement("label");
+                stt_lesson.textContent = "buổi " + i;
+                var div_stt = document.getElementById("child");
+                div_stt.appendChild(stt_lesson);
 
+                var p = document.createElement("select");
+                var div = document.getElementById("child");
+                div.appendChild(p);
+                p.style.height = "30px";
+                p.style.marginLeft = "10px";
+                p.name = "day";
+                for (var day = 1; day <= 7; day++) {
+                    var option = document.createElement("option");
+                    option.value = day;
+                    switch (day) {
+                        case 1: option.innerHTML = "Thứ hai";
+                            break;
+                        case 2: option.innerHTML = "Thứ ba";
+                            break
+                        case 3: option.innerHTML = "Thứ tư";
+                            break;
+                        case 4: option.innerHTML = "Thứ năm";
+                            break
+                        case 5: option.innerHTML = "Thứ sáu";
+                            break;
+                        case 6: option.innerHTML = "Thứ bảy";
+                            break;
+                        case 7: option.innerHTML = "Chủ nhật";
+                            break;
+                    }
+                    p.appendChild(option);
+                }
+                var startday = document.createElement("input");
+                startday.type = "time";
+                startday.style.height = "30px";
+                startday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(startday);
 
-    $('#add-new-event').click(function (e) {
-        e.preventDefault()
-        // Get value and make sure it is not null
-        var val = $('#new-event').val()
-        if (val.length == 0) {
-            return
+                var endday = document.createElement("input");
+                endday.type = "time";
+                endday.style.height = "30px";
+                endday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(endday);
+
+                var br = document.createElement("br");
+                var br1 = document.getElementById("child");
+                br1.appendChild(br);
+            }
         }
 
-        // Create events
-        var event = $('<div />')
-        event.css({
-            'background-color': currColor,
-            'border-color': currColor,
-            'color': '#fff'
-        }).addClass('external-event')
-        event.text(val)
-</script>
+            //for (var i = 1; i <= 3; i++) {
+            //    var child = document.getElementById("child");
+            //    var parent = document.getElementById("parent");
+            //    parent.appendChild(child);
+            //}
+    </script>
 
+
+}
