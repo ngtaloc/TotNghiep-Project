@@ -138,8 +138,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+
+    <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
+
     <Compile Include="Areas\Admin\Controllers\QLGiaoVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLHocVienController.cs" />
+
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\HocVienAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -2727,12 +2732,17 @@
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
+
+    <Content Include="Areas\GiaoVien\Views\web.config" />
+    <Content Include="Areas\GiaoVien\Views\GiaoVien\GiaoVien.cshtml" />
+
     <Content Include="Content\Login\vendor\jquery.cookie\component.json" />
     <Content Include="Content\Login\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
+
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2768,6 +2778,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\GiaoVien\Data\" />
+    <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Areas\HocVien\Views\Shared\" />
     <Folder Include="Views\Base\" />

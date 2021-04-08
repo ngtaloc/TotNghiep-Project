@@ -240,8 +240,8 @@ exports.countColumn = countColumn;
 for (var exported in modeMethods) { exports[exported] = modeMethods[exported]; }
 
 // Shim library CodeMirror with the minimal CodeMirror defined above.
-require.cache[require.resolve("../../lib/codemirror")] = require.cache[require.resolve("./runmode.node")];
-require.cache[require.resolve("../../addon/runmode/runmode")] = require.cache[require.resolve("./runmode.node")];
+require.cache[require.resolve("@Url.Content("~/Content/Template/lib/codemirror")] = require.cache[require.resolve("./runmode.node")];
+require.cache[require.resolve("@Url.Content("~/Content/Template/addon/runmode/runmode")] = require.cache[require.resolve("./runmode.node")];
 
 // Minimal default mode.
 exports.defineMode("null", function () { return ({token: function (stream) { return stream.skipToEnd(); }}); });
@@ -257,9 +257,9 @@ exports.defaults = { indentUnit: 2 };
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
-    { mod(require("../../lib/codemirror")); }
+    { mod(require("@Url.Content("~/Content/Template/lib/codemirror")); }
   else if (typeof define == "function" && define.amd) // AMD
-    { define(["../../lib/codemirror"], mod); }
+    { define(["@Url.Content("~/Content/Template/lib/codemirror"], mod); }
   else // Plain browser env
     { mod(CodeMirror); }
 })(function(CodeMirror) {
