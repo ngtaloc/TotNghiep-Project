@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/daterangepicker/daterangepicker.css")">
     <!-- summernote -->
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/summernote/summernote-bs4.min.css")">
+    @RenderSection("css", required: false)
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -47,27 +48,6 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -186,23 +166,12 @@
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
+                         with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -239,8 +208,16 @@
             <!-- /.sidebar -->
         </aside>
 
+
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <h4>@RenderSection("header", required: true)</h4>
+                </div><!-- /.container-fluid -->
+            </section>
             @RenderBody()
         </div>
 
@@ -252,10 +229,6 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
-
-   
-
     <!-- jQuery -->
     <script src="@Url.Content("~/Content/Template/plugins/jquery/jquery.min.js")"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -290,5 +263,8 @@
     <script src="@Url.Content("~/Content/Template/dist/js/demo.js")"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="@Url.Content("~/Content/Template/dist/js/pages/dashboard.js")"></script>
+    @RenderSection("masterjs", required: false)
+
+
 </body>
 </html>

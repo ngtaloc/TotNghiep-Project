@@ -8,7 +8,7 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.Admin.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: Admin/Homes
 
@@ -18,5 +18,6 @@ namespace WebEng.Areas.Admin.Controllers
           
             return View();
         }
+       
     }
 }
