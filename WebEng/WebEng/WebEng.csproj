@@ -138,13 +138,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
-
     <Compile Include="Areas\Admin\Controllers\QLGiaoVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLHocVienController.cs" />
-
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\HocVienAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -153,6 +150,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2732,17 +2730,14 @@
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\web.config" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\GiaoVien.cshtml" />
-
     <Content Include="Content\Login\vendor\jquery.cookie\component.json" />
     <Content Include="Content\Login\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
-
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2774,6 +2769,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\DangKy\DKHocVien.cshtml" />
     <Content Include="Views\DangKy\DKTaiKhoan.cshtml" />
+    <Content Include="Views\Shared\MainHeader.cshtml" />
+    <Content Include="Views\Shared\MainSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2783,6 +2780,7 @@
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Areas\HocVien\Views\Shared\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

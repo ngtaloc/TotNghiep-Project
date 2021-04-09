@@ -100,8 +100,7 @@
                                                         <td>@item.email</td>
                                                         <td>@item.sdt</td>
                                                         <td>@item.TaiKhoan.tenDangNhap</td>
-                                                        <td>@if (item.TaiKhoan.trangThai == 1) { <p>Mở</p> }
-                                                        else { <p>Khóa</p> }</td>
+                                                        <td>@(item.TaiKhoan.trangThai == 1 ? "Mở" : "Khóa") </td>
                                                         <td>
 
                                                             <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
@@ -109,13 +108,13 @@
                                                         <td>
                                                             @if (item.TaiKhoan.trangThai == 1)
                                                             {
-                                                                <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Lock/@item.ID">
+                                                                <a class="btn btn-danger btn-sm" href="/Admin/QLGiaoVien/Lock/@item.ID" onclick="return confirm('Bạn chắc chắn KHÓA tài khoản này?')">
                                                                     <i class="fa fa-lock"></i> Khóa
                                                                 </a>
                                                             }
                                                             else
                                                             {
-                                                                <a class="btn-sm btn-danger" href="/Admin/QLGiaoVien/Lock/@item.ID">
+                                                                <a class="btn-sm btn-danger" href="/Admin/QLGiaoVien/Lock/@item.ID" onclick="return confirm('Bạn chắc chắn MỞ tài khoản này?')">
                                                                     <i class="fa fa-unlock"></i> Mở
                                                                 </a>
                                                             }
