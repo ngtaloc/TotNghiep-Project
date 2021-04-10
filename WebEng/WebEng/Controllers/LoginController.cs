@@ -28,19 +28,19 @@ namespace WebEng.Controllers
                     var userSession = new TaiKhoanLogin();
                     userSession.userName = user.tenDangNhap;
                     userSession.iDTaiKhoan = user.iD;
-                    userSession.quyen = user.idNQ;
-                    Session.Add(CommonConstants.USER_SESSION, userSession);
-                    if(user.idNQ == 1)
-                    {
-                        return RedirectToAction("Index", "Admin");
-                    }else if (user.idNQ == 2)
-                    {
-                        return RedirectToAction("Index", "GiangVien");
-                    }
-                    else if(user.idNQ == 3)
-                    {
-                        return RedirectToAction("Index", "HocVien");
-                    }
+                    //userSession.quyen = user.idNQ;
+                    //Session.Add(CommonConstants.USER_SESSION, userSession);
+                    //if(user.idNQ == 1)
+                    //{
+                    //    return RedirectToAction("Index", "Admin");
+                    //}else if (user.idNQ == 2)
+                    //{
+                    //    return RedirectToAction("Index", "GiangVien");
+                    //}
+                    //else if(user.idNQ == 3)
+                    //{
+                    //    return RedirectToAction("Index", "HocVien");
+                    //}
                     
 
                 }

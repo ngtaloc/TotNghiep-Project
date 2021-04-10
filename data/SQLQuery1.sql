@@ -2,25 +2,35 @@
     ID INT IDENTITY(1,1) PRIMARY KEY, -- 0:admin 1:GV 2: HV
 	tenNhomQuyen nvarchar(50), 
 );
-create table TaiKhoan(	
+create table TaiKhoan(
     iD INT IDENTITY(1,1) PRIMARY KEY,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
 	trangThai int DEFAULT 1, --0:khóa 1:mở
-	idNQ int not null,
-	foreign key(idNQ) references  NhomQuyen(id) ON DELETE CASCADE ,
 );
 
+CREATE TABLE TAIKHOAN_NHOMQUYEN(
+	IDTAIKHOANNHOMQUYEN INT IDENTITY(1,1) PRIMARY KEY,
+	IDTAIHOAN INT NOT NULL,
+	IDNHOMQUYEN INT NOT NULL,
+	foreign key(IDTAIHOAN) references taikhoan(id),
+	foreign key(IDNHOMQUYEN) references NhomQuyen(id),
+)
+
 create table ChucNang(	
-    ID INT IDENTITY(1,1) PRIMARY KEY,
+    iD INT IDENTITY(1,1) PRIMARY KEY,
 	tenChucNang nvarchar(50) not null, --Thêm lớp , đăng ký lớp , ....
+	tenFile Varchar(128),
+	icon Varchar(50),
+	iDCha int,
+	foreign key(IDCha) references ChucNang(id),
 );
 create table ChucNangNhomQuyen(
     idCN INT,
-	idNQ int,
+	IDTAIKHOANNHOMQUYEN int,
     foreign key(idCN) references  ChucNang(id),
-	foreign key(idNQ) references  NhomQuyen(id) ,
-	primary key (idCN, idNQ),
+	foreign key(IDTAIKHOANNHOMQUYEN) references  TAIKHOAN_NHOMQUYEN(IDTAIKHOANNHOMQUYEN) ,
+	primary key (idCN, IDTAIKHOANNHOMQUYEN),
 );
 create table HocVien(	
 	id INT IDENTITY(1,1) PRIMARY KEY,
@@ -174,9 +184,12 @@ insert into NhomQuyen
 	values ('Admin'),('GiangVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
-	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,1),
-		('loc','202cb962ac59075b964b07152d234b70',1,2); 
-	
+	values ('admin','21232f297a57a5a743894a0e4a801fc3',1),
+		('loc','202cb962ac59075b964b07152d234b70',1); 
+
+insert into TAIKHOAN_NHOMQUYEN
+	values (1,1),(2,2)
+
 insert into Giangvien
 values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 

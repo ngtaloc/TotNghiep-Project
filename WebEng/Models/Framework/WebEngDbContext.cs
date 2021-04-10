@@ -27,6 +27,7 @@ namespace Models.Framework
         public virtual DbSet<NhomQuyen> NhomQuyens { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<TAIKHOAN_NHOMQUYEN> TAIKHOAN_NHOMQUYEN { get; set; }
         public virtual DbSet<TaiLieu> TaiLieux { get; set; }
         public virtual DbSet<ThoiKhoaBieu> ThoiKhoaBieux { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
@@ -52,9 +53,17 @@ namespace Models.Framework
                 .HasForeignKey(e => e.idCD);
 
             modelBuilder.Entity<ChucNang>()
-                .HasMany(e => e.NhomQuyens)
-                .WithMany(e => e.ChucNangs)
-                .Map(m => m.ToTable("ChucNangNhomQuyen").MapLeftKey("idCN").MapRightKey("idNQ"));
+                .Property(e => e.tenFile)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ChucNang>()
+                .Property(e => e.icon)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ChucNang>()
+                .HasMany(e => e.ChucNang1)
+                .WithOptional(e => e.ChucNang2)
+                .HasForeignKey(e => e.iDCha);
 
             modelBuilder.Entity<Giangvien>()
                 .Property(e => e.hinh)
@@ -156,9 +165,10 @@ namespace Models.Framework
                 .HasForeignKey(e => e.idLopHoc);
 
             modelBuilder.Entity<NhomQuyen>()
-                .HasMany(e => e.TaiKhoans)
+                .HasMany(e => e.TAIKHOAN_NHOMQUYEN)
                 .WithRequired(e => e.NhomQuyen)
-                .HasForeignKey(e => e.idNQ);
+                .HasForeignKey(e => e.IDNHOMQUYEN)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.tenDangNhap)
@@ -185,6 +195,12 @@ namespace Models.Framework
                 .HasForeignKey(e => e.idTK);
 
             modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.TAIKHOAN_NHOMQUYEN)
+                .WithRequired(e => e.TaiKhoan)
+                .HasForeignKey(e => e.IDTAIHOAN)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.TaiLieux)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
@@ -193,6 +209,11 @@ namespace Models.Framework
                 .HasMany(e => e.ThongBaos)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
+
+            modelBuilder.Entity<TAIKHOAN_NHOMQUYEN>()
+                .HasMany(e => e.ChucNangs)
+                .WithMany(e => e.TAIKHOAN_NHOMQUYEN)
+                .Map(m => m.ToTable("ChucNangNhomQuyen").MapLeftKey("IDTAIKHOANNHOMQUYEN").MapRightKey("idCN"));
 
             modelBuilder.Entity<TaiLieu>()
                 .Property(e => e.link)

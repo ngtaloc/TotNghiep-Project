@@ -6,21 +6,26 @@ namespace Models.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("NhomQuyen")]
-    public partial class NhomQuyen
+    public partial class TAIKHOAN_NHOMQUYEN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhomQuyen()
+        public TAIKHOAN_NHOMQUYEN()
         {
-            TAIKHOAN_NHOMQUYEN = new HashSet<TAIKHOAN_NHOMQUYEN>();
+            ChucNangs = new HashSet<ChucNang>();
         }
 
-        public int ID { get; set; }
+        [Key]
+        public int IDTAIKHOANNHOMQUYEN { get; set; }
 
-        [StringLength(50)]
-        public string tenNhomQuyen { get; set; }
+        public int IDTAIHOAN { get; set; }
+
+        public int IDNHOMQUYEN { get; set; }
+
+        public virtual NhomQuyen NhomQuyen { get; set; }
+
+        public virtual TaiKhoan TaiKhoan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAIKHOAN_NHOMQUYEN> TAIKHOAN_NHOMQUYEN { get; set; }
+        public virtual ICollection<ChucNang> ChucNangs { get; set; }
     }
 }

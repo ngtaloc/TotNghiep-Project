@@ -1,4 +1,6 @@
-﻿<!-- Main Sidebar Container -->
+﻿
+
+<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="layout.html" class="brand-link">
@@ -18,7 +20,7 @@
             </div>
         </div>
 
-
+        @*@Html.TextBoxFor(model => model.ChucNangs.)*@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -48,12 +50,22 @@
                         <i class="nav-icon fas fa-chart-line"></i>
                         <p>
                             Báo cáo thống kê
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Dashboard v1</p>
+                            </a>
+                        </li>
+                       
+                    </ul>
                 </li>
 
             </ul>
-
+            @*@RenderPage("Layout/ChucNang.cshtml")*@
         </nav>
         <!-- /.sidebar-menu -->
     </div>

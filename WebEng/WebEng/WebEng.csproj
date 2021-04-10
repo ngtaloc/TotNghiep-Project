@@ -2738,6 +2738,7 @@
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
+    <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2763,7 +2764,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Shared\_TemLayout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -2771,6 +2771,9 @@
     <Content Include="Views\DangKy\DKTaiKhoan.cshtml" />
     <Content Include="Views\Shared\MainHeader.cshtml" />
     <Content Include="Views\Shared\MainSidebar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Layout\ChucNang.cshtml" />
+    <Content Include="Views\Layout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2778,9 +2781,7 @@
     <Folder Include="Areas\GiaoVien\Data\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
-    <Folder Include="Areas\HocVien\Views\Shared\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

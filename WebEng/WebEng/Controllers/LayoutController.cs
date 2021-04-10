@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,12 @@ namespace WebEng.Controllers
         {
 
             return PartialView();
+        }
+        public ActionResult ChucNang()
+        {
+            var dao = new ChucNangDAO();
+            var model = dao.FindAll();
+            return View(model);
         }
     }
 }
