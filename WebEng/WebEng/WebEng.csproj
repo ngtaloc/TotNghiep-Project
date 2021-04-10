@@ -190,6 +190,7 @@
     <Content Include="Content\js\agency.js" />
     <Content Include="Content\js\agency.min.js" />
     <Content Include="Content\js\contact_me.js" />
+    <Content Include="Content\js\GV.js" />
     <Content Include="Content\js\jqBootstrapValidation.js" />
     <Content Include="Content\Login\css\custom.css" />
     <Content Include="Content\Login\css\orionicons.css" />

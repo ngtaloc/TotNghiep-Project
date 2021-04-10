@@ -3,27 +3,13 @@
     ViewBag.Title = "GiaoVien";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
 }
-
 @section css{
     <!-- DataTables -->
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
-
-
-
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 }
-
-
-
 @section header{
     Giáo viên
 }
@@ -83,17 +69,6 @@
             <div class="card-body">
                 <div class="row">
                     <div id="child" style="text-align:center" class="form-group col-xl-12 col-lg-12 col-xs-12 col-md-12">
-                        @*<div id="stt" class="row" style="text-align:left">
-                            </div>
-                            <div style="text-align:center" class="row">
-                                <div id="select1" style="margin-left:50px">
-                                </div>
-                                <div id="start" style="margin-left:25px">
-                                </div>
-                                <span>&ensp;đến&ensp;</span>
-                                <div id="end">
-                                </div>
-                            </div>*@
                     </div>
                 </div>
                 <div class="modal-footer" style="text-align:center">
@@ -125,128 +100,37 @@
     </div>
 </div>
 <div class="card-body">
-    <table id="example2" class="table table-bordered table-hover datatable1">
-        <tbody>
-            <tr>
-                <td>
-                    <div class="card card-widget widget-user-2 shadow-sm">
-                        <div class="widget-user-header bg-warning">
-                            <div class="widget-user-image">
-                                <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
-                            </div>
-                            <h3 class="widget-user-username">Nadia Carmichael</h3>
-                            <h5 class="widget-user-desc">Lead Developer</h5>
-                        </div>
-                        <div class="card-footer p-0">
-                            <ul class="nav flex-column">
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Tên lớp:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Số lượng:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Khai giảng
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Lịch học:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Số tháng:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Ngày kết thúc:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black; text-align:center">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <button type="submit">
-                                                <i class="fas fa-user-edit"></i>
-                                            </button>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <button type="submit">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="card card-widget widget-user-2 shadow-sm">
-                        <div class="widget-user-header bg-warning">
-                            <div class="widget-user-image">
-                                <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
-                            </div>
-                            <h3 class="widget-user-username">Nadia Carmichael</h3>
-                            <h5 class="widget-user-desc">Lead Developer</h5>
-                        </div>
-                        <div class="card-footer p-0">
-                            <ul class="nav flex-column">
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Tên lớp:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Số lượng:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Khai giảng
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Lịch học:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item" style="color:black">
-                                    <a class="nav-link" style="pointer-events:none">
-                                        Số tháng:
-                                        <span class="float-right badge bg-danger">842</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
+    <div id="wrap" class="wrapper" style="display: grid; grid-gap:15px;grid-template-columns: 400px 400px 400px">
+    </div>
+    <div class="content__product" id="product">
+    </div>
+    <div class="content__paging">
+        <div class="page">
+            <ul>
+                <li class="btn-prev btn-active fas fa-angle-left"></li>
+                <div class="number-page" id="number-page">
+                </div>
+                <li class="btn-next fas fa-angle-right"></li>
+            </ul>
+        </div>
+    </div>
 </div>
+@*<ul class="pagination">
+    <li class="paginate_button page-item">
+        <a>Trước</a>
+    </li>
+    <li class="paginate_button page-item active">
+        <a>
+            1
+        </a>
+    </li>
+    <li class="paginate_button page-item btn-next">
+        <a>Sau</a>
+    </li>
+</ul>*@
 
 @section masterjs
         {
-
     <script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
@@ -259,112 +143,18 @@
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
-    <!-- fullCalendar 2.2.5 -->
     <script src="@Url.Content("~/Content/Template/plugins/moment/moment.min.js")"></script>
     <script src="@Url.Content("~/Content/Template/plugins/fullcalendar/main.js")"></script>
-
-    <script>
-        // var dayofweek = $("#numbersofweek").val();
-
-        $(function () {
-
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-
-                "scrollX": false,
-                "language": {
-                    "sProcessing": "Đang xử lý...",
-                    "sLengthMenu": "Xem _MENU_ mục",
-                    "sZeroRecords": "Không tìm thấy dòng nào phù hợp",
-                    "sInfo": "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
-                    "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
-                    "sInfoFiltered": "(được lọc từ _MAX_ mục)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Tìm:",
-                    "sUrl": "",
-                    "oPaginate": {
-                        "sFirst": "Đầu",
-                        "sPrevious": "Trước",
-                        "sNext": "Tiếp",
-                        "sLast": "Cuối"
-                    }
-                },
-                "processing": true, // tiền xử lý trước
-                "aLengthMenu": [[5, 10, 20, 50], [5, 10, 20, 50]], // danh sách số trang trên 1 lần hiển thị bảng
-                "order": [[1, 'desc']] //sắp xếp giảm dần theo cột thứ 1
-            });
-
-
-
-
-        });
-        // tạo modal thời gian biểu
-        function myFunction() {
-            alert($("#numbersofweek").val())
-            for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
-                var stt_lesson = document.createElement("label");
-                stt_lesson.textContent = "buổi " + i;
-                var div_stt = document.getElementById("child");
-                div_stt.appendChild(stt_lesson);
-
-                var p = document.createElement("select");
-                var div = document.getElementById("child");
-                div.appendChild(p);
-                p.style.height = "30px";
-                p.style.marginLeft = "10px";
-                p.name = "day";
-                for (var day = 1; day <= 7; day++) {
-                    var option = document.createElement("option");
-                    option.value = day;
-                    switch (day) {
-                        case 1: option.innerHTML = "Thứ hai";
-                            break;
-                        case 2: option.innerHTML = "Thứ ba";
-                            break
-                        case 3: option.innerHTML = "Thứ tư";
-                            break;
-                        case 4: option.innerHTML = "Thứ năm";
-                            break
-                        case 5: option.innerHTML = "Thứ sáu";
-                            break;
-                        case 6: option.innerHTML = "Thứ bảy";
-                            break;
-                        case 7: option.innerHTML = "Chủ nhật";
-                            break;
-                    }
-                    p.appendChild(option);
-                }
-                var startday = document.createElement("input");
-                startday.type = "time";
-                startday.style.height = "30px";
-                startday.style.marginLeft = "20px";
-                var div_input = document.getElementById("child");
-                div_input.appendChild(startday);
-
-                var endday = document.createElement("input");
-                endday.type = "time";
-                endday.style.height = "30px";
-                endday.style.marginLeft = "20px";
-                var div_input = document.getElementById("child");
-                div_input.appendChild(endday);
-
-                var br = document.createElement("br");
-                var br1 = document.getElementById("child");
-                br1.appendChild(br);
-            }
-        }
-
-            //for (var i = 1; i <= 3; i++) {
-            //    var child = document.getElementById("child");
-            //    var parent = document.getElementById("parent");
-            //    parent.appendChild(child);
-            //}
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="~/Content/js/GV.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
 }
