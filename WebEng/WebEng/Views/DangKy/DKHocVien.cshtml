@@ -8,10 +8,10 @@
 
 <h2>DKHocVien</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>HocVien</h4>
         <hr />
@@ -79,7 +79,75 @@
         </div>
     </div>
 }
-
+<div class="item item1">
+                <div class="card card-widget widget-user-2 shadow-sm">
+                    <div class="widget-user-header bg-warning">
+                        <div id="img" class="widget-user-image">
+<img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar">
+</div>
+<h3 id="nameTeacher" class="widget-user-username">
+Nadia Carmichael
+</h3>
+<h5 id="job"class="widget-user-desc">
+Lead Developer
+</h5>
+</div>
+<div class="card-footer p-0">
+    <ul class="nav flex-column">
+        <li class="nav-item" style="color:black">
+            <a id="nameClass"class="nav-link" style="pointer-events:none">
+Tên lớp:
+<span class="float-right badge bg-danger">842</span>
+    </a>
+</li>
+<li class="nav-item" style="color:black">
+    <a id="numBers" class="nav-link" style="pointer-events:none">
+Số lượng:
+<span class="float-right badge bg-danger">842</span>
+    </a>
+</li>
+<li class="nav-item" style="color:black">
+    <a id="startLearn" class="nav-link" style="pointer-events:none">
+Khai giảng
+<span class="float-right badge bg-danger">842</span>
+    </a>
+</li>
+<li class="nav-item" style="color:black">
+    <a id="Due" class="nav-link" style="pointer-events:none">
+Lịch học:
+<span class="float-right badge bg-danger">842</span>
+    </a>
+</li>
+<li class="nav-item" style="color:black">
+    <a id="numberMonths" class="nav-link" style="pointer-events:none">
+Số tháng:
+<span class="float-right badge bg-danger">842</span>
+    </a>
+</li>
+<li class="nav-item" style="color:black">
+    <a id="endLearn" class="nav-link" style="pointer-events:none">
+Ngày kết thúc:
+<span class="float-right badge bg-danger">842</span>
+                    </a>
+                </li>
+                <li class="nav-item" style="color:black; text-align:center">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <button type="submit">
+                                <i class="fas fa-user-edit"></i>
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <button type="submit">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
