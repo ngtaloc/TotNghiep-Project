@@ -12,7 +12,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GioHoc()
         {
-            ThoiKhoaBieu = new HashSet<ThoiKhoaBieu>();
+            ThoiKhoaBieux = new HashSet<ThoiKhoaBieu>();
         }
 
         public int ID { get; set; }
@@ -22,6 +22,6 @@ namespace Models.Framework
         public TimeSpan? gioEnd { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThoiKhoaBieu> ThoiKhoaBieu { get; set; }
+        public virtual ICollection<ThoiKhoaBieu> ThoiKhoaBieux { get; set; }
     }
 }

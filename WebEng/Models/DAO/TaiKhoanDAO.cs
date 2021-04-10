@@ -17,19 +17,19 @@ namespace Models.DAO
 
         public int Insert(TaiKhoan entity)
         {
-            db.TaiKhoan.Add(entity);
+            db.TaiKhoans.Add(entity);
             db.SaveChanges();
             return entity.iD;
         }
 
         public TaiKhoan GetByTDN(string username)
         {
-            return db.TaiKhoan.SingleOrDefault(x => x.tenDangNhap == username);
+            return db.TaiKhoans.SingleOrDefault(x => x.tenDangNhap == username);
         }
 
         public int Login (string username , string password)
         {
-            var user = db.TaiKhoan.SingleOrDefault(x => x.tenDangNhap == username && x.matKhau == password);
+            var user = db.TaiKhoans.SingleOrDefault(x => x.tenDangNhap == username && x.matKhau == password);
             if (user == null)
             {
                 return -1; //đăng nhập sai

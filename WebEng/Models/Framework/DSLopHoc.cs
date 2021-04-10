@@ -21,7 +21,7 @@ namespace Models.Framework
 
         public int? danhgia { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column(TypeName = "ntext")]
         public string binhluan { get; set; }
 
         public virtual HocVien HocVien { get; set; }

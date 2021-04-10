@@ -13,7 +13,7 @@ namespace Models.Framework
 
         public int? idTK { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column(TypeName = "ntext")]
         public string noiDung { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
