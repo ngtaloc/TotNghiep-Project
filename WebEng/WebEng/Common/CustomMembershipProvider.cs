@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace WebEng.Areas.Admin.Code
+namespace WebEng.Common
 {
     public class CustomMembershipProvider : MembershipProvider
     {

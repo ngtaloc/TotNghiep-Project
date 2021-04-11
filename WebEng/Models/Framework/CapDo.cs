@@ -12,8 +12,8 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CapDo()
         {
-            KyNangGiangViens = new HashSet<KyNangGiangVien>();
-            KyNangLopHocs = new HashSet<KyNangLopHoc>();
+            KyNangGiangVien = new HashSet<KyNangGiangVien>();
+            KyNangLopHoc = new HashSet<KyNangLopHoc>();
         }
 
         public int ID { get; set; }
@@ -22,9 +22,9 @@ namespace Models.Framework
         public string tenCapDo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangGiangVien> KyNangGiangViens { get; set; }
+        public virtual ICollection<KyNangGiangVien> KyNangGiangVien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangLopHoc> KyNangLopHocs { get; set; }
+        public virtual ICollection<KyNangLopHoc> KyNangLopHoc { get; set; }
     }
 }

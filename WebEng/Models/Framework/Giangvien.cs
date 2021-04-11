@@ -12,8 +12,8 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Giangvien()
         {
-            KyNangGiangViens = new HashSet<KyNangGiangVien>();
-            LopHocs = new HashSet<LopHoc>();
+            KyNangGiangVien = new HashSet<KyNangGiangVien>();
+            LopHoc = new HashSet<LopHoc>();
         }
 
         public int ID { get; set; }
@@ -49,9 +49,9 @@ namespace Models.Framework
         public virtual TaiKhoan TaiKhoan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangGiangVien> KyNangGiangViens { get; set; }
+        public virtual ICollection<KyNangGiangVien> KyNangGiangVien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopHoc> LopHocs { get; set; }
+        public virtual ICollection<LopHoc> LopHoc { get; set; }
     }
 }

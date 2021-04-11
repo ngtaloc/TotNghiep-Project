@@ -22,15 +22,16 @@ create table ChucNang(
 	tenChucNang nvarchar(50) not null, --Thêm lớp , đăng ký lớp , ....
 	tenFile Varchar(128),
 	icon Varchar(50),
-	iDCha int,
-	foreign key(IDCha) references ChucNang(id),
+	iDCha int ,
+	foreign key(IDCha) references ChucNang(id)  NOT FOR REPLICATION ,
 );
+
 create table ChucNangNhomQuyen(
     idCN INT,
-	IDTAIKHOANNHOMQUYEN int,
+	IDNHOMQUYEN int,
     foreign key(idCN) references  ChucNang(id),
-	foreign key(IDTAIKHOANNHOMQUYEN) references  TAIKHOAN_NHOMQUYEN(IDTAIKHOANNHOMQUYEN) ,
-	primary key (idCN, IDTAIKHOANNHOMQUYEN),
+	foreign key(IDNHOMQUYEN) references  NhomQuyen(iD) ,
+	primary key (idCN, IDNHOMQUYEN),
 );
 create table HocVien(	
 	id INT IDENTITY(1,1) PRIMARY KEY,
@@ -140,7 +141,7 @@ create table BinhLuan(
 	noiDung ntext,
 	idCha int,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
-	foreign key(idCha) references  BinhLuan(id) ON UPDATE NO ACTION ,
+	foreign key(idCha) references  BinhLuan(id) ON UPDATE NO ACTION NOT FOR REPLICATION ,
 	foreign key(idTK) references  TaiKhoan(id) ON UPDATE NO ACTION ,
 );
 
@@ -181,7 +182,7 @@ create table TietHoc(
 go
 -- nhập liệu
 insert into NhomQuyen
-	values ('Admin'),('GiangVien'),('HocVien');
+	values ('Admin'),('GiaoVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
 	values ('admin','21232f297a57a5a743894a0e4a801fc3',1),
@@ -197,6 +198,37 @@ insert into LopHoc
 values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1),
 (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
 
+insert into ChucNang
+values (N'Mở Lớp','mo-lop',NULL,0),
+(N'Quản lý lớp','ql-lop',NULL,0),
+(N'Thời khóa biểu','thoi-khoa-bieu',NULL,0),
+(N'Tìm lớp học','tim',NULL,0),
+(N'Lớp đã đăng ký','lop-da-dang-ky',NULL,0),
+(N'Quản lý giáo viên','ql-giao-vien',NULL,0),
+(N'Quản lý học viên','ql-hoc-vien',NULL,0),
+(N'Quản lý Báo cáo thống kê','ql-bao-cao',NULL,0),
+(N'Thống kê lớp học','thong-ke-lop',NULL,0),
+(N'Cập nhật lớp','cap-nhat-lop',NULL,2),
+(N'Hủy lớp','huy-lop',NULL,2),
+(N'Nghe','nghe',NULL,5),
+(N'Nói','noi',NULL,5);
+
+insert into ChucNangNhomQuyen
+values 
+(1,2),
+(2,2),
+(3,2),
+(3,3),
+(4,3),
+(5,3),
+(6,1),
+(7,1),
+(8,1),
+(9,2),
+(10,2),
+(11,2),
+(12,3),
+(13,3);
 -- chat giữa học viên và giáo viên
 
 

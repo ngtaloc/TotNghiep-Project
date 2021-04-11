@@ -8,12 +8,6 @@ namespace Models.Framework
 
     public partial class TAIKHOAN_NHOMQUYEN
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TAIKHOAN_NHOMQUYEN()
-        {
-            ChucNangs = new HashSet<ChucNang>();
-        }
-
         [Key]
         public int IDTAIKHOANNHOMQUYEN { get; set; }
 
@@ -24,8 +18,5 @@ namespace Models.Framework
         public virtual NhomQuyen NhomQuyen { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChucNang> ChucNangs { get; set; }
     }
 }

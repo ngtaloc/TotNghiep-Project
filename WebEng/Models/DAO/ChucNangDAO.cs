@@ -37,14 +37,12 @@ namespace Models.DAO
                 return false;
             }
         }
-        public IEnumerable<Giangvien> listAllPageList(int page, int pageSize)
-        {
-            return db.Giangviens.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
-        }
+      
         public IEnumerable<ChucNang> FindAll()
         {
             return db.ChucNangs;
         }
+
         public Giangvien GetByID(int id)
         {
             return db.Giangviens.Find(id);

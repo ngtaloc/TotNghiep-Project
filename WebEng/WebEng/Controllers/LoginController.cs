@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebEng.Common;
 using WebEng.Models;
 
@@ -16,37 +17,42 @@ namespace WebEng.Controllers
         {
             return View();
         }
+
+        [HttpPost]
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
                 var dao = new TaiKhoanDAO();
-                var kt = dao.Login(model.userName, EncryptorMD5.MD5Hash(model.passWord));
-                if (kt == 1)
+                if (Membership.ValidateUser(model.userName, EncryptorMD5.MD5Hash(model.passWord)))
                 {
+                    //var kt = dao.Login(model.userName, EncryptorMD5.MD5Hash(model.passWord));
                     var user = dao.GetByTDN(model.userName);
-                    var userSession = new TaiKhoanLogin();
-                    userSession.userName = user.tenDangNhap;
-                    userSession.iDTaiKhoan = user.iD;
-                    //userSession.quyen = user.idNQ;
-                    //Session.Add(CommonConstants.USER_SESSION, userSession);
-                    //if(user.idNQ == 1)
-                    //{
-                    //    return RedirectToAction("Index", "Admin");
-                    //}else if (user.idNQ == 2)
-                    //{
-                    //    return RedirectToAction("Index", "GiangVien");
-                    //}
-                    //else if(user.idNQ == 3)
-                    //{
-                    //    return RedirectToAction("Index", "HocVien");
-                    //}
-                    
-
-                }
-                else if (kt == 0)
-                {
-                    ModelState.AddModelError("", "Tài khoản của bạn đã bị khóa!");
+                    if(user.trangThai == 0)
+                    {
+                        
+                        ModelState.AddModelError("", "Tài khoản của bạn đã bị khóa!");
+                    }
+                    else
+                    {
+                        if (Roles.IsUserInRole(model.userName, "Admin"))
+                        {
+                            FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
+                            return RedirectToAction("Index", "Layout");
+                        }
+                        else
+                        if(Roles.IsUserInRole(model.userName, "GiaoVien"))
+                        {
+                            FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
+                            return RedirectToAction("gv", "Layout");
+                        }
+                        else
+                        {
+                            FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
+                            return RedirectToAction("Index", "Home");
+                        }
+                            
+                    }
                 }
                 else
                 {
@@ -54,6 +60,12 @@ namespace WebEng.Controllers
                 }
             }
             return View("Index");
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -13,10 +13,9 @@ namespace Models.Framework
         public ChucNang()
         {
             ChucNang1 = new HashSet<ChucNang>();
-            TAIKHOAN_NHOMQUYEN = new HashSet<TAIKHOAN_NHOMQUYEN>();
+            NhomQuyen = new HashSet<NhomQuyen>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int iD { get; set; }
 
         [Required]
@@ -37,6 +36,6 @@ namespace Models.Framework
         public virtual ChucNang ChucNang2 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAIKHOAN_NHOMQUYEN> TAIKHOAN_NHOMQUYEN { get; set; }
+        public virtual ICollection<NhomQuyen> NhomQuyen { get; set; }
     }
 }

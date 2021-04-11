@@ -40,12 +40,13 @@
 
        @RenderPage("MainHeader.cshtml")
 
-       @RenderPage("MainSidebar.cshtml")
+        
+       @{Html.RenderAction("MainSidebar", "Layout","");}
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
-                    <h4>@RenderSection("header", required: true)</h4>
+                    <h4>@RenderSection("header", required: false)</h4>
                 </div><!-- /.container-fluid -->
             </section>
             @RenderBody()

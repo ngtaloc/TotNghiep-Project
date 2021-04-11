@@ -12,8 +12,8 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiTaiLieu()
         {
-            TaiLieux = new HashSet<TaiLieu>();
-            KyNangs = new HashSet<KyNang>();
+            TaiLieu = new HashSet<TaiLieu>();
+            KyNang = new HashSet<KyNang>();
         }
 
         public int ID { get; set; }
@@ -22,9 +22,9 @@ namespace Models.Framework
         public string tenLoaiTaiLieu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaiLieu> TaiLieux { get; set; }
+        public virtual ICollection<TaiLieu> TaiLieu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNang> KyNangs { get; set; }
+        public virtual ICollection<KyNang> KyNang { get; set; }
     }
 }
