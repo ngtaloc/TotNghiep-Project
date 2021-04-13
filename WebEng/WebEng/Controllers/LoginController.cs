@@ -38,18 +38,18 @@ namespace WebEng.Controllers
                         if (Roles.IsUserInRole(model.userName, "Admin"))
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "Layout");
+                            return RedirectToAction("Index", "Admin/QLGiaoVien", "Admin");
                         }
                         else
                         if(Roles.IsUserInRole(model.userName, "GiaoVien"))
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("gv", "Layout");
+                            return RedirectToAction("", "GiaoVien");
                         }
                         else
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index", "HocVien/Home");
                         }
                             
                     }
@@ -62,10 +62,6 @@ namespace WebEng.Controllers
             return View("Index");
         }
 
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
+      
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace WebEng.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class QLHocVienController : Controller
     {
         // GET: Admin/QLHocVien
