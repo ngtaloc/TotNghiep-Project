@@ -19,8 +19,8 @@
                 <img src="@Url.Content("~/Content/Template/dist/img/user2-160x160.jpg")" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">@(Model.HocVien.Count != 0 ? Model.HocVien.FirstOrDefault().hovaten : (Model.Giangvien.Count != 0 ? Model.Giangvien.FirstOrDefault().hovaten : "Nguyễn Tấn Lộc") )</a>
-                @Html.ActionLink("Đăng xuất", "Logout", "Login")
+                <a href="#" class="d-block">@(Model !=null ? (Model.HocVien.Count != 0 ? Model.HocVien.FirstOrDefault().hovaten : (Model.Giangvien.Count != 0 ? Model.Giangvien.FirstOrDefault().hovaten : "Nguyễn Tấn Lộc")) :"Xin Cào")</a>
+                @Html.ActionLink("Đăng xuất", "Logout", "Home")
             </div>
         </div>
 

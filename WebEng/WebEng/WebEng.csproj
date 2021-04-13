@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
@@ -2792,6 +2793,7 @@
     <Folder Include="Areas\Admin\Code\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\GiaoVien\Data\" />
+    <Folder Include="Areas\GiaoVien\Views\Home\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Views\Base\" />
