@@ -59,56 +59,7 @@ let start = 0;
 let end = perPage;
 
 const product = [
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },  
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "100", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "100", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "100", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "100", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "100", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
-    { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },
+    { image: "", nameTeacher: "ĐQuốc", job: "dev", nameClass: "Tên lớp", numBers: "Số lượng", startLearn: "Ngày khai giảng", Due: "Lịch học", numberMonths: "Thời gian khóa học", endLearn: "Ngày kết thúc" },  
     { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" }
 ]
 
@@ -186,7 +137,7 @@ function renderProduct() {
             html += ' </button>';
             html += '</div>';
             html += '<div class="col-lg-6 col-md-6">';
-            html += '<button type="submit">';
+            html += '<button id ="xoa" onclick = "delete()" type="submit">';
             html += '<i class="fas fa-trash-alt"></i>';
             html += '</button>';
             html += '</div>';
@@ -251,3 +202,7 @@ function changePages() {
     }
 }
 changePages();
+
+$("#xoa").click(function () {
+    $("div").remove();
+});
