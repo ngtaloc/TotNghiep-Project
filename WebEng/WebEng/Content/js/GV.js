@@ -1,4 +1,5 @@
 ﻿// tạo modal thời gian biểu
+@Html.Raw(Json.Encode(Model.Model));
 function myFunction() {
     for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
         var stt_lesson = document.createElement("label");
@@ -59,7 +60,11 @@ let start = 0;
 let end = perPage;
 
 const product = [
+<<<<<<< HEAD
     { image: "", nameTeacher: "ĐQuốc", job: "dev", nameClass: "Tên lớp", numBers: "Số lượng", startLearn: "Ngày khai giảng", Due: "Lịch học", numberMonths: "Thời gian khóa học", endLearn: "Ngày kết thúc" },  
+=======
+    { image: "" , nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" },  
+>>>>>>> refs/remotes/origin/main
     { image: "", nameTeacher: "Quốc", job: "dev", nameClass: "k23", numBers: "50", startLearn: "20", Due: "6", numberMonths: "6", endLearn: "3" }
 ]
 

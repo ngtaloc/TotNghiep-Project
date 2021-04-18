@@ -12,16 +12,30 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChucNang()
         {
-            NhomQuyens = new HashSet<NhomQuyen>();
+            ChucNang1 = new HashSet<ChucNang>();
+            NhomQuyen = new HashSet<NhomQuyen>();
         }
 
-        public int ID { get; set; }
+        public int iD { get; set; }
 
         [Required]
         [StringLength(50)]
         public string tenChucNang { get; set; }
 
+        [StringLength(128)]
+        public string tenFile { get; set; }
+
+        [StringLength(50)]
+        public string icon { get; set; }
+
+        public int? iDCha { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhomQuyen> NhomQuyens { get; set; }
+        public virtual ICollection<ChucNang> ChucNang1 { get; set; }
+
+        public virtual ChucNang ChucNang2 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NhomQuyen> NhomQuyen { get; set; }
     }
 }

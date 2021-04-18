@@ -57,7 +57,7 @@ namespace WebEng.Controllers
                 var daoTK = new TaiKhoanDAO();
                 var md5pass = EncryptorMD5.MD5Hash(taiKhoan.matKhau);
                 taiKhoan.matKhau = md5pass;
-                taiKhoan.idNQ = 1;
+                //taiKhoan.idNQ = 1;
                 int idtk = daoTK.Insert(taiKhoan);
               
                 if (idtk > 0)

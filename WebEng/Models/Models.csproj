@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="DAO\ChucNangDAO.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\GiaovienDAO.cs" />
     <Compile Include="DAO\HocVienDAO.cs" />
@@ -77,8 +78,9 @@
     <Compile Include="Framework\LoaiTaiLieu.cs" />
     <Compile Include="Framework\LopHoc.cs" />
     <Compile Include="Framework\NhomQuyen.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
+    <Compile Include="Framework\sysdiagrams.cs" />
     <Compile Include="Framework\TaiKhoan.cs" />
+    <Compile Include="Framework\TAIKHOAN_NHOMQUYEN.cs" />
     <Compile Include="Framework\TaiLieu.cs" />
     <Compile Include="Framework\ThoiKhoaBieu.cs" />
     <Compile Include="Framework\ThongBao.cs" />

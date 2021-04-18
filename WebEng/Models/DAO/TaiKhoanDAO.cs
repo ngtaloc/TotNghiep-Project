@@ -44,6 +44,11 @@ namespace Models.DAO
                     return 1; //login thành công
             }
         }
-        
+
+        public IEnumerable<TaiKhoan> FindAll()
+        {
+            return db.TaiKhoans;
+        }
+
     }
 }

@@ -1,0 +1,25 @@
+﻿@using Models.Framework
+@model IEnumerable<TaiKhoan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+}
+@section header{
+    layout
+}
+@{ 
+    int d = 0;
+    foreach (var item in Model)
+    {
+        d++;
+    <p>@item.tenDangNhap</p>
+        foreach (var i in item.TAIKHOAN_NHOMQUYEN)
+        {
+           
+        <p>@d</p>
+            }
+
+        }
+    }
+

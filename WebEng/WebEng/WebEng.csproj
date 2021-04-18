@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -136,7 +136,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
+    <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\HocVienAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\CustomRoleProvider.cs" />
     <Compile Include="Common\EncryptorMD5.cs" />
     <Compile Include="Common\TaiKhoanLogin.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -157,6 +159,11 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\agency.css" />
@@ -2739,6 +2746,11 @@
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
+    <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2764,7 +2776,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Shared\_TemLayout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
@@ -2772,16 +2783,20 @@
     <Content Include="Views\DangKy\DKTaiKhoan.cshtml" />
     <Content Include="Views\Shared\MainHeader.cshtml" />
     <Content Include="Views\Shared\MainSidebar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Layout\ChucNang.cshtml" />
+    <Content Include="Views\Layout\Index.cshtml" />
+    <Content Include="Views\Layout\gv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Code\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\GiaoVien\Data\" />
+    <Folder Include="Areas\GiaoVien\Views\Home\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
-    <Folder Include="Areas\HocVien\Views\Shared\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

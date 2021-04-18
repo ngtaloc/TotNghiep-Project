@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,11 +7,13 @@ using System.Web.Mvc;
 
 namespace WebEng.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LayoutController
     {
         public ActionResult Index()
         {
-            return View();
+            var dao = new LopHocDAO();
+            var model = dao.FindAll();
+            return View(model);
         }
 
         public ActionResult About()
@@ -18,7 +21,7 @@ namespace WebEng.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
-        }
+        }   
 
         public ActionResult Contact()
         {
@@ -27,6 +30,7 @@ namespace WebEng.Controllers
             return View();
         }
 
-
+       
+        
     }
 }

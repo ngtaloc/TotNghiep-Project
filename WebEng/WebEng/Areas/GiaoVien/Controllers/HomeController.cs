@@ -5,20 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using WebEng.Common;
 using WebEng.Controllers;
 
-namespace WebEng.Areas.Admin.Controllers
+namespace WebEng.Areas.GiaoVien.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "GiaoVien")]
     public class HomeController : LayoutController
     {
-        // GET: Admin/Homes
-
+        // GET: GiaoVien/Home
        
         public ActionResult Index()
         {
-
             return View();
         }
     }

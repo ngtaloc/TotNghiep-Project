@@ -12,9 +12,9 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KyNang()
         {
-            KyNangGiangViens = new HashSet<KyNangGiangVien>();
-            KyNangLopHocs = new HashSet<KyNangLopHoc>();
-            LoaiTaiLieux = new HashSet<LoaiTaiLieu>();
+            KyNangGiangVien = new HashSet<KyNangGiangVien>();
+            KyNangLopHoc = new HashSet<KyNangLopHoc>();
+            LoaiTaiLieu = new HashSet<LoaiTaiLieu>();
         }
 
         public int ID { get; set; }
@@ -23,12 +23,12 @@ namespace Models.Framework
         public string tenKyNang { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangGiangVien> KyNangGiangViens { get; set; }
+        public virtual ICollection<KyNangGiangVien> KyNangGiangVien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangLopHoc> KyNangLopHocs { get; set; }
+        public virtual ICollection<KyNangLopHoc> KyNangLopHoc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoaiTaiLieu> LoaiTaiLieux { get; set; }
+        public virtual ICollection<LoaiTaiLieu> LoaiTaiLieu { get; set; }
     }
 }
