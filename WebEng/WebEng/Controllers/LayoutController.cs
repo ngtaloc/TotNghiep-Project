@@ -11,26 +11,21 @@ namespace WebEng.Controllers
     public class LayoutController : Controller
     {
         // GET: Layout\
-        [Authorize(Roles ="Admin")]
-        public ActionResult Index()
+
+        [ChildActionOnly]
+        public ActionResult MainHeader()
+        {
+            return PartialView();
+        }
+        [ChildActionOnly]
+        public ActionResult MainSidebar()
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.FindAll();
-            return View(model);
+            var model = dao.GetByTDN(User.Identity.Name);
+
+            return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
         }
-        //[ChildActionOnly]
-        //public ActionResult MainHeader()
-        //{
-        //    return PartialView();
-        //}
-        //[ChildActionOnly]
-        //public ActionResult MainSidebar()
-        //{
-        //    var dao = new TaiKhoanDAO();
-        //    var model = dao.GetByTDN(User.Identity.Name);
-            
-        //    return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
-        //}
+
         [Authorize(Roles = "GiaoVien")]
         public ActionResult gv()
         {
@@ -38,7 +33,12 @@ namespace WebEng.Controllers
             return View();
         }
 
-  
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("", "");
+        }
+
         public ActionResult ChucNang()
         {
             var dao = new ChucNangDAO();

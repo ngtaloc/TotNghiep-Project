@@ -57,7 +57,11 @@ namespace Models.DAO
             return db.LopHocs.Find(id);
         }
 
-       
+       public IEnumerable<LopHoc> FindLopHocGiaoVien(string tdn)
+        {
+            return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangvien.First().LopHoc;
+            
+        }
 
     }
 }

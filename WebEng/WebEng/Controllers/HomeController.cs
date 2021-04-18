@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace WebEng.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LayoutController
     {
         public ActionResult Index()
         {
@@ -30,19 +30,7 @@ namespace WebEng.Controllers
             return View();
         }
 
-        [ChildActionOnly]
-        public ActionResult MainHeader()
-        {
-            return PartialView();
-        }
-        [ChildActionOnly]
-        public ActionResult MainSidebar()
-        {
-            var dao = new TaiKhoanDAO();
-            var model = dao.GetByTDN(User.Identity.Name);
-
-            return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
-        }
+       
         
     }
 }
