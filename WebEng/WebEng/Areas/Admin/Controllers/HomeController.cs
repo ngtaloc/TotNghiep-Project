@@ -11,6 +11,7 @@ using WebEng.Controllers;
 namespace WebEng.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
+<<<<<<< HEAD
     public class HomeController : Controller
     {
         // GET: Admin/Homes
@@ -36,6 +37,13 @@ namespace WebEng.Areas.Admin.Controllers
         }
 
 
+=======
+    public class HomeController : LayoutController
+    {
+        // GET: Admin/Homes
+
+       
+>>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
         public ActionResult Index()
         {
 

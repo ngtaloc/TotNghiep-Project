@@ -137,6 +137,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
+>>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
     <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
@@ -2747,8 +2751,12 @@
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\HocVien\Views\Shared\layout_2.cshtml" />
     <Content Include="Areas\HocVien\Views\Home\learning.cshtml" />
+=======
+    <Content Include="Areas\HocVien\Views\ThoiKhoaBieu\Index.cshtml" />
+>>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="DAO\TietHocDAO.cs" />
+    <Compile Include="DAO\NgayDAO.cs" />
     <Compile Include="DAO\ChucNangDAO.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\GiaovienDAO.cs" />
@@ -70,21 +72,21 @@
     <Compile Include="Framework\ChucNang.cs" />
     <Compile Include="Framework\DSLopHoc.cs" />
     <Compile Include="Framework\Giangvien.cs" />
-    <Compile Include="Framework\GioHoc.cs" />
     <Compile Include="Framework\HocVien.cs" />
     <Compile Include="Framework\KyNang.cs" />
     <Compile Include="Framework\KyNangGiangVien.cs" />
     <Compile Include="Framework\KyNangLopHoc.cs" />
     <Compile Include="Framework\LoaiTaiLieu.cs" />
     <Compile Include="Framework\LopHoc.cs" />
+    <Compile Include="Framework\Nam.cs" />
+    <Compile Include="Framework\Ngay.cs" />
     <Compile Include="Framework\NhomQuyen.cs" />
-    <Compile Include="Framework\sysdiagrams.cs" />
+    <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\TaiKhoan.cs" />
     <Compile Include="Framework\TAIKHOAN_NHOMQUYEN.cs" />
     <Compile Include="Framework\TaiLieu.cs" />
-    <Compile Include="Framework\ThoiKhoaBieu.cs" />
+    <Compile Include="Framework\Thang.cs" />
     <Compile Include="Framework\ThongBao.cs" />
-    <Compile Include="Framework\Thu.cs" />
     <Compile Include="Framework\TietHoc.cs" />
     <Compile Include="Framework\WebEngDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

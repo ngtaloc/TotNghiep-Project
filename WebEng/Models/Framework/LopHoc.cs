@@ -12,12 +12,12 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LopHoc()
         {
-            BinhLuan = new HashSet<BinhLuan>();
-            DSLopHoc = new HashSet<DSLopHoc>();
-            KyNangLopHoc = new HashSet<KyNangLopHoc>();
-            TaiLieu = new HashSet<TaiLieu>();
-            TietHoc = new HashSet<TietHoc>();
-            ThoiKhoaBieu = new HashSet<ThoiKhoaBieu>();
+            BinhLuans = new HashSet<BinhLuan>();
+            DSLopHocs = new HashSet<DSLopHoc>();
+            KyNangLopHocs = new HashSet<KyNangLopHoc>();
+            TaiLieux = new HashSet<TaiLieu>();
+            TietHocs = new HashSet<TietHoc>();
+            Ngays = new HashSet<Ngay>();
         }
 
         public int ID { get; set; }
@@ -49,23 +49,23 @@ namespace Models.Framework
         public int? idGV { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BinhLuan> BinhLuan { get; set; }
+        public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DSLopHoc> DSLopHoc { get; set; }
+        public virtual ICollection<DSLopHoc> DSLopHocs { get; set; }
 
         public virtual Giangvien Giangvien { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KyNangLopHoc> KyNangLopHoc { get; set; }
+        public virtual ICollection<KyNangLopHoc> KyNangLopHocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TaiLieu> TaiLieu { get; set; }
+        public virtual ICollection<TaiLieu> TaiLieux { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TietHoc> TietHoc { get; set; }
+        public virtual ICollection<TietHoc> TietHocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThoiKhoaBieu> ThoiKhoaBieu { get; set; }
+        public virtual ICollection<Ngay> Ngays { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace WebEng.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : LayoutController
     {
         public ActionResult Index()
         {
@@ -30,6 +30,7 @@ namespace WebEng.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         [ChildActionOnly]
         public ActionResult MainHeader()
         {
@@ -43,6 +44,9 @@ namespace WebEng.Controllers
 
             return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
         }
+=======
+       
+>>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
         
     }
 }

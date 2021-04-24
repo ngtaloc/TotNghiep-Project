@@ -9,6 +9,7 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.HocVien.Controllers
 {
+<<<<<<< HEAD
     //[Authorize(Roles = "HocVien")]
     public class HomeController : Controller
     {
@@ -32,6 +33,13 @@ namespace WebEng.Areas.HocVien.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+=======
+    [Authorize(Roles = "HocVien")]
+    public class HomeController : LayoutController
+    {
+        // GET: HocVien/Home
+      
+>>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
 
         public ActionResult Index()
         {
