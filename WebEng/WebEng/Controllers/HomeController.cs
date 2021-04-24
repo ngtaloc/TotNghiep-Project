@@ -29,24 +29,7 @@ namespace WebEng.Controllers
 
             return View();
         }
-
-<<<<<<< HEAD
-        [ChildActionOnly]
-        public ActionResult MainHeader()
-        {
-            return PartialView();
-        }
-        [ChildActionOnly]
-        public ActionResult MainSidebar()
-        {
-            var dao = new TaiKhoanDAO();
-            var model = dao.GetByTDN(User.Identity.Name);
-
-            return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
-        }
-=======
-       
->>>>>>> ecb2372368cf12c3f4375806e69a76e6b0fb22a3
+        
         
     }
 }
