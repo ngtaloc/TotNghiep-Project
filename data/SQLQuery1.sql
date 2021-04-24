@@ -239,14 +239,6 @@ end
 go
 dangnhap 'admin','admin'
 
-go
-
-ALTER TABLE ngay
-ADD CONSTRAINT fk_ngay_IDLopHoc
-  FOREIGN KEY (iDLopHoc)
-  REFERENCES LopHoc (id);
-  
-  
   
 go
 -- nhập liệu
