@@ -137,9 +137,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
-
+    <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
     <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
-
     <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
@@ -2755,12 +2754,8 @@
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
-
     <Content Include="Areas\HocVien\Views\Shared\layout_2.cshtml" />
-    <Content Include="Areas\HocVien\Views\Home\learning.cshtml" />
-
     <Content Include="Areas\HocVien\Views\ThoiKhoaBieu\Index.cshtml" />
-
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -2794,7 +2789,12 @@
     <Content Include="Content\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="Content\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Content\font-awesome-4.7.0\scss\_variables.scss" />
-
+    <Content Include="Areas\HocVien\Views\Learning\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Listening.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Speaking.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Reading.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Writing.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
