@@ -9,7 +9,7 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.HocVien.Controllers
 {
-    [Authorize(Roles = "HocVien")]
+    //[Authorize(Roles = "HocVien")]
     public class HomeController : Controller
     {
         // GET: HocVien/Home
@@ -22,7 +22,8 @@ namespace WebEng.Areas.HocVien.Controllers
         public ActionResult MainSidebar()
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.GetByTDN(User.Identity.Name);
+            //var model = dao.GetByTDN(User.Identity.Name);
+            var model = dao.GetByTDN("minhhau");
 
             return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
         }
@@ -39,6 +40,10 @@ namespace WebEng.Areas.HocVien.Controllers
             return View(model);
         }
 		public ActionResult chitietlophoc()
+		{
+			return View();
+		}
+		public ActionResult learning()
 		{
 			return View();
 		}
