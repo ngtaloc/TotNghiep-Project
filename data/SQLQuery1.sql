@@ -150,6 +150,9 @@ create table ThongBao(
 	idTK int,
 	noiDung ntext,
 	ngay datetime,
+	link varchar(255),
+	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
+	trangThai int, --0:chưa đọc ; 1:đã đọc
 	foreign key(idTK) references  TaiKhoan(id),
 );
 -------Thời khóa biểu

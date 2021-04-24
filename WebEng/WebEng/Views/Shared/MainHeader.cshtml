@@ -1,4 +1,7 @@
-﻿<!-- Navbar -->
+﻿@model Models.Framework.TaiKhoan
+
+
+<!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -73,15 +76,56 @@
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
+                <span class="badge badge-warning navbar-badge">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString()</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
+                <span class="dropdown-item dropdown-header">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString() Thông báo mới</span>
+                @foreach (var item in Model.ThongBaos)
+                {
+                    <div class="dropdown-divider"></div>
+                    <a href="@item.link" class="dropdown-item  @(@item.trangThai == 0 ? "text-warning":"") ">
+                        <i class="@item.icon mr-2"></i> @item.noiDung
+                        <span class="float-right @(@item.trangThai==0? "text-warning":"text-muted") text-sm">
+                        @{ 
+                            string da = (DateTime.Now - item.ngay).ToString();
+
+                            if (da.Split('.').Length == 3)
+                            {
+                                if(int.Parse(da.Split('.')[0]) >= 365)
+                                {
+                                    da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm trước";
+                                }
+                                else if(int.Parse(da.Split('.')[0]) > 30)
+                                {
+                                    da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng trước";
+                                }
+                                else
+                                {
+                                    da = da.Split('.')[0] + " ngày trước";
+                                }
+
+                            }
+                            else
+                            {
+                                if (da.Split('.')[0].Split(':')[0] == "00")
+                                {
+                                    da = da.Split('.')[0].Split(':')[1] + " phút trước";
+                                }
+                                else
+                                {
+                                    da = da.Split('.')[0].Split(':')[0] + " giờ trước";
+                                }
+
+                            }
+
+                                <p>@da</p>
+                            
+                        }</span>
+                    </a>
+                }
+                    
+
+
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item">
                     <i class="fas fa-users mr-2"></i> 8 friend requests

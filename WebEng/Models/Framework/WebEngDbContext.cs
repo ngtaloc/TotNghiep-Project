@@ -238,6 +238,14 @@ namespace Models.Framework
                 .HasMany(e => e.Ngays)
                 .WithOptional(e => e.Thang)
                 .HasForeignKey(e => e.iDThang);
+
+            modelBuilder.Entity<ThongBao>()
+                .Property(e => e.link)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ThongBao>()
+                .Property(e => e.icon)
+                .IsUnicode(false);
         }
     }
 }

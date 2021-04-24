@@ -18,6 +18,14 @@ namespace Models.Framework
 
         public DateTime? ngay { get; set; }
 
+        [StringLength(255)]
+        public string link { get; set; }
+
+        [StringLength(255)]
+        public string icon { get; set; }
+
+        public int? trangThai { get; set; }
+
         public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }
