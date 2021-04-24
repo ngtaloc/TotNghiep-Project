@@ -149,55 +149,86 @@ create table ThongBao(
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idTK int,
 	noiDung ntext,
+	ngay datetime,
 	foreign key(idTK) references  TaiKhoan(id),
 );
-create table Thu(	--thứ
-    ID INT IDENTITY(1,1) PRIMARY KEY,
-	tenThu Nvarchar(10)
+-------Thời khóa biểu
+create table Nam(--năm
+	nam char(4)  PRIMARY KEY,
 );
-create table GioHoc(	
-    ID INT IDENTITY(1,1) PRIMARY KEY,
-	gioBegin time,
-	gioEnd time,
+create table Thang(--tháng
+	iD INT IDENTITY(1,1) PRIMARY KEY,
+	tenThang Nvarchar(10),
+	
 );
-create table ThoiKhoaBieu(	
-    ID INT IDENTITY(1,1) PRIMARY KEY,
-	idThu int,
-	idGioHoc int,
-	idLopHoc int,
-	foreign key(idThu) references  Thu(id),
-	foreign key(idGioHoc) references  GioHoc(id),
-	foreign key(idLopHoc) references  lopHoc(id),
+create table Ngay(	--ngày
+    iD INT IDENTITY(1,1) PRIMARY KEY,
+	ngay1 Nvarchar(50), -- IDlớpHọc-ngay-thang-nam-giờB-PhútB-GiờE-PhútE 
+	ngay2 Nvarchar(50), --vd: LH12-2-5-2021-7-00-9-00
+	ngay3 Nvarchar(50),
+	ngay4 Nvarchar(50),
+	ngay5 Nvarchar(50),
+	ngay6 Nvarchar(50),
+	ngay7 Nvarchar(50),
+	ngay8 Nvarchar(50),
+	ngay9 Nvarchar(50),
+	ngay10 Nvarchar(50),
+	ngay11 Nvarchar(50),
+	ngay12 Nvarchar(50),
+	ngay13 Nvarchar(50),
+	ngay14 Nvarchar(50),
+	ngay15 Nvarchar(50),
+	ngay16 Nvarchar(50),
+	ngay17 Nvarchar(50),
+	ngay18 Nvarchar(50),
+	ngay19 Nvarchar(50),
+	ngay20 Nvarchar(50),
+	ngay21 Nvarchar(50),
+	ngay22 Nvarchar(50),
+	ngay23 Nvarchar(50),
+	ngay24 Nvarchar(50),
+	ngay25 Nvarchar(50),
+	ngay26 Nvarchar(50),
+	ngay27 Nvarchar(50),
+	ngay28 Nvarchar(50),
+	ngay29 Nvarchar(50),
+	ngay30 Nvarchar(50),
+	ngay31 Nvarchar(50),
+	iDThang int,
+	nam char(4),
+	iDLopHoc int,
+	foreign key(iDThang) references  Thang(iD),
+	foreign key(nam) references  Nam(nam),
+	foreign key(iDLopHoc) references LopHoc(id),
 );
+
 create table TietHoc(	
     ID INT IDENTITY(1,1) PRIMARY KEY,
-	idTKB int,
 	idLopHoc int,
-	ngay date,
+	ngayHoc int,
 	buoiHoc int, --buổi học thứ mấy
 	siso int
-	foreign key(idTKB) references  ThoiKhoaBieu(id),
 	foreign key(idLopHoc) references  lopHoc(id),
+	foreign key(ngayHoc) references  ngay(id),
 );
 go
 -- nhập liệu
+insert into Nam
+	values ('2017'),('2018'),('2019'),('2020'),('2021'),('2022'),('2023'),('2024');
+insert into Thang
+	values (N'Tháng 1'),(N'Tháng 2'),(N'Tháng 3'),(N'Tháng 4'),(N'Tháng 5'),(N'Tháng 6'),(N'Tháng 7'),(N'Tháng 8'),(N'Tháng 9'),(N'Tháng 10'),(N'Tháng 11'),(N'Tháng 12');
+	
+
 insert into NhomQuyen
 	values ('Admin'),('GiaoVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
 	values ('admin','21232f297a57a5a743894a0e4a801fc3',1),
-		('loc','202cb962ac59075b964b07152d234b70',1),
-		('lochv','202cb962ac59075b964b07152d234b70',1); 
+		('gv','202cb962ac59075b964b07152d234b70',1),
+		('hv','202cb962ac59075b964b07152d234b70',1); 
 
 insert into TAIKHOAN_NHOMQUYEN
 	values (1,1),(2,2),(3,3);
-
-insert into Giangvien
-values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
-
-insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1),
-(N'Cơ bản',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
 
 insert into ChucNang
 values (N'Mở Lớp','mo-lop',NULL,0),
@@ -215,8 +246,7 @@ values (N'Mở Lớp','mo-lop',NULL,0),
 (N'Nói','noi',NULL,5);
 
 insert into ChucNangNhomQuyen
-values 
-(1,2),
+values (1,2),
 (2,2),
 (3,2),
 (3,3),
@@ -230,6 +260,20 @@ values
 (11,2),
 (12,3),
 (13,3);
+insert into Giangvien
+values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
+
+insert into HocVien
+values (N'Lê Học Viên',N'123le loi',N'Nữ','1998-05-23','hv@gmail.com','0987654321',3);
+
+insert into LopHoc
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','4/15/2021','8/15/2021',30,1,1),
+(N'Cơ bản',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
+
+--insert thời khóa biểu
+insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam)
+--ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE 
+values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021');
 -- chat giữa học viên và giáo viên
 
 
@@ -256,3 +300,10 @@ end
 
 go
 dangnhap 'admin','admin'
+
+
+
+ALTER TABLE ngay
+ADD CONSTRAINT fk_ngay_IDLopHoc
+  FOREIGN KEY (iDLopHoc)
+  REFERENCES LopHoc (id);

@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
+    <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
@@ -2747,6 +2748,7 @@
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
+    <Content Include="Areas\HocVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,6 +16,8 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string noiDung { get; set; }
 
+        public DateTime? ngay { get; set; }
+
         public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

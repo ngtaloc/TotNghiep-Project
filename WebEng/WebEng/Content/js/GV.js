@@ -1,5 +1,4 @@
 ﻿// tạo modal thời gian biểu
-@Html.Raw(Json.Encode(Model.Model));
 function myFunction() {
     for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
         var stt_lesson = document.createElement("label");

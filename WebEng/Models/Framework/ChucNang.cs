@@ -13,7 +13,7 @@ namespace Models.Framework
         public ChucNang()
         {
             ChucNang1 = new HashSet<ChucNang>();
-            NhomQuyen = new HashSet<NhomQuyen>();
+            NhomQuyens = new HashSet<NhomQuyen>();
         }
 
         public int iD { get; set; }
@@ -36,6 +36,6 @@ namespace Models.Framework
         public virtual ChucNang ChucNang2 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhomQuyen> NhomQuyen { get; set; }
+        public virtual ICollection<NhomQuyen> NhomQuyens { get; set; }
     }
 }

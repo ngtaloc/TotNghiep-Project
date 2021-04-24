@@ -14,6 +14,7 @@ namespace WebEng.Areas.HocVien
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+
             context.MapRoute(
                 "HocVien_default",
                 "HocVien/{controller}/{action}/{id}",
