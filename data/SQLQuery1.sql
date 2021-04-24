@@ -215,6 +215,32 @@ create table TietHoc(
 	foreign key(ngayHoc) references  ngay(id),
 );
 go
+
+--Procedure
+
+--login
+go
+create proc DangNhap(
+	@userName varchar(50),
+	@passWord char(32))
+as
+begin
+	declare @dem int
+	declare @rec bit
+	select @dem = COUNT(*) from TaiKhoan where tenDangNhap = @userName and matKhau = @passWord
+	if @dem >0
+		set @rec = 1
+	else 
+		set @rec = 0
+	select @rec
+end
+
+
+go
+dangnhap 'admin','admin'
+
+  
+go
 -- nhập liệu
 insert into Nam
 	values ('2017'),('2018'),('2019'),('2020'),('2021'),('2022'),('2023'),('2024');
@@ -282,33 +308,7 @@ values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-
 -- chat giữa học viên và giáo viên
 
 
-
---Procedure
-
---login
-go
-create proc DangNhap(
-	@userName varchar(50),
-	@passWord char(32))
-as
-begin
-	declare @dem int
-	declare @rec bit
-	select @dem = COUNT(*) from TaiKhoan where tenDangNhap = @userName and matKhau = @passWord
-	if @dem >0
-		set @rec = 1
-	else 
-		set @rec = 0
-	select @rec
-end
-
-
-go
-dangnhap 'admin','admin'
-
-
-
-ALTER TABLE ngay
-ADD CONSTRAINT fk_ngay_IDLopHoc
-  FOREIGN KEY (iDLopHoc)
-  REFERENCES LopHoc (id);
+insert into ThongBao
+values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0)
+(3,N'bình luận','2021-03-24 10:00:00.000','#','a fa-comment',0)
+(3,N'đánh giá','2020-03-24 12:00:00.000','#','fa fa-star',1)
