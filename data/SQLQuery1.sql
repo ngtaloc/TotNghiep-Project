@@ -150,9 +150,12 @@ create table ThongBao(
 	idTK int,
 	noiDung ntext,
 	ngay datetime,
+<<<<<<< HEAD
+=======
 	link varchar(255),
 	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
 	trangThai int, --0:chưa đọc ; 1:đã đọc
+>>>>>>> refs/remotes/origin/main
 	foreign key(idTK) references  TaiKhoan(id),
 );
 -------Thời khóa biểu
@@ -239,14 +242,6 @@ end
 go
 dangnhap 'admin','admin'
 
-go
-
-ALTER TABLE ngay
-ADD CONSTRAINT fk_ngay_IDLopHoc
-  FOREIGN KEY (iDLopHoc)
-  REFERENCES LopHoc (id);
-  
-  
   
 go
 -- nhập liệu

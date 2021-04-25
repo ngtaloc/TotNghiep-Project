@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Models.Framework.LopHoc>
 
+
 @{
     ViewBag.Title = "GiaoVien";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
@@ -102,6 +103,75 @@
 </div>
 <div class="card-body">
     <div id="wrap" class="wrapper" style="display: grid; grid-gap:15px;grid-template-columns: 400px 400px 400px">
+        @foreach (var item in Model)
+        {
+            <div class="item item1">
+                <div class="card card-widget widget-user-2 shadow-sm">
+                    <div class="widget-user-header bg-warning">
+                        <div id="img" class="widget-user-image">
+                            <img src="@item.hinh" />
+                        </div>
+                        <h3 id="nameTeacher" class="widget-user-username">@item.Giangvien.hovaten</h3>
+                        <h5 id="job" class="widget-user-desc">@item.KyNangLopHoc </h5>
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item" style="color:black">
+                                <a id="nameClass" class="nav-link" style="pointer-events:none">
+                                    Lớp học
+                                    <span class="float-right badge bg-danger">@item.tenLopHoc</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="numBers" class="nav-link" style="pointer-events:none">
+                                    Số lượng
+                                    <span class="float-right badge bg-danger">@item.soluong</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="startLearn" class="nav-link" style="pointer-events:none">
+                                    Khai giảng
+                                    <span class="float-right badge bg-danger">@item.ngayBegin</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Lịch học
+                                    <span class="float-right badge bg-danger">@item.ThoiKhoaBieu</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Thời gian học
+                                    <span class="float-right badge bg-danger">@item.TietHoc</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Ngày kết thúc
+                                    <span class="float-right badge bg-danger">@item.ngayEnd</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black; text-align:center">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button type="submit">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button id="xoa" onclick="delete()" type="submit">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
     </div>
     <div class="content__product" id="product">
     </div>
@@ -116,19 +186,6 @@
         </div>
     </div>
 </div>
-@*<ul class="pagination">
-    <li class="paginate_button page-item">
-        <a>Trước</a>
-    </li>
-    <li class="paginate_button page-item active">
-        <a>
-            1
-        </a>
-    </li>
-    <li class="paginate_button page-item btn-next">
-        <a>Sau</a>
-    </li>
-</ul>*@
 
 @section masterjs
         {
@@ -159,3 +216,214 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
 }
+<script>
+    // tạo modal thời gian biểu
+
+    function myFunction() {
+        for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
+            var stt_lesson = document.createElement("label");
+            stt_lesson.textContent = "buổi " + i;
+            var div_stt = document.getElementById("child");
+            div_stt.appendChild(stt_lesson);
+
+            var p = document.createElement("select");
+            var div = document.getElementById("child");
+            div.appendChild(p);
+            p.style.height = "30px";
+            p.style.marginLeft = "10px";
+            p.name = "day";
+            for (var day = 1; day <= 7; day++) {
+                var option = document.createElement("option");
+                option.value = day;
+                switch (day) {
+                    case 1: option.innerHTML = "Thứ hai";
+                        break;
+                    case 2: option.innerHTML = "Thứ ba";
+                        break
+                    case 3: option.innerHTML = "Thứ tư";
+                        break;
+                    case 4: option.innerHTML = "Thứ năm";
+                        break
+                    case 5: option.innerHTML = "Thứ sáu";
+                        break;
+                    case 6: option.innerHTML = "Thứ bảy";
+                        break;
+                    case 7: option.innerHTML = "Chủ nhật";
+                        break;
+                }
+                p.appendChild(option);
+            }
+            var startday = document.createElement("input");
+            startday.type = "time";
+            startday.style.height = "30px";
+            startday.style.marginLeft = "20px";
+            var div_input = document.getElementById("child");
+            div_input.appendChild(startday);
+
+            var endday = document.createElement("input");
+            endday.type = "time";
+            endday.style.height = "30px";
+            endday.style.marginLeft = "20px";
+            var div_input = document.getElementById("child");
+            div_input.appendChild(endday);
+
+            var br = document.createElement("br");
+            var br1 = document.getElementById("child");
+            br1.appendChild(br);
+        }
+    }
+
+    let perPage = 6;
+    let currentPage = 1;
+    let start = 0;
+    let end = perPage;
+    //    const product = [
+    //    { image: "" , nameteacher: "quốc", job: "dev", nameclass: "k23", numbers: "50", startlearn: "20", due: "6", numbermonths: "6", endlearn: "3" },
+
+    //    { image: "", nameteacher: "quốc", job: "dev", nameclass: "k23", numbers: "50", startlearn: "20", due: "6", numbermonths: "6", endlearn: "3" }
+    //]
+
+    let productArr = [];
+    let showAdd = false;
+
+    const image = document.getElementById('img');
+    const nameTeacher = document.getElementById('nameTeacher');
+    const job = document.getElementById('job');
+    const nameClass = document.getElementById('nameClass');
+    const numBers = document.getElementById('numBers');
+    const startLearn = document.getElementById("startLearn");
+    const Due = document.getElementById("Due");
+    const numberMonths = document.getElementById("numberMonths");;
+    const endLearn = document.getElementById("endLearn");
+    const btnNext = document.querySelector('.btn-next');
+    const btnPrev = document.querySelector('.btn-prev');
+
+    //function renderProduct() {
+    //    html = "";
+    //    const content = product.map((item, index) => {
+    //        if (index >= start && index < end) {
+    //            html += '<div class="item item1">';
+    //            html += '<div class="card card-widget widget-user-2 shadow-sm">';
+    //            html += '<div class="widget-user-header bg-warning">';
+    //            html += '<div id="img" class="widget-user-image">';
+    //            html += '<img src=' + item.image + '>';
+    //            html += '</div>';
+    //            html += '<h3 id="nameTeacher" class="widget-user-username">' + item.nameTeacher + '</h3>';
+    //            html += '<h5 id="job"class="widget-user-desc">' + item.job + '</h5>';
+    //            html += '</div>';
+    //            html += '<div class="card-footer p-0">';
+    //            html += '<ul class="nav flex-column">';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="nameClass"class="nav-link" style="pointer-events:none">';
+    //            html += item.nameClass;
+    //            html += '<span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="numBers" class="nav-link" style="pointer-events:none">';
+    //            html += item.numBers;
+    //            html += '<span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="startLearn" class="nav-link" style="pointer-events:none">';
+    //            html += item.startLearn;
+    //            html += ' <span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="Due" class="nav-link" style="pointer-events:none">';
+    //            html += item.Due;
+    //            html += ' <span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="Due" class="nav-link" style="pointer-events:none">';
+    //            html += item.numberMonths;
+    //            html += ' <span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black">';
+    //            html += '<a id="Due" class="nav-link" style="pointer-events:none">';
+    //            html += item.endLearn;
+    //            html += '<span class="float-right badge bg-danger">842</span>';
+    //            html += '</a>';
+    //            html += '</li>';
+    //            html += '<li class="nav-item" style="color:black; text-align:center">';
+    //            html += '<div class="row">';
+    //            html += '<div class="col-lg-6 col-md-6">';
+    //            html += '<button type="submit">';
+    //            html += '<i class="fas fa-user-edit"></i>';
+    //            html += ' </button>';
+    //            html += '</div>';
+    //            html += '<div class="col-lg-6 col-md-6">';
+    //            html += '<button id ="xoa" onclick = "delete()" type="submit">';
+    //            html += '<i class="fas fa-trash-alt"></i>';
+    //            html += '</button>';
+    //            html += '</div>';
+    //            html += '</div>';
+    //            html += '</li>';
+    //            html += '</ul>';
+    //            html += '</div>';
+    //            html += '</div>';
+    //            html += '</div>';
+    //            return html;
+    //        }
+    //    })
+    //    document.getElementById("wrap").innerHTML = html;
+    //}
+    //renderProduct();
+    function getCurrentPage(currentPage) {
+        start = (currentPage - 1) * perPage;
+        end = currentPage * perPage;
+    }
+    const totalPages = Math.ceil(product.length / perPage);
+    btnNext.addEventListener('click', () => {
+        currentPage++;
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+        getCurrentPage(currentPage);
+        renderProduct();
+    })
+
+    btnPrev.addEventListener('click', () => {
+        currentPage--;
+        if (currentPage <= 1) {
+            currentPage = 1;
+        }
+        getCurrentPage(currentPage);
+        renderProduct();
+    })
+
+    function renderListpage() {
+        let html = '';
+        html += '<li  class="active">';
+        html += '<a>' + 1 + '</a>';
+        html += '</li>';
+        for (let i = 2; i <= totalPages; i++) {
+            html += '<li  class="active">';
+            html += '<a>' + i + '</a>';
+            html += '</li>';
+        }
+        document.getElementById('number-page').innerHTML = html;
+    }
+    renderListpage();
+
+    function changePages() {
+        const currentPages = document.querySelectorAll('.number-page li')
+        for (let i = 0; i <= currentPages.length; i++) {
+            currentPages[i].addEventListener('click', () => {
+                const value = i + 1;
+                currentPage = value;
+                getCurrentPage(currentPage);
+                renderProduct();
+            })
+        }
+    }
+    changePages();
+
+    $("#xoa").click(function () {
+        $("div").remove();
+    });
+</script>

@@ -28,9 +28,6 @@ namespace WebEng.Areas.HocVien.Controllers
 
             return View(model);
 		}
-		public ActionResult learning()
-		{
-			return View();
-		}
+		
 	}
 }
