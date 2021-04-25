@@ -275,9 +275,8 @@ values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
 (N'Thống kê lớp học','ThongKeLop',NULL,0),
 (N'Cập nhật lớp','CapNhatLop',NULL,2),
-(N'Hủy lớp','HuyLop',NULL,2),
-(N'Nghe','Nghe',NULL,5),
-(N'Nói','Noi',NULL,5);
+(N'Hủy lớp','HuyLop',NULL,2);
+
 
 insert into ChucNangNhomQuyen
 values (1,2),
@@ -291,9 +290,7 @@ values (1,2),
 (8,1),
 (9,2),
 (10,2),
-(11,2),
-(12,3),
-(13,3);
+(11,2);
 insert into Giangvien
 values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 
