@@ -149,6 +149,7 @@ create table ThongBao(
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idTK int,
 	noiDung ntext,
+	ngay datetime,
 	foreign key(idTK) references  TaiKhoan(id),
 );
 create table Thu(	--thứ
