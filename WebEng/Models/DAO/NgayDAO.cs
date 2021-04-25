@@ -80,5 +80,22 @@ namespace Models.DAO
             //var ds = db.DSLopHocs.Where(y => y.HocVien.TaiKhoan.tenDangNhap==tdn);
             return j;
         }
+
+        public IEnumerable<Ngay> FindByTDNGV(string tdn)
+        {
+
+            //var vd = db.Database.SqlQuery<IEnumerable<Ngay>>("select * from (((Ngay n join LopHoc lh on n.iDLopHoc=lh.ID) join DSLopHoc dslh on lh.ID = dslh.idLH) join HocVien hv on dslh.idHV = hv.id ) join TaiKhoan tk on hv.idTK=tk.iD where tk.tenDangNhap='hv'");
+
+            var j = (from n in db.Ngays
+                     join lh in db.LopHocs on n.iDLopHoc equals lh.ID
+                     join gv in db.Giangviens on lh.idGV equals gv.ID
+                     join tk in db.TaiKhoans on gv.idTK equals tk.iD
+                     where tk.tenDangNhap == tdn
+                     select n);
+
+            //var dsLopHoc = db.TaiKhoans.FirstOrDefault(x => x.tenDangNhap == tdn).HocViens.FirstOrDefault().DSLopHocs;
+            //var ds = db.DSLopHocs.Where(y => y.HocVien.TaiKhoan.tenDangNhap==tdn);
+            return j;
+        }
     }
 }
