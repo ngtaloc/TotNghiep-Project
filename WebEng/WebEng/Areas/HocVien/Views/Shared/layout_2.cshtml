@@ -1,0 +1,130 @@
+﻿
+@{
+	ViewBag.Title = "layout_2";
+	Layout = "~/Views/Shared/_TemLayout.cshtml";
+}
+
+@section css{
+	@RenderSection("css_layout2", required: false)
+}
+@section masterjs{
+	<script language="javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".dropdown1").hide();
+			$(".more").click(function () {
+				$(".dropdown1").slideToggle();
+
+
+			});
+		});
+	</script>
+
+}
+
+
+<style>
+
+	.menu {
+		margin-top: -37px;
+		background-color: gainsboro;
+		height: 50px;
+		width: 100%;
+	}
+
+		.menu ul li {
+			color: white;
+			display: inline-block;
+			background-color: #f05123;
+			min-width: 145px;
+			padding: 5px 0px 5px 0px;
+			text-align: center;
+			margin-top: 8px;
+		}
+
+		.menu ul {
+			float: left;
+			margin-left: -16px;
+			margin-bottom: 8px;
+		}
+
+	button {
+		float: left;
+		color: white;
+		display: inline-block;
+		background-color: #f05123;
+		min-width: 145px;
+		margin-left: 5px;
+		padding: 3px 0px 3px 0px;
+		text-align: center;
+		margin-top: 8px;
+	}
+
+	.dropdown1 {
+		top: 108px;
+		height: auto;
+		max-width: 887px;
+		width: 100%;
+		background-color: gray;
+		margin-left: 25px;
+		clear: both;
+		z-index:1;
+		position: absolute;
+	}
+
+		.dropdown1 ul {
+			margin-left: -40px;
+		}
+
+			.dropdown1 ul li {
+				background: none;
+			}
+
+				.dropdown1 ul li:hover {
+					background-color: #f05123;
+				}
+</style>
+
+		<div class="menu">
+			<ul>
+				<li>Tiếng anh cơ bản </li>
+				<li>Tiếng anh cơ bản </li>
+				<li>Tiếng anh cơ bản </li>
+				<li>Tiếng anh cơ bản </li>
+				<li>Tiếng anh cơ bản </li>
+
+			</ul>
+			<button class="more"> Xêm thêm>></button>
+			<div class="dropdown1">
+				<ul>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+					<li>Tiếng anh cơ bản </li>
+				</ul>
+			</div>
+		</div>
+	
+
+
+
+
+
+@RenderBody()
+

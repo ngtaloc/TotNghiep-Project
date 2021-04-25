@@ -13,26 +13,26 @@ namespace Models.Framework
         }
 
         public virtual DbSet<BinhLuan> BinhLuans { get; set; }
-        public virtual DbSet<CapDo> CapDos { get; set; }
+        public virtual DbSet<CapDo> CapDoes { get; set; }
         public virtual DbSet<ChucNang> ChucNangs { get; set; }
         public virtual DbSet<DSLopHoc> DSLopHocs { get; set; }
         public virtual DbSet<Giangvien> Giangviens { get; set; }
-        public virtual DbSet<GioHoc> GioHocs { get; set; }
         public virtual DbSet<HocVien> HocViens { get; set; }
         public virtual DbSet<KyNang> KyNangs { get; set; }
         public virtual DbSet<KyNangGiangVien> KyNangGiangViens { get; set; }
         public virtual DbSet<KyNangLopHoc> KyNangLopHocs { get; set; }
-        public virtual DbSet<LoaiTaiLieu> LoaiTaiLieus { get; set; }
+        public virtual DbSet<LoaiTaiLieu> LoaiTaiLieux { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
+        public virtual DbSet<Nam> Nams { get; set; }
+        public virtual DbSet<Ngay> Ngays { get; set; }
         public virtual DbSet<NhomQuyen> NhomQuyens { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<TAIKHOAN_NHOMQUYEN> TAIKHOAN_NHOMQUYENs { get; set; }
-        public virtual DbSet<TaiLieu> TaiLieu { get; set; }
-        public virtual DbSet<TietHoc> TietHoc { get; set; }
-        public virtual DbSet<ThoiKhoaBieu> ThoiKhoaBieus { get; set; }
+        public virtual DbSet<TAIKHOAN_NHOMQUYEN> TAIKHOAN_NHOMQUYEN { get; set; }
+        public virtual DbSet<TaiLieu> TaiLieux { get; set; }
+        public virtual DbSet<Thang> Thangs { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
-        public virtual DbSet<Thu> Thus { get; set; }
+        public virtual DbSet<TietHoc> TietHocs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,13 +42,13 @@ namespace Models.Framework
                 .HasForeignKey(e => e.idCha);
 
             modelBuilder.Entity<CapDo>()
-                .HasMany(e => e.KyNangGiangVien)
+                .HasMany(e => e.KyNangGiangViens)
                 .WithOptional(e => e.CapDo)
                 .HasForeignKey(e => e.idCD)
                 .WillCascadeOnDelete();
 
             modelBuilder.Entity<CapDo>()
-                .HasMany(e => e.KyNangLopHoc)
+                .HasMany(e => e.KyNangLopHocs)
                 .WithOptional(e => e.CapDo)
                 .HasForeignKey(e => e.idCD);
 
@@ -78,20 +78,15 @@ namespace Models.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<Giangvien>()
-                .HasMany(e => e.KyNangGiangVien)
+                .HasMany(e => e.KyNangGiangViens)
                 .WithRequired(e => e.Giangvien)
                 .HasForeignKey(e => e.idGV);
 
             modelBuilder.Entity<Giangvien>()
-                .HasMany(e => e.LopHoc)
+                .HasMany(e => e.LopHocs)
                 .WithOptional(e => e.Giangvien)
                 .HasForeignKey(e => e.idGV)
                 .WillCascadeOnDelete();
-
-            modelBuilder.Entity<GioHoc>()
-                .HasMany(e => e.ThoiKhoaBieu)
-                .WithOptional(e => e.GioHoc)
-                .HasForeignKey(e => e.idGioHoc);
 
             modelBuilder.Entity<HocVien>()
                 .Property(e => e.email)
@@ -102,30 +97,30 @@ namespace Models.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<HocVien>()
-                .HasMany(e => e.DSLopHoc)
+                .HasMany(e => e.DSLopHocs)
                 .WithRequired(e => e.HocVien)
                 .HasForeignKey(e => e.idHV)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KyNang>()
-                .HasMany(e => e.KyNangGiangVien)
+                .HasMany(e => e.KyNangGiangViens)
                 .WithRequired(e => e.KyNang)
                 .HasForeignKey(e => e.idKN);
 
             modelBuilder.Entity<KyNang>()
-                .HasMany(e => e.KyNangLopHoc)
+                .HasMany(e => e.KyNangLopHocs)
                 .WithRequired(e => e.KyNang)
                 .HasForeignKey(e => e.idKN)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LoaiTaiLieu>()
-                .HasMany(e => e.TaiLieu)
+                .HasMany(e => e.TaiLieux)
                 .WithOptional(e => e.LoaiTaiLieu)
                 .HasForeignKey(e => e.idLoaiTL);
 
             modelBuilder.Entity<LoaiTaiLieu>()
-                .HasMany(e => e.KyNang)
-                .WithMany(e => e.LoaiTaiLieu)
+                .HasMany(e => e.KyNangs)
+                .WithMany(e => e.LoaiTaiLieux)
                 .Map(m => m.ToTable("TaiLieuKyNang").MapLeftKey("idLoaiTL").MapRightKey("idKN"));
 
             modelBuilder.Entity<LopHoc>()
@@ -133,36 +128,56 @@ namespace Models.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.BinhLuan)
+                .HasMany(e => e.BinhLuans)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.idLH);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.DSLopHoc)
+                .HasMany(e => e.DSLopHocs)
                 .WithRequired(e => e.LopHoc)
                 .HasForeignKey(e => e.idLH)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.KyNangLopHoc)
+                .HasMany(e => e.KyNangLopHocs)
                 .WithRequired(e => e.LopHoc)
                 .HasForeignKey(e => e.idLH)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.TaiLieu)
+                .HasMany(e => e.TaiLieux)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.idLH);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.TietHoc)
+                .HasMany(e => e.TietHocs)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.idLopHoc);
 
             modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.ThoiKhoaBieu)
+                .HasMany(e => e.Ngays)
                 .WithOptional(e => e.LopHoc)
-                .HasForeignKey(e => e.idLopHoc);
+                .HasForeignKey(e => e.iDLopHoc);
+
+            modelBuilder.Entity<Nam>()
+                .Property(e => e.nam1)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Nam>()
+                .HasMany(e => e.Ngays)
+                .WithOptional(e => e.Nam1)
+                .HasForeignKey(e => e.nam);
+
+            modelBuilder.Entity<Ngay>()
+                .Property(e => e.nam)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Ngay>()
+                .HasMany(e => e.TietHocs)
+                .WithOptional(e => e.Ngay)
+                .HasForeignKey(e => e.ngayHoc);
 
             modelBuilder.Entity<NhomQuyen>()
                 .HasMany(e => e.TAIKHOAN_NHOMQUYEN)
@@ -171,8 +186,8 @@ namespace Models.Framework
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NhomQuyen>()
-                .HasMany(e => e.ChucNang)
-                .WithMany(e => e.NhomQuyen)
+                .HasMany(e => e.ChucNangs)
+                .WithMany(e => e.NhomQuyens)
                 .Map(m => m.ToTable("ChucNangNhomQuyen").MapLeftKey("IDNHOMQUYEN").MapRightKey("idCN"));
 
             modelBuilder.Entity<TaiKhoan>()
@@ -185,17 +200,17 @@ namespace Models.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.BinhLuan)
+                .HasMany(e => e.BinhLuans)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
             modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.Giangvien)
+                .HasMany(e => e.Giangviens)
                 .WithRequired(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
             modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.HocVien)
+                .HasMany(e => e.HocViens)
                 .WithRequired(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
@@ -206,12 +221,12 @@ namespace Models.Framework
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.TaiLieu)
+                .HasMany(e => e.TaiLieux)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
             modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.ThongBao)
+                .HasMany(e => e.ThongBaos)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
@@ -219,15 +234,18 @@ namespace Models.Framework
                 .Property(e => e.link)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ThoiKhoaBieu>()
-                .HasMany(e => e.TietHoc)
-                .WithOptional(e => e.ThoiKhoaBieu)
-                .HasForeignKey(e => e.idTKB);
+            modelBuilder.Entity<Thang>()
+                .HasMany(e => e.Ngays)
+                .WithOptional(e => e.Thang)
+                .HasForeignKey(e => e.iDThang);
 
-            modelBuilder.Entity<Thu>()
-                .HasMany(e => e.ThoiKhoaBieu)
-                .WithOptional(e => e.Thu)
-                .HasForeignKey(e => e.idThu);
+            modelBuilder.Entity<ThongBao>()
+                .Property(e => e.link)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ThongBao>()
+                .Property(e => e.icon)
+                .IsUnicode(false);
         }
     }
 }

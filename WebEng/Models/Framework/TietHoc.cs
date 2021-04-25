@@ -11,12 +11,9 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
-        public int? idTKB { get; set; }
-
         public int? idLopHoc { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? ngay { get; set; }
+        public int? ngayHoc { get; set; }
 
         public int? buoiHoc { get; set; }
 
@@ -24,6 +21,6 @@ namespace Models.Framework
 
         public virtual LopHoc LopHoc { get; set; }
 
-        public virtual ThoiKhoaBieu ThoiKhoaBieu { get; set; }
+        public virtual Ngay Ngay { get; set; }
     }
 }

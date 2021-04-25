@@ -9,12 +9,12 @@ using WebEng.Controllers;
 
 namespace WebEng.Areas.HocVien.Controllers
 {
+
     [Authorize(Roles = "HocVien")]
     public class HomeController : LayoutController
     {
         // GET: HocVien/Home
       
-
         public ActionResult Index()
         {
             var dao = new LopHocDAO();
@@ -25,5 +25,6 @@ namespace WebEng.Areas.HocVien.Controllers
 		{
 			return View();
 		}
+		
 	}
 }

@@ -12,7 +12,7 @@ namespace Models.Framework
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HocVien()
         {
-            DSLopHoc = new HashSet<DSLopHoc>();
+            DSLopHocs = new HashSet<DSLopHoc>();
         }
 
         public int id { get; set; }
@@ -41,7 +41,7 @@ namespace Models.Framework
         public int idTK { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DSLopHoc> DSLopHoc { get; set; }
+        public virtual ICollection<DSLopHoc> DSLopHocs { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

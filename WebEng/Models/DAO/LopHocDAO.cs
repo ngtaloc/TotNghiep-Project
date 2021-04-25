@@ -59,7 +59,7 @@ namespace Models.DAO
 
        public IEnumerable<LopHoc> FindLopHocGiaoVien(string tdn)
         {
-            return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangvien.First().LopHoc;
+            return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangviens.First().LopHocs;
             
         }
 

@@ -10,23 +10,24 @@ namespace WebEng.Controllers
 {
     public class LayoutController : Controller
     {
-        // GET: Layout\
-
+       
         [ChildActionOnly]
         public ActionResult MainHeader()
         {
-            return PartialView();
+            var dao = new TaiKhoanDAO();
+            var model = dao.GetByTDN(User.Identity.Name);
+            return PartialView("~/Views/Shared/MainHeader.cshtml",model);
         }
         [ChildActionOnly]
         public ActionResult MainSidebar()
         {
             var dao = new TaiKhoanDAO();
             var model = dao.GetByTDN(User.Identity.Name);
+            ViewBag.thongbaos = new ThongBaoDAO().FindAll();
 
             return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
         }
-
-        [Authorize(Roles = "GiaoVien")]
+        
         public ActionResult gv()
         {
            

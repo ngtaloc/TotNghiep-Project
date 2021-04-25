@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 ﻿/* tạo modal thời gian biểu
+=======
+﻿// tạo modal thời gian biểu
+function myFunction() {
+    for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
+        var stt_lesson = document.createElement("label");
+        stt_lesson.textContent = "buổi " + i;
+        var div_stt = document.getElementById("child");
+        div_stt.appendChild(stt_lesson);
+>>>>>>> refs/remotes/origin/main
 
 //function myFunction() {
 //    for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {

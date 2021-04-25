@@ -6,22 +6,21 @@ namespace Models.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("GioHoc")]
-    public partial class GioHoc
+    [Table("Thang")]
+    public partial class Thang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GioHoc()
+        public Thang()
         {
-            ThoiKhoaBieu = new HashSet<ThoiKhoaBieu>();
+            Ngays = new HashSet<Ngay>();
         }
 
-        public int ID { get; set; }
+        public int iD { get; set; }
 
-        public TimeSpan? gioBegin { get; set; }
-
-        public TimeSpan? gioEnd { get; set; }
+        [StringLength(10)]
+        public string tenThang { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThoiKhoaBieu> ThoiKhoaBieu { get; set; }
+        public virtual ICollection<Ngay> Ngays { get; set; }
     }
 }

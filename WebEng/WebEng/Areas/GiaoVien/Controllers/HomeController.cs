@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+
 using WebEng.Controllers;
 
 namespace WebEng.Areas.GiaoVien.Controllers
@@ -14,6 +15,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
     {
         // GET: GiaoVien/Home
        
+
         public ActionResult Index()
         {
             return View();
