@@ -21,9 +21,12 @@ namespace WebEng.Areas.HocVien.Controllers
             var model = dao.FindAll();
             return View(model);
         }
-		public ActionResult chitietlophoc()
+		public ActionResult chitietlophoc(int id)
 		{
-			return View();
+            var dao = new LopHocDAO();
+            var model = dao.GetByID(id);
+
+            return View(model);
 		}
 		public ActionResult learning()
 		{

@@ -29,7 +29,11 @@ namespace WebEng.Controllers
 
             return View();
         }
-        
-        
+
+        public ActionResult ChiTiet(int id)
+        {
+            return View();
+        }
+
     }
 }

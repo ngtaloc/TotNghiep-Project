@@ -270,19 +270,19 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','mo-lop',NULL,0),
-(N'Quản lý lớp','ql-lop',NULL,0),
-(N'Thời khóa biểu','thoi-khoa-bieu',NULL,0),
-(N'Tìm lớp học','tim',NULL,0),
-(N'Lớp đã đăng ký','lop-da-dang-ky',NULL,0),
-(N'Quản lý giáo viên','ql-giao-vien',NULL,0),
-(N'Quản lý học viên','ql-hoc-vien',NULL,0),
-(N'Quản lý Báo cáo thống kê','ql-bao-cao',NULL,0),
-(N'Thống kê lớp học','thong-ke-lop',NULL,0),
-(N'Cập nhật lớp','cap-nhat-lop',NULL,2),
-(N'Hủy lớp','huy-lop',NULL,2),
-(N'Nghe','nghe',NULL,5),
-(N'Nói','noi',NULL,5);
+values (N'Mở Lớp','MoLop',NULL,0),
+(N'Quản lý lớp','QLLop',NULL,0),
+(N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
+(N'Tìm lớp học','Home',NULL,0),
+(N'Lớp đã đăng ký','Learning',NULL,0),
+(N'Quản lý giáo viên','QLGiaoVien',NULL,0),
+(N'Quản lý học viên','QLHocVien',NULL,0),
+(N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
+(N'Thống kê lớp học','ThongKeLop',NULL,0),
+(N'Cập nhật lớp','CapNhatLop',NULL,2),
+(N'Hủy lớp','HuyLop',NULL,2),
+(N'Nghe','Nghe',NULL,5),
+(N'Nói','Noi',NULL,5);
 
 insert into ChucNangNhomQuyen
 values (1,2),
@@ -310,13 +310,13 @@ values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https:
 (N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
 
 --insert thời khóa biểu
-insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam)
+insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc)
 --ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE 
-values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021');
+values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021',1);
 -- chat giữa học viên và giáo viên
 
 
 insert into ThongBao
-values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0)
-(3,N'bình luận','2021-03-24 10:00:00.000','#','a fa-comment',0)
+values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0),
+(3,N'bình luận','2021-03-24 10:00:00.000','#','a fa-comment',0),
 (3,N'đánh giá','2020-03-24 12:00:00.000','#','fa fa-star',1)

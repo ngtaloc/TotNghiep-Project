@@ -15,19 +15,34 @@ namespace WebEng.Controllers
         public ActionResult MainHeader()
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.GetByTDN(User.Identity.Name);
-            return PartialView("~/Views/Shared/MainHeader.cshtml",model);
+            try
+            {
+                var model = dao.GetByTDN(User.Identity.Name);
+                return PartialView("~/Views/Shared/MainHeader.cshtml", model);
+            }
+            catch
+            {
+                return PartialView("~/Views/Shared/MainHeader.cshtml");
+            }
+            
+            
         }
         [ChildActionOnly]
         public ActionResult MainSidebar()
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.GetByTDN(User.Identity.Name);
-            ViewBag.thongbaos = new ThongBaoDAO().FindAll();
-
-            return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
+            try
+            {
+                var model = dao.GetByTDN(User.Identity.Name);
+                return PartialView("~/Views/Shared/MainSidebar.cshtml", model);
+            }
+            
+            catch
+            {
+                return PartialView("~/Views/Shared/MainSidebar.cshtml");
+            }
+           
         }
-        
         public ActionResult gv()
         {
            
