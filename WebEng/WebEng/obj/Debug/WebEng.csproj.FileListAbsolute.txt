@@ -64,6 +64,7 @@ C:\loc\TotNhiep\WebEng\WebEng\obj\Debug\WebEng.csproj.CoreCompileInputs.cache
 C:\loc\TotNhiep\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 C:\loc\TotNhiep\WebEng\WebEng\obj\Debug\WebEng.dll
 C:\loc\TotNhiep\WebEng\WebEng\obj\Debug\WebEng.pdb
+<<<<<<< HEAD
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll.config
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\bin\WebEng.pdb
@@ -131,3 +132,72 @@ F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.Core
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+=======
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebEng.pdb
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\csc.exe
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\csc.exe.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\csc.rsp
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\csi.exe
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\csi.rsp
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.AppContext.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\vbc.exe
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\vbc.exe.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\vbc.rsp
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\VBCSCompiler.exe
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Antlr3.Runtime.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Models.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Newtonsoft.Json.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\PagedList.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Helpers.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Mvc.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Optimization.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Razor.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.Razor.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebGrease.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Models.pdb
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Models.dll.config
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\EntityFramework.SqlServer.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\PagedList.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\PagedList.Mvc.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Helpers.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Mvc.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Optimization.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.Razor.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.Razor.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Newtonsoft.Json.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Antlr3.Runtime.pdb
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+>>>>>>> c735930c95b73ce4b7b176f882e53480d9e7ad2e
