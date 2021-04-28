@@ -93,5 +93,9 @@ namespace Models.DAO
                 return false;
             }
         }
+        public Giangvien FindByTDN(string tdn)
+        {
+            return db.Giangviens.FirstOrDefault(x => x.TaiKhoan.tenDangNhap == tdn);
+        }
     }
 }

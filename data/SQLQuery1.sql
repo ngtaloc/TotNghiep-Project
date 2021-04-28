@@ -312,3 +312,9 @@ insert into ThongBao
 values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0),
 (3,N'bình luận','2021-03-24 10:00:00.000','#','a fa-comment',0),
 (3,N'đánh giá','2020-03-24 12:00:00.000','#','fa fa-star',1)
+
+insert into KyNang
+values ('Listening'),
+('Speaking'),
+('Reading'),
+('Writing');

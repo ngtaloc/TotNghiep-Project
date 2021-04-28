@@ -27,23 +27,57 @@ namespace WebEng.Areas.GiaoVien.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(LopHoc lophoc, bool Listening=false, bool Speaking = false, bool Reading = false, bool Writing = false)
+        public ActionResult Create(LopHoc lophoc, bool Listening=false, bool Speaking = false, bool Reading = false, bool Writing = false, string lvListening=null, string lvSpeaking = null, string lvReading = null, string lvWriting = null)
         {
             if (ModelState.IsValid)
             {
                 var dao = new LopHocDAO();
-                int kt = dao.Insert(lophoc);
-                if (kt >=0)
+                lophoc.idGV = new GiangVienDAO().FindByTDN(User.Identity.Name).ID;
+                if (Listening)
                 {
+                    var knlh = new KyNangLopHoc();
+                    knlh.LopHoc = lophoc;
+                    knlh.idKN = 1;
+                    knlh.idCD = int.Parse(lvListening);
+                    lophoc.KyNangLopHocs.Add(knlh);
+                }
+                if (Speaking)
+                {
+                    var knlh = new KyNangLopHoc();
+                    knlh.LopHoc = lophoc;
+                    knlh.idKN = 2;
+                    knlh.idCD = int.Parse(lvSpeaking);
+                    lophoc.KyNangLopHocs.Add(knlh);
+                }
+                if (Reading)
+                {
+                    var knlh = new KyNangLopHoc();
+                    knlh.LopHoc = lophoc;
+                    knlh.idKN = 3;
+                    knlh.idCD = int.Parse(lvReading);
+                    lophoc.KyNangLopHocs.Add(knlh);
+                }
+                if (Writing)
+                {
+                    var knlh = new KyNangLopHoc();
+                    knlh.LopHoc = lophoc;
+                    knlh.idKN = 4;
+                    knlh.idCD = int.Parse(lvWriting);
+                    lophoc.KyNangLopHocs.Add(knlh);
+                }
+                
+                try {
+                    dao.Insert(lophoc);
                     ModelState.AddModelError("", "Tạo lớp thành công");
-                    return RedirectToAction("Index");
+                    return RedirectToAction("");
                 }
-                else
+                catch (Exception e)
                 {
-                    ModelState.AddModelError("", "Tạo lớp không thành công");
+                    ModelState.AddModelError("", "Tạo lớp không thành công: "+e.ToString());
                 }
+               
             }
-            return View("Index");
+            return View();
         }
     }
 }

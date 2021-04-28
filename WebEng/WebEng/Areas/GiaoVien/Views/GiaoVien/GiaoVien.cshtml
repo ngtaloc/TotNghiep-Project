@@ -53,7 +53,8 @@
                         <h3 id="nameTeacher" class="widget-user-username">@item.Giangvien.hovaten</h3>
                         @foreach (var item1 in item.KyNangLopHocs)
                         {
-                            <h5 id="job" class="widget-user-desc">@item.KyNangLopHocs </h5>
+                            <h5 id="job" class="widget-user-desc">@item1.KyNang.tenKyNang </h5>
+                            <h5 id="job" class="widget-user-desc">@item1.CapDo.tenCapDo </h5>
                         }
                     </div>
                     <div class="card-footer p-0">
@@ -156,7 +157,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
     <script src="~/Content/js/GV.js"></script>
-
+    <script src="@Url.Content("~/Content/Template/plugins/bs-custom-file-input/bs-custom-file-input.min.js")"></script>
     <script>
 
         $(function () {

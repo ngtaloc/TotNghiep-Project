@@ -39,21 +39,51 @@
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Listening" type="checkbox" id="customCheckbox1" checked value="true">
                             <label for="customCheckbox1" class="custom-control-label">Listening</label>
+                            
+                            <select class="form-control form-control-sm col-md-5" style="display:inline-block;" name="lvListening">
+                                <option value="1">LV 1</option>
+                                <option value="2">LV 2</option>
+                                <option value="3">LV 3</option>
+                                <option value="4">LV 4</option>
+                            </select>
+                           
                         </div>
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Speaking" type="checkbox" id="customCheckbox2" checked value="true">
                             <label for="customCheckbox2" class="custom-control-label">Speaking</label>
+
+                            <select class="form-control form-control-sm col-md-5" style="display:inline-block;" name="lvSpeaking">
+                                <option value="1">LV 1</option>
+                                <option value="2">LV 2</option>
+                                <option value="3">LV 3</option>
+                                <option value="4">LV 4</option>
+                            </select>
                         </div>
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Reading" type="checkbox" id="customCheckbox3" checked value="true">
                             <label for="customCheckbox3" class="custom-control-label">Reading</label>
+
+                            <select class="form-control form-control-sm col-md-5" style="display:inline-block;" name="lvReading">
+                                <option value="1">LV 1</option>
+                                <option value="2">LV 2</option>
+                                <option value="3">LV 3</option>
+                                <option value="4">LV 4</option>
+                            </select>
                         </div>
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Writing" type="checkbox" id="customCheckbox4" checked value="true">
                             <label for="customCheckbox4" class="custom-control-label">Writing</label>
+
+                            <select class="form-control form-control-sm col-md-5" style="display:inline-block;" name="lvWriting">
+                                <option value="1">LV 1</option>
+                                <option value="2">LV 2</option>
+                                <option value="3">LV 3</option>
+                                <option value="4">LV 4</option>
+                            </select>
                         </div>
 
                     </div>
+                  
                     <div class="form-group">
                         <label for="exampleInputPassword1">Số tháng</label>
                         <input type="number" class="form-control" id="dayStudy" placeholder="Số tháng" name="sothang">
@@ -66,12 +96,9 @@
                         <label for="exampleInputFile">Chọn ảnh</label>
                         <div class="input-group">
                             <div class="custom-file">
+                                @Html.TextBoxFor(model => model.hinh, new { @class = "form-control", @type = "file" , @id = "exampleInputFile" })
 
-                                @Html.TextBoxFor(model => model.soluong, new { @type = "file", @class = "custom-file-input", @id = "exampleInputFile" })
-                                <label class="custom-file-label" for="exampleInputFile"></label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
+                                 <label class="custom-file-label" for="exampleInputFile">Chọn từ trong máy của bạn</label>
                             </div>
                         </div>
                     </div>
@@ -107,5 +134,27 @@
     <script>
         $(document).ready(function () {
             $('.js-example-basic-multiple').select2();
+        });
+        
+        $(".custom-control-input").click(function () {
+           if (this.checked) {
+                $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').removeAttr("disabled");
+            } else {
+                $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').attr("disabled", true);
+
+            }
+           
+        });
+
+        $(function () {
+            bsCustomFileInput.init();
+        });
+        
+        $(function () {
+            $('#exampleInputFile').on('change', function () {
+                var filePath = $(this).val();
+                alert(filePath);
+                console.log(filePath);
+            });
         });
     </script>

@@ -131,3 +131,4 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\ob
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+C:\loc\TotNhiep\WebEng\WebEng\obj\Debug\WebEng.csprojAssemblyReference.cache
