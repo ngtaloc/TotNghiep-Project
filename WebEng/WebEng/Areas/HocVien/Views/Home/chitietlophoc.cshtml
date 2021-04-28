@@ -4,8 +4,47 @@
 	ViewBag.Title = "chitietlophoc";
 	Layout = "~/Views/Shared/_TemLayout.cshtml";
 }
+@section masterjs{
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$(".content-comment").hide
+			$(".traloi").hide()
+			$(".fa-sort-up").click(function () {
+				$(".content-comment").hide();
+			});
+			$(".fa-sort-down").click(function () {
+				$(".content-comment").show()
+			});
 
+			$(".mt-1").click(function () {
+				$(".traloi").toggle();
+			});
+			});
 
+		var feild = document.querySelector('textarea');
+		var backUp = feild.getAttribute('placeholder');
+		var btn = document.querySelector('.btn1');
+		var clear = document.getElementById('clear')
+
+		feild.onfocus = function () {
+			this.setAttribute('placeholder', '');
+			this.style.borderColor = '#333';
+			btn.style.display = 'block'
+		}
+
+		feild.onblur = function () {
+			this.setAttribute('placeholder', backUp);
+			this.style.borderColor = '#aaa'
+		}
+
+		clear.onclick = function () {
+			btn.style.display = 'none';
+			feild.value = '';
+			$(".traloi").hide()
+		}
+	</script>
+}
 
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -19,58 +58,203 @@
 	.col-md-8 {
 		height: auto;
 	}
+
 	.col-md-4 .card-footer {
 		background-color: forestgreen;
 		height: 300px;
 		text-align: center;
-		
 	}
+
 		.col-md-4 .card-footer button {
 			background-color: #f05123;
 			color: white;
 			font-size: 18px;
 			outline: 0;
-			margin-top: -15px ;
+			margin-top: -15px;
 			padding: 8px 35px 8px 35px;
 			border-radius: 10px 10px 10px 10px;
 		}
-		.conten1{
-			max-width:100%;
-			height:400px;
-			background-color:purple;
 
-		}
-		.conten2 {
-			max-width: 100%;
-			height: 250px;
-			margin-bottom:20px;
-			margin-top:20px;
-			background-color: rosybrown;
+	.conten1 {
+		max-width: 100%;
+		height: 400px;
+		border: 1px solid red;
+	}
 
-		}
-		.conten3 {
-			max-width: 100%;
-			min-height: 500px;
-			height: auto;
-			margin-bottom: 20px;
-			background-color: red;
-		}
+	.conten2 {
+		max-width: 100%;
+		height: 250px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		border: 1px solid red;
+	}
+
+	.conten3 {
+		max-width: 100%;
+		min-height: 500px;
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+
+	.container {
+		width: 100%;
+		padding: 0;
+	}
+
+	.bdge {
+		height: 21px;
+		background-color: orange;
+		color: #fff;
+		font-size: 11px;
+		padding: 8px;
+		border-radius: 4px;
+		line-height: 3px
+	}
+
+	.comments {
+		text-decoration: underline;
+		text-underline-position: under;
+		cursor: pointer
+	}
+
+	.dot {
+		height: 7px;
+		width: 7px;
+		margin-top: 3px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block
+	}
+
+	.hit-voting:hover {
+		color: blue
+	}
+
+	.hit-voting {
+		cursor: pointer
+	}
+
+	.row {
+		margin: 0 auto;
+	}
+
+	.d-flex {
+		padding: 0;
+	}
+
+	.binhluan {
+		width: 125px;
+	}
+
+	.content-comment {
+		clear:both;
+		height: 150px;
+		width: 100%;
+		margin-left:15px;
+	}
+	textarea {
+		height: 30px;
+		width: 100%;
+		border: none;
+		border-bottom: 2px solid #aaa;
+		background-color: transparent;
+		margin-bottom: 10px;
+		resize: none;
+		outline: none;
+		transition: .5s
+	}
+	.traloi{
+
+	}
+	.btn1 {
+		float: right;
+			
+	}
+	#clear {
+		padding: 10px 15px;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+		cursor: pointer;
+		color: #333;
+		background-color: transparent
+	}
+	#binhluan {
+		border: none;
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+		box-shadow: none;
+		padding: 7px 15px 7px 15px;
+		border-radius: 5px;
+	}
+	
+	
 </style>
 <h3>Thông Tin Chi Tiết Lớp Học </h3>
 <div class="row">
 	<!-- /.col -->
 	<div class="col-md-8">
 		<div class="conten1">
-			tên khóa học và nội dung 
+			tên khóa học và nội dung
 		</div>
 		<div class="conten2">
-			 yêu cầu của khóa học
+			yêu cầu của khóa học
 		</div>
 		<div class="conten3">
-			 khu vực bình luận
+			<div class="container mt-5 mb-5">
+				<div class="d-flex justify-content-center row">
+					<div class="d-flex flex-column col-md-12">
+						<div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+							<div class="profile-image"><img class="rounded-circle" src="https://i.imgur.com/t9toMAQ.jpg" width="70"></div>
+							<div class="d-flex flex-column-reverse flex-grow-0 align-items-center votings ml-1"><i class="fa fa-sort-up fa-2x hit-voting"></i><span>127</span><i class="fa fa-sort-down fa-2x hit-voting"></i></div>
+							<div class="d-flex flex-column ml-3">
+								<div class="d-flex flex-row post-title">
+									<h5>Is sketch 3.9.1 stable?</h5><span class="ml-2">(Jesshead)</span>
+								</div>
+								<div class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">video</span><span class="mr-2 comments">13 comments&nbsp;</span><span class="mr-2 dot"></span><span>6 giờ</span></div>
+							</div>
+						</div>
+						<div class="coment-bottom bg-white p-2 px-4">
+							<div class="d-flex flex-row add-comment-section mt-4 mb-4"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text" class="form-control mr-3" placeholder="Bạn nghĩ gì về khóa học này?"><button class="btn btn-primary binhluan" type="button">Bình luận</button></div>
+							<div class="commented-section mt-2">
+								<div class="d-flex flex-row align-items-center commented-user">
+									<h5 class="mr-2">Hậu Trịnh</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 giờ</span>
+								</div>
+								<div class="comment-text-sm"><span>khóa học này học phí bao nhiêu vậy ạ</span></div>
+								<div class="reply-section">
+									<div class="d-flex flex-row align-items-center voting-icons">
+										<i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i><i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i><span class="ml-2">10</span><span class="dot ml-2"></span>
+										<h6 class="ml-2 mt-1">Trả lời</h6>
+									</div>
+								</div>
+							</div>
+							<div class="traloi">
+								<textarea placeholder='Bạn nghĩ gì về khóa học này?'></textarea>
+								<div class="btn1" >
+									<button id='clear'>Hủy</button>
+									<input id="binhluan" type="submit" value='Bình Luận'>
+								</div>
+							</div>
+							<div class="content-comment">
+								<div class="commented-section mt-2">
+									<div class="d-flex flex-row align-items-center commented-user">
+										<h5 class="mr-2">Quốc Huỳnh</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">5 giờ</span>
+									</div>
+									<div class="comment-text-sm"><span>khóa học này học phí 2tr em nhé</span></div>
+								
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-
-	</div>
+	
 	<!-- /.col -->
 	<div class="col-md-4">
 		<!-- Widget: user widget style 1 -->
@@ -81,12 +265,13 @@
 
 			</div>
 			<div class="card-footer">
-				 <button> Học Ngay</button>
-				 <div>có thông tin gì cần thì đổ thêm ở dưới nút button </div>
+				<button> Học Ngay</button>
+				<div>có thông tin gì cần thì đổ thêm ở dưới nút button </div>
 			</div>
 		</div>
 		<!-- /.widget-user -->
 	</div>
 
 </div>
+
 <!-- /.row -->

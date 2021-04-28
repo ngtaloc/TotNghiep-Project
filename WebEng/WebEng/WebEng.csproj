@@ -2755,7 +2755,10 @@
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\layout_2.cshtml" />
+<<<<<<< HEAD
+=======
     <Content Include="Areas\HocVien\Views\Home\learning.cshtml" />
+>>>>>>> c735930c95b73ce4b7b176f882e53480d9e7ad2e
     <Content Include="Areas\HocVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
@@ -2796,7 +2799,10 @@
     <Content Include="Areas\HocVien\Views\Learning\Reading.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Writing.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
+<<<<<<< HEAD
+=======
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
+>>>>>>> c735930c95b73ce4b7b176f882e53480d9e7ad2e
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
