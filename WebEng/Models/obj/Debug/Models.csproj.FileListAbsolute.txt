@@ -77,12 +77,10 @@ F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.
 F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-<<<<<<< HEAD
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-=======
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb

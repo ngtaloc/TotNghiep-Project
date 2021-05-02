@@ -15,14 +15,25 @@ namespace WebEng.Areas.HocVien.Controllers
     {
         // GET: HocVien/Home
       
+        [HttpGet]
         public ActionResult Index()
         {
             var dao = new LopHocDAO();
-            var model = dao.FindAll();
+            var model = dao.FindLopHocHocVien(User.Identity.Name);
             return View(model);
         }
-		public ActionResult chitietlophoc(int id)
+
+        [HttpPost]
+        public ActionResult Find(string tim =null, bool Listening = false, bool Speaking = false, bool Reading = false, bool Writing = false, string lvListening = null, string lvSpeaking = null, string lvReading = null, string lvWriting = null)
+        {
+            var dao = new LopHocDAO();
+            var model = dao.FindLopHocIndex(tim ,  Listening,  Speaking,  Reading , Writing ,  lvListening , lvSpeaking , lvReading , lvWriting );
+            return View("Index",model);
+        }
+
+        public ActionResult chitietlophoc(int id)
 		{
+            
             var dao = new LopHocDAO();
             var model = dao.GetByID(id);
 

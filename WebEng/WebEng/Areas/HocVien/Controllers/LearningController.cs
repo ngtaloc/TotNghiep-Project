@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,5 +40,13 @@ namespace WebEng.Areas.HocVien.Controllers
 			return View();
 
 		}
-	}
+        [ChildActionOnly]
+        public ActionResult LopDaDK()
+        {
+            var dao = new LopHocDAO();
+            var model = dao.FindLopHocHocVien(User.Identity.Name);
+            return PartialView("~/Areas/HocVien/Views/Shared/LopDaDK.cshtml",model);
+        }
+
+    }
 }
