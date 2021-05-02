@@ -2755,9 +2755,6 @@
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\_HVLayout.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\layout_2.cshtml" />
-
-    <Content Include="Areas\HocVien\Views\Home\learning.cshtml" />
-
     <Content Include="Areas\HocVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
@@ -2816,7 +2813,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
