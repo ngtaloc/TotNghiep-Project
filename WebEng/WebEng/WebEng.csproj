@@ -170,6 +170,18 @@
   <ItemGroup>
     <Content Include="Content\css\agency.css" />
     <Content Include="Content\css\agency.min.css" />
+    <Content Include="Content\DangKy\css\style.css" />
+    <Content Include="Content\DangKy\fonts\material-icon\css\material-design-iconic-font.css" />
+    <Content Include="Content\DangKy\fonts\material-icon\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\DangKy\fonts\montserrat\montserrat-v12-latin-900.svg" />
+    <Content Include="Content\DangKy\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\DangKy\images\checked.gif" />
+    <Content Include="Content\DangKy\images\signup-bg.jpg" />
+    <Content Include="Content\DangKy\images\unchecked.gif" />
+    <Content Include="Content\DangKy\js\main.js" />
+    <Content Include="Content\DangKy\vendor\jquery\jquery-ui.min.js" />
+    <Content Include="Content\DangKy\vendor\jquery\jquery.min.js" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -2797,6 +2809,32 @@
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\LopDaDK.cshtml" />
+    <Content Include="Content\DangKy\css\style.css.map" />
+    <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\montserrat-v12-latin-900.eot" />
+    <Content Include="Content\DangKy\fonts\montserrat\montserrat-v12-latin-900.ttf" />
+    <Content Include="Content\DangKy\fonts\montserrat\montserrat-v12-latin-900.woff" />
+    <Content Include="Content\DangKy\fonts\montserrat\montserrat-v12-latin-900.woff2" />
+    <Content Include="Content\DangKy\scss\common\extend.scss" />
+    <Content Include="Content\DangKy\scss\common\fonts.scss" />
+    <Content Include="Content\DangKy\scss\common\global.scss" />
+    <Content Include="Content\DangKy\scss\common\minxi.scss" />
+    <Content Include="Content\DangKy\scss\common\variables.scss" />
+    <Content Include="Content\DangKy\scss\layouts\main.scss" />
+    <Content Include="Content\DangKy\scss\layouts\responsive.scss" />
+    <Content Include="Content\DangKy\scss\style.scss" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2814,7 +2852,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="sum.py" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -2839,6 +2880,8 @@
     <Content Include="Views\Layout\gv.cshtml" />
     <Content Include="Views\Home\ChiTiet.cshtml" />
     <Content Include="Views\Shared\_LayoutGuest.cshtml" />
+    <Content Include="Views\DangKy\Index.cshtml" />
+    <Content Include="Views\DangKy\DangKyThanhCong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
