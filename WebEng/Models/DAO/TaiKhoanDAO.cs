@@ -45,10 +45,26 @@ namespace Models.DAO
             }
         }
 
+        public TaiKhoan FindByID(int id)
+        {
+            return db.TaiKhoans.SingleOrDefault(x=>x.iD==id);
+        }
+
         public IEnumerable<TaiKhoan> FindAll()
         {
             return db.TaiKhoans;
         }
 
+        public TaiKhoan SetFaceByID(int id)
+        {
+            var tk = db.TaiKhoans.FirstOrDefault(x => x.iD == id);
+            if (tk.face == -1 || tk.face==null)
+            {
+                tk.face = 0;
+            }
+            else if (tk.face==0) tk.face = -1;
+            db.SaveChanges();
+            return tk;
+        }
     }
 }

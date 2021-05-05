@@ -2466,6 +2466,36 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Python\.idea\.gitignore" />
+    <Content Include="Python\.idea\inspectionProfiles\profiles_settings.xml" />
+    <Content Include="Python\.idea\inspectionProfiles\Project_Default.xml" />
+    <Content Include="Python\.idea\misc.xml" />
+    <Content Include="Python\.idea\modules.xml" />
+    <Content Include="Python\.idea\vcs.xml" />
+    <Content Include="Python\.idea\workspace.xml" />
+    <Content Include="Python\align\align_mtcnn.py" />
+    <Content Include="Python\align\detect_face.py" />
+    <Content Include="Python\align\__init__.py" />
+    <Content Include="Python\detection.py" />
+    <Content Include="Python\facenet\facenet.py" />
+    <Content Include="Python\facenet\face_contrib.py" />
+    <Content Include="Python\face_align\Unow\ChiPu_0001.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0002.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0003.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0004.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0005.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0006.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0007.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0008.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0009.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0010.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0011.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0012.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0013.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0014.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0015.png" />
+    <Content Include="Python\LoginFace.py" />
+    <Content Include="Python\train.py" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -2839,6 +2869,26 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Python\.idea\faceweb.iml" />
+    <Content Include="Python\.idea\PROJECT.iml" />
+    <Content Include="Python\align\det1.npy" />
+    <Content Include="Python\align\det2.npy" />
+    <Content Include="Python\align\det3.npy" />
+    <Content Include="Python\align\__pycache__\align_mtcnn.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\align_mtcnn.cpython-37.pyc" />
+    <Content Include="Python\align\__pycache__\detect_face.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\detect_face.cpython-37.pyc" />
+    <Content Include="Python\align\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="Python\facenet\__pycache__\facenet.cpython-36.pyc" />
+    <Content Include="Python\facenet\__pycache__\facenet.cpython-37.pyc" />
+    <Content Include="Python\facenet\__pycache__\face_contrib.cpython-36.pyc" />
+    <Content Include="Python\facenet\__pycache__\face_contrib.cpython-37.pyc" />
+    <Content Include="Python\models\.gitkeep" />
+    <Content Include="Python\models\20180402-114759.pb" />
+    <Content Include="Python\models\model-20180402-114759.ckpt-275.data-00000-of-00001" />
+    <Content Include="Python\models\model-20180402-114759.ckpt-275.index" />
+    <Content Include="Python\models\model-20180402-114759.meta" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2852,7 +2902,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="sum.py" />
+    <Content Include="Python\sum.py" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2891,6 +2941,7 @@
     <Folder Include="Areas\GiaoVien\Views\Home\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
+    <Folder Include="Python\your_face\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

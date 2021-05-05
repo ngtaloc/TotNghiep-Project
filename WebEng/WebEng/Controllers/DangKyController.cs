@@ -166,57 +166,68 @@ namespace WebEng.Controllers
             return View(tk);
         }
         [HttpPost]
-        public ActionResult DangKyThanhCong()
+        public ActionResult DangKyThanhCong(int id)
         {
-            // full path of python interpreter 
-            string python = @"D:\HK1_2020\DoAnCN\doancn\venv\Scripts\python.exe";
+            var dao = new TaiKhoanDAO();
+            var tk = dao.SetFaceByID(id);
+            try
+            {
 
-            // python app to call 
-            string myPythonApp = @"D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\sum.py";
+                // full path of python interpreter 
+                string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
 
-            // dummy parameters to send Python script 
-            int x = 2;
-            int y = 5;
+                // python app to call 
+                string myPythonApp = @"C:\loc\TotNhiep\WebEng\WebEng\Python\train.py";
 
-            // Create new process start info 
-            ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
+                
 
-            // make sure we can read the output from stdout 
-            myProcessStartInfo.UseShellExecute = false;
-            myProcessStartInfo.RedirectStandardOutput = true;
+                // Create new process start info 
+                ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
 
-            // start python app with 3 arguments  
-            // 1st arguments is pointer to itself,  
-            // 2nd and 3rd are actual arguments we want to send 
-            //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
-            myProcessStartInfo.Arguments = myPythonApp ;
+                // make sure we can read the output from stdout 
+                myProcessStartInfo.UseShellExecute = false;
+                myProcessStartInfo.RedirectStandardOutput = true;
+
+                // start python app with 3 arguments  
+                // 1st arguments is pointer to itself,  
+                // 2nd and 3rd are actual arguments we want to send 
+                //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
+                myProcessStartInfo.Arguments = myPythonApp;
 
 
-            Process myProcess = new Process();
-            // assign start information to the process 
-            myProcess.StartInfo = myProcessStartInfo;
+                Process myProcess = new Process();
+                // assign start information to the process 
+                myProcess.StartInfo = myProcessStartInfo;
 
-            Console.WriteLine("Calling Python script with arguments {0} and {1}");
-            // start the process 
-            myProcess.Start();
+                Console.WriteLine("Calling Python script with arguments {0} and {1}");
+                // start the process 
+                myProcess.Start();
 
-            // Read the standard output of the app we called.  
-            // in order to avoid deadlock we will read output first 
-            // and then wait for process terminate: 
-            StreamReader myStreamReader = myProcess.StandardOutput;
-            string myString = myStreamReader.ReadLine();
+                // Read the standard output of the app we called.  
+                // in order to avoid deadlock we will read output first 
+                // and then wait for process terminate: 
+                StreamReader myStreamReader = myProcess.StandardOutput;
+                string myString = myStreamReader.ReadLine();
 
-            /*if you need to read multiple lines, you might use: 
-                string myString = myStreamReader.ReadToEnd() */
+                /*if you need to read multiple lines, you might use: 
+                    string myString = myStreamReader.ReadToEnd() */
 
-            // wait exit signal from the app we called and then close it. 
-            myProcess.WaitForExit();
-            myProcess.Close();
+                // wait exit signal from the app we called and then close it. 
+                myProcess.WaitForExit();
+                myProcess.Close();
 
-            // write the output we got from python app 
-            Console.WriteLine("Value received from script: " + myString);
+                // write the output we got from python app 
+                Console.WriteLine("Value received from script: " + myString);
+                ModelState.AddModelError("", "Có lỗi trong quá trình quét mặt. Vui lòng thử lại: " + myString);
 
-            return View();
+            }
+            catch (Exception e)
+            {
+                tk = dao.SetFaceByID(id);
+                ModelState.AddModelError("", "Có lỗi trong quá trình quét mặt. Vui lòng thử lại: " + e.ToString());
+
+            }
+            return View(tk);
         }
 
     }

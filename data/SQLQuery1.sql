@@ -7,6 +7,7 @@ create table TaiKhoan(
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
 	trangThai int DEFAULT 1, --0:khóa 1:mở
+	face int DEFAULT 0,--0:khóa 1:mở
 );
 
 CREATE TABLE TAIKHOAN_NHOMQUYEN(
