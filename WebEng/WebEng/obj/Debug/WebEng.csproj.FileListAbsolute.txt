@@ -132,3 +132,17 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.Co
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.Modules.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.SQLite.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.Wpf.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Dynamic.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Scripting.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Scripting.Metadata.dll
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.Modules.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.SQLite.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\IronPython.Wpf.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Dynamic.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Scripting.xml
+C:\loc\TotNhiep\WebEng\WebEng\bin\Microsoft.Scripting.Metadata.xml

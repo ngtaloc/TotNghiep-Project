@@ -162,7 +162,6 @@ namespace WebEng.Controllers
         [HttpGet]
         public ActionResult DangKyThanhCong(TaiKhoan tk)
         {
-            
             return View(tk);
         }
         [HttpPost]
@@ -193,14 +192,14 @@ namespace WebEng.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
+                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\WebEng\WebEng\Python\";
 
 
                 Process myProcess = new Process();
                 // assign start information to the process 
                 myProcess.StartInfo = myProcessStartInfo;
 
-                Console.WriteLine("Calling Python script with arguments {0} and {1}");
-                // start the process 
+               // start the process 
                 myProcess.Start();
 
                 // Read the standard output of the app we called.  
@@ -218,7 +217,7 @@ namespace WebEng.Controllers
 
                 // write the output we got from python app 
                 Console.WriteLine("Value received from script: " + myString);
-                ModelState.AddModelError("", "Có lỗi trong quá trình quét mặt. Vui lòng thử lại: " + myString);
+                ModelState.AddModelError("", "Có lỗi trong quá trình quét mặt: " + myString);
 
             }
             catch (Exception e)

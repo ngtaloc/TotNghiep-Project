@@ -1,9 +1,12 @@
-﻿using Models.DAO;
+﻿using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
+using Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -67,6 +70,7 @@ namespace WebEng.Controllers
         
         public ActionResult LoginFace()
         {
+
             var dao = new TaiKhoanDAO();
             string idtk = null;
             try
@@ -77,9 +81,7 @@ namespace WebEng.Controllers
                 // python app to call 
                 string myPythonApp = @"C:\loc\TotNhiep\WebEng\WebEng\Python\detection.py";
 
-                // dummy parameters to send Python script 
-                int x = 2;
-                int y = 5;
+               
 
                 // Create new process start info 
                 ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
@@ -87,19 +89,33 @@ namespace WebEng.Controllers
                 // make sure we can read the output from stdout 
                 myProcessStartInfo.UseShellExecute = false;
                 myProcessStartInfo.RedirectStandardOutput = true;
+                myProcessStartInfo.RedirectStandardError = true;
 
                 // start python app with 3 arguments  
                 // 1st arguments is pointer to itself,  
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
+                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\WebEng\WebEng\Python\";
+                //using (Process process = Process.Start(myProcessStartInfo))
+                //{
+                //    using (StreamReader reader = process.StandardOutput)
+                //    {
+                //        string result = reader.ReadToEnd();
+                //        ModelState.AddModelError("", "Có lỗi trong quá trình nhận diện. Vui lòng thử lại: " + result);
+                //        idtk = result;
 
+                //        process.WaitForExit();
+                //        Console.Write(result);
 
+                //    }
+                //    string erroi = process.StandardError.ReadToEnd();
+                //}
                 Process myProcess = new Process();
                 // assign start information to the process 
                 myProcess.StartInfo = myProcessStartInfo;
+                //myProcess.StartInfo.WorkingDirectory = myPythonApp;
 
-                Console.WriteLine("Calling Python script with arguments {0} and {1}");
                 // start the process 
                 myProcess.Start();
 
@@ -107,7 +123,7 @@ namespace WebEng.Controllers
                 // in order to avoid deadlock we will read output first 
                 // and then wait for process terminate: 
                 StreamReader myStreamReader = myProcess.StandardOutput;
-                string myString = myStreamReader.ReadLine();
+                string myString = myStreamReader.ReadToEnd();
 
                 /*if you need to read multiple lines, you might use: 
                     string myString = myStreamReader.ReadToEnd() */
@@ -119,7 +135,7 @@ namespace WebEng.Controllers
                 idtk = myString;
                 // write the output we got from python app 
                 Console.WriteLine("Value received from script: " + myString);
-                ModelState.AddModelError("", "Có lỗi trong quá trình nhận diện. Vui lòng thử lại: " + myString);
+                ModelState.AddModelError("", "Có lỗi trong quá trình nhận diệns: " + myString);
 
             }
             catch (Exception e)

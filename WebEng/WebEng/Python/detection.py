@@ -36,27 +36,6 @@ import pyodbc
 
 from facenet.face_contrib import *
 
-class DBConnet():
-
-    @staticmethod
-    def getConnet():
-        try:
-            conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
-                                  # Loc
-                                  # 'Server=DESKTOP-4UPPHLQ\SQLEXPRESS;' 'Database=TotNghiep;'
-                                  'Server=(LocalDB)\MSSQLLocalDB;' 'Database=TotNghiep;'
-
-                                  # Hau
-                                  # 'Server=DESKTOP-LM0C49R\SQLEXPRESS;' 'Database=DOAN_CHUYENNGANH;'
-
-                                  # QUOC
-                                  # 'Server=DESKTOP-TD9R29S;' 'Database=chuyen_nganh;'
-                                  'Trusted_Connection=Yes'
-                                  )
-            return conn
-        except Exception as e:
-            print(e)
-
 def add_overlays(frame, faces, frame_rate, colors, confidence=0.55):
     if faces is not None:
         for idx, face in enumerate(faces):
@@ -130,7 +109,4 @@ def run(model_checkpoint, classifier, video_file=None, output_file=None):
     video_capture.release()
     cv2.destroyAllWindows()
 
-if __name__ == '__main__':
-
-
-    run('models', 'models/your_model.pkl')
+run('models', 'models/your_model.pkl')
