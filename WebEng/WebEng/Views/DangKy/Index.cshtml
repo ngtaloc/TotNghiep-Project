@@ -1,0 +1,180 @@
+﻿@model Models.Framework.TaiKhoan
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đăng ký tài khoản</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/Content/DangKy/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <!-- Main css -->
+    <link href="~/Content/DangKy/css/style.css" rel="stylesheet" />
+    
+    <script>
+        $(document).ready(function () {
+            $(".modal1").hide();
+            $(".teacher1").click(function () {
+                $(".modal1").show();
+            });
+            $(".student1").click(function () {
+                $(".modal1").hide()
+            });
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <div class="main">
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    @using (Html.BeginForm())
+                    {<h2 class="form-title">ĐĂNG KÝ</h2>
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Họ tên" required />
+
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.tenDangNhap, "", new { @class = "form-input", @id = "tendangnhap", @placeholder = "Tên đăng nhập" })
+                            @Html.ValidationMessageFor(model => model.tenDangNhap, "Nhập tên đăng nhập", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(model => model.matKhau, new { @class = "form-input", @id = "password", @placeholder = "Mật khẩu" })
+                            @Html.ValidationMessageFor(model => model.matKhau, "Nhập mật khẩu", new { @class = "text-danger" })
+                            <span toggle="#password" id="show-password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            @Html.PasswordFor(model => model.matKhau, new { @class = "form-input", @id = "re_password", @placeholder = "Nhập lại mật khẩu" })
+                            @Html.ValidationMessageFor(model => model.matKhau, "Không trùng với mật khẩu", new { @class = "text-danger" })
+                            <span toggle="#re_password" id="show-re_password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="diachi" id="diachi" placeholder="Địa chỉ" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="gioitinh" id="gioitinh" placeholder="Giới tính" />
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-input" name="ngaysinh" id="ngaysinh" placeholder="Ngày sinh" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="email" id="email" placeholder="Email" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-input" name="sdt" id="sdt" placeholder="Số điện thoại" required/>
+                        </div>
+
+                        <div class="form-group">
+                            Loại tài khoản:
+                            <div class="radio">
+                                <label><input class="teacher1" type="radio" name="optradio" value="GiaoVien">Giáo viên</label>
+                            </div>
+                            <div class="radio">
+                                <label><input class="student1" type="radio" name="optradio" value="HocVien" checked>Học viên</label>
+                            </div>
+                        </div>
+
+
+                        <!--  <input type="checkbox" data-width="100" checked data-toggle="toggle" data-on="Giáo viên" data-off="Học viên" data-onstyle="success" data-offstyle="danger">  -->
+                        <div class="modal1">
+                            <div class="form-group1">
+                                <label><b> Kỹ năng: </b></label><br>
+                                <div class="col-md-3 col-xs-3" style="padding:0;">
+                                    <input type="checkbox" id="check1" class="agree-term" name="lis" value="false"/>
+                                    <label for="check1" class="label-agree-term check"><span><span></span></span>Listening</label>
+                                    <select class="form-control form-control-sm" disabled name="lvListening">
+                                        <option value="1">LV 1</option>
+                                        <option value="2">LV 2</option>
+                                        <option value="3">LV 3</option>
+                                        <option value="4">LV 4</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-3" style="padding:0;">
+                                    <input type="checkbox" id="check2" class="agree-term" name="spe" value="false"/>
+                                    <label for="check2" class="label-agree-term check"><span><span></span></span>Speaking</label>
+
+                                    <select class="form-control form-control-sm" disabled name="lvSpeaking">
+                                        <option value="1">LV 1</option>
+                                        <option value="2">LV 2</option>
+                                        <option value="3">LV 3</option>
+                                        <option value="4">LV 4</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-3" style="padding:0;">
+                                    <input type="checkbox" id="check3" class="agree-term" name="rea" value="false" />
+                                    <label for="check3" class="label-agree-term check"><span><span></span></span>Reading </label>
+                                    <select class="form-control form-control-sm" disabled name="lvReading">
+                                        <option value="1">LV 1</option>
+                                        <option value="2">LV 2</option>
+                                        <option value="3">LV 3</option>
+                                        <option value="4">LV 4</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-3" style="padding:0;">
+                                    <input type="checkbox" id="check4" class="agree-term" name="wri" value="false" />
+                                    <label for="check4" class="label-agree-term check"><span><span></span></span>Writing </label>
+
+                                    <select class="form-control form-control-sm" disabled name="lvWriting">
+                                        <option value="1">LV 1</option>
+                                        <option value="2">LV 2</option>
+                                        <option value="3">LV 3</option>
+                                        <option value="4">LV 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>Tôi đồng ý tất cả các tuyên bố trong  <a href="#" class="term-service">  Điều khoản</a></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Đăng Ký" />
+                        </div>
+                    }
+                    <p class="loginhere">
+
+                        Đã có tài khoản? <a href="#" class="loginhere-link">Đăng nhập</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script> -->
+    <script>
+        $(".agree-term").click(function () {
+            if (this.checked) {
+                $(this).val('TRUE');
+                $(this).closest('.col-md-3.col-xs-3').find('.form-control.form-control-sm').removeAttr("disabled");
+            } else {
+                $(this).val('FALSE');
+                $(this).closest('.col-md-3.col-xs-3').find('.form-control.form-control-sm').attr("disabled", true);
+
+            }
+
+        });
+
+    </script>
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

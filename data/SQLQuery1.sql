@@ -7,6 +7,7 @@ create table TaiKhoan(
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
 	trangThai int DEFAULT 1, --0:khóa 1:mở
+	face int DEFAULT 0,--0:khóa 1:mở
 );
 
 CREATE TABLE TAIKHOAN_NHOMQUYEN(
@@ -150,12 +151,11 @@ create table ThongBao(
 	idTK int,
 	noiDung ntext,
 	ngay datetime,
-<<<<<<< HEAD
-=======
+
 	link varchar(255),
 	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
 	trangThai int, --0:chưa đọc ; 1:đã đọc
->>>>>>> refs/remotes/origin/main
+
 	foreign key(idTK) references  TaiKhoan(id),
 );
 -------Thời khóa biểu
@@ -318,3 +318,9 @@ values ('Listening'),
 ('Speaking'),
 ('Reading'),
 ('Writing');
+
+insert into CapDo
+values ('Level 1'),
+('Level 2'),
+('Level 3'),
+('Level 4');

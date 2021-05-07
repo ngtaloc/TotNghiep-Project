@@ -32,6 +32,8 @@ namespace Models.Framework
 
         public int? trangThai { get; set; }
 
+        public int? face { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BinhLuan> BinhLuans { get; set; }
 

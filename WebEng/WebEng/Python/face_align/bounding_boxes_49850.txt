@@ -1,0 +1,21 @@
+face_align\3\0.png
+face_align\3\1.png 473 200 640 414
+face_align\3\10.png 365 194 539 402
+face_align\3\11.png 370 206 539 403
+face_align\3\12.png 377 205 545 402
+face_align\3\13.png 373 201 546 408
+face_align\3\14.png 378 207 544 402
+face_align\3\15.png 378 207 546 404
+face_align\3\16.png 377 206 545 405
+face_align\3\17.png 376 206 544 403
+face_align\3\18.png 370 196 540 404
+face_align\3\19.png 374 207 545 410
+face_align\3\2.png 405 204 588 415
+face_align\3\20.png 372 198 541 405
+face_align\3\3.png 362 206 533 406
+face_align\3\4.png 321 201 498 416
+face_align\3\5.png 322 198 497 414
+face_align\3\6.png 337 199 513 409
+face_align\3\7.png 355 204 529 408
+face_align\3\8.png 366 202 538 406
+face_align\3\9.png 370 206 538 401

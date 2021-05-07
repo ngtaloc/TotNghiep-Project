@@ -1,0 +1,24 @@
+﻿@model Models.Framework.TaiKhoan
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DangKyThanhCong</title>
+</head>
+<body>
+    <div>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        Bạn đã đăng ký thành công tài khoản 
+        @using (Html.BeginForm("DangKyThanhCong", "DangKy", FormMethod.Post))
+        {
+            <button type="submit" name="id" value="3">pyhton</button>
+        }
+        </div>
+</body>
+</html>
