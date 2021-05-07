@@ -184,6 +184,7 @@
     <Content Include="Content\img\logos\designmodo.jpg" />
     <Content Include="Content\img\logos\envato.jpg" />
     <Content Include="Content\img\logos\themeforest.jpg" />
+    <Content Include="Content\img\logos\zoom.png" />
     <Content Include="Content\img\map-image.png" />
     <Content Include="Content\img\portfolio\dreams-preview.jpg" />
     <Content Include="Content\img\portfolio\dreams.jpg" />
@@ -2796,6 +2797,8 @@
     <Content Include="Areas\HocVien\Views\Learning\Writing.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
+    <Content Include="Areas\HocVien\Views\Shared\LopDaDK.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Meeting.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

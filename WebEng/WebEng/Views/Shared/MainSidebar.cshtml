@@ -29,58 +29,108 @@
         @*@Html.TextBoxFor(model => model.ChucNangs.)*@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
-                @helper ItemCon(ChucNang item)
-                {
-                    <ul class="nav nav-treeview">
-                        @foreach (var i in item.ChucNang1)
-                        {
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<!-- Add icons to the links using the .nav-icon class
+	with font-awesome or any other icon font library -->
+				@helper ItemCon(ChucNang item, string role)
+				{
+					<ul class="nav nav-treeview">
+						@foreach (var i in item.ChucNang1)
+						{
 
-                            <li class="nav-item">
-                                <a href="'http://localhost:52790/HocVien/''@item.tenFile'" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        @i.tenChucNang
-                                        @if (i.ChucNang1.Count != 0)
-                                        {<i class="fas fa-angle-left right"></i>}
-                                    </p>
-                                </a>
-                                @if (i.ChucNang1.Count != 0)
-                                {@ItemCon(i)}
-                            </li>
+							<li class="nav-item">
+								<a href="'http://localhost:52790/@role/@i.tenFile'" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>
+										@i.tenChucNang
+										@if (i.ChucNang1.Count != 0)
+										{<i class="fas fa-angle-left right"></i>}
+									</p>
+								</a>
+								@if (i.ChucNang1.Count != 0)
+								{@ItemCon(i, role)}
+							</li>
 
-                        }
-                    </ul>
-                }
-                @foreach (var it in Model.TAIKHOAN_NHOMQUYEN)
-                {
-                    foreach (var item in it.NhomQuyen.ChucNangs)
-                    {
-                        if (item.ChucNang2 == null)
-                        {
-                            <li class="nav-item">
-                                <a href="@item.tenFile" class="nav-link">
-                                    <i class="nav-icon fas fa-user-graduate"></i>
-                                    <p>
-                                        @item.tenChucNang
-                                        @if (item.ChucNang1.Count != 0)
-                                        {<i class="fas fa-angle-left right"></i>}
-                                    </p>
-                                </a>
-                                @if (item.ChucNang1.Count != 0)
-                                {@ItemCon(item)}
+						}
+					</ul>
+				}
+				@foreach (var it in Model.TAIKHOAN_NHOMQUYEN)
+				{
+					foreach (var item in it.NhomQuyen.ChucNangs)
+					{
+						if (item.ChucNang2 == null)
+						{
+							<li class="nav-item">
+								<a href="http://localhost:52790/@it.NhomQuyen.tenNhomQuyen/@item.tenFile" class="nav-link">
+									<i class="nav-icon fas fa-user-graduate"></i>
+									<p>
+										@item.tenChucNang
+										@if (item.ChucNang1.Count != 0)
+										{<i class="fas fa-angle-left right"></i>}
+									</p>
+								</a>
+								@if (item.ChucNang1.Count != 0)
+								{@ItemCon(item, it.NhomQuyen.tenNhomQuyen)}
 
-                            </li>
-                        }
-
-
-                    }
-                }
+							</li>
+						}
 
 
-            </ul>
+					}
+				}
+
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Lớp học
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Bảng điểm
+						</p>
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Lưu trữ
+						</p>
+					</a>s
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Thùng rác
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Nạp tiền
+						</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-user-graduate"></i>
+						<p>
+							Tra cứu tài khoản
+						</p>
+					</a>
+				</li>
+
+
+			</ul>
             @*@RenderPage("Layout/ChucNang.cshtml")*@
         </nav>
         <!-- /.sidebar-menu -->

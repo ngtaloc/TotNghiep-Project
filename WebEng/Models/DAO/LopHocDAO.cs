@@ -59,9 +59,136 @@ namespace Models.DAO
 
        public IEnumerable<LopHoc> FindLopHocGiaoVien(string tdn)
         {
-            return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangviens.First().LopHocs;
-            
+            //return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangviens.First().LopHocs;
+            return db.LopHocs.Where(x => x.Giangvien.TaiKhoan.tenDangNhap == tdn);
+        }
+        public IEnumerable<LopHoc> FindLopHocHocVien(string tdn)
+        {
+            //return db.TaiKhoans.Where(x => x.tenDangNhap == tdn).First().Giangviens.First().LopHocs;
+            return db.LopHocs.Where(x => x.DSLopHocs.FirstOrDefault(z=>z.HocVien.TaiKhoan.tenDangNhap == tdn).HocVien.TaiKhoan.tenDangNhap==tdn);
         }
 
+        public IEnumerable<LopHoc> FindLopHocIndex(string tim, bool Listening, bool Speaking, bool Reading, bool Writing, string lvListening, string lvSpeaking, string lvReading, string lvWriting)
+        {
+
+            var enty = db.LopHocs.Where(x => x.tenLopHoc.Contains(tim) || x.Giangvien.hovaten.Contains(tim) 
+                            || x.KyNangLopHocs.FirstOrDefault(y => y.KyNang.tenKyNang.Contains(tim)) != null);
+            //var enty = (from lh in db.LopHocs
+            //         join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+            //         join kn in db.KyNangs on knlh.idKN equals kn.ID
+            //         where (lh.tenLopHoc.Contains(tim) || lh.Giangvien.hovaten.Contains(tim) || 
+            //               kn.tenKyNang.Contains(tim))
+            //         select lh);
+            var t = db.KyNangLopHocs.FirstOrDefault(y => y.KyNang.tenKyNang.Contains("zzzz"));
+            foreach (var item in enty) { int a=enty.Count(); }
+            
+            if (Listening)
+            {
+                if (lvListening == "0")
+                {
+                    foreach(var item in enty) { }
+                    var lis = (from lh in db.LopHocs
+                               join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                               where (knlh.idKN == 1)
+                               select lh);
+                    foreach (var item in lis) { }
+                    enty = from e in enty
+                           join l in lis on e.ID equals l.ID
+                           select e;
+                    foreach (var item in enty) { }
+                }
+                else
+                {
+                    int lv = int.Parse(lvListening);
+                    var lis = (from lh in db.LopHocs
+                               join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                               where knlh.idKN==1 && knlh.idCD ==  lv
+                               select lh);
+                    enty = from e in enty
+                           join l in lis on e.ID equals l.ID
+                           select e;
+                }
+            }
+            
+            if (Speaking)
+            {
+                if (lvSpeaking == "0")
+                {
+                    foreach (var item in enty) { }
+                    var spe = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where (knlh.idKN == 2)
+                           select lh);
+                    foreach(var item in spe) { }
+                    enty = from e in enty
+                           join l in spe on e.ID equals l.ID
+                           select e;
+                    foreach (var item in enty) { }
+                }
+                else
+                {
+                    int lv = int.Parse(lvSpeaking);
+
+                    var spe = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where knlh.idKN == 2 && knlh.idCD == lv
+                           select lh);
+                    enty = from e in enty
+                           join l in spe on e.ID equals l.ID
+                           select e;
+                }
+            }
+            if (Reading)
+            {
+                if (lvReading == "0")
+                {
+                    var rea = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where (knlh.idKN == 3)
+                           select lh);
+                    enty = from e in enty
+                           join l in rea on e.ID equals l.ID
+                           select e;
+                }
+                else
+                {
+                    int lv = int.Parse(lvReading);
+
+                    var rea = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where knlh.idKN == 3 && knlh.idCD == lv
+                           select lh);
+                    enty = from e in enty
+                           join l in rea on e.ID equals l.ID
+                           select e;
+                }
+            }
+            if (Writing)
+            {
+                if (lvWriting == "0")
+                {
+                    var wri = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where (knlh.idKN == 4)
+                           select lh);
+                    enty = from e in enty
+                           join l in wri on e.ID equals l.ID
+                           select e;
+                }
+                else
+                {
+                    int lv = int.Parse(lvListening);
+
+                    var wri = (from lh in db.LopHocs
+                           join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH
+                           where knlh.idKN == 4 && knlh.idCD == lv
+                           select lh);
+                    enty = from e in enty
+                           join l in wri on e.ID equals l.ID
+                           select e;
+                }
+            }
+            return enty;
+        }
     }
 }

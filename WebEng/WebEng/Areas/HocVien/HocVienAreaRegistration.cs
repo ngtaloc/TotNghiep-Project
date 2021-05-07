@@ -14,20 +14,21 @@ namespace WebEng.Areas.HocVien
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
-
+           
             context.MapRoute(
                "HocVien_chi-tiet",
                "HocVien/chi-tiet/{id}",
                new { action = "chitietlophoc", controller = "Home", id = UrlParameter.Optional },
                new[] { "WebEng.Areas.HocVien.Controllers" }
            );
-
+           
             context.MapRoute(
                 "HocVien_default",
                 "HocVien/{controller}/{action}/{id}",
                 new { action = "Index", controller = "Home", id = UrlParameter.Optional },
                 new[] { "WebEng.Areas.HocVien.Controllers" }
             );
+           
         }
     }
 }

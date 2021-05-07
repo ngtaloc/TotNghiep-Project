@@ -100,15 +100,19 @@ fieldset[disabled] .btn-primary.active {
   background-color: white;
 }
 .btn-xl {
-  color: white;
-  background-color: #fed136;
-  border-color: #fed136;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 3px;
-  font-size: 18px;
-  padding: 20px 40px;
+	
+	
+	border-radius: 20px;
+	width: 100%;
+	max-width: 190px;
+	color: white;
+	background-color: #fed136;
+	border-color: #fed136;
+	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 18px;
+	
 }
 .btn-xl:hover,
 .btn-xl:focus,

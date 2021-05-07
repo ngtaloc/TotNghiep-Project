@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Models.Framework.LopHoc>
+
+<div class="menu">
+
+    @{
+        int d = 0;
+        <ul>
+
+            @foreach (var item in Model)
+            {
+                d++;
+                if (d > 4)
+                {
+                    break;
+                }
+                <li>@item.tenLopHoc</li>
+            }
+
+
+        </ul>
+        if (d > 4)
+        {
+            d = 0;
+            <button class="more"> Xêm thêm>></button>
+            <div class="dropdown1">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        d++;
+                        if (d > 4)
+                        {
+                            <li>@item.tenLopHoc</li>
+                        }
+
+                    }
+                </ul>
+            </div>            
+        }
+
+    }
+
+</div>
