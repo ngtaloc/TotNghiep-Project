@@ -18,6 +18,7 @@ namespace Models.Framework
             TAIKHOAN_NHOMQUYEN = new HashSet<TAIKHOAN_NHOMQUYEN>();
             TaiLieux = new HashSet<TaiLieu>();
             ThongBaos = new HashSet<ThongBao>();
+            ViTiens = new HashSet<ViTien>();
         }
 
         public int iD { get; set; }
@@ -51,5 +52,8 @@ namespace Models.Framework
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongBao> ThongBaos { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ViTien> ViTiens { get; set; }
     }
 }
