@@ -2861,9 +2861,7 @@
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\LopDaDK.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\HocVien\Views\Learning\Meeting.cshtml" />
-=======
     <Content Include="Content\DangKy\css\style.css.map" />
     <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.eot" />
     <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.ttf" />
@@ -2890,7 +2888,6 @@
     <Content Include="Content\DangKy\scss\layouts\main.scss" />
     <Content Include="Content\DangKy\scss\layouts\responsive.scss" />
     <Content Include="Content\DangKy\scss\style.scss" />
->>>>>>> f790b4853f5c1bb96dae8f227b9d7688cfe13eaa
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2928,10 +2925,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-<<<<<<< HEAD
-=======
     <Content Include="Python\sum.py" />
->>>>>>> f790b4853f5c1bb96dae8f227b9d7688cfe13eaa
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
