@@ -15,6 +15,7 @@ namespace WebEng.Controllers
         public ActionResult MainHeader()
         {
             var dao = new TaiKhoanDAO();
+            
             try
             {
                 var model = dao.GetByTDN(User.Identity.Name);

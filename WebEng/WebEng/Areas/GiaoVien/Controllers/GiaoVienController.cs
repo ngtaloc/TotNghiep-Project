@@ -12,7 +12,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
     public class GiaoVienController : Controller
     {
         // GET: GiaoVien/GiaoVien
-        public ActionResult GiaoVien()
+        public ActionResult Index()
         {
             var dao = new LopHocDAO();
             var model = dao.FindLopHocGiaoVien(User.Identity.Name);
@@ -79,5 +79,6 @@ namespace WebEng.Areas.GiaoVien.Controllers
             }
             return View();
         }
+        
     }
 }

@@ -77,18 +77,20 @@
     <Compile Include="Framework\KyNang.cs" />
     <Compile Include="Framework\KyNangGiangVien.cs" />
     <Compile Include="Framework\KyNangLopHoc.cs" />
+    <Compile Include="Framework\LichSuGD.cs" />
     <Compile Include="Framework\LoaiTaiLieu.cs" />
     <Compile Include="Framework\LopHoc.cs" />
     <Compile Include="Framework\Nam.cs" />
     <Compile Include="Framework\Ngay.cs" />
     <Compile Include="Framework\NhomQuyen.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
+    <Compile Include="Framework\sysdiagrams.cs" />
     <Compile Include="Framework\TaiKhoan.cs" />
     <Compile Include="Framework\TAIKHOAN_NHOMQUYEN.cs" />
     <Compile Include="Framework\TaiLieu.cs" />
     <Compile Include="Framework\Thang.cs" />
     <Compile Include="Framework\ThongBao.cs" />
     <Compile Include="Framework\TietHoc.cs" />
+    <Compile Include="Framework\ViTien.cs" />
     <Compile Include="Framework\WebEngDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

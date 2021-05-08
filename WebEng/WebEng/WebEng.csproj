@@ -158,6 +158,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
     <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Common\CustomMembershipProvider.cs" />
@@ -2810,7 +2811,7 @@
     <Content Include="Areas\HocVien\Views\web.config" />
     <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\web.config" />
-    <Content Include="Areas\GiaoVien\Views\GiaoVien\GiaoVien.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\GiaoVien\Index.cshtml" />
     <Content Include="Content\Login\vendor\jquery.cookie\component.json" />
     <Content Include="Content\Login\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
@@ -2888,6 +2889,7 @@
     <Content Include="Content\DangKy\scss\layouts\main.scss" />
     <Content Include="Content\DangKy\scss\layouts\responsive.scss" />
     <Content Include="Content\DangKy\scss\style.scss" />
+    <Content Include="Areas\GiaoVien\Views\Info\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
