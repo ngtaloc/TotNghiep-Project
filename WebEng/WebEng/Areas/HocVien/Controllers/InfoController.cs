@@ -20,7 +20,7 @@ namespace WebEng.Areas.HocVien.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(HocVien hocVien)
+        public ActionResult Edit()
         {
             return View();
         }

@@ -3,98 +3,13 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.dll.config
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.dll
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\Models.pdb
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.dll
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.xml
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.dll
-C:\loc\TotNhiep\WebEng\Models\obj\Debug\Models.pdb
-<<<<<<< HEAD
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-=======
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.dll
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.xml
-C:\loc\TotNhiep\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
->>>>>>> refs/remotes/origin/main
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-F:\KHOA_LUAN_TOT_NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
->>>>>>> c735930c95b73ce4b7b176f882e53480d9e7ad2e

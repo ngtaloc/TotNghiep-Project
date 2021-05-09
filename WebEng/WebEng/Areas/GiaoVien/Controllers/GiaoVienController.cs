@@ -3,6 +3,7 @@ using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -79,6 +80,46 @@ namespace WebEng.Areas.GiaoVien.Controllers
             }
             return View();
         }
-        
+
+
+        [HttpGet]
+        public ActionResult Edit(int ID)
+        {
+            var dao = new LopHocDAO();
+            var model = dao.GetByID(ID);
+            return PartialView("Edit", model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(LopHoc lophoc)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new LopHocDAO();
+                bool kt = dao.Update(lophoc);
+                if (kt)
+                {
+                    ModelState.AddModelError("", "Cập nhât thành công");
+                    return RedirectToAction("GiaoVien");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhât không thành công");
+                }
+            }
+            return PartialView("GiaoVien");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            WebEngDbContext db = new WebEngDbContext();
+            var product = db.LopHocs.Where(s => s.ID == id).First();
+            db.LopHocs.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("GiaoVien");
+        }
+
+
     }
 }
