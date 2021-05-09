@@ -216,7 +216,11 @@
     <Content Include="Content\img\logos\creative-market.jpg" />
     <Content Include="Content\img\logos\designmodo.jpg" />
     <Content Include="Content\img\logos\envato.jpg" />
+    <Content Include="Content\img\logos\listening.png" />
+    <Content Include="Content\img\logos\reading.png" />
+    <Content Include="Content\img\logos\speaking.png" />
     <Content Include="Content\img\logos\themeforest.jpg" />
+    <Content Include="Content\img\logos\wtriting.png" />
     <Content Include="Content\img\logos\zoom.png" />
     <Content Include="Content\img\map-image.png" />
     <Content Include="Content\img\portfolio\dreams-preview.jpg" />
