@@ -40,7 +40,28 @@ namespace WebEng.Areas.HocVien.Controllers
 			return View();
 
 		}
-        [ChildActionOnly]
+		public ActionResult Meeting()
+		{
+			return View();
+
+		}
+		public ActionResult Tailieu()
+		{
+			return View();
+
+		}
+		public ActionResult Baihoc()
+		{
+			return View();
+
+		}
+		public ActionResult Baitap()
+		{
+			return View();
+
+		}
+
+		[ChildActionOnly]
         public ActionResult LopDaDK()
         {
             var dao = new LopHocDAO();

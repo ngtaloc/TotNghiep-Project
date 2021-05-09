@@ -54,7 +54,28 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IronPython, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf, Version=2.7.11.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPython.2.7.11\lib\net45\IronPython.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Dynamic, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.3.0.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicLanguageRuntime.1.3.0\lib\net45\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -196,7 +217,12 @@
     <Content Include="Content\img\logos\creative-market.jpg" />
     <Content Include="Content\img\logos\designmodo.jpg" />
     <Content Include="Content\img\logos\envato.jpg" />
+    <Content Include="Content\img\logos\listening.png" />
+    <Content Include="Content\img\logos\reading.png" />
+    <Content Include="Content\img\logos\speaking.png" />
     <Content Include="Content\img\logos\themeforest.jpg" />
+    <Content Include="Content\img\logos\wtriting.png" />
+    <Content Include="Content\img\logos\zoom.png" />
     <Content Include="Content\img\map-image.png" />
     <Content Include="Content\img\portfolio\dreams-preview.jpg" />
     <Content Include="Content\img\portfolio\dreams.jpg" />
@@ -2467,6 +2493,36 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Python\.idea\.gitignore" />
+    <Content Include="Python\.idea\inspectionProfiles\profiles_settings.xml" />
+    <Content Include="Python\.idea\inspectionProfiles\Project_Default.xml" />
+    <Content Include="Python\.idea\misc.xml" />
+    <Content Include="Python\.idea\modules.xml" />
+    <Content Include="Python\.idea\vcs.xml" />
+    <Content Include="Python\.idea\workspace.xml" />
+    <Content Include="Python\align\align_mtcnn.py" />
+    <Content Include="Python\align\detect_face.py" />
+    <Content Include="Python\align\__init__.py" />
+    <Content Include="Python\detection.py" />
+    <Content Include="Python\facenet\facenet.py" />
+    <Content Include="Python\facenet\face_contrib.py" />
+    <Content Include="Python\face_align\Unow\ChiPu_0001.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0002.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0003.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0004.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0005.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0006.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0007.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0008.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0009.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0010.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0011.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0012.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0013.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0014.png" />
+    <Content Include="Python\face_align\Unow\ChiPu_0015.png" />
+    <Content Include="Python\LoginFace.py" />
+    <Content Include="Python\train.py" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -2810,6 +2866,7 @@
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\LopDaDK.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Meeting.cshtml" />
     <Content Include="Content\DangKy\css\style.css.map" />
     <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.eot" />
     <Content Include="Content\DangKy\fonts\material-icon\fonts\Material-Design-Iconic-Font.ttf" />
@@ -2842,6 +2899,26 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Python\.idea\faceweb.iml" />
+    <Content Include="Python\.idea\PROJECT.iml" />
+    <Content Include="Python\align\det1.npy" />
+    <Content Include="Python\align\det2.npy" />
+    <Content Include="Python\align\det3.npy" />
+    <Content Include="Python\align\__pycache__\align_mtcnn.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\align_mtcnn.cpython-37.pyc" />
+    <Content Include="Python\align\__pycache__\detect_face.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\detect_face.cpython-37.pyc" />
+    <Content Include="Python\align\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="Python\align\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="Python\facenet\__pycache__\facenet.cpython-36.pyc" />
+    <Content Include="Python\facenet\__pycache__\facenet.cpython-37.pyc" />
+    <Content Include="Python\facenet\__pycache__\face_contrib.cpython-36.pyc" />
+    <Content Include="Python\facenet\__pycache__\face_contrib.cpython-37.pyc" />
+    <Content Include="Python\models\.gitkeep" />
+    <Content Include="Python\models\20180402-114759.pb" />
+    <Content Include="Python\models\model-20180402-114759.ckpt-275.data-00000-of-00001" />
+    <Content Include="Python\models\model-20180402-114759.ckpt-275.index" />
+    <Content Include="Python\models\model-20180402-114759.meta" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2855,7 +2932,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="sum.py" />
+    <Content Include="Python\sum.py" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2896,6 +2973,7 @@
     <Folder Include="Areas\GiaoVien\Views\LopHoc\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
+    <Folder Include="Python\your_face\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

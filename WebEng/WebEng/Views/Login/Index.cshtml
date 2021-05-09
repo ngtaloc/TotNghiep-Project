@@ -38,8 +38,8 @@
                     <a class="pr-lg-5" href="~/Home"><img src="@Url.Content("~/Content/Login/img/english-logo.png")" alt="Trang chủ" class="img-fluid"></a>
                 </div>
                 <div class="col-lg-5 px-lg-4">
-                    
-                    <a  href="~/Home" style="font-family: cursive;font-style: oblique; font-weight:bold;" class="text-base-lg text-primary  mb-4">TiengAnhOnline.Com</a>
+
+                    <a href="~/Home" style="font-family: cursive;font-style: oblique; font-weight:bold;" class="text-base-lg text-primary  mb-4">TiengAnhOnline.Com</a>
                     <h2 class="mb-4">Chào mừng!</h2>
                     <p class="text-muted">Cùng nhau tạo ra nhiều giá trị hơn cho xã hội!</p>
 
@@ -64,10 +64,18 @@
                                 <label for="customCheck1" class="custom-control-label">Ghi nhớ</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary shadow px-5">Đăng Nhập</button>
-
+                        <div class="form-group md-4">
+                            <button type="submit" class="btn btn-primary shadow px-5 "> <strong>Đăng Nhập</strong></button>
+                            <a href="@Url.Action("LoginFace", "Login")" class="btn btn-secondary float-right">
+                                <i class="fa fa-camera"></i>
+                                <span>
+                                    <strong>Đăng Nhập Bằng Mặt</strong>
+                                </span>
+                            </a>    
+                        </div>
+                        
                     }
-
+                   
                 </div>
             </div>
             <p class="mt-5 mb-0 text-gray-400 text-center">Thiết kế bởi nhóm sinh viên trường Đại học Duy Tân</p>

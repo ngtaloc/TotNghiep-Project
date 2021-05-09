@@ -7,6 +7,7 @@ create table TaiKhoan(
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
 	trangThai int DEFAULT 1, --0:khóa 1:mở
+	face int DEFAULT 0,--0:khóa 1:mở
 );
 
 CREATE TABLE TAIKHOAN_NHOMQUYEN(
@@ -216,6 +217,24 @@ create table TietHoc(
 	foreign key(idLopHoc) references  lopHoc(id),
 	foreign key(ngayHoc) references  ngay(id),
 );
+create table ViTien(
+	iD INT IDENTITY(1,1) PRIMARY KEY,
+	SoDu int,
+	TongNap int,
+	NgayTao date,
+	idTK int,
+	foreign key(idTK) references  TaiKhoan(id),
+);
+
+create table LichSuGD( --lịch sử giao dịch
+	iD INT IDENTITY(1,1) PRIMARY KEY,
+	ThoiGiangGD datetime,
+	TenGD Ntext,
+	LoaiGD int, -- 0: Nạp ; 1:Mở Lớp;
+	SoTienGD int,
+	idVT int,
+	foreign key(idVT) references  ViTien(id),
+);
 go
 
 --Procedure
@@ -274,7 +293,9 @@ values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
 (N'Thống kê lớp học','ThongKeLop',NULL,0),
 (N'Cập nhật lớp','CapNhatLop',NULL,2),
-(N'Hủy lớp','HuyLop',NULL,2);
+(N'Hủy lớp','HuyLop',NULL,2),
+(N'Thông tin cá nhân','Info',NULL,0),
+(N'Ví tiền','ViTien',NULL,0);
 
 
 insert into ChucNangNhomQuyen
@@ -289,7 +310,10 @@ values (1,2),
 (8,1),
 (9,2),
 (10,2),
-(11,2);
+(11,2),
+(12,2),
+(12,3),
+(13,2);
 insert into Giangvien
 values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 
@@ -323,3 +347,17 @@ values ('Level 1'),
 ('Level 2'),
 ('Level 3'),
 ('Level 4');
+
+Insert into KyNangGiangVien
+values (1,1,3),
+(2,1,4),
+(3,1,3),
+(4,1,4);
+
+insert into ViTien
+	values (300000,500000,'4/15/2021',2);
+
+insert into LichSuGD
+	values ('4/15/2021 10:00',N'Nạp 500,000 VND vào ví tiền',0,500000,1),
+	('4/15/2021 11:35',N'Mở lớp Cơ bản với mã lớp LH01',1,100000,1),
+	('5/1/2021 21:00',N'Mở lớp Nân Cao với mã lớp LH02',1,100000,1);

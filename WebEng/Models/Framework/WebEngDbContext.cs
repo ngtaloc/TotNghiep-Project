@@ -21,6 +21,7 @@ namespace Models.Framework
         public virtual DbSet<KyNang> KyNangs { get; set; }
         public virtual DbSet<KyNangGiangVien> KyNangGiangViens { get; set; }
         public virtual DbSet<KyNangLopHoc> KyNangLopHocs { get; set; }
+        public virtual DbSet<LichSuGD> LichSuGDs { get; set; }
         public virtual DbSet<LoaiTaiLieu> LoaiTaiLieux { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
         public virtual DbSet<Nam> Nams { get; set; }
@@ -33,6 +34,7 @@ namespace Models.Framework
         public virtual DbSet<Thang> Thangs { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
         public virtual DbSet<TietHoc> TietHocs { get; set; }
+        public virtual DbSet<ViTien> ViTiens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -230,6 +232,11 @@ namespace Models.Framework
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.ViTiens)
+                .WithOptional(e => e.TaiKhoan)
+                .HasForeignKey(e => e.idTK);
+
             modelBuilder.Entity<TaiLieu>()
                 .Property(e => e.link)
                 .IsUnicode(false);
@@ -246,6 +253,11 @@ namespace Models.Framework
             modelBuilder.Entity<ThongBao>()
                 .Property(e => e.icon)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ViTien>()
+                .HasMany(e => e.LichSuGDs)
+                .WithOptional(e => e.ViTien)
+                .HasForeignKey(e => e.idVT);
         }
     }
 }

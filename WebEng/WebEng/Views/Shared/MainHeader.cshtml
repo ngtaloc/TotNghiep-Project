@@ -1,155 +1,220 @@
 ﻿@model Models.Framework.TaiKhoan
+<style>
+	.datetime {
+		margin-top: 10px;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
 
+		updateClock();
+		/*setInterval("updateClock()", 1);*//* xem lại hàm này mỗi nhảy giây load lại trang*/
+	})
+	function updateClock() {
+		var now = new Date();
+		var dname = now.getDay(),
+			mo = now.getMonth(),
+			dnum = now.getDate(),
+			yr = now.getFullYear(),
+			hou = now.getHours(),
+			min = now.getMinutes(),
+			sec = now.getSeconds(),
+			pe = "AM";
+
+		if (hou >= 12) {
+			pe = "PM";
+		}
+		if (hou == 0) {
+			hou = 12;
+		}
+		if (hou > 12) {
+			hou = hou - 12;
+		}
+
+		Number.prototype.pad = function (digits) {
+			for (var n = this.toString(); n.length < digits; n = 0 + n);
+			return n;
+		}
+
+		var months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",];
+		var week = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+		var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+		var values = [week[dname], dnum.pad(2), months[mo], yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+		for (var i = 0; i < ids.length; i++)
+			document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+	}
+	function abc() {
+		updateClock();
+		setInterval("updateClock()", 1);
+	}
+</script>
 
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
+	<!-- Left navbar links -->
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+		</li>
 
-    </ul>
+	</ul>
+	<div style=" width:100%; height:50px; text-align:center;">
+		<div class="datetime">
+			<a class="date">
+				<label>Hôm nay, <span id="dayname">Day</span></label>
+				<label>Ngày <span id="month">Month</span> </label>
+				<label>Tháng <span id="daynum">00</span></label>
+				<label>Năm <span id="year">Year</span></label>
+			</a> -
+			<a class="time">
+				<span id="hour">00</span>:
+				<span id="minutes">00</span>:
+				<span id="seconds">00</span>
+				<span id="period">AM</span>
+			</a>
+		</div>
+	</div>
+	<!-- Right navbar links -->
+	<ul class="navbar-nav ml-auto">
+		<!-- Navbar Search -->
+		<!-- Messages Dropdown Menu -->
+		<li class="nav-item dropdown">
+			<a class="nav-link" data-toggle="dropdown" href="#">
+				<i class="far fa-comments"></i>
+				<span class="badge badge-danger navbar-badge">3</span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+				<a href="#" class="dropdown-item">
+					<!-- Message Start -->
+					<div class="media">
+						<img src="@Url.Content("~/Content/Template/dist/img/user1-128x128.jpg")" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+								Brad Diesel
+								<span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+							</h3>
+							<p class="text-sm">Call me whenever you can...</p>
+							<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+						</div>
+					</div>
+					<!-- Message End -->
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<!-- Message Start -->
+					<div class="media">
+						<img src="@Url.Content("~/Content/Template/dist/img/user8-128x128.jpg")" alt="User Avatar" class="img-size-50 img-circle mr-3">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+								John Pierce
+								<span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+							</h3>
+							<p class="text-sm">I got your message bro</p>
+							<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+						</div>
+					</div>
+					<!-- Message End -->
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<!-- Message Start -->
+					<div class="media">
+						<img src="@Url.Content("~/Content/Template/dist/img/user3-128x128.jpg")" alt="User Avatar" class="img-size-50 img-circle mr-3">
+						<div class="media-body">
+							<h3 class="dropdown-item-title">
+								Nora Silvester
+								<span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+							</h3>
+							<p class="text-sm">The subject goes here</p>
+							<p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+						</div>
+					</div>
+					<!-- Message End -->
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+			</div>
+		</li>
+		<!-- Notifications Dropdown Menu -->
+		<li class="nav-item dropdown">
+			<a class="nav-link" data-toggle="dropdown" href="#">
+				<i class="far fa-bell"></i>
+				<span class="badge badge-warning navbar-badge">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString()</span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+				<span class="dropdown-item dropdown-header">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString() Thông báo mới</span>
+				@foreach (var item in Model.ThongBaos)
+				{
+					<div class="dropdown-divider"></div>
+					<a href="@item.link" class="dropdown-item  @(@item.trangThai == 0 ? "text-warning":"") ">
+						<i class="@item.icon mr-2"></i> @item.noiDung
+						<span class="float-right @(@item.trangThai==0? "text-warning":"text-muted") text-sm">
+							@{
+								string da = (DateTime.Now - item.ngay).ToString();
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="@Url.Content("~/Content/Template/dist/img/user1-128x128.jpg")" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Brad Diesel
-                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">Call me whenever you can...</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="@Url.Content("~/Content/Template/dist/img/user8-128x128.jpg")" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                John Pierce
-                                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">I got your message bro</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="@Url.Content("~/Content/Template/dist/img/user3-128x128.jpg")" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Nora Silvester
-                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">The subject goes here</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString()</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString() Thông báo mới</span>
-                @foreach (var item in Model.ThongBaos)
-                {
-                    <div class="dropdown-divider"></div>
-                    <a href="@item.link" class="dropdown-item  @(@item.trangThai == 0 ? "text-warning":"") ">
-                        <i class="@item.icon mr-2"></i> @item.noiDung
-                        <span class="float-right @(@item.trangThai==0? "text-warning":"text-muted") text-sm">
-                        @{ 
-                            string da = (DateTime.Now - item.ngay).ToString();
+								if (da.Split('.').Length == 3)
+								{
+									if (int.Parse(da.Split('.')[0]) >= 365)
+									{
+										da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm trước";
+									}
+									else if (int.Parse(da.Split('.')[0]) > 30)
+									{
+										da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng trước";
+									}
+									else
+									{
+										da = da.Split('.')[0] + " ngày trước";
+									}
 
-                            if (da.Split('.').Length == 3)
-                            {
-                                if(int.Parse(da.Split('.')[0]) >= 365)
-                                {
-                                    da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm trước";
-                                }
-                                else if(int.Parse(da.Split('.')[0]) > 30)
-                                {
-                                    da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng trước";
-                                }
-                                else
-                                {
-                                    da = da.Split('.')[0] + " ngày trước";
-                                }
+								}
+								else
+								{
+									if (da.Split('.')[0].Split(':')[0] == "00")
+									{
+										da = da.Split('.')[0].Split(':')[1] + " phút trước";
+									}
+									else
+									{
+										da = da.Split('.')[0].Split(':')[0] + " giờ trước";
+									}
 
-                            }
-                            else
-                            {
-                                if (da.Split('.')[0].Split(':')[0] == "00")
-                                {
-                                    da = da.Split('.')[0].Split(':')[1] + " phút trước";
-                                }
-                                else
-                                {
-                                    da = da.Split('.')[0].Split(':')[0] + " giờ trước";
-                                }
+								}
 
-                            }
+								<p>@da</p>
 
-                                <p>@da</p>
-                            
-                        }</span>
-                    </a>
-                }
-                    
+							}
+						</span>
+					</a>
+				}
 
 
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                <i class="fas fa-expand-arrows-alt"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
-        </li>
-    </ul>
+
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<i class="fas fa-users mr-2"></i> 8 friend requests
+					<span class="float-right text-muted text-sm">12 hours</span>
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item">
+					<i class="fas fa-file mr-2"></i> 3 new reports
+					<span class="float-right text-muted text-sm">2 days</span>
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-widget="fullscreen" href="#" role="button">
+				<i class="fas fa-expand-arrows-alt"></i>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+				<i class="fas fa-th-large"></i>
+			</a>
+		</li>
+	</ul>
 </nav>
 <!-- /.navbar -->

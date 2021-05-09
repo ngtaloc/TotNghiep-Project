@@ -19,7 +19,7 @@ namespace WebEng.Areas.HocVien.Controllers
         public ActionResult Index()
         {
             var dao = new LopHocDAO();
-            var model = dao.FindLopHocHocVien(User.Identity.Name);
+			var model = dao.FindAll();
             return View(model);
         }
 
