@@ -32,7 +32,10 @@ namespace Models.DAO
             return db.HocViens.SingleOrDefault(x => x.id == id);
         }
 
-        
+        public HocVien FindByTDN(string tdn)
+        {
+            return db.HocViens.FirstOrDefault(x => x.TaiKhoan.tenDangNhap == tdn);
+        }
         
     }
 }

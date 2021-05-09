@@ -273,10 +273,10 @@ insert into NhomQuyen
 	values ('Admin'),('GiaoVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
-	values ('admin','21232f297a57a5a743894a0e4a801fc3',1),
+	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,-1),
 
-		('gv','202cb962ac59075b964b07152d234b70',1),
-		('hv','202cb962ac59075b964b07152d234b70',1); 
+		('gv','202cb962ac59075b964b07152d234b70',1,-1),
+		('hv','202cb962ac59075b964b07152d234b70',1,-1); 
 
 insert into TAIKHOAN_NHOMQUYEN
 	values (1,1),(2,2),(3,3);
@@ -321,8 +321,8 @@ insert into HocVien
 values (N'Lê Học Viên',N'123le loi',N'Nữ','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','4/15/2021','8/15/2021',30,1,1),
-(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,'không','5/15/2021','8/15/2021',30,1,1);
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021',30,1,1),
+(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021',30,1,1);
 
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc)
@@ -330,6 +330,8 @@ insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc)
 values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021',1);
 -- chat giữa học viên và giáo viên
 
+insert into DSLopHoc
+values (1,1,4,N'bình luận abc');
 
 insert into ThongBao
 values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0),
