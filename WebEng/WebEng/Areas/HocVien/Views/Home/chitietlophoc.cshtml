@@ -197,6 +197,8 @@
 <h3>Thông Tin Chi Tiết Lớp Học </h3>
 <div class="row">
 	<!-- /.col -->
+
+    
 	<div class="col-md-8">
 		<div class="conten1">
 			tên khóa học và nội dung
@@ -258,17 +260,20 @@
 	<!-- /.col -->
 	<div class="col-md-4">
 		<!-- Widget: user widget style 1 -->
-		<div class="card card-widget widget-user">
-			<!-- Add the bg color to the header using any of the bg-* classes -->
-			<div class="widget-user-header bg-info">
-				load ảnh baner hiển thị từng khóa lên chỗ này
+        <div class="card card-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-info">
+                load ảnh baner hiển thị từng khóa lên chỗ này
 
-			</div>
-			<div class="card-footer">
-				<button> Học Ngay</button>
-				<div>có thông tin gì cần thì đổ thêm ở dưới nút button </div>
-			</div>
-		</div>
+            </div>
+            @using (Html.BeginForm("DangKyLop", "Home",Model, FormMethod.Post))
+            {
+                <div class="card-footer">
+                    <button type="submit">Đăng ký Học Ngay</button>
+                    <div>có thông tin gì cần thì đổ thêm ở dưới nút button </div>
+                </div>
+            }
+        </div>
 		<!-- /.widget-user -->
 	</div>
 

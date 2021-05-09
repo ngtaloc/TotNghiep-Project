@@ -1,4 +1,5 @@
 ﻿using Models.DAO;
+using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,5 +41,13 @@ namespace WebEng.Areas.HocVien.Controllers
             return View(model);
 		}
 		
-	}
+        [HttpPost]
+        public ActionResult DangKyLop(LopHoc lh)
+        {
+            var dao = new HocVienDAO();
+            
+            return View("Index");
+        }
+
+    }
 }

@@ -4,10 +4,43 @@
     Layout = "~/Views/Shared/_TemLayout.cshtml";
 }
 
+<style>
+    /* HIDE RADIO */
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
 
+        /* IMAGE STYLES */
+        [type=radio] + img {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            outline: 2px solid #f00;
+        }
+</style>
 <!-- Content Header (Page header) -->
-
 <!-- Main content -->
+
+@section header{
+    @if (TempData["testmsg"] != null)
+    {
+
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+        @TempData["testmsg"]
+    </div>
+
+
+
+    }
+}
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -16,9 +49,19 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle"
-                                 src="@Model.hinh"
-                                 alt="User profile picture">
+                            @if (Model.hinh != null)
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@Model.hinh"
+                                     alt="User profile picture">
+                            }
+                            else
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="~/Content/Template/dist/img/avatar5.png"
+                                     alt="User profile picture">
+                            }
+
                         </div>
                         <h3 class="profile-username text-center">@Model.hovaten</h3>
                         <p class="text-muted text-center">Giáo viên anh văn</p>
@@ -36,7 +79,7 @@
                                 <b>Số điện thoại</b> <a class="float-right">@Model.sdt</a>
                             </li>
                         </ul>
-                        
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -57,260 +100,571 @@
                         <p class="text-muted">@Model.diachi</p>
                         <hr>
 
-                       
+
                         <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
                         <p class="text-muted">
                             @foreach (var item in Model.KyNangGiangViens)
                             {
-                                <p class="tag tag-info">@item.KyNang.tenKyNang : @item.CapDo.tenCapDo</p>
-                            }
+                            <p class="tag tag-info">@item.KyNang.tenKyNang : @item.CapDo.tenCapDo</p>
+                        }
 
 
-                        </p>
-                        
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item"><a class="nav-link active" href="#vitien" data-toggle="tab">Ví tiền</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#taikhoan" data-toggle="tab">Tài khoản</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                        </ul>
-                    </div><!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="tab-content">
-                            <div class="active tab-pane" id="vitien">
-                                <div class="alert alert-info alert-dismissible row">
-                                    Số dư trong ví:<h4 style="padding-left:1em;"><i class="icon fas fa-info"></i> 300.000 đ</h4>
+                            </p>
 
-                                </div>
-                                <p>Lịch sử giao dịch</p>
-                                <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-danger">
-                                            10 Feb. 2014
-                                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-                                            <h3 class="timeline-header border-0">
-                                                <a href="#">Nạp vào</a> 500.000 VND
-                                            </h3>
-                                            
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-                                            <h3 class="timeline-header border-0">
-                                                <a href="#">Mở lớp</a> Cơ bản
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-comments bg-warning"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-                                            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-                                            <div class="timeline-body">
-                                                Take me to your leader!
-                                                Switzerland is small and neutral!
-                                                We are more like Germany, ambitious and misunderstood!
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-success">
-                                            3 Jan. 2014
-                                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-camera bg-purple"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-                                            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-                                            <div class="timeline-body">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <div>
-                                        <i class="far fa-clock bg-gray"></i>
-                                    </div>
-                                </div>
-                                <!-- /.post -->
-                                
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="taikhoan">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-danger">
-                                            10 Feb. 2014
-                                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-envelope bg-primary"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 12:05</span>
-                                            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-                                            <div class="timeline-body">
-                                                Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                                weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                                jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                                quora plaxo ideeli hulu weebly balihoo...
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-user bg-info"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-                                            <h3 class="timeline-header border-0">
-                                                <a href="#">Sarah Young</a> accepted your friend request
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-comments bg-warning"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-                                            <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-                                            <div class="timeline-body">
-                                                Take me to your leader!
-                                                Switzerland is small and neutral!
-                                                We are more like Germany, ambitious and misunderstood!
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <div class="time-label">
-                                        <span class="bg-success">
-                                            3 Jan. 2014
-                                        </span>
-                                    </div>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <div>
-                                        <i class="fas fa-camera bg-purple"></i>
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-                                            <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-                                            <div class="timeline-body">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                                <img src="https://placehold.it/150x100" alt="...">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END timeline item -->
-                                    <div>
-                                        <i class="far fa-clock bg-gray"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="settings">
-                                <form class="form-horizontal">
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.tab-pane -->
                         </div>
-                        <!-- /.tab-content -->
-                    </div><!-- /.card-body -->
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#vitien" data-toggle="tab">Ví tiền</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#taikhoan" data-toggle="tab">Tài khoản</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="vitien">
+                                    <div class="row" style="margin-left:0;">
+                                        <div class="alert alert-info alert-dismissible row col-md-9">
+                                            Số dư trong ví:<h4 style="padding-left:1em; margin-bottom: 0;"><i class="icon fas fa-info"></i> @String.Format("{0:#,##0}", Model.TaiKhoan.ViTiens.FirstOrDefault().SoDu) đ</h4>
+
+                                        </div>
+                                        <button data-toggle="modal" data-target="#modal-Nap" type="button" class="btn btn-success col-md-2" style="margin-bottom:1em; margin-left:1em;"><h5 style="margin-bottom: 0;"><i class="fas fa-hand-holding-usd"></i> Nạp Tiền</h5> </button>
+                                    </div>
+
+                                    <p>Lịch sử giao dịch</p>
+                                    <div class="timeline timeline-inverse">
+                                        @{
+                                            string date = null;
+                                            foreach (var item in Model.TaiKhoan.ViTiens.FirstOrDefault().LichSuGDs.OrderByDescending(x => x.ThoiGiangGD))
+                                            {
+                                                if (date != item.ThoiGiangGD.ToString().Split(' ')[0])
+                                                {
+                                                    date = item.ThoiGiangGD.ToString().Split(' ')[0];
+                                                    <div class="time-label">
+                                                        <span class="bg-info bg-lime color-palette">
+                                                            @item.ThoiGiangGD.ToString().Split(' ')[0]
+                                                        </span>
+                                                    </div>
+                                                }
+                                                if (item.LoaiGD == 0)
+                                                {
+                                                    <div>
+                                                        <i class="fas fa-dollar-sign bg-success"></i>
+                                                        <div class="timeline-item">
+                                                            <span class="time"><i class="far fa-clock"></i> @item.ThoiGiangGD.ToString().Split(' ')[1]</span>
+                                                            <h3 class="timeline-header border-0">
+                                                                <a href="#">Nạp vào</a> @item.TenGD
+                                                            </h3>
+
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                                else
+                                                {
+                                                    <div>
+                                                        <i class="far fa-plus-square bg-warning"></i>
+                                                        <div class="timeline-item">
+                                                            <span class="time"><i class="far fa-clock"></i> @item.ThoiGiangGD.ToString().Split(' ')[1]</span>
+                                                            <h3 class="timeline-header border-0">
+                                                                <a href="#">Mở lớp</a> @item.TenGD
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            }
+                                        }
+
+
+                                        <div>
+                                            <i class="far fa-clock bg-gray"></i>
+                                        </div>
+                                    </div>
+                                    <!-- /.post -->
+                                    <!-- /.Modal Nạp Tiền -->
+                                    <div class="modal fade" id="modal-Nap">
+                                        <div class="modal-dialog ">
+                                            @using (Html.BeginForm("NapTien", "Info", FormMethod.Post))
+                                            {
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Nạp Tiền</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="form-group row">
+
+                                                            <label class="col-md-4">
+                                                                <input type="radio" name="mang" value="Mobifone" checked>
+                                                                <img src="~/Content/img/Mobi.png" width="100%" />
+                                                            </label>
+
+                                                            <label class="col-md-4">
+                                                                <input type="radio" name="mang" value="Viettel">
+                                                                <img src="~/Content/img/Viettel.png" width="100%" />
+                                                            </label>
+                                                            <label class="col-md-4">
+                                                                <input type="radio" name="mang" value="Vinaphone">
+                                                                <img src="~/Content/img/Vinaphone.png" width="100%" />
+                                                            </label>
+                                                        </div>
+                                                        <input type="number" required class="form-control form-control-border" name="code" placeholder="Mời bạn nhập mã thẻ vào đây">
+
+
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Thanh Toán</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            }
+                                        </div>
+
+
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </div>
+
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="taikhoan">
+                                    <!-- SELECT2 EXAMPLE -->
+                                    @using (Html.BeginForm("Edit", "Info", FormMethod.Post))
+                                    {
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Thông tin cá nhân</h3>
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                            <!-- /.card-header -->
+
+
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="ten">Họ và tên</label>
+                                                            @*<input type="text" class="form-control" id="ten" placeholder="Chưa có họ và tên">*@
+                                                            @Html.TextBoxFor(model => model.hovaten, new { @type = "text", @class = "form-control form-control-border", @id = "ten", @placeholder = "Chưa có họ và tên" })
+
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Giới tính</label>
+                                                            <div class="form-group row">
+                                                                <div class="form-control col-md-4" style="padding-left: 2.25rem; border:none;">
+                                                                    @Html.RadioButtonFor(model => model.gioitinh, "Nam", new { @class = "form-check-input", @id = "nam", @style = "opacity: initial; width: auto; height:auto " })
+
+                                                                    @*<input class="form-check-input" type="radio" id="nam" value="nam" name="gioitinh" style="opacity: initial; width: auto; height:auto ">*@
+                                                                    <label class="form-check-label" for="nam">Nam</label>
+                                                                </div>
+                                                                <div class="form-control col-md-4" style="padding-left: 2.25rem; border:none;">
+                                                                    @Html.RadioButtonFor(model => model.gioitinh, "Nữ", new { @class = "form-check-input", @id = "nu", @style = "opacity: initial; width: auto; height:auto " })
+                                                                    <label class="form-check-label" for="nu">Nữ</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="ngaysinh">Ngày sinh</label>
+                                                            @Html.TextBoxFor(model => model.ngaysinh, new { Value = Model.ngaysinh.Value.ToString("yyyy'-'MM'-'dd"), @type = "date", @class = "form-control form-control-border", @id = "ngaysinh" })
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- /.col -->
+                                                    <div class="col-md-6">
+
+                                                        <div class="form-group">
+                                                            <label for="diachi">Địa chỉ</label>
+                                                            @Html.TextBoxFor(model => model.diachi, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có địa chỉ" })
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="email">Email</label>
+                                                            @Html.TextBoxFor(model => model.email, new { @type = "email", @class = "form-control form-control-border", @id = "email", @placeholder = "Chưa có email" })
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="sdt">Di động</label>
+                                                            @Html.TextBoxFor(model => model.sdt, new { @type = "number", @maxlength = "11", @class = "form-control form-control-border", @id = "sdt", @placeholder = "Chưa có số di động" })
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="gioithieu">Giới thiệu</label>
+                                                        @Html.TextBoxFor(model => model.gioithieu, new { @type = "text", @class = "form-control form-control-border", @id = "gioithieu", @placeholder = "Chưa có giới thiệu" })
+
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="Skills">Skills</label>
+                                                        <div class="form-check">
+                                                            @if (Model.KyNangGiangViens.Where(x => x.idKN == 1).Count() > 0)
+                                                            {
+                                                                <input class="form-check-input skill" name="Listening" type="checkbox" id="customCheckbox1" value="true" checked>
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input skill" name="Listening" type="checkbox" id="customCheckbox1" value="false">
+                                                            }
+                                                            <label for="customCheckbox1" class="form-check-label">Listening</label>
+                                                            <select class="custom-select form-control-border col-md-5" style="display:inline-block;" name="lvListening">
+                                                                @try
+                                                                {
+                                                                    switch (Model.KyNangGiangViens.FirstOrDefault(x => x.idKN == 1).idCD)
+                                                                    {
+                                                                        case 1:
+                                                                            {
+                                                                                <option selected value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 2:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option selected value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 3:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option selected value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 4:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option selected value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+
+                                                                    }
+                                                                }
+                                                                catch
+                                                                {
+                                                                    <option value="1">LV 1</option>
+                                                                    <option value="2">LV 2</option>
+                                                                    <option value="3">LV 3</option>
+                                                                    <option value="4">LV 4</option>
+                                                                }
+                                                            </select>
+
+                                                        </div>
+
+                                                        <div class="form-check">
+
+
+                                                            @if (Model.KyNangGiangViens.Where(x => x.idKN == 2).Count() > 0)
+                                                            {
+                                                                <input class="form-check-input skill" name="Speaking" type="checkbox" id="customCheckbox2" value="true" checked>
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input skill" name="Speaking" type="checkbox" id="customCheckbox2" value="false">
+                                                            }
+                                                            <label for="customCheckbox2" class="form-check-label">Speaking</label>
+                                                            <select class="custom-select form-control-border col-md-5" style="display:inline-block;" name="lvSpeaking">
+                                                                @try
+                                                                {
+                                                                    switch (Model.KyNangGiangViens.FirstOrDefault(x => x.idKN == 2).idCD)
+                                                                    {
+                                                                        case 1:
+                                                                            {
+                                                                                <option selected value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 2:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option selected value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 3:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option selected value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 4:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option selected value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+
+                                                                    }
+                                                                }
+                                                                catch
+                                                                {
+                                                                    <option value="1">LV 1</option>
+                                                                    <option value="2">LV 2</option>
+                                                                    <option value="3">LV 3</option>
+                                                                    <option value="4">LV 4</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>&nbsp</label>
+
+                                                        <div class="form-check">
+                                                            @if (Model.KyNangGiangViens.Where(x => x.idKN == 3).Count() > 0)
+                                                            {
+                                                                <input class="form-check-input skill" name="Reading" type="checkbox" id="customCheckbox3" value="true" checked>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input skill" name="Reading" type="checkbox" id="customCheckbox3" value="false">
+
+                                                            }
+                                                            <label for="customCheckbox3" class="form-check-label">Reading</label>
+
+                                                            <select class="custom-select form-control-border col-md-5" style="display:inline-block;" name="lvReading">
+                                                                @try
+                                                                {
+                                                                    switch (Model.KyNangGiangViens.FirstOrDefault(x => x.idKN == 3).idCD)
+                                                                    {
+                                                                        case 1:
+                                                                            {
+                                                                                <option selected value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 2:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option selected value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 3:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option selected value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 4:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option selected value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                    }
+                                                                }
+                                                                catch
+                                                                {
+                                                                    <option value="1">LV 1</option>
+                                                                    <option value="2">LV 2</option>
+                                                                    <option value="3">LV 3</option>
+                                                                    <option value="4">LV 4</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            @if (Model.KyNangGiangViens.Where(x => x.idKN == 4).Count() > 0)
+                                                            {
+                                                                <input class="form-check-input skill" name="Writing" type="checkbox" id="customCheckbox4" value="true" checked>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="form-check-input skill" name="Writing" type="checkbox" id="customCheckbox4" value="false">
+
+                                                            }
+                                                            <label for="customCheckbox4" class="form-check-label">Writing &nbsp</label>
+
+                                                            <select class="custom-select form-control-border col-md-5" style="display:inline-block;" name="lvWriting">
+                                                                @try
+                                                                {
+                                                                    switch (Model.KyNangGiangViens.FirstOrDefault(x => x.idKN == 4).idCD)
+                                                                    {
+                                                                        case 1:
+                                                                            {
+                                                                                <option selected value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 2:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option selected value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 3:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option selected value="3">LV 3</option>
+                                                                                <option value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+                                                                        case 4:
+                                                                            {
+                                                                                <option value="1">LV 1</option>
+                                                                                <option value="2">LV 2</option>
+                                                                                <option value="3">LV 3</option>
+                                                                                <option selected value="4">LV 4</option>
+                                                                                break;
+                                                                            }
+
+                                                                    }
+                                                                }
+                                                                catch
+                                                                {
+                                                                    <option value="1">LV 1</option>
+                                                                    <option value="2">LV 2</option>
+                                                                    <option value="3">LV 3</option>
+                                                                    <option value="4">LV 4</option>
+                                                                }
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div>
+                                            <!-- /.card-body -->
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary float-right" onclick="return confirm('Xác nhân cập nhật?')">Cập nhật</button>
+                                            </div>
+
+                                            <!-- /.card -->
+
+                                        </div>
+                                    }
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="settings">
+                                    <form class="form-horizontal">
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-danger">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
             </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    @section masterjs{
+        <script>
+            $(".form-check-input.skill").click(function () {
+                if (this.checked) {
+                    $(this).val('TRUE');
+                    $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').removeAttr("disabled");
+                } else {
+                    $(this).val('FALSE');
+                    $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true);
+                }
+            });
+            $(function () {
+                $('.form-check-input.skill').checked).closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true)
+            if ($('.form-check-input.skill').checked) {
+                //alert('1');
+                $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').removeAttr("disabled");
+
+            } else {
+                //alert(2);
+                $('.form-check-input.skill').closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true);
+
+            }
+
+                                                                });
+
+        </script>
+
+
+    }
+

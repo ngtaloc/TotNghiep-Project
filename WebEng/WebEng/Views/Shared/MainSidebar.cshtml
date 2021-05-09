@@ -16,8 +16,16 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="@(Model !=null ? (Model.Giangviens.Count != 0 ? Model.Giangviens.FirstOrDefault().hinh : "~/Content/Template/dist/img/avatar5.png" ):"~/Content/Template/dist/img/avatar5.png" )" class="img-circle elevation-2" alt="User Image">
-            </div>
+                @if (Model.Giangviens.Count != 0 && Model!=null)
+                {
+                    <img src="@Model.Giangviens.FirstOrDefault().hinh" class="img-circle elevation-2" alt="User Image">
+                }
+                else
+                {
+                    <img src="~/Content/Template/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+
+                }
+                </div>
             <div class="info">
 
                 <a href="http://localhost:52790/@Roles.GetRolesForUser().FirstOrDefault()/Info" class="d-block">@(Model !=null ? (Model.HocViens.Count != 0 ? Model.HocViens.FirstOrDefault().hovaten : (Model.Giangviens.Count != 0 ? Model.Giangviens.FirstOrDefault().hovaten : "Nguyễn Tấn Lộc")) :"Xin Cào")</a>

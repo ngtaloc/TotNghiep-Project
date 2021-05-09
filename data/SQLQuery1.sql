@@ -358,6 +358,6 @@ insert into ViTien
 	values (300000,500000,'4/15/2021',2);
 
 insert into LichSuGD
-	values ('4/15/2021 10:00',N'Nạp 500,000 VND vào ví tiền',0,500000,1),
-	('4/15/2021 11:35',N'Mở lớp Cơ bản với mã lớp LH01',1,100000,1),
-	('5/1/2021 21:00',N'Mở lớp Nân Cao với mã lớp LH02',1,100000,1);
+	values ('4/15/2021 10:00',N'500,000 VNĐ vào ví tiền bằng thẻ cào Viettel',0,500000,1),
+	('4/15/2021 11:35',N'Có tên Cơ bản và mã lớp LH01 với giá 100.000 VNĐ',1,100000,1),
+	('5/1/2021 21:00',N'Có tên Nân cao và mã lớp LH02 với giá 100.000 VNĐ',1,100000,1);

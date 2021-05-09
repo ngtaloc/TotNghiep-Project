@@ -23,11 +23,11 @@ namespace Models.DAO
             return entity.ID;
         }
 
-        public bool Update(Giangvien entity)
+        public bool Update(Giangvien entity , string tdn)
         {
             try
             {
-                var gv = db.Giangviens.Find(entity.ID);
+                var gv = this.FindByTDN(tdn);
                 gv.hovaten = entity.hovaten;
                 gv.hinh = entity.hinh;
                 gv.gioitinh = entity.gioitinh;
@@ -36,6 +36,7 @@ namespace Models.DAO
                 gv.email = entity.email;
                 gv.diachi = entity.diachi;
                 gv.sdt = entity.sdt;
+                gv.KyNangGiangViens = entity.KyNangGiangViens;
                 db.SaveChanges(); 
                 return true;
             }catch( Exception ex)
