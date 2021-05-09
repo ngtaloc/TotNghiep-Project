@@ -165,6 +165,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
+    <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
     <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Common\CustomMembershipProvider.cs" />
@@ -223,7 +225,11 @@
     <Content Include="Content\img\logos\creative-market.jpg" />
     <Content Include="Content\img\logos\designmodo.jpg" />
     <Content Include="Content\img\logos\envato.jpg" />
+    <Content Include="Content\img\logos\listening.png" />
+    <Content Include="Content\img\logos\reading.png" />
+    <Content Include="Content\img\logos\speaking.png" />
     <Content Include="Content\img\logos\themeforest.jpg" />
+    <Content Include="Content\img\logos\wtriting.png" />
     <Content Include="Content\img\logos\zoom.png" />
     <Content Include="Content\img\map-image.png" />
     <Content Include="Content\img\Mobi.png" />
@@ -2900,6 +2906,8 @@
     <Content Include="Content\DangKy\scss\style.scss" />
     <Content Include="Areas\GiaoVien\Views\Info\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Info\ThongBao.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
