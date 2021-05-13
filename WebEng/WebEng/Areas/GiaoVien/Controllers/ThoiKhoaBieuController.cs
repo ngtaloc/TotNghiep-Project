@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace WebEng.Areas.GiaoVien.Controllers
 {
+    [Authorize(Roles = "GiaoVien")]
     public class ThoiKhoaBieuController : Controller
     {
         // GET: GiaoVien/ThoiKhoaBieu

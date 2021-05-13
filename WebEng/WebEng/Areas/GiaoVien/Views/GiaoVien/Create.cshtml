@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Tên lớp</label>
-                        @Html.TextBoxFor(model => model.tenLopHoc, new { @class = "form-control", @id = "className", @placeholder = "Tên lớp" })
+                        @Html.TextBoxFor(model => model.tenLopHoc, new { @class = "form-control", @id = "className", @placeholder = "Tên lớp",  @required="true" })
                     </div>
 
                     <div class="form-group">
@@ -24,7 +24,12 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Ngày khai giảng</label>
-                        @Html.TextBoxFor(model => model.ngayBegin, new { @class = "form-control", @type = "date" })
+                        @Html.TextBoxFor(model => model.ngayBegin, new { @class = "form-control", @type = "date" , @required="true" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Ngày kết thúc</label>
+                        @Html.TextBoxFor(model => model.ngayEnd, new { @class = "form-control", @type = "date" , @required = "true" })
 
                     </div>
                     <div class="form-group">
@@ -35,14 +40,14 @@
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Listening" type="checkbox" id="customCheckbox1" checked value="true">
                             <label for="customCheckbox1" class="custom-control-label">Listening</label>
-                            
+
                             <select class="form-control form-control-sm col-md-5" style="display:inline-block;" name="lvListening">
                                 <option value="1">LV 1</option>
                                 <option value="2">LV 2</option>
                                 <option value="3">LV 3</option>
                                 <option value="4">LV 4</option>
                             </select>
-                           
+
                         </div>
                         <div class="custom-control custom-checkbox col-md-3">
                             <input class="custom-control-input" name="Speaking" type="checkbox" id="customCheckbox2" checked value="true">
@@ -79,7 +84,116 @@
                         </div>
 
                     </div>
+                    <div class="form-group">
+                        <label>Lịch học</label>
+                        
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t2" type="checkbox" id="t2">
+                                <label for="t2" class="form-check-label">Thứ 2</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt2" type="time" id="bt2" required>
+                                <label for="bt2" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et2" type="time" id="et2" required> 
+                                <label for="et2" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t3" type="checkbox" id="t3">
+                                <label for="t3" class="form-check-label">Thứ 3</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt3" type="time" id="bt3" required>
+                                <label for="bt3" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et3" type="time" id="et3" required>
+                                <label for="et3" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t4" type="checkbox" id="t4">
+                                <label for="t4" class="form-check-label">Thứ 4</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt4" type="time" id="bt4" required>
+                                <label for="bt4" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et4" type="time" id="et4" required>
+                                <label for="et4" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t5" type="checkbox" id="t5">
+                                <label for="t5" class="form-check-label">Thứ 5</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt5" type="time" id="bt5" required>
+                                <label for="bt5" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et5" type="time" id="et5" required>
+                                <label for="et5" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t6" type="checkbox" id="t6">
+                                <label for="t6" class="form-check-label">Thứ 6</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt6" type="time" id="bt6" required>
+                                <label for="bt6" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et6" type="time" id="et6" required>
+                                <label for="et6" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="t7" type="checkbox" id="t7">
+                                <label for="t7" class="form-check-label">Thứ 7</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bt7" type="time" id="bt7" required>
+                                <label for="bt7" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="et7" type="time" id="et7" required>
+                                <label for="et7" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row offset-md-1">
+                            <div class="form-check col-md-3">
+                                <input class="form-check-input" name="cn" type="checkbox" id="cn">
+                                <label for="cn" class="form-check-label">Chủ nhật</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="bcn" type="time" id="bcn" required>
+                                <label for="bcn" class="form-check-label">Bắt đầu</label>
+                            </div>
+                            <div class="form-check col-md-4">
+                                <input disabled class="time" name="ecn" type="time" id="ecn" required>
+                                <label for="ecn" class="form-check-label">Kết thúc</label>
+                            </div>
+                        </div>
+                    </div>
                   
+
                     <div class="form-group">
                         <label for="exampleInputPassword1">Số tháng</label>
                         <input type="number" class="form-control" id="dayStudy" placeholder="Số tháng" name="sothang">
@@ -92,21 +206,22 @@
                         <label for="exampleInputFile">Chọn ảnh</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                @Html.TextBoxFor(model => model.hinh, new { @class = "form-control", @type = "file" , @id = "exampleInputFile" })
-                                 <label class="custom-file-label" for="exampleInputFile">Chọn từ trong máy của bạn</label>
+                                @Html.TextBoxFor(model => model.hinh, new { @class = "form-control", @type = "file", @id = "exampleInputFile" })
+                                <label class="custom-file-label" for="exampleInputFile">Chọn từ trong máy của bạn</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="text-align:center">
                     <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="button" onclick="myFunction()" class="btn btn-md btn-secondary" data-toggle="modal" data-target="#creatlesson" data-dismiss="modal">Tiếp tục</button>
+                    <button type="submit" class="btn btn-md btn-primary">Tạo</button>
+                    @*<button type="button" onclick="myFunction()" class="btn btn-md btn-secondary" data-toggle="modal" data-target="#creatlesson" data-dismiss="modal">Tiếp tục</button>*@
                      </div>
                
             </div>
         </div>
     </div>
-    <div class="modal fade" id="creatlesson" role="dialog">
+    @*<div class="modal fade" id="creatlesson" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div style="margin:auto" class="modal-header">
@@ -124,7 +239,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 }
     <script>
         $(document).ready(function () {
@@ -152,4 +267,19 @@
                 console.log(filePath);
             });
         });
+
+
+        $(".form-check-input").click(function () {
+            if (this.checked) {
+                $(this).val("TRUE");
+                $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').removeAttr("disabled");
+            } else {
+                $(this).val("FALSE");
+                $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').attr("disabled", true);
+            }
+        });
+
+        //$(".time").change(function () {
+        //    alert($(this).val());
+        //});
     </script>

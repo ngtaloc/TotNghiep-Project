@@ -15,7 +15,22 @@
 
 }
 @section header{
-    Giáo viên
+    <div class="col-md-3">
+        Giáo viên
+    </div>
+    
+    @if (TempData["testmsg"] != null)
+    {
+
+        <div class="alert alert-info col-md-8 offset-md-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+
+
+    }
 }
 
 
@@ -103,13 +118,13 @@
                                             <i class="fas fa-user-edit"></i>
                                         </button>
                                     </div>
-                                    @using (Html.BeginForm("Delete", "GiaoVien",FormMethod.Get))
+                                    @using (Html.BeginForm("Delete", "GiaoVien", FormMethod.Get))
                                     {
-                                         <div class="col-lg-6 col-md-6">
-                                        <button id="xoa" formaction="@Url.Action("Delete","GiaoVien",new {id = item.ID})" type="submit">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <button id="xoa" formaction="@Url.Action("Delete","GiaoVien",new {id = item.ID})" type="submit">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
                                     }
                                 </div>
                             </li>
@@ -171,26 +186,24 @@
 
                 $.get(url).done(function (data) {
                     console.log(data);
-                    ShowModal.html(data); 
+                    ShowModal.html(data);
                     ShowModal.find('#modal-create-lg').modal('show');
                 })
             });
 
             var ShowModaledit = $('#ShoweditModal');
             $('button[data-toggle="ajax-model-edit"]').click(function (event) {
-                
                 var url = $(this).data('url');
-                alert(url);
                 //var decodeUrl = decodeURIComponent(url);
                 $.get(url).done(function (data) {
                     ShowModaledit.html(data);
-                    
+
                     ShowModaledit.find('#modal-edit-lg').modal('show');
                 })
             })
         });
 
-        
+
         // tạo modal thời gian biểu
         function myFunction() {
             for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {

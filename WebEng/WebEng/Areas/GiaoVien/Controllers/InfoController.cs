@@ -112,7 +112,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 TempData["testmsg"] = "Có lỗi trong quá trình cập nhật: " + e.Message.ToString();
 
             }
-            return View("Index");
+            return RedirectToAction("Index", "Info");
         }
     }
 }

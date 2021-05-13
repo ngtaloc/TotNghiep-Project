@@ -8,6 +8,7 @@ using Models.Framework;
 
 namespace WebEng.Areas.GiaoVien.Controllers
 {
+    [Authorize(Roles = "GiaoVien")]
     public class HocController : Controller
     {
         // GET: GiaoVien/Hoc

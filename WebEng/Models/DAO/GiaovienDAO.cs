@@ -25,24 +25,21 @@ namespace Models.DAO
 
         public bool Update(Giangvien entity , string tdn)
         {
-            try
-            {
-                var gv = this.FindByTDN(tdn);
-                gv.hovaten = entity.hovaten;
-                gv.hinh = entity.hinh;
-                gv.gioitinh = entity.gioitinh;
-                gv.gioithieu = entity.gioithieu;
-                gv.ngaysinh = entity.ngaysinh;
-                gv.email = entity.email;
-                gv.diachi = entity.diachi;
-                gv.sdt = entity.sdt;
-                gv.KyNangGiangViens = entity.KyNangGiangViens;
-                db.SaveChanges(); 
-                return true;
-            }catch( Exception ex)
-            {
-                return false;
-            }
+            var gv = this.FindByTDN(tdn);
+            gv.hovaten = entity.hovaten;
+            //gv.hinh = entity.hinh;
+            gv.gioitinh = entity.gioitinh;
+            gv.gioithieu = entity.gioithieu;
+            gv.ngaysinh = entity.ngaysinh;
+            gv.email = entity.email;
+            gv.diachi = entity.diachi;
+            gv.sdt = entity.sdt;
+            foreach (var item in entity.KyNangGiangViens) item.idGV = gv.ID;
+            gv.KyNangGiangViens.Clear();
+            gv.KyNangGiangViens = entity.KyNangGiangViens;
+            db.SaveChanges(); 
+            return true;
+           
         }
         public IEnumerable<Giangvien> listAllPageList(int page, int pageSize)
         {

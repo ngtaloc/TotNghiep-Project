@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace WebEng.Areas.HocVien.Controllers
 {
+    [Authorize(Roles = "HocVien")]
     public class LearningController : Controller
     {
         // GET: HocVien/Learning
