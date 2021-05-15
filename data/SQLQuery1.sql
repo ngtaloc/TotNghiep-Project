@@ -4,6 +4,8 @@
 );
 create table TaiKhoan(
     iD INT IDENTITY(1,1) PRIMARY KEY,
+	hovaten nvarchar(50) , 
+	hinh text,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
 	trangThai int DEFAULT 1, --0:khóa 1:mở
@@ -36,8 +38,7 @@ create table ChucNangNhomQuyen(
 );
 create table HocVien(	
 	id INT IDENTITY(1,1) PRIMARY KEY,
-    hovaten nvarchar(50) not null, 
-	diachi nvarchar(100) ,
+    diachi nvarchar(100) ,
 	gioitinh nvarchar(3) ,
 	ngaysinh date,
 	email varchar(50) not null,
@@ -48,8 +49,7 @@ create table HocVien(
 
 create table Giangvien(	
 	ID INT IDENTITY(1,1) PRIMARY KEY,
-    hovaten nvarchar(50) , 
-	hinh text,
+    
 	diachi nvarchar(100) ,
 	gioitinh nvarchar(3) ,
 	ngaysinh date,
@@ -142,6 +142,7 @@ create table BinhLuan(
 	idTK int,
 	idLH int,
 	noiDung ntext,
+	thoiGian Datetime,
 	idCha int,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
 	foreign key(idCha) references  BinhLuan(id) ON UPDATE NO ACTION NOT FOR REPLICATION ,
@@ -275,10 +276,10 @@ insert into NhomQuyen
 	values ('Admin'),('GiaoVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
-	values ('admin','21232f297a57a5a743894a0e4a801fc3',1,-1),
+	values (N'Nguyễn Tấn Lộc','','admin','21232f297a57a5a743894a0e4a801fc3',1,-1),
 
-		('gv','202cb962ac59075b964b07152d234b70',1,-1),
-		('hv','202cb962ac59075b964b07152d234b70',1,-1); 
+		(N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','gv','202cb962ac59075b964b07152d234b70',1,-1),
+		(N'Lê Học Viên','','hv','202cb962ac59075b964b07152d234b70',1,-1); 
 
 insert into TAIKHOAN_NHOMQUYEN
 	values (1,1),(2,2),(3,3);
@@ -317,10 +318,10 @@ values (1,2),
 (12,3),
 (13,2);
 insert into Giangvien
-values (N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
+values (N'123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 
 insert into HocVien
-values (N'Lê Học Viên',N'123le loi',N'Nữ','1998-05-23','hv@gmail.com','0987654321',3);
+values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
 values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021',30,1,1),
@@ -375,5 +376,12 @@ values (1,1),(1,2),(1,4),(1,5),--nghe
 	(2,1),(2,2),(2,3),(2,4),(2,5),--noi
 	(3,1),(3,3),(3,4),(3,5),	--doc
 	(4,1),(4,2),(4,3),(4,4),(4,5) ;--viet
+
+	
 insert into BinhLuan
-values ();
+values (3,1,N'Bình luận của học viên AAAAAA','5/20/2021 10:50',0),
+(3,1,N'Bình luận của học viên zzzz','5/21/2021 11:50',0),
+(3,1,N'Bình luận của học viên ','5/21/2021 15:50',0),
+(2,1,N'Trả lời của giáo viên aaaaaa','5/20/2021 12:30',1),
+(2,1,N'Trả lời của giáo viên bbbbbb','5/20/2021 12:50',1),
+(2,1,N'Trả lời Bình luận của học viên zzzz','5/20/2021 10:50',2);

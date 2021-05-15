@@ -14,3 +14,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Co
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb

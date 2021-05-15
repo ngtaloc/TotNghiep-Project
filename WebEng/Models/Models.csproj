@@ -77,8 +77,8 @@
     <Compile Include="Framework\CapDo.cs" />
     <Compile Include="Framework\ChucNang.cs" />
     <Compile Include="Framework\DSLopHoc.cs" />
-    <Compile Include="Framework\HocVien.cs" />
     <Compile Include="Framework\Giangvien.cs" />
+    <Compile Include="Framework\HocVien.cs" />
     <Compile Include="Framework\KyNang.cs" />
     <Compile Include="Framework\KyNangGiangVien.cs" />
     <Compile Include="Framework\KyNangLopHoc.cs" />

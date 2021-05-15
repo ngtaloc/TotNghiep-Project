@@ -17,6 +17,10 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string moTa { get; set; }
 
+        public DateTime? thoiGiang { get; set; }
+
+        public int? trangThai { get; set; }
+
         public int? idLoaiTL { get; set; }
 
         public int? idLH { get; set; }

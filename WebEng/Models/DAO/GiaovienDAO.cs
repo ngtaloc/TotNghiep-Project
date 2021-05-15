@@ -26,7 +26,7 @@ namespace Models.DAO
         public bool Update(Giangvien entity , string tdn)
         {
             var gv = this.FindByTDN(tdn);
-            gv.hovaten = entity.hovaten;
+            gv.TaiKhoan.hovaten = entity.TaiKhoan.hovaten;
             //gv.hinh = entity.hinh;
             gv.gioitinh = entity.gioitinh;
             gv.gioithieu = entity.gioithieu;

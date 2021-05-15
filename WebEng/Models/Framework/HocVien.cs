@@ -17,10 +17,6 @@ namespace Models.Framework
 
         public int id { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string hovaten { get; set; }
-
         [StringLength(100)]
         public string diachi { get; set; }
 
