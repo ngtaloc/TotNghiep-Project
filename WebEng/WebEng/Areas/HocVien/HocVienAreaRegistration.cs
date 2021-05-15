@@ -18,14 +18,14 @@ namespace WebEng.Areas.HocVien
             context.MapRoute(
                "HocVien_chi-tiet",
                "HocVien/chi-tiet/{id}",
-               new { action = "chitietlophoc", controller = "Home", id = UrlParameter.Optional },
+               new { action = "chitietlophoc", controller = "Tim", id = UrlParameter.Optional },
                new[] { "WebEng.Areas.HocVien.Controllers" }
            );
            
             context.MapRoute(
                 "HocVien_default",
                 "HocVien/{controller}/{action}/{id}",
-                new { action = "Index", controller = "Home", id = UrlParameter.Optional },
+                new { action = "Index", controller = "Tim", id = UrlParameter.Optional },
                 new[] { "WebEng.Areas.HocVien.Controllers" }
             );
            

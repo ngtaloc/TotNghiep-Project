@@ -17,7 +17,7 @@ namespace WebEng.Areas.GiaoVien
             context.MapRoute(
                 "GiaoVien_default",
                 "GiaoVien/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional, controller = "GiaoVien" },
+                new { action = "Index", id = UrlParameter.Optional, controller = "MoLop" },
                 new[] { "WebEng.Areas.GiaoVien.Controllers" }
             );
         }

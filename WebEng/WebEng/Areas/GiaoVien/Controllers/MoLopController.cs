@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace WebEng.Areas.GiaoVien.Controllers
 {
     [Authorize(Roles = "GiaoVien")]
-    public class GiaoVienController : Controller
+    public class MoLopController : Controller
     {
         // GET: GiaoVien/GiaoVien
         public ActionResult Index()

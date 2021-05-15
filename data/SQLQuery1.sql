@@ -121,6 +121,8 @@ create table TaiLieu(
 	ID INT IDENTITY(1,1) PRIMARY KEY,
     link varchar(max) not null,
 	moTa ntext,
+	thoiGiang datetime,
+	trangThai int,
 	idLoaiTL int,
 	idLH int,
 	idTK int,
@@ -283,7 +285,7 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','MoLop',NULL,0),
+values (N'Mở Lớp','Index',NULL,0),
 (N'Quản lý lớp','QLLop',NULL,0),
 (N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
 (N'Tìm lớp học','Home',NULL,0),
@@ -293,7 +295,7 @@ values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
 (N'Thống kê lớp học','ThongKeLop',NULL,0),
 (N'Cập nhật lớp','CapNhatLop',NULL,2),
-(N'Hủy lớp','HuyLop',NULL,2),
+(N'Học','Hoc',NULL,2),
 (N'Thông tin cá nhân','Info',NULL,0),
 (N'Ví tiền','ViTien',NULL,0);
 
@@ -363,3 +365,15 @@ insert into LichSuGD
 	values ('4/15/2021 10:00',N'500,000 VNĐ vào ví tiền bằng thẻ cào Viettel',0,500000,1),
 	('4/15/2021 11:35',N'Có tên Cơ bản và mã lớp LH01 với giá 100.000 VNĐ',1,100000,1),
 	('5/1/2021 21:00',N'Có tên Nân cao và mã lớp LH02 với giá 100.000 VNĐ',1,100000,1);
+
+
+insert into LoaiTaiLieu
+values ('DOCX'),('MP3'),('MP4'),('PDF'),('PPTX')
+
+insert into TaiLieuKyNang
+values (1,1),(1,2),(1,4),(1,5),--nghe
+	(2,1),(2,2),(2,3),(2,4),(2,5),--noi
+	(3,1),(3,3),(3,4),(3,5),	--doc
+	(4,1),(4,2),(4,3),(4,4),(4,5) ;--viet
+insert into BinhLuan
+values ();

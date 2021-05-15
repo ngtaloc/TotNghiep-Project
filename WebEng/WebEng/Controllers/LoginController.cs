@@ -43,7 +43,7 @@ namespace WebEng.Controllers
                         if (Roles.IsUserInRole(model.userName, "Admin"))
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "Admin/QLGiaoVien", "Admin");
+                            return RedirectToAction("", "Admin");
                         }
                         else
                         if(Roles.IsUserInRole(model.userName, "GiaoVien"))
@@ -54,7 +54,7 @@ namespace WebEng.Controllers
                         else
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "HocVien/Home");
+                            return RedirectToAction("Index", "HocVien/Tim");
                         }
                             
                     }
