@@ -379,9 +379,9 @@ values (1,1),(1,2),(1,4),(1,5),--nghe
 
 	
 insert into BinhLuan
-values (3,1,N'Bình luận của học viên AAAAAA','5/20/2021 10:50',0),
-(3,1,N'Bình luận của học viên zzzz','5/21/2021 11:50',0),
-(3,1,N'Bình luận của học viên ','5/21/2021 15:50',0),
-(2,1,N'Trả lời của giáo viên aaaaaa','5/20/2021 12:30',1),
-(2,1,N'Trả lời của giáo viên bbbbbb','5/20/2021 12:50',1),
-(2,1,N'Trả lời Bình luận của học viên zzzz','5/20/2021 10:50',2);
+values (3,1,N'Bình luận của học viên AAAAAA','4/20/2021 10:50',0),
+(3,1,N'Bình luận của học viên zzzz','4/21/2021 11:50',0),
+(3,1,N'Bình luận của học viên ','4/21/2021 15:50',0),
+(2,1,N'Trả lời của giáo viên aaaaaa','5/15/2021 12:30',1),
+(2,1,N'Trả lời của giáo viên bbbbbb','5/15/2021 12:50',1),
+(2,1,N'Trả lời Bình luận của học viên zzzz','5/15/2021 10:50',2);

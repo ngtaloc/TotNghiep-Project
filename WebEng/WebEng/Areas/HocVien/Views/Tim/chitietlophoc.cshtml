@@ -1,11 +1,11 @@
-﻿@using  Models.Framework
+﻿@using Models.Framework
 @model LopHoc
 
 @{
     ViewBag.Title = "chitietlophoc";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
     var hocvien = (HocVien)ViewBag.hocvien;
-    
+
 }
 @section masterjs{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -242,13 +242,6 @@
                                 <div class="col-12">
                                     <img src="@Model.hinh" class="product-image" alt="Product Image">
                                 </div>
-                                @*<div class="col-12 product-image-thumbs">
-                                        <div class="product-image-thumb active"><img src="../../dist/img/prod-1.jpg" alt="Product Image"></div>
-                                        <div class="product-image-thumb"><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
-                                        <div class="product-image-thumb"><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
-                                        <div class="product-image-thumb"><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
-                                        <div class="product-image-thumb"><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div>
-                                    </div>*@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <h3 class="my-3">@Model.tenLopHoc</h3>
@@ -258,7 +251,7 @@
                                 <div class="card-group">
                                     @*<button class="" type="submit">Đăng ký Học Ngay</button>*@
                                     <div class="card-header row col-md-12 text-center">
-                                        @using (Html.BeginForm("DangKyLop", "Home", Model, FormMethod.Post))
+                                        @using (Html.BeginForm("DangKyLop", "Tim", Model, FormMethod.Post))
                                         {
                                             <button type="submit" class="btn-block btn-warning btn-lg">Đăng ký Học Ngay</button>
                                         }
@@ -323,82 +316,165 @@
 
                                 <div class="tab-pane fade show active" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
                                     <div class="d-flex flex-column col-md-12">
-                                        <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-                                            <div class="profile-image"><img class="rounded-circle" src="https://i.imgur.com/t9toMAQ.jpg" width="70"></div>
-                                            <div class="d-flex flex-column-reverse flex-grow-0 align-items-center votings ml-1"><i class="fa fa-sort-up fa-2x hit-voting"></i><span>127</span><i class="fa fa-sort-down fa-2x hit-voting"></i></div>
-                                            <div class="d-flex flex-column ml-3">
-                                                <div class="d-flex flex-row post-title">
-                                                    <h5>Is sketch 3.9.1 stable?</h5><span class="ml-2">(Jesshead)</span>
-                                                </div>
-                                                <div class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">video</span><span class="mr-2 comments">13 comments&nbsp;</span><span class="mr-2 dot"></span><span>6 giờ</span></div>
-                                            </div>
-                                        </div>
+                                        @*<div class="d-flex flex-row add-comment-section mt-4 mb-4 border-bottom px-4">*@
+                                        @*<div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">*@
+
+                                        @using (Html.BeginForm("BinhLuan", "Tim", new { idlh = Model.ID, idtk = hocvien.TaiKhoan.iD }, FormMethod.Post, new { @class = "d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" }))
+                                        {
+                                            if (hocvien.TaiKhoan.hinh != "")
+                                            {
+                                                <img class="img-fluid img-responsive rounded-circle mr-2" src="@hocvien.TaiKhoan.hinh" width="50">
+                                            }
+                                            else
+                                            {<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="50">}
+                                            <input type="text" class="form-control m-3" placeholder="Bạn nghĩ gì về khóa học này?" name="noidung" required>
+                                            <button class="btn btn-primary binhluan" type="submit">Bình luận</button>
+                                        }
+
+                                        @*</div>*@
 
                                         <div class="coment-bottom bg-white p-2 px-4">
-                                            <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-                                                <img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">
-                                                <input type="text" class="form-control mr-3" placeholder="Bạn nghĩ gì về khóa học này?">
-                                                <button class="btn btn-primary binhluan" type="button">Bình luận</button>
-                                            </div>
-                                            @helper ItemCon(BinhLuan item, string role)
-                                            {
-                                              
-                                               
-                                            }
+
                                             @foreach (var item in Model.BinhLuans)
                                             {
-                                                if (item.idCha == 0)
+                                                if (item.BinhLuan2 == null)
                                                 {
                                                     <div class="commented-section mt-2">
                                                         <div class="d-flex flex-row align-items-center commented-user">
 
-                                                            <h5 class="mr-2"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">Hậu Trịnh</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 giờ</span>
+                                                            <h5 class="mr-2">
+                                                                @if (item.TaiKhoan.hinh != "")
+                                                                {
+                                                                    <img class="img-fluid img-responsive rounded-circle mr-2" src="@item.TaiKhoan.hinh" width="38">
+                                                                }
+                                                                else
+                                                                {<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="38">}
+                                                                @item.TaiKhoan.hovaten
+                                                            </h5>
+                                                            <span class="dot mb-1"></span>
+                                                            <span class="mb-1 ml-2">
+                                                                @{
+                                                                    string da = (DateTime.Now - item.thoiGian).ToString();
+
+                                                                    if (da.Split('.').Length == 3)
+                                                                    {
+                                                                        if (int.Parse(da.Split('.')[0]) >= 365)
+                                                                        {
+                                                                            da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm";
+                                                                        }
+                                                                        else if (int.Parse(da.Split('.')[0]) > 30)
+                                                                        {
+                                                                            da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            da = da.Split('.')[0] + " ngày";
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if (da.Split('.')[0].Split(':')[0] == "00")
+                                                                        {
+                                                                            da = da.Split('.')[0].Split(':')[1] + " phút";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            da = da.Split('.')[0].Split(':')[0] + " giờ";
+                                                                        }
+                                                                    }
+                                                                    @da
+                                                                }
+                                                            </span>
                                                         </div>
                                                         <div class="comment-text-sm"><span>@item.noiDung</span></div>
                                                         <div class="reply-section">
                                                             <div class="d-flex flex-row align-items-center voting-icons">
-                                                                <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i><i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i><span class="ml-2">10</span><span class="dot ml-2"></span>
+                                                                <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                                                                <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+                                                                <span class="ml-2">@item.BinhLuan1.Count()</span>
+                                                                <span class="dot ml-2"></span>
                                                                 <h6 class="ml-2 mt-1">Trả lời</h6>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    if (item.BinhLuan1.Count() != 0)
+                                                    {
+                                                        foreach (var it in item.BinhLuan1)
+                                                        {
+                                                            <div class="content-comment">
+                                                                <div class="commented-section mt-2">
+                                                                    <div class="d-flex flex-row align-items-center commented-user">
+                                                                        <h5 class="mr-2">
+                                                                            @if (it.TaiKhoan.hinh != "")
+                                                                            {
+                                                                                <img class="img-fluid img-responsive rounded-circle mr-2" src="@it.TaiKhoan.hinh" width="38">
+                                                                            }
+                                                                            else
+                                                                            {<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="38">}
+                                                                            @it.TaiKhoan.hovaten
+                                                                        </h5>
+                                                                        <span class="dot mb-1"></span>
+                                                                        <span class="mb-1 ml-2">
+                                                                            @{
+                                                                                string dat = (DateTime.Now - it.thoiGian).ToString();
 
-                                                    <div class="traloi">
-                                                        <textarea placeholder='Bạn nghĩ gì về khóa học này?'></textarea>
-                                                        <div class="btn1">
-                                                            <button id='clear'>Hủy</button>
-                                                            <input id="binhluan" type="submit" value='Bình Luận'>
-                                                        </div>
-                                                    </div>
-                                                   
-                                                }
-                                                else
-                                                {
-                                                    <div class="content-comment">
-                                                        <div class="commented-section mt-2">
-                                                            <div class="d-flex flex-row align-items-center commented-user">
-                                                                <h5 class="mr-2"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">Quốc Huỳnh</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">5 giờ</span>
-                                                            </div>
-                                                            <div class="comment-text-sm"><span>khóa học này học phí 2tr em nhé</span></div>
-
-                                                            <div class="reply-section">
-                                                                <div class="d-flex flex-row align-items-center voting-icons">
-                                                                    <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i><i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i><span class="ml-2">10</span><span class="dot ml-2"></span>
-                                                                    <h6 class="ml-2 mt-1">Trả lời</h6>
+                                                                                if (dat.Split('.').Length == 3)
+                                                                                {
+                                                                                    if (int.Parse(dat.Split('.')[0]) >= 365)
+                                                                                    {
+                                                                                        dat = (int.Parse(dat.Split('.')[0]) / 365).ToString() + " năm";
+                                                                                    }
+                                                                                    else if (int.Parse(dat.Split('.')[0]) > 30)
+                                                                                    {
+                                                                                        dat = (int.Parse(dat.Split('.')[0]) / 30).ToString() + " tháng";
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        dat = dat.Split('.')[0] + " ngày";
+                                                                                    }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    if (dat.Split('.')[0].Split(':')[0] == "00")
+                                                                                    {
+                                                                                        dat = dat.Split('.')[0].Split(':')[1] + " phút";
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        dat = dat.Split('.')[0].Split(':')[0] + " giờ";
+                                                                                    }
+                                                                                }
+                                                                                @dat
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="comment-text-sm"><span>@it.noiDung</span></div>
+                                                                    <div class="reply-section">
+                                                                        <div class="d-flex flex-row align-items-center voting-icons">
+                                                                            <i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                                                                            <i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+                                                                            <span class="ml-2">@it.BinhLuan1.Count()</span>
+                                                                            <span class="dot ml-2"></span>
+                                                                            <h6 class="ml-2 mt-1">Trả lời</h6>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="traloi">
-                                                            <textarea placeholder='Bạn nghĩ gì về khóa học này?'></textarea>
+                                                        }
+                                                    }
+                                                    <div class="traloi">
+                                                        @using (Html.BeginForm("BinhLuan", "Tim", new { tk = hocvien.TaiKhoan, lh = Model, idcha = item.ID }, FormMethod.Post))
+                                                        {
+                                                            <textarea placeholder='Bạn nghĩ gì về khóa học này?' name="noidung"></textarea>
                                                             <div class="btn1">
                                                                 <button id='clear'>Hủy</button>
                                                                 <input id="binhluan" type="submit" value='Bình Luận'>
                                                             </div>
-                                                        </div>
+                                                        }
+
                                                     </div>
+                                                    <hr />
                                                 }
-
-
                                             }
 
 
@@ -487,12 +563,18 @@
                                 <div class="d-flex flex-row post-title">
                                     <h5>Is sketch 3.9.1 stable?</h5><span class="ml-2">(Jesshead)</span>
                                 </div>
-                                <div class="d-flex flex-row align-items-center align-content-center post-title"><span class="bdge mr-1">video</span><span class="mr-2 comments">13 comments&nbsp;</span><span class="mr-2 dot"></span><span>6 giờ</span></div>
+                                <div class="d-flex flex-row align-items-center align-content-center post-title">
+                                    <span class="bdge mr-1">video</span><span class="mr-2 comments">13 comments&nbsp;</span><span class="mr-2 dot"></span><span>6 giờ</span>
+                                </div>
                             </div>
                         </div>
                         <div class="coment-bottom bg-white p-2 px-4">
-                            <div class="d-flex flex-row add-comment-section mt-4 mb-4"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text" class="form-control mr-3" placeholder="Bạn nghĩ gì về khóa học này?"><button class="btn btn-primary binhluan" type="button">Bình luận</button></div>
-                            
+                            <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                                <img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="38">
+                                <input type="text" class="form-control mr-3" placeholder="Bạn nghĩ gì về khóa học này?">
+                                <button class="btn btn-primary binhluan" type="button">Bình luận</button>
+                            </div>
+
                             <div class="commented-section mt-2">
                                 <div class="d-flex flex-row align-items-center commented-user">
                                     <h5 class="mr-2">Hậu Trịnh</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 giờ</span>
@@ -536,10 +618,10 @@
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    @if (Model.Giangvien.hinh != null)
+                    @if (Model.Giangvien.TaiKhoan.hinh != null)
                     {
                         <img class="profile-user-img img-fluid img-circle"
-                             src="@Model.Giangvien.hinh"
+                             src="@Model.Giangvien.TaiKhoan.hinh"
                              alt="User profile picture">
                     }
                     else
@@ -549,7 +631,7 @@
                              alt="User profile picture">
                     }
                 </div>
-                <h3 class="profile-username text-center">@Model.Giangvien.hovaten</h3>
+                <h3 class="profile-username text-center">@Model.Giangvien.TaiKhoan.hovaten</h3>
 
                 <div>
                     <div class="card-header">

@@ -21,7 +21,20 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.iD;
         }
-
+        public bool DoiMK(TaiKhoan entity)
+        {
+            try
+            {
+                var tk = db.TaiKhoans.Find(entity.iD);
+                tk.matKhau = entity.matKhau;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public TaiKhoan GetByTDN(string username)
         {
             return db.TaiKhoans.SingleOrDefault(x => x.tenDangNhap == username);

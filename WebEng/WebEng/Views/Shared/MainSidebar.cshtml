@@ -18,9 +18,9 @@
             <div class="image">
                 @try
                 {
-                    if (Model.Giangviens.FirstOrDefault().hinh != null && Model != null)
+                    if (Model.hinh != "" && Model != null)
                     {
-                        <img src="@Model.Giangviens.FirstOrDefault().hinh" class="img-circle elevation-2" alt="User Image">
+                        <img src="@Model.hinh" class="img-circle elevation-2" alt="User Image">
                     }
                     else
                     {
@@ -36,7 +36,9 @@
             </div>
             <div class="info">
 
-                <a href="http://localhost:52790/@Roles.GetRolesForUser().FirstOrDefault()/Info" class="d-block">@(Model !=null ? (Model.HocViens.Count != 0 ? Model.HocViens.FirstOrDefault().hovaten : (Model.Giangviens.Count != 0 ? Model.Giangviens.FirstOrDefault().hovaten : "Nguyễn Tấn Lộc")) :"Xin Cào")</a>
+                <a href="http://localhost:52790/@Roles.GetRolesForUser().FirstOrDefault()/Info" class="d-block">
+                    @(Model !=null ? Model.hovaten :"Xin Chào")
+                </a>
 
                 @Html.ActionLink("Đăng xuất", "Logout", "Home")
             </div>

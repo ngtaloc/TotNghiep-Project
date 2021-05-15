@@ -30,11 +30,11 @@
     @if (TempData["testmsg"] != null)
     {
 
-    <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
-        @TempData["testmsg"]
-    </div>
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
 
 
 
@@ -49,10 +49,10 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            @if (Model.hinh != null)
+                            @if (Model.TaiKhoan.hinh != null)
                             {
                                 <img class="profile-user-img img-fluid img-circle"
-                                     src="@Model.hinh"
+                                     src="@Model.TaiKhoan.hinh"
                                      alt="User profile picture">
                             }
                             else
@@ -63,7 +63,7 @@
                             }
 
                         </div>
-                        <h3 class="profile-username text-center">@Model.hovaten</h3>
+                        <h3 class="profile-username text-center">@Model.TaiKhoan.hovaten</h3>
                         <p class="text-muted text-center">Giáo viên anh văn</p>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
@@ -260,7 +260,7 @@
                                                         <div class="form-group">
                                                             <label for="ten">Họ và tên</label>
                                                             @*<input type="text" class="form-control" id="ten" placeholder="Chưa có họ và tên">*@
-                                                            @Html.TextBoxFor(model => model.hovaten, new { @type = "text", @class = "form-control form-control-border", @id = "ten", @placeholder = "Chưa có họ và tên" })
+                                                            @Html.TextBoxFor(model => model.TaiKhoan.hovaten, new { @type = "text", @class = "form-control form-control-border", @id = "ten", @placeholder = "Chưa có họ và tên" })
 
                                                         </div>
                                                         <div class="form-group">
@@ -577,53 +577,41 @@
                                 </div>
                                 <!-- /.tab-pane -->
                                 <div class="tab-pane" id="settings">
-                                    <form class="form-horizontal">
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6">
+                                            <div class="col-12">
+                                                @if (@Model.TaiKhoan.hinh != "")
+                                                {
+                                                    <img src="@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
+                                                }
+                                                else
+                                                { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">}
+
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                        <div class="col-12 col-sm-6">
+
+                                            <div class="form-group">
+                                                <label for="diachi">Tên đăng nhập</label>
+                                                @Html.TextBoxFor(model => model.TaiKhoan.tenDangNhap, new { @type = "text", @class = "form-control form-control-border", @id = "tdn", @placeholder = "Chưa có tên đăng nhập", @readonly = "true" })
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                            <div class="form-group">
+                                                <button class="btn btn-info">Đổi ảnh đại diện</button>
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                            <div class="form-group">
+                                                <button type="button" data-toggle="ajax-model" id="ModalMK1" data-target="#modal-DoiMK" data-url="@Url.Action($"DoiMK/{Model.TaiKhoan.iD}")" class="btn btn-info">Đổi mật khẩu</button>
+
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                            <div class="form-group">
+
+                                                <button class="btn btn-info">Thêm gương mặt</button>
                                             </div>
+
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
+
+                                    </div>
                                 </div>
+                                <div id="showModalMK"></div>
                                 <!-- /.tab-pane -->
                             </div>
                             <!-- /.tab-content -->
@@ -650,6 +638,18 @@
                 }
             });
             $(function () {
+
+                var ShowModal = $('#showModalMK');
+                $('#ModalMK1').click(function (event) {
+                    var url = $(this).data('url');
+                    alert(url);
+                    $.get(url).done(function (data) {
+                        console.log(data);
+                        ShowModal.html(data);
+                        ShowModal.find('#modal-DoiMK').modal('show');
+                    })
+                });
+
                 $('.form-check-input.skill').checked.closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true)
             if ($('.form-check-input.skill').checked) {
                 //alert('1');
@@ -661,7 +661,14 @@
 
             }
 
-                                                                });
+                
+
+            });
+
+
+
+
+
 
         </script>
 
