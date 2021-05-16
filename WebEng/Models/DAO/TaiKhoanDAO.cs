@@ -35,6 +35,21 @@ namespace Models.DAO
                 return false;
             }
         }
+        public bool upHinhTen(TaiKhoan entity)
+        {
+            try
+            {
+                var tk = db.TaiKhoans.Find(entity.iD);
+                tk.hovaten = entity.hovaten;
+                tk.hinh = entity.hinh;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public TaiKhoan GetByTDN(string username)
         {
             return db.TaiKhoans.SingleOrDefault(x => x.tenDangNhap == username);

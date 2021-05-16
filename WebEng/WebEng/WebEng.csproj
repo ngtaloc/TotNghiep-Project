@@ -2996,6 +2996,7 @@
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Areas\HocVien\Views\Home\" />
+    <Folder Include="Content\Data\image\" />
     <Folder Include="Python\your_face\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
