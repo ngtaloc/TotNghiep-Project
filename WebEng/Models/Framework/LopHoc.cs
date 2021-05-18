@@ -15,9 +15,9 @@ namespace Models.Framework
             BinhLuans = new HashSet<BinhLuan>();
             DSLopHocs = new HashSet<DSLopHoc>();
             KyNangLopHocs = new HashSet<KyNangLopHoc>();
+            Ngays = new HashSet<Ngay>();
             TaiLieux = new HashSet<TaiLieu>();
             TietHocs = new HashSet<TietHoc>();
-            Ngays = new HashSet<Ngay>();
         }
 
         public int ID { get; set; }
@@ -60,12 +60,12 @@ namespace Models.Framework
         public virtual ICollection<KyNangLopHoc> KyNangLopHocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ngay> Ngays { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiLieu> TaiLieux { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TietHoc> TietHocs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ngay> Ngays { get; set; }
     }
 }

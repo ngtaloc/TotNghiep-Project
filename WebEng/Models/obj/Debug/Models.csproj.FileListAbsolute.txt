@@ -14,6 +14,7 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Co
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+<<<<<<< HEAD
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
@@ -30,3 +31,9 @@ F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.Core
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+=======
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+>>>>>>> d2c1c04a500470f1f2684a0906390aa1a80336bc

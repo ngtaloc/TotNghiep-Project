@@ -62,6 +62,8 @@
     <Compile Include="AccountModel.cs" />
     <Compile Include="DAO\DSLopHocDAO.cs" />
     <Compile Include="DAO\KyNangGiangVienDAO.cs" />
+    <Compile Include="DAO\KyNangDAO.cs" />
+    <Compile Include="DAO\BinhLuanDAO.cs" />
     <Compile Include="DAO\ViTien.cs" />
     <Compile Include="DAO\LichSuGDDAO.cs" />
     <Compile Include="DAO\ThongBaoDAO.cs" />
@@ -76,8 +78,8 @@
     <Compile Include="Framework\CapDo.cs" />
     <Compile Include="Framework\ChucNang.cs" />
     <Compile Include="Framework\DSLopHoc.cs" />
-    <Compile Include="Framework\HocVien.cs" />
     <Compile Include="Framework\Giangvien.cs" />
+    <Compile Include="Framework\HocVien.cs" />
     <Compile Include="Framework\KyNang.cs" />
     <Compile Include="Framework\KyNangGiangVien.cs" />
     <Compile Include="Framework\KyNangLopHoc.cs" />

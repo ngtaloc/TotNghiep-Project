@@ -1,0 +1,337 @@
+﻿@model IEnumerable<Models.Framework.LopHoc>
+
+
+@{
+    ViewBag.Title = "GiaoVien";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+}
+@section css{
+    <!-- DataTables -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+}
+@section header{
+    <div class="col-md-3">
+        Giáo viên
+    </div>
+    
+    @if (TempData["testmsg"] != null)
+    {
+
+        <div class="alert alert-info col-md-8 offset-md-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+
+
+    }
+}
+
+
+<div id="showModalGV"></div>
+<div id="ShoweditModal"></div>
+<div class="row">
+    <div class="col-lg-6">
+        <button type="button" data-toggle="ajax-model" id="Modal" data-target="#modal-create-lg" data-url="@Url.Action("Create")" class="btn dropdown-item">
+            <i style="margin-left:50px">Tạo lớp học</i>
+            <i class="fas fa-plus-square"></i>
+        </button>
+    </div>
+    <div class="container-fluid col-lg-6">
+        <form action="simple-results.html">
+            <div class="input-group">
+                <input type="search" class="form-control form-control-lg" placeholder="Search">
+                <div class="input-group-append" style="width:50px">
+                    <button type="submit" class="btn btn-lg btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-body">
+    <div id="wrap" class="wrapper" style="display: grid; grid-gap:15px;grid-template-columns: 400px 400px 400px">
+        @foreach (var item in Model)
+        {
+            <div class="item item1">
+                <div class="card card-widget widget-user-2 shadow-sm">
+                    <div class="widget-user-header bg-warning">
+                        <div id="img" class="widget-user-image">
+                            <img src="@item.hinh" />
+                        </div>
+                        <buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>
+                        @foreach (var item1 in item.KyNangLopHocs)
+                        {
+                            <h5 id="job" class="widget-user-desc">@item1.KyNang.tenKyNang </h5>
+                            <h5 id="job" class="widget-user-desc">@item1.CapDo.tenCapDo </h5>
+                        }
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item" style="color:black">
+                                <a id="nameClass" class="nav-link" style="pointer-events:none">
+                                    Lớp học
+                                    <span class="float-right badge bg-danger">@item.tenLopHoc</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="numBers" class="nav-link" style="pointer-events:none">
+                                    Số lượng
+                                    <span class="float-right badge bg-danger">@item.soluong</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="startLearn" class="nav-link" style="pointer-events:none">
+                                    Khai giảng
+                                    <span class="float-right badge bg-danger">@item.ngayBegin.ToString().Split(' ')[0]</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Lịch học
+                                    <span class="float-right badge bg-danger">aaaa</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Thời gian học
+                                    <span class="float-right badge bg-danger">@item.Giangvien.email</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="Due" class="nav-link" style="pointer-events:none">
+                                    Ngày kết thúc
+                                    <span class="float-right badge bg-danger">@item.ngayEnd.ToString().Split(' ')[0]</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black; text-align:center">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button type="button" data-toggle="ajax-model-edit" id="Modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")" class="btn dropdown-item">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </div>
+                                    @using (Html.BeginForm("Delete", "GiaoVien", FormMethod.Get))
+                                    {
+                                        <div class="col-lg-6 col-md-6">
+                                            <button id="xoa" formaction="@Url.Action("Delete","GiaoVien",new {id = item.ID})" type="submit">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="content__product" id="product">
+    </div>
+    <div class="content__paging">
+        <div class="page">
+            <ul>
+                <li class="btn-prev btn-active fas fa-angle-left"></li>
+                <div class="number-page" id="number-page">
+                </div>
+                <li class="btn-next fas fa-angle-right"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section masterjs
+        {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/jszip/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/moment/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/fullcalendar/main.js")"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="~/Content/js/GV.js"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/bs-custom-file-input/bs-custom-file-input.min.js")"></script>
+    <script>
+
+        $(function () {
+            var ShowModal = $('#showModalGV');
+            $('button[data-toggle="ajax-model"]').click(function (event) {
+                var url = $(this).data('url');
+
+                $.get(url).done(function (data) {
+                    console.log(data);
+                    ShowModal.html(data);
+                    ShowModal.find('#modal-create-lg').modal('show');
+                })
+            });
+
+            var ShowModaledit = $('#ShoweditModal');
+            $('button[data-toggle="ajax-model-edit"]').click(function (event) {
+                var url = $(this).data('url');
+                //var decodeUrl = decodeURIComponent(url);
+                $.get(url).done(function (data) {
+                    ShowModaledit.html(data);
+
+                    ShowModaledit.find('#modal-edit-lg').modal('show');
+                })
+            })
+        });
+
+
+        // tạo modal thời gian biểu
+        function myFunction() {
+            for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
+                var stt_lesson = document.createElement("label");
+                stt_lesson.textContent = "buổi " + i;
+                var div_stt = document.getElementById("child");
+                div_stt.appendChild(stt_lesson);
+
+                var p = document.createElement("select");
+                var div = document.getElementById("child");
+                div.appendChild(p);
+                p.style.height = "30px";
+                p.style.marginLeft = "10px";
+                p.name = "day";
+                for (var day = 1; day <= 7; day++) {
+                    var option = document.createElement("option");
+                    option.value = day;
+                    switch (day) {
+                        case 1: option.innerHTML = "Thứ hai";
+                            break;
+                        case 2: option.innerHTML = "Thứ ba";
+                            break
+                        case 3: option.innerHTML = "Thứ tư";
+                            break;
+                        case 4: option.innerHTML = "Thứ năm";
+                            break
+                        case 5: option.innerHTML = "Thứ sáu";
+                            break;
+                        case 6: option.innerHTUrlL = "Thứ bảy";
+                            break;
+                        case 7: option.innerHTML = "Chủ nhật";
+                            break;
+                    }
+                    p.appendChild(option);
+                }
+                var startday = document.createElement("input");
+                startday.type = "time";
+                startday.style.height = "30px";
+                startday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(startday);
+
+                var endday = document.createElement("input");
+                endday.type = "time";
+                endday.style.height = "30px";
+                endday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(endday);
+
+                var br = document.createElement("br");
+                var br1 = document.getElementById("child");
+                br1.appendChild(br);
+            }
+        }
+
+        let perPage = 6;
+        let currentPage = 1;
+        let start = 0;
+        let end = perPage;
+
+        let productArr = [];
+        let showAdd = false;
+
+        const image = document.getElementById('img');
+        const nameTeacher = document.getElementById('nameTeacher');
+        const job = document.getElementById('job');
+        const nameClass = document.getElementById('nameClass');
+        const numBers = document.getElementById('numBers');
+        const startLearn = document.getElementById("startLearn");
+        const Due = document.getElementById("Due");
+        const numberMonths = document.getElementById("numberMonths");;
+        const endLearn = document.getElementById("endLearn");
+        const btnNext = document.querySelector('.btn-next');
+        const btnPrev = document.querySelector('.btn-prev');
+
+
+        function getCurrentPage(currentPage) {
+            start = (currentPage - 1) * perPage;
+            end = currentPage * perPage;
+        }
+        const totalPages = Math.ceil(product.length / perPage);
+        btnNext.addEventListener('click', () => {
+            currentPage++;
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            getCurrentPage(currentPage);
+            renderProduct();
+        })
+
+        btnPrev.addEventListener('click', () => {
+            currentPage--;
+            if (currentPage <= 1) {
+                currentPage = 1;
+            }
+            getCurrentPage(currentPage);
+            renderProduct();
+        })
+
+        function renderListpage() {
+            let html = '';
+            html += '<li  class="active">';
+            html += '<a>' + 1 + '</a>';
+            html += '</li>';
+            for (let i = 2; i <= totalPages; i++) {
+                html += '<li  class="active">';
+                html += '<a>' + i + '</a>';
+                html += '</li>';
+            }
+            document.getElementById('number-page').innerHTML = html;
+        }
+        renderListpage();
+
+        function changePages() {
+            const currentPages = document.querySelectorAll('.number-page li')
+            for (let i = 0; i <= currentPages.length; i++) {
+                currentPages[i].addEventListener('click', () => {
+                    const value = i + 1;
+                    currentPage = value;
+                    getCurrentPage(currentPage);
+                    renderProduct();
+                })
+            }
+        }
+        changePages();
+
+        $("#xoa").click(function () {
+            $("div").remove();
+        });
+    </script>
+}

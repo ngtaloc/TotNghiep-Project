@@ -68,10 +68,6 @@ namespace Models.Framework
                 .HasForeignKey(e => e.iDCha);
 
             modelBuilder.Entity<Giangvien>()
-                .Property(e => e.hinh)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Giangvien>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
@@ -147,6 +143,11 @@ namespace Models.Framework
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LopHoc>()
+                .HasMany(e => e.Ngays)
+                .WithOptional(e => e.LopHoc)
+                .HasForeignKey(e => e.iDLopHoc);
+
+            modelBuilder.Entity<LopHoc>()
                 .HasMany(e => e.TaiLieux)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.idLH);
@@ -155,11 +156,6 @@ namespace Models.Framework
                 .HasMany(e => e.TietHocs)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.idLopHoc);
-
-            modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.Ngays)
-                .WithOptional(e => e.LopHoc)
-                .HasForeignKey(e => e.iDLopHoc);
 
             modelBuilder.Entity<Nam>()
                 .Property(e => e.nam1)
@@ -191,6 +187,10 @@ namespace Models.Framework
                 .HasMany(e => e.ChucNangs)
                 .WithMany(e => e.NhomQuyens)
                 .Map(m => m.ToTable("ChucNangNhomQuyen").MapLeftKey("IDNHOMQUYEN").MapRightKey("idCN"));
+
+            modelBuilder.Entity<TaiKhoan>()
+                .Property(e => e.hinh)
+                .IsUnicode(false);
 
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.tenDangNhap)

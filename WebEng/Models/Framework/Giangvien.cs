@@ -18,12 +18,6 @@ namespace Models.Framework
 
         public int ID { get; set; }
 
-        [StringLength(50)]
-        public string hovaten { get; set; }
-
-        [Column(TypeName = "text")]
-        public string hinh { get; set; }
-
         [StringLength(100)]
         public string diachi { get; set; }
 

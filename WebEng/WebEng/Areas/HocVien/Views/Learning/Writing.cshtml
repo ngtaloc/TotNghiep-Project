@@ -1,75 +1,75 @@
-﻿
+﻿@model Models.Framework.LopHoc
 @{
-	Layout = null;
+    Layout = null;
 }
 
 
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <style>
-	.header1 {
-		margin-top: -20px;
-		height: 100px;
-		margin-bottom: 25px;
-		width: 100%;
-		-webkit-box-shadow: 0 4px rgb(0 0 0 / 5%);
-	}
+    .header1 {
+        margin-top: -20px;
+        height: 100px;
+        margin-bottom: 25px;
+        width: 100%;
+        -webkit-box-shadow: 0 4px rgb(0 0 0 / 5%);
+    }
 
-	.logo1 {
-		margin-left: 40px;
-		padding-top: 25px;
-	}
+    .logo1 {
+        margin-left: 40px;
+        padding-top: 25px;
+    }
 
-	.listening img {
-		height: 80px;
-		margin-top: 15px;
-		margin-left: 20px;
-		margin-bottom: 10px;
-	}
+    .listening img {
+        height: 80px;
+        margin-top: 15px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
 
-	.nav-link {
-		border-top: none;
-	}
+    .nav-link {
+        border-top: none;
+    }
 
-	.border {
-		border: 1px solid gainsboro;
-	}
+    .border {
+        border: 1px solid gainsboro;
+    }
 </style>
 <div class="container-onlineclass">
-	<div class="header1">
-		<div class="listening">
-			<img src="~/Content/img/logos/wtriting.png" />
-		</div>
-	</div>
-	<div class="content1">
-		<div class="nav1">
-			<ul class="nav nav-tabs" role="tablist">
-				<li class="nav-item  border">
-					<a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#tailieu3" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Tài liệu</a>
-				</li>
-				<li class="nav-item  border">
-					<a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#baihoc3" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Bài học</a>
-				</li>
-				<li class="nav-item  border">
-					<a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#baitap3" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Bài tập</a>
-				</li>
-			</ul>
-		</div>
-		<div class="card-body1">
-			<div class="tab-content" id="custom-tabs-four-tabContent">
-				<div class="tab-pane fade show active" id="tailieu3" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-					@{Html.RenderAction("Tailieu", "Learning", "");}
-				</div>
-				<div class="tab-pane fade" id="baihoc3" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-					@{Html.RenderAction("Baihoc", "Learning", "");}
-				</div>
-				<div class="tab-pane fade" id="baitap3" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-					@{Html.RenderAction("Meeting", "Learning", "");}
-				</div>
+    <div class="header1">
+        <div class="listening">
+            <img src="~/Content/img/logos/wtriting.png" />
+        </div>
+    </div>
+    <div class="content1">
+        <div class="nav1">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item  border">
+                    <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#tailieu3" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Tài liệu</a>
+                </li>
+                <li class="nav-item  border">
+                    <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#baihoc3" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Bài học</a>
+                </li>
+                <li class="nav-item  border">
+                    <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#baitap3" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Bài tập</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body1">
+            <div class="tab-content" id="custom-tabs-four-tabContent">
+                <div class="tab-pane fade show active" id="tailieu3" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                    @{Html.RenderAction("Tailieu", "Learning", new { Model, idkn = 4 });}
+                </div>
+                <div class="tab-pane fade" id="baihoc3" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                    @{Html.RenderAction("Baihoc", "Learning", "");}
+                </div>
+                <div class="tab-pane fade" id="baitap3" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
+                    @{Html.RenderAction("Meeting", "Learning", "");}
+                </div>
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>

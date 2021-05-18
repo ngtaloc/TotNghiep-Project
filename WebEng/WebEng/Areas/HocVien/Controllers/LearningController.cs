@@ -1,4 +1,5 @@
 ﻿using Models.DAO;
+using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,54 +12,58 @@ namespace WebEng.Areas.HocVien.Controllers
     public class LearningController : Controller
     {
         // GET: HocVien/Learning
-        public ActionResult Index()
+        public ActionResult Index(int id=1)
         {
-            return View();
+            var dao = new LopHocDAO();
+            var model = dao.GetByID(id);
+            return View(model);
 
         }
-		 public ActionResult Listening()
+		 public ActionResult Listening(LopHoc lopHoc)
         {
-            return View();
+            return View(lopHoc);
 
         }
-		public ActionResult Speaking()
+		public ActionResult Speaking(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult Reading()
+		public ActionResult Reading(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult Writing()
+		public ActionResult Writing(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult OnlineClass()
+		public ActionResult OnlineClass(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult Meeting()
+		public ActionResult Meeting(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult Tailieu()
+		public ActionResult Tailieu(LopHoc lopHoc, int idkn)
 		{
-			return View();
+            var dao = new KyNangDAO();
+            var model = dao.FindByLopHocKN(lopHoc, idkn);
+            return View(model);
 
 		}
-		public ActionResult Baihoc()
+		public ActionResult Baihoc(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
-		public ActionResult Baitap()
+		public ActionResult Baitap(LopHoc lopHoc)
 		{
-			return View();
+			return View(lopHoc);
 
 		}
 

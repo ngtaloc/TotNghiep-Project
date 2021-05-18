@@ -43,7 +43,7 @@ namespace Models.DAO
             try
             {
                 var hv = this.FindByTDN(tdn);
-                hv.hovaten = entity.hovaten;
+                hv.TaiKhoan.hovaten = entity.TaiKhoan.hovaten;
                 hv.gioitinh = entity.gioitinh;
                 hv.ngaysinh = entity.ngaysinh;
                 hv.email = entity.email;

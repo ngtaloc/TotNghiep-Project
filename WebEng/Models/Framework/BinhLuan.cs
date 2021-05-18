@@ -24,6 +24,8 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string noiDung { get; set; }
 
+        public DateTime? thoiGian { get; set; }
+
         public int? idCha { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

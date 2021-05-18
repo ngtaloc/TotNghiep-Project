@@ -64,7 +64,7 @@ namespace WebEng.Controllers
                     quyen.IDNHOMQUYEN = 2; //2 là quyền giáo viên
                     taiKhoan.TAIKHOAN_NHOMQUYEN.Add(quyen);
                     gv.TaiKhoan = taiKhoan;
-                    gv.hovaten = name;
+                    gv.TaiKhoan.hovaten = name;
                     gv.diachi = diachi;
                     gv.gioitinh = gioitinh;
                     if (ngaysinh != "")
@@ -129,7 +129,7 @@ namespace WebEng.Controllers
                     quyen.IDNHOMQUYEN = 3; //3 là quyền học viên
                     taiKhoan.TAIKHOAN_NHOMQUYEN.Add(quyen);
                     hv.TaiKhoan = taiKhoan;
-                    hv.hovaten = name;
+                    hv.TaiKhoan.hovaten = name;
                     hv.diachi = diachi;
                     hv.gioitinh = gioitinh;
                     if(ngaysinh!="")

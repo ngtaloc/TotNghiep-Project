@@ -167,16 +167,17 @@
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
+    <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
     <Compile Include="Areas\HocVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Common\CustomMembershipProvider.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\GiaoVien\Controllers\GiaoVienController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\MoLopController.cs" />
     <Compile Include="Areas\GiaoVien\GiaoVienAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\QLGiaoVienController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLHocVienController.cs" />
-    <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
+    <Compile Include="Areas\HocVien\Controllers\TimController.cs" />
     <Compile Include="Areas\HocVien\HocVienAreaRegistration.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\CustomRoleProvider.cs" />
@@ -2825,12 +2826,12 @@
     <Content Include="Content\Template\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\Template\plugins\toastr\toastr.js.map" />
     <Content Include="Areas\HocVien\Views\web.config" />
-    <Content Include="Areas\HocVien\Views\Home\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Tim\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\web.config" />
-    <Content Include="Areas\GiaoVien\Views\GiaoVien\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\MoLop\Index.cshtml" />
     <Content Include="Content\Login\vendor\jquery.cookie\component.json" />
     <Content Include="Content\Login\vendor\jquery.cookie\cookie.jquery.json" />
-    <Content Include="Areas\HocVien\Views\Home\chitietlophoc.cshtml" />
+    <Content Include="Areas\HocVien\Views\Tim\chitietlophoc.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLHocVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLGiaoVien\Edit.cshtml" />
@@ -2876,7 +2877,7 @@
     <Content Include="Areas\HocVien\Views\Learning\Reading.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Writing.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\OnlineClass.cshtml" />
-    <Content Include="Areas\GiaoVien\Views\GiaoVien\Create.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\MoLop\Create.cshtml" />
     <Content Include="Areas\HocVien\Views\Shared\LopDaDK.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Meeting.cshtml" />
     <Content Include="Content\DangKy\css\style.css.map" />
@@ -2909,11 +2910,21 @@
     <Content Include="Areas\GiaoVien\Views\Info\ThongBao.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baitap.cshtml" />
+=======
+    <Content Include="Areas\GiaoVien\Views\MoLop\Edit.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Baitap.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
+    <Content Include="Areas\HocVien\Views\Info\DoiMK.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
+>>>>>>> d2c1c04a500470f1f2684a0906390aa1a80336bc
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2992,6 +3003,8 @@
     <Folder Include="Areas\GiaoVien\Views\LopHoc\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />
     <Folder Include="Areas\HocVien\Models\" />
+    <Folder Include="Areas\HocVien\Views\Home\" />
+    <Folder Include="Content\Data\image\" />
     <Folder Include="Python\your_face\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
