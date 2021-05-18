@@ -2905,15 +2905,15 @@
     <Content Include="Content\DangKy\scss\layouts\main.scss" />
     <Content Include="Content\DangKy\scss\layouts\responsive.scss" />
     <Content Include="Content\DangKy\scss\style.scss" />
-
     <Content Include="Areas\GiaoVien\Views\Info\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Info\ThongBao.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
-
+    <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Baitap.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
