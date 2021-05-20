@@ -2910,13 +2910,8 @@
     <Content Include="Areas\GiaoVien\Views\Info\ThongBao.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
-    <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
-    <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
-    <Content Include="Areas\HocVien\Views\Learning\Baitap.cshtml" />
-=======
     <Content Include="Areas\GiaoVien\Views\MoLop\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
@@ -2924,11 +2919,7 @@
     <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
-=======
->>>>>>> d2c1c04a500470f1f2684a0906390aa1a80336bc
->>>>>>> refs/remotes/origin/main
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
