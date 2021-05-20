@@ -21,14 +21,11 @@
     
     @if (TempData["testmsg"] != null)
     {
-
         <div class="alert alert-info col-md-8 offset-md-1">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
             @TempData["testmsg"]
         </div>
-
-
 
     }
 }
@@ -62,17 +59,20 @@
         {
             <div class="item item1">
                 <div class="card card-widget widget-user-2 shadow-sm">
-                    <div class="widget-user-header bg-warning">
-                        <div id="img" class="widget-user-image">
-                            <img src="@item.hinh" />
+                    <a class="card card-widget widget-user" href="~/GiaoVien/chi-tiet/@item.ID" style="color:black;">
+                        <div class="widget-user-header bg-warning">
+                            <div id="img" class="widget-user-image">
+                                <img src="@item.hinh" />
+                            </div>
+                            <buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>
+                            @foreach (var item1 in item.KyNangLopHocs)
+                            {
+                                <h5 id="job" class="widget-user-desc">@item1.KyNang.tenKyNang </h5>
+                                <h5 id="job" class="widget-user-desc">@item1.CapDo.tenCapDo </h5>
+                            }
                         </div>
-                        <buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>
-                        @foreach (var item1 in item.KyNangLopHocs)
-                        {
-                            <h5 id="job" class="widget-user-desc">@item1.KyNang.tenKyNang </h5>
-                            <h5 id="job" class="widget-user-desc">@item1.CapDo.tenCapDo </h5>
-                        }
-                    </div>
+                    </a>
+                    
                     <div class="card-footer p-0">
                         <ul class="nav flex-column">
                             <li class="nav-item" style="color:black">

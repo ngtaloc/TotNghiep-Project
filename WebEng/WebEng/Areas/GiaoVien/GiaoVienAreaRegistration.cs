@@ -15,6 +15,12 @@ namespace WebEng.Areas.GiaoVien
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+              "GiaoVien_chi-tiet",
+              "GiaoVien/chi-tiet/{id}",
+              new { action = "ChiTietLopHoc", controller = "MoLop", id = UrlParameter.Optional },
+              new[] { "WebEng.Areas.GiaoVien.Controllers" }
+          );
+            context.MapRoute(
                 "GiaoVien_default",
                 "GiaoVien/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional, controller = "MoLop" },

@@ -2917,6 +2917,7 @@
     <Content Include="Areas\HocVien\Views\Learning\Tailieu.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

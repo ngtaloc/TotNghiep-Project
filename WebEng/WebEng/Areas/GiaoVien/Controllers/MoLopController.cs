@@ -442,12 +442,14 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 bool kt = dao.Update(lophoc);
                 if (kt)
                 {
-                    ModelState.AddModelError("", "Cập nhât thành công");
+                    
+                    TempData["testmsg"] = "Cập nhât thành công.";
                     return RedirectToAction("GiaoVien");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhât không thành công");
+                    TempData["testmsg"] = "Cập nhât không thành công.";
+                    
                 }
             }
             return PartialView("GiaoVien");
@@ -463,6 +465,76 @@ namespace WebEng.Areas.GiaoVien.Controllers
             return RedirectToAction("GiaoVien");
         }
 
+        public ActionResult ChiTietLopHoc(int id)
+        {
+            var dao = new LopHocDAO();
+            var model = dao.GetByID(id);
+            TimeSpan Time = model.ngayEnd.Value - model.ngayBegin.Value;
+            TempData["Sothang"] = (float.Parse(Time.Days.ToString()) / 30).ToString("#");
+            //ViewBag.hocvien = new HocVienDAO().FindByTDN(User.Identity.Name);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UpimgLop(LopHoc lh, HttpPostedFileBase img)
+        {
+            if (img != null && img.ContentLength > 0)
+            {
+                img.SaveAs(Server.MapPath("~/Content/Data/image/") + img.FileName);
+                lh.hinh = "Content/Data/image/" + img.FileName;
+                var dao = new LopHocDAO();
+                bool kt = dao.Update(lh);
+                if (kt)
+                    TempData["testmsg"] = "Đổi ảnh đại diện thành công.";
+                else TempData["testmsg"] = "Có lỗi trong quá trình đổi ảnh đại diện. Vui long thử lại sau.";
+            }
+
+            return RedirectToAction("chitietlophoc/" + lh.ID, "MoLop");
+        }
+
+        [HttpPost]
+        public ActionResult BinhLuan(int idlh, string noidung, int idtk, int idcha = 0)
+        {
+            var tk = new TaiKhoanDAO().FindByID(idtk);
+            var lh = new LopHocDAO().GetByID(idlh);
+            var dao = new BinhLuanDAO();
+            var bl = new BinhLuan();
+            bl.noiDung = noidung;
+            bl.idLH = idlh;
+            if (idcha == 0) bl.idCha = null;
+            else bl.idCha = idcha;
+            bl.thoiGian = DateTime.Now;
+            bl.idTK = idtk;
+            int kt = 0;
+            try
+            {
+                kt = dao.Insert(bl);
+                var daotb = new ThongBaoDAO();
+                var tb = new ThongBao();
+                tb.icon = "a fa-comment";
+                tb.ngay = DateTime.Now;
+                tb.trangThai = 0;
+                tb.idTK = lh.Giangvien.TaiKhoan.iD;
+                tb.link = "http://localhost:52790/GiaoVien/Hoc/" + idlh;
+                tb.noiDung = tk.hovaten + " đã bình luận vào lớp học " + lh.tenLopHoc + " của bạn.";
+                daotb.Insert(tb);
+            }
+            catch (Exception e)
+            {
+                TempData["testmsg"] = "Có lỗi trong quá trình bình luận. Vui lòng thử lại sau. \nLỗi: " + e.Message;
+                return RedirectToAction("chitietlophoc/" + idlh, "Tim");
+            }
+
+            if (kt != 0)
+            {
+                TempData["testmsg"] = "Bình luận thành công.";
+                return RedirectToAction("chitietlophoc/" + idlh, "Tim");
+            }
+            else
+            {
+                TempData["testmsg"] = "Có lỗi trong quá trình bình luận. Vui lòng thử lại sau.";
+                return RedirectToAction("chitietlophoc/" + idlh, "Tim");
+            }
+        }
 
     }
 }

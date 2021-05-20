@@ -37,6 +37,7 @@ namespace Models.DAO
                 lh.soBuoi = entity.soBuoi;
                 lh.trangThai = entity.trangThai;
                 lh.yeucau = entity.yeucau;
+                
                 db.SaveChanges(); 
                 return true;
             }catch( Exception ex)

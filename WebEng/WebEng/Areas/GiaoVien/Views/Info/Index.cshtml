@@ -582,10 +582,11 @@
                                             <div class="col-12">
                                                 @if (@Model.TaiKhoan.hinh != "")
                                                 {
-                                                    <img src="@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
+                                                    <img src="~/@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
                                                 }
                                                 else
-                                                { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">}
+                                                { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">
+                                                }
 
                                             </div>
                                         </div>
@@ -596,54 +597,12 @@
                                                 @Html.TextBoxFor(model => model.TaiKhoan.tenDangNhap, new { @type = "text", @class = "form-control form-control-border", @id = "tdn", @placeholder = "Chưa có tên đăng nhập", @readonly = "true" })
                                             </div>
                                             <div class="form-group">
-                                                @*@using (Html.BeginForm("Upimg", "Info", Model.TaiKhoan, FormMethod.Post))
-            {
-                <input type="file" placeholder="hình" name="img"/>
+                                                @using (Html.BeginForm("Upimg", "Info", Model.TaiKhoan, FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
+                                                {
+                                                    <button type="submit" class="btn btn-info col-12 col-sm-6" onclick="return confirm('Xác nhận đổi ảnh đại diện')">Đổi ảnh đại diện</button>
+                                                    <input type="file" class="form-control col-12 col-sm-6" placeholder="hình" name="img" required />
+                                                }
 
-                <button type="submit" class="btn btn-info">Đổi ảnh đại diện</button>
-            }*@
-
-                                            </div>
-                                            <div class="tab-pane" id="settings">
-                                                <div class="row">
-                                                    <div class="col-12 col-sm-6">
-                                                        <div class="col-12">
-                                                            @if (@Model.TaiKhoan.hinh != "")
-                                                            {
-                                                                <img src="~/@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
-                                                            }
-                                                            else
-                                                            { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">
-                                                            }
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6">
-
-                                                        <div class="form-group">
-                                                            <label for="diachi">Tên đăng nhập</label>
-                                                            @Html.TextBoxFor(model => model.TaiKhoan.tenDangNhap, new { @type = "text", @class = "form-control form-control-border", @id = "tdn", @placeholder = "Chưa có tên đăng nhập", @readonly = "true" })
-                                                        </div>
-                                                        <div class="form-group">
-                                                            @using (Html.BeginForm("Upimg", "Info", Model.TaiKhoan, FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
-                                                            {
-                                                                <button type="submit" class="btn btn-info col-12 col-sm-6" onclick="return confirm('Xác nhận đổi ảnh đại diện')">Đổi ảnh đại diện</button>
-                                                                <input type="file" class="form-control col-12 col-sm-6" placeholder="hình" name="img" required />
-                                                            }
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <button type="button" data-toggle="ajax-model" id="ModalMK" data-target="#modal-DoiMK" data-url="@Url.Action($"DoiMK/{Model.TaiKhoan.iD}")" class="btn btn-info">Đổi mật khẩu</button>
-
-                                                        </div>
-                                                        <div class="form-group">
-
-                                                            <button class="btn btn-info">Thêm gương mặt</button>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <button type="button" data-toggle="ajax-model" id="ModalMK1" data-target="#modal-DoiMK" data-url="@Url.Action($"DoiMK/{Model.TaiKhoan.iD}")" class="btn btn-info">Đổi mật khẩu</button>
@@ -655,6 +614,7 @@
                                                     <button class="btn btn-info" type="submit">Thêm gương mặt</button>
                                                 }
                                             </div>
+
 
                                         </div>
 
@@ -691,7 +651,7 @@
                 var ShowModal = $('#showModalMK');
                 $('#ModalMK1').click(function (event) {
                     var url = $(this).data('url');
-                    alert(url);
+                   // alert(url);
                     $.get(url).done(function (data) {
                         console.log(data);
                         ShowModal.html(data);

@@ -93,6 +93,16 @@ namespace WebEng.Areas.HocVien.Controllers
         {
             var dao = new DSLopHocDAO();
             var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
+            if (lh.trangThai == 2 )
+            {
+                TempData["testmsg"] = "Lớp học nãy đã Bắt Đầu, vui lòng đăng ký lơp học khác.";
+                return RedirectToAction("chitietlophoc/" + lh.ID, "Tim");
+            }
+            if (lh.trangThai == 3)
+            {
+                TempData["testmsg"] = "Lớp học nãy đã Kết Thúc, vui lòng đăng ký lơp học khác.";
+                return RedirectToAction("chitietlophoc/" + lh.ID, "Tim");
+            }
             if (dao.HocVienInLopHoc(hv.id, lh.ID))
             {
                 TempData["testmsg"] = "Bạn đã đăng ký lớp học "+lh.tenLopHoc+" rồi.";
