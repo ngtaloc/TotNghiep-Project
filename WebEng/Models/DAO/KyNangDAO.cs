@@ -65,7 +65,7 @@ namespace Models.DAO
 
         public IEnumerable<TaiLieu> FindByLopHocKN(LopHoc lop, int idkn)
         {
-            return db.TaiLieux.Where(x => x.LopHoc.ID == lop.ID && x.LoaiTaiLieu.KyNangs.Where(y=>y.ID==idkn ).Count()>0);
+            return db.TaiLieux.Where(x => x.LopHoc.ID == lop.ID && x.idKN==idkn );
         }
 
     }

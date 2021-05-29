@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
@@ -14,20 +13,3 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\ob
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-=======
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
->>>>>>> refs/remotes/origin/main
