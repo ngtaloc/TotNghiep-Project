@@ -82,3 +82,4 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.Co
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csprojAssemblyReference.cache
