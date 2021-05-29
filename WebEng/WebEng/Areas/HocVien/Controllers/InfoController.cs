@@ -110,7 +110,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
 
                 // python app to call 
-                string myPythonApp = @"C:\loc\TotNhiep\WebEng\WebEng\Python\train.py";
+                string myPythonApp = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\train.py";
 
 
 
@@ -126,7 +126,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
-                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\WebEng\WebEng\Python\";
+                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\";
 
 
                 Process myProcess = new Process();

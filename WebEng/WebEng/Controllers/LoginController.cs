@@ -79,7 +79,7 @@ namespace WebEng.Controllers
                 string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
 
                 // python app to call 
-                string myPythonApp = @"C:\loc\TotNhiep\WebEng\WebEng\Python\detection.py";
+                string myPythonApp = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\detection.py";
 
                
 
@@ -96,7 +96,7 @@ namespace WebEng.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
-                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\WebEng\WebEng\Python\";
+                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\";
                 //using (Process process = Process.Start(myProcessStartInfo))
                 //{
                 //    using (StreamReader reader = process.StandardOutput)
