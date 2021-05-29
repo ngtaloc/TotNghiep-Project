@@ -14,6 +14,7 @@ namespace Models.Framework
         {
             KyNangGiangViens = new HashSet<KyNangGiangVien>();
             KyNangLopHocs = new HashSet<KyNangLopHoc>();
+            TaiLieux = new HashSet<TaiLieu>();
             LoaiTaiLieux = new HashSet<LoaiTaiLieu>();
         }
 
@@ -27,6 +28,9 @@ namespace Models.Framework
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KyNangLopHoc> KyNangLopHocs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiLieu> TaiLieux { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LoaiTaiLieu> LoaiTaiLieux { get; set; }

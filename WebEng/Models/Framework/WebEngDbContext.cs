@@ -111,10 +111,10 @@ namespace Models.Framework
                 .HasForeignKey(e => e.idKN)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<LoaiTaiLieu>()
+            modelBuilder.Entity<KyNang>()
                 .HasMany(e => e.TaiLieux)
-                .WithOptional(e => e.LoaiTaiLieu)
-                .HasForeignKey(e => e.idLoaiTL);
+                .WithOptional(e => e.KyNang)
+                .HasForeignKey(e => e.idKN);
 
             modelBuilder.Entity<LoaiTaiLieu>()
                 .HasMany(e => e.KyNangs)

@@ -1,42 +1,3 @@
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-<<<<<<< HEAD
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-F:\DO AN TOT NGHIEP\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
-=======
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
-C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
->>>>>>> d2c1c04a500470f1f2684a0906390aa1a80336bc
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll.config
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.dll
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\Models.pdb
@@ -48,4 +9,7 @@ C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.xml
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.xml
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\bin\Debug\PagedList.Mvc.xml
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
+C:\loc\TotNhiep\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
