@@ -228,7 +228,7 @@ if __name__ == '__main__':
     cursor = conn.execute(query)
     idtk = None
     for row in cursor:  # kiểm tra trong data đã thêm chưa
-       if row[4] == 0:
+       if row[6] == 0:
             idtk = row[0]
 
     if idtk != None:
@@ -245,7 +245,7 @@ if __name__ == '__main__':
             conn.execute(q)
         except Exception as e:
             print(e)
-
+	#print(idtk)
     conn.commit()
     conn.close()
 

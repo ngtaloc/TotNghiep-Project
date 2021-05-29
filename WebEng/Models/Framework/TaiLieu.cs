@@ -11,23 +11,28 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        [StringLength(50)]
+        public string ten { get; set; }
+
+        public int? FileSize { get; set; }
+
         [Required]
         public string link { get; set; }
 
         [Column(TypeName = "ntext")]
         public string moTa { get; set; }
 
-        public DateTime? thoiGiang { get; set; }
+        public DateTime? thoiGian { get; set; }
 
         public int? trangThai { get; set; }
 
-        public int? idLoaiTL { get; set; }
+        public int? idKN { get; set; }
 
         public int? idLH { get; set; }
 
         public int? idTK { get; set; }
 
-        public virtual LoaiTaiLieu LoaiTaiLieu { get; set; }
+        public virtual KyNang KyNang { get; set; }
 
         public virtual LopHoc LopHoc { get; set; }
 
