@@ -1,0 +1,659 @@
+﻿@using Models.Framework
+@model LopHoc
+
+@{
+	ViewBag.Title = "chitietlophoc";
+	Layout = "~/Views/Shared/_TemLayout.cshtml";
+	var hocvien = (HocVien)ViewBag.hocvien;
+
+}
+@section masterjs{
+	<script>
+		$(document).ready(function () {
+			$(".content-comment").hide()
+			$(".traloi").hide()
+
+			$(".fa-sort-up").click(function () {
+				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment").hide();
+
+			});
+
+			$(".fa-sort-down").click(function () {
+				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment ").show();
+			});
+
+			$(".mt-1").click(function () {
+				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").show();
+				$(".text").focus();
+
+			});
+		});
+
+		var feild = document.querySelector('textarea');
+		var backUp = feild.getAttribute('placeholder');
+		var btn = document.querySelector('.btn1');
+		var clear = document.getElementById('clear')
+
+		feild.onfocus = function () {
+			this.setAttribute('placeholder', '');
+			this.style.borderColor = '#333';
+			btn.style.display = 'block'
+		}
+
+		feild.onblur = function () {
+			this.setAttribute('placeholder', backUp);
+			this.style.borderColor = '#aaa'
+		}
+
+		//clear.onclick = function () {
+		//	btn.style.display = 'none';
+		//	feild.value = '';
+		//	$(".traloi").hide()
+		//}
+
+		$("#clear").click(function () {
+			$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();
+			btn.style.display = 'none';
+			feild.value = '';
+
+
+		});
+	</script>
+}
+
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="~/Content/Template/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link href="~/Content/Template/dist/css/adminlte.css" rel="stylesheet" />
+<style>
+	.col-md-8 {
+		height: auto;
+	}
+
+	.col-md-4 .card-footer {
+		height: 300px;
+		text-align: center;
+		padding-top: 30px;
+	}
+
+		.col-md-4 .card-footer button {
+			background-color: #f05123;
+			color: white;
+			font-size: 15px;
+			outline: 0;
+			margin-top: -15px;
+			padding: 8px 35px 8px 35px;
+			border-radius: 10px 10px 10px 10px;
+		}
+
+	.conten1 {
+		max-width: 100%;
+		height: 400px;
+		border: 1px solid red;
+	}
+
+	.conten2 {
+		max-width: 100%;
+		min-height: 250px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	.conten3 {
+		max-width: 100%;
+		min-height: 500px;
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+
+	.container {
+		width: 100%;
+		padding: 0;
+	}
+
+	.bdge {
+		height: 21px;
+		background-color: orange;
+		color: #fff;
+		font-size: 11px;
+		padding: 8px;
+		border-radius: 4px;
+		line-height: 3px
+	}
+
+	.comments {
+		text-decoration: underline;
+		text-underline-position: under;
+		cursor: pointer
+	}
+
+	.dot {
+		height: 7px;
+		width: 7px;
+		margin-top: 3px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block
+	}
+
+	.hit-voting:hover {
+		color: blue
+	}
+
+	.hit-voting {
+		cursor: pointer
+	}
+
+	.row {
+		margin: 0 auto;
+	}
+
+	.d-flex {
+		padding: 0;
+	}
+
+	.binhluan {
+		width: 125px;
+	}
+
+	.content-comment {
+		clear: both;
+		min-height: 90px;
+		width: 100%;
+		margin-left: 50px;
+	}
+
+	textarea {
+		height: 30px;
+		width: 100%;
+		border: none;
+		border-bottom: 2px solid #aaa;
+		background-color: transparent;
+		margin-bottom: 10px;
+		resize: none;
+		outline: none;
+		transition: .5s
+	}
+
+	.traloi {
+	}
+
+	.btn1 {
+		float: right;
+	}
+
+	#clear {
+		padding: 10px 15px;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+		text-transform: uppercase;
+		font-weight: bold;
+		cursor: pointer;
+		color: #333;
+		background-color: transparent
+	}
+
+	#binhluan {
+		border: none;
+		color: #fff;
+		background-color: #007bff;
+		border-color: #007bff;
+		box-shadow: none;
+		padding: 7px 15px 7px 15px;
+		border-radius: 5px;
+	}
+
+	.btn-lg {
+		margin-left: 30px;
+	}
+
+	.product-share {
+		margin-left: 60px;
+		margin-top: none;
+	}
+
+	svg {
+		width: 20px;
+	}
+
+	.card-footer ul {
+		display: inline-block;
+		text-align: left;
+		padding: 24px 0 10px 20px;
+		margin: 0;
+		list-style: none;
+	}
+
+		.card-footer ul li {
+			line-height: 32px;
+		}
+
+			.card-footer ul li span {
+				padding-left: 10px;
+			}
+
+	#tt li {
+		list-style: none;
+	}
+</style>
+@if (TempData["testmsg"] != null)
+{
+	<div class="alert alert-info col-md-9 offset-md-2">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+		<h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+		@TempData["testmsg"]
+	</div>
+
+}
+<div class="row">
+	<!-- /.col -->
+
+
+	<div class="col-md-8">
+		<div>
+			<section class="content">
+				<!-- Default box -->
+				<div class="card card-solid">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-12 col-sm-6">
+								<h3 class="d-inline-block d-sm-none">@Model.tenLopHoc</h3>
+								<div class="col-12">
+									<img src="@Model.hinh" class="product-image" alt="Product Image">
+								</div>
+
+							</div>
+							<div class="col-12 col-sm-6">
+								<h3 class="my-3">@Model.tenLopHoc</h3>
+								<p>@Model.mota</p>
+								<hr>
+								<h4>Bạn đã đăng ký khóa học này?</h4>
+								<div class="card-group">
+									@*<button class="" type="submit">Đăng ký Học Ngay</button>*@
+									<div class="card-header row col-md-12 text-center">
+										@using (Html.BeginForm("DangKyLop", "Tim", Model, FormMethod.Post))
+										{
+											<button type="submit" class="btn-block btn-warning btn-lg">Đăng ký Học Ngay</button>
+										}
+
+									</div>
+
+									<div class="card-body">
+										<ul id="tt">
+											<li>
+												<i class="fas fa-sign-in-alt"></i> &nbsp; &nbsp;
+												<span>
+													Trạng thái:
+													@{
+														switch (Model.trangThai)
+														{
+															case 0: <strong>Đang tuyển sinh</strong> break;
+															case 1: <strong>Ngừng tuyển sinh</strong> break;
+															case 2: <strong>Đang học</strong>break;
+															case 3: <strong>Đã kết thúc</strong> break;
+														}
+													}
+												</span>
+											</li>
+											<li>
+												<i class="fas fa-users"></i> &nbsp; &nbsp;
+												<span>Sỗ chỗ còn lại: @{int? sl = Model.soluong - Model.DSLopHocs.Count();<strong>@sl</strong>}</span>
+											</li>
+
+											<li>
+												<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tachometer-alt" class="svg-inline--fa fa-tachometer-alt fa-w-18 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+													<path fill="currentColor" d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"></path>
+												</svg> &nbsp; &nbsp;
+												<span>Trình độ: <strong>@Model.yeucau</strong></span>
+											</li>
+											<li>
+												<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="film" class="svg-inline--fa fa-film fa-w-16 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+													<path fill="currentColor" d="M488 64h-8v20c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12V64H96v20c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12V64h-8C10.7 64 0 74.7 0 88v336c0 13.3 10.7 24 24 24h8v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h320v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h8c13.3 0 24-10.7 24-24V88c0-13.3-10.7-24-24-24zM96 372c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm272 208c0 6.6-5.4 12-12 12H156c-6.6 0-12-5.4-12-12v-96c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v96zm0-168c0 6.6-5.4 12-12 12H156c-6.6 0-12-5.4-12-12v-96c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v96zm112 152c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40z"></path>
+												</svg> &nbsp; &nbsp;
+												<span>Tổng số: <strong>@Model.soBuoi</strong> bài học</span>
+											</li>
+											<li>
+												<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock fa-w-16 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+													<path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"></path>
+												</svg> &nbsp; &nbsp;
+												<span>Thời lượng: <strong>@TempData["Sothang"] tháng</strong></span>
+											</li>
+											<li>
+												<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="battery-full" class="svg-inline--fa fa-battery-full fa-w-20 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+													<path fill="currentColor" d="M544 160v64h32v64h-32v64H64V160h480m16-64H48c-26.51 0-48 21.49-48 48v224c0 26.51 21.49 48 48 48h512c26.51 0 48-21.49 48-48v-16h8c13.255 0 24-10.745 24-24V184c0-13.255-10.745-24-24-24h-8v-16c0-26.51-21.49-48-48-48zm-48 96H96v128h416V192z">
+													</path>
+												</svg> &nbsp; &nbsp;
+												<span>Học mọi lúc, mọi nơi</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="mt-4 product-share">
+									<a href="#" class="text-gray">
+										<i class="fab fa-facebook-square fa-2x"></i>
+									</a>
+									<a href="#" class="text-gray">
+										<i class="fab fa-twitter-square fa-2x"></i>
+									</a>
+									<a href="#" class="text-gray">
+										<i class="fas fa-envelope-square fa-2x"></i>
+									</a>
+									<a href="#" class="text-gray">
+										<i class="fas fa-rss-square fa-2x"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="mt-4">
+							<nav class="w-100">
+								<div class="nav nav-tabs" id="product-tab" role="tablist">
+									<a class="nav-item nav-link active" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
+									<a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
+								</div>
+							</nav>
+							<div class="tab-content p-3" id="nav-tabContent">
+
+								<div class="tab-pane fade show active" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+									<div class="d-flex flex-column col-md-12">
+										@*<div class="d-flex flex-row add-comment-section mt-4 mb-4 border-bottom px-4">*@
+										@*<div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">*@
+
+										@using (Html.BeginForm("BinhLuan", "Tim", new { idlh = Model.ID, idtk = hocvien.TaiKhoan.iD }, FormMethod.Post, new { @class = "d-flex flex-row align-items-center text-left comment-top p-2 bg-white px-4" }))
+										{
+											if (hocvien.TaiKhoan.hinh != "")
+											{
+												<img class="img-fluid img-responsive rounded-circle mr-2" src="~/@hocvien.TaiKhoan.hinh" width="50">
+											}
+											else
+											{<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="50">}
+											<input type="text" class="form-control m-3" placeholder="Bạn nghĩ gì về khóa học này?" name="noidung" required>
+											<button class="btn btn-primary binhluan" type="submit">Bình luận</button>
+										}
+
+										@*</div>*@
+
+
+
+										@foreach (var item in Model.BinhLuans)
+										{
+											if (item.BinhLuan2 == null)
+											{
+												<div class="coment-bottom bg-white p-2 px-4">
+													<hr />
+													<div class="commented-section mt-2">
+														<div class="d-flex flex-row align-items-center commented-user">
+
+															<h5 class="mr-2">
+																@if (item.TaiKhoan.hinh != "")
+																{
+																	<img class="img-fluid img-responsive rounded-circle mr-2" src="~/@item.TaiKhoan.hinh" width="38">
+																}
+																else
+																{<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="38">}
+																@item.TaiKhoan.hovaten
+															</h5>
+															<span class="dot mb-1"></span>
+															<span class="mb-1 ml-2">
+																@{
+																	string da = (DateTime.Now - item.thoiGian).ToString();
+
+																	if (da.Split('.').Length == 3)
+																	{
+																		if (int.Parse(da.Split('.')[0]) >= 365)
+																		{
+																			da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm";
+																		}
+																		else if (int.Parse(da.Split('.')[0]) > 30)
+																		{
+																			da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng";
+																		}
+																		else
+																		{
+																			da = da.Split('.')[0] + " ngày";
+																		}
+																	}
+																	else
+																	{
+																		if (da.Split('.')[0].Split(':')[0] == "00")
+																		{
+																			da = da.Split('.')[0].Split(':')[1] + " phút";
+																		}
+																		else
+																		{
+																			da = da.Split('.')[0].Split(':')[0] + " giờ";
+																		}
+																	}
+																	@da
+																}
+															</span>
+														</div>
+														<div class="comment-text-sm"><span>@item.noiDung</span></div>
+														<div class="reply-section">
+															<div class="d-flex flex-row align-items-center voting-icons">
+																<i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+																<i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i>
+																<span class="ml-2">@item.BinhLuan1.Count()</span>
+																<span class="dot ml-2"></span>
+																<h6 class="ml-2 mt-1">Trả lời</h6>
+															</div>
+														</div>
+													</div>
+													@if (item.BinhLuan1.Count() != 0)
+													{
+														foreach (var it in item.BinhLuan1)
+														{
+															<div class="content-comment">
+																<div class="commented-section mt-2">
+																	<div class="d-flex flex-row align-items-center commented-user">
+																		<h5 class="mr-2">
+																			@if (it.TaiKhoan.hinh != "")
+																			{
+																				<img class="img-fluid img-responsive rounded-circle mr-2" src="~/@it.TaiKhoan.hinh" width="38">
+																			}
+																			else
+																			{<img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/q52cLwE.png" width="38">}
+																			@it.TaiKhoan.hovaten
+																		</h5>
+																		<span class="dot mb-1"></span>
+																		<span class="mb-1 ml-2">
+																			@{
+																				string dat = (DateTime.Now - it.thoiGian).ToString();
+
+																				if (dat.Split('.').Length == 3)
+																				{
+																					if (int.Parse(dat.Split('.')[0]) >= 365)
+																					{
+																						dat = (int.Parse(dat.Split('.')[0]) / 365).ToString() + " năm";
+																					}
+																					else if (int.Parse(dat.Split('.')[0]) > 30)
+																					{
+																						dat = (int.Parse(dat.Split('.')[0]) / 30).ToString() + " tháng";
+																					}
+																					else
+																					{
+																						dat = dat.Split('.')[0] + " ngày";
+																					}
+																				}
+																				else
+																				{
+																					if (dat.Split('.')[0].Split(':')[0] == "00")
+																					{
+																						dat = dat.Split('.')[0].Split(':')[1] + " phút";
+																					}
+																					else
+																					{
+																						dat = dat.Split('.')[0].Split(':')[0] + " giờ";
+																					}
+																				}
+																				@dat
+																			}
+																		</span>
+																	</div>
+																	<div class="comment-text-sm"><span>@it.noiDung</span></div>
+																	<div class="reply-section">
+																		<div class="d-flex flex-row align-items-center voting-icons">
+
+																			<span class="ml-2">@it.BinhLuan1.Count()</span>
+																			<span class="dot ml-2"></span>
+																			<h6 class="ml-2 mt-1">Trả lời</h6>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														}
+													}
+
+													<div class="traloi">
+														@using (Html.BeginForm("BinhLuan", "Tim", new { tk = hocvien.TaiKhoan, lh = Model, idcha = item.ID }, FormMethod.Post))
+														{
+															<textarea class="text" name="noidung"></textarea>
+															<div class="btn1">
+																@*<button id='clear'>Hủy</button>*@
+																<input type="button" id='clear' value="Hủy" />
+																<input id="binhluan" type="submit" value='Bình Luận'>
+															</div>
+														}
+
+													</div>
+
+												</div>
+											}
+										}
+
+
+
+									</div>
+								</div>
+								<div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
+							</div>
+						</div>
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<!-- /.card -->
+			</section>
+		</div>
+
+	</div>
+
+	<!-- /.col -->
+	<div class="col-md-4">
+		<!-- Widget: user widget style 1 -->
+		<!-- Profile Image -->
+		<div class="card card-primary card-outline">
+			<div class="card-body box-profile">
+				<div class="text-center">
+					@if (Model.Giangvien.TaiKhoan.hinh != null)
+					{
+						<img class="profile-user-img img-fluid img-circle"
+							 src="~/@Model.Giangvien.TaiKhoan.hinh"
+							 alt="User profile picture">
+					}
+					else
+					{
+						<img class="profile-user-img img-fluid img-circle"
+							 src="~/Content/Template/dist/img/avatar5.png"
+							 alt="User profile picture">
+					}
+				</div>
+				<h3 class="profile-username text-center">@Model.Giangvien.TaiKhoan.hovaten</h3>
+
+				<div>
+					<div class="card-header">
+						<h3 class="card-title"><b>Thông tin giảng viên:</b></h3>
+					</div>
+					<!-- /.card-header -->
+					<div class="card-body">
+						<strong><i class="fas fa-book mr-1"></i>Giới thiệu</strong>
+						<p class="text-muted">
+							@Model.Giangvien.gioithieu
+						</p>
+
+						<hr>
+						<strong><i class="fas fa-map-marker-alt mr-1"></i> Quê quán</strong>
+						<p class="text-muted">@Model.Giangvien.diachi</p>
+
+						<hr>
+						<strong><i class="fas fa-envelope"></i> Email</strong>
+						<p class="text-muted">@Model.Giangvien.email</p>
+
+						<hr>
+						<strong><i class="fas fa-phone"></i>Di động</strong>
+						<p class="text-muted">@Model.Giangvien.sdt</p>
+
+						<hr>
+						<strong><i class="fas fa-pencil-alt mr-1"></i> Kỹ năng</strong>
+						<p class="text-muted">
+							@foreach (var item in Model.Giangvien.KyNangGiangViens)
+							{
+							<p class="tag tag-info">@item.KyNang.tenKyNang : @item.CapDo.tenCapDo</p>
+						}
+							</p>
+
+
+						</div>
+						<!-- /.card-body -->
+					</div>
+
+				</div>
+				<!-- /.card-body -->
+			</div>
+			@*<div class="card card-widget widget-user">
+
+					<div class="widget-user-header bg-info">
+						load ảnh baner hiển thị từng khóa lên chỗ này
+
+					</div>
+					<div class="card-footer">
+
+						@using (Html.BeginForm("DangKyLop", "Home", Model, FormMethod.Post))
+						{
+								<button type="submit">Đăng ký Học Ngay</button>
+
+						}
+
+						<div>
+							<ul>
+								<li>
+									<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tachometer-alt" class="svg-inline--fa fa-tachometer-alt fa-w-18 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+										<path fill="currentColor" d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"></path>
+									</svg>
+									<span>Trình độ cơ bản</span>
+								</li>
+								<li>
+									<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="film" class="svg-inline--fa fa-film fa-w-16 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+										<path fill="currentColor" d="M488 64h-8v20c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12V64H96v20c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12V64h-8C10.7 64 0 74.7 0 88v336c0 13.3 10.7 24 24 24h8v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h320v-20c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v20h8c13.3 0 24-10.7 24-24V88c0-13.3-10.7-24-24-24zM96 372c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12H44c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm272 208c0 6.6-5.4 12-12 12H156c-6.6 0-12-5.4-12-12v-96c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v96zm0-168c0 6.6-5.4 12-12 12H156c-6.6 0-12-5.4-12-12v-96c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v96zm112 152c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-96c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40z"></path>
+									</svg>
+									<span>Tổng số <strong>30</strong> bài học</span>
+								</li>
+								<li>
+									<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock" class="svg-inline--fa fa-clock fa-w-16 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+										<path fill="currentColor" d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"></path>
+									</svg>
+									<span>Thời lượng <strong>3 tháng</strong></span>
+								</li>
+								<li>
+									<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="battery-full" class="svg-inline--fa fa-battery-full fa-w-20 CourseDetail_icon__3wxyu" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+										<path fill="currentColor" d="M544 160v64h32v64h-32v64H64V160h480m16-64H48c-26.51 0-48 21.49-48 48v224c0 26.51 21.49 48 48 48h512c26.51 0 48-21.49 48-48v-16h8c13.255 0 24-10.745 24-24V184c0-13.255-10.745-24-24-24h-8v-16c0-26.51-21.49-48-48-48zm-48 96H96v128h416V192z">
+										</path>
+									</svg>
+									<span>Học mọi lúc, mọi nơi</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>*@
+
+			<!-- /.widget-user -->
+		</div>
+
+	</div>
+
+	<!-- /.row -->

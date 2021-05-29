@@ -37,6 +37,7 @@ namespace Models.DAO
                 lh.soBuoi = entity.soBuoi;
                 lh.trangThai = entity.trangThai;
                 lh.yeucau = entity.yeucau;
+                
                 db.SaveChanges(); 
                 return true;
             }catch( Exception ex)
@@ -71,7 +72,7 @@ namespace Models.DAO
         public IEnumerable<LopHoc> FindLopHocIndex(string tim, bool Listening, bool Speaking, bool Reading, bool Writing, string lvListening, string lvSpeaking, string lvReading, string lvWriting)
         {
 
-            var enty = db.LopHocs.Where(x => x.tenLopHoc.Contains(tim) || x.Giangvien.hovaten.Contains(tim) 
+            var enty = db.LopHocs.Where(x => x.tenLopHoc.Contains(tim) || x.Giangvien.TaiKhoan.hovaten.Contains(tim) 
                             || x.KyNangLopHocs.FirstOrDefault(y => y.KyNang.tenKyNang.Contains(tim)) != null);
             //var enty = (from lh in db.LopHocs
             //         join knlh in db.KyNangLopHocs on lh.ID equals knlh.idLH

@@ -13,7 +13,10 @@
                 {
                     break;
                 }
-                <li>@item.tenLopHoc</li>
+                <li>
+                    <a href="~/HocVien/learning/Index/@item.ID" style="text-decoration:none; color:black; padding:7px 3em 7px 3em;"> @item.tenLopHoc</a>
+                   
+                </li>
             }
 
 
@@ -29,7 +32,8 @@
                         d++;
                         if (d > 4)
                         {
-                            <li>@item.tenLopHoc</li>
+                            <li><a class="col-12" href="~/HocVien/learning/Index/@item.ID" style="text-decoration:none; color:black; padding:7px 3em 7px 3em;"> @item.tenLopHoc</a></li>
+                           
                         }
 
                     }

@@ -12,7 +12,7 @@ namespace WebEng.Areas.HocVien.Controllers
     {
         // GET: HocVien/ThoiKhoaBieu
         public ActionResult Index()
-        {
+        { 
             var dao = new NgayDAO();
             var model = dao.FindByTDN(User.Identity.Name);
             //var model = dao.FindAll();

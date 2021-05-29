@@ -97,5 +97,10 @@ namespace Models.DAO
             //var ds = db.DSLopHocs.Where(y => y.HocVien.TaiKhoan.tenDangNhap==tdn);
             return j;
         }
+
+        public IEnumerable<Ngay> FindByLopHoc(int idlh)
+        {
+            return db.Ngays.Where(x => x.iDLopHoc == idlh);
+        }
     }
 }

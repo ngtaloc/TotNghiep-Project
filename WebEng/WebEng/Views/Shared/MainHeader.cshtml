@@ -145,48 +145,56 @@
 			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 				<span class="dropdown-item dropdown-header">@Model.ThongBaos.Count(x => x.trangThai == 0).ToString() Thông báo mới</span>
 				@foreach (var item in Model.ThongBaos)
-				{
+				{ 
 					<div class="dropdown-divider"></div>
-					<a href="@item.link" class="dropdown-item  @(@item.trangThai == 0 ? "text-warning":"") ">
-						<i class="@item.icon mr-2"></i> @item.noiDung
-						<span class="float-right @(@item.trangThai==0? "text-warning":"text-muted") text-sm">
-							@{
-								string da = (DateTime.Now - item.ngay).ToString();
+                    @*<div class=" d-flex flex-wrap"  style="word-wrap: break-word;">*@
+                    <a href="@item.link" class="dropdown-item  @(@item.trangThai == 0 ? "text-warning":"") ">
 
-								if (da.Split('.').Length == 3)
-								{
-									if (int.Parse(da.Split('.')[0]) >= 365)
-									{
-										da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm trước";
-									}
-									else if (int.Parse(da.Split('.')[0]) > 30)
-									{
-										da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng trước";
-									}
-									else
-									{
-										da = da.Split('.')[0] + " ngày trước";
-									}
+                        <p style="word-wrap: break-word;">
+                            <i class="@item.icon mr-2"></i>
+                            @item.noiDung
+                            <span class="float-right @(@item.trangThai==0? "text-warning":"text-muted") text-sm">
+                                @{
+                                    string da = (DateTime.Now - item.ngay).ToString();
 
-								}
-								else
-								{
-									if (da.Split('.')[0].Split(':')[0] == "00")
-									{
-										da = da.Split('.')[0].Split(':')[1] + " phút trước";
-									}
-									else
-									{
-										da = da.Split('.')[0].Split(':')[0] + " giờ trước";
-									}
+                                    if (da.Split('.').Length == 3)
+                                    {
+                                        if (int.Parse(da.Split('.')[0]) >= 365)
+                                        {
+                                            da = (int.Parse(da.Split('.')[0]) / 365).ToString() + " năm";
+                                        }
+                                        else if (int.Parse(da.Split('.')[0]) > 30)
+                                        {
+                                            da = (int.Parse(da.Split('.')[0]) / 30).ToString() + " tháng";
+                                        }
+                                        else
+                                        {
+                                            da = da.Split('.')[0] + " ngày";
+                                        }
 
-								}
+                                    }
+                                    else
+                                    {
+                                        if (da.Split('.')[0].Split(':')[0] == "00")
+                                        {
+                                            da = da.Split('.')[0].Split(':')[1] + " phút";
+                                        }
+                                        else
+                                        {
+                                            da = da.Split('.')[0].Split(':')[0] + " giờ";
+                                        }
 
-								<p>@da</p>
+                                    }
 
-							}
-						</span>
-					</a>
+                                    @da
+
+                                }
+                            </span>
+                            </p>
+
+                            </a>
+                    @*</div>*@
+					
 				}
 
 

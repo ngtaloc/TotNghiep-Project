@@ -23,6 +23,12 @@ namespace Models.Framework
 
         public int iD { get; set; }
 
+        [StringLength(50)]
+        public string hovaten { get; set; }
+
+        [Column(TypeName = "text")]
+        public string hinh { get; set; }
+
         [Required]
         [StringLength(50)]
         public string tenDangNhap { get; set; }

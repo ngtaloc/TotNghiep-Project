@@ -1,0 +1,243 @@
+﻿
+@model  IEnumerable<Models.Framework.Ngay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+}
+
+
+@section css{
+
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/fullcalendar/main.css")">
+
+}
+
+@section header{
+    Lịch dạy
+}
+<!-- Navbar -->
+<!-- Content Wrapper. Contains page content -->
+<!-- Content Header (Page header) -->
+<!-- Main content -->
+<section></section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="external-events">
+
+                @foreach (var item in Model)
+                {
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay1"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay2"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay3"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay4"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay5"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay6"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay7"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay8"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay9"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay10"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay11"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay12"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay13"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay14"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay15"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay16"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay17"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay18"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay19"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay20"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay21"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay22"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay23"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay24"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay25"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay26"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay27"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay28"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay29"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay30"></div>
+                    <div class="ev" data-title="@item.LopHoc.tenLopHoc" data-value="@item.ngay31"></div>
+
+
+                }
+
+            </div>
+            <!-- /.col -->
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-body p-0">
+                        <!-- THE CALENDAR -->
+                        <div id="calendar"></div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+        <b>Version</b> 3.1.0
+    </div>
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
+
+
+
+@section masterjs{
+
+    <!-- fullCalendar 2.2.5 -->
+    <script src="@Url.Content("~/Content/Template/plugins/moment/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/fullcalendar/main.js")"></script>
+    <!-- Page specific script -->
+
+    <script>
+        $(function () {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function ini_events(ele) {
+                ele.each(function () {
+
+                    // create an Event Object (https://fullcalendar.io/docs/event-object)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    }
+
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject)
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 1070,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    })
+                    console.log('ini event ')
+                })
+            }
+
+            ini_events($('#external-events div.external-event'))
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+
+            var Calendar = FullCalendar.Calendar;
+            var Draggable = FullCalendar.Draggable;
+
+            var containerEl = document.getElementById('external-events');
+            var checkbox = document.getElementById('drop-remove');
+            var calendarEl = document.getElementById('calendar');
+
+            // initialize the external events
+            // -----------------------------------------------------------------
+
+            new Draggable(containerEl, {
+
+                itemSelector: '.external-event',
+                eventData: function (eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        backgroundColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                        borderColor: window.getComputedStyle(eventEl, null).getPropertyValue('background-color'),
+                        textColor: window.getComputedStyle(eventEl, null).getPropertyValue('color'),
+                    };
+
+                }
+
+            });
+
+            var date = new Date();
+
+            var evts = []; // variable for events
+            //this is the part  where i tested to create a json format
+
+@*<div class="ev" data-value="@item.ngay15" data-gioB="@item.ngay15.Split('-')[4].ToString()" data-phutB="@item.ngay15.Split('-')[5].ToString()" data-gioE="@item.ngay15.Split('-')[6].ToString()" data-phutE="@item.ngay15.Split('-')[7].ToString()"  data-ngay="15" data-nam="@item.nam" data-thang="@item.iDThang">@item.ngay15.Split('-')[4].ToString()</div>*@
+
+            var dates = [];
+            $("#external-events div.ev").each(function () {
+                var str = $(this).data('value').split('-')
+                var d = str[1],
+                    m = str[2] -1,
+                    y = str[3],
+                    gb = str[4],
+                    pb = str[5],
+                    ge = str[6],
+                    pe = str[7];
+                console.log(d, m, y, gb, pb, ge, pe, str);
+
+                dates.push({ title: $(this).data('title'), start: new Date(y, m, d, gb, pb), end: new Date(y, m, d, ge, pe), allDay: false });
+
+            });
+
+            var calendar = new Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                defaultView: 'Week',
+                themeSystem: 'bootstrap',
+                //Random default events
+                events: dates,
+                editable: false,
+                droppable: false, // this allows things to be dropped onto the calendar !!!
+
+            });
+
+            calendar.render();
+            // $('#calendar').fullCalendar()
+
+            /* ADDING EVENTS */
+            var currColor = '#3c8dbc' //Red by default
+            // Color chooser button
+            $('#color-chooser > li > a').click(function (e) {
+                e.preventDefault()
+                // Save color
+                currColor = $(this).css('color')
+                // Add color effect to button
+                $('#add-new-event').css({
+                    'background-color': currColor,
+                    'border-color': currColor
+                })
+            })
+            $('#add-new-event').click(function (e) {
+                e.preventDefault()
+                // Get value and make sure it is not null
+                var val = $('#new-event').val()
+                if (val.length == 0) {
+                    return
+                }
+
+                // Create events
+                var event = $('<div />')
+                event.css({
+                    'background-color': currColor,
+                    'border-color': currColor,
+                    'color': '#fff'
+                }).addClass('external-event')
+                event.text(val)
+                $('#external-events').prepend(event)
+                console.log('add event cuoi')
+                // Add draggable funtionality
+                ini_events(event)
+
+                // Remove event from text input
+                $('#new-event').val('')
+
+            })
+        })
+    </script>
+
+}

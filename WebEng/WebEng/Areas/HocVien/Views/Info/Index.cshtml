@@ -1,0 +1,280 @@
+﻿@model Models.Framework.HocVien
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+}
+
+<style>
+    /* HIDE RADIO */
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+        /* IMAGE STYLES */
+        [type=radio] + img {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            outline: 2px solid #f00;
+        }
+</style>
+<!-- Content Header (Page header) -->
+<!-- Main content -->
+
+@section header{
+    @if (TempData["testmsg"] != null)
+    {
+
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+
+
+    }
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+
+                            @if (Model.TaiKhoan.hinh != "")
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="~/@Model.TaiKhoan.hinh"
+                                     alt="User profile picture">
+                            }
+                            else
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="https://i.imgur.com/q52cLwE.png"
+                                     alt="User profile picture">
+                            }
+
+
+                        </div>
+                        <h3 class="profile-username text-center">@Model.TaiKhoan.hovaten</h3>
+                        <p class="text-muted text-center">Giáo viên anh văn</p>
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                                <b>Giới tính</b> <a class="float-right">@Model.gioitinh</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Ngày sinh</b> <a class="float-right">@Model.ngaysinh.ToString().Split(' ')[0]</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Email</b> <a class="float-right">@Model.email</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Số điện thoại</b> <a class="float-right">@Model.sdt</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- About Me Box -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa chỉ</strong>
+                        <p class="text-muted">@Model.diachi</p>
+                        <hr>
+
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#taikhoan" data-toggle="tab">Tài khoản</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <!-- /.tab-pane -->
+                            <div class="active tab-pane" id="taikhoan">
+                                <!-- SELECT2 EXAMPLE -->
+                                @using (Html.BeginForm("Edit", "Info", FormMethod.Post))
+                                {
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Thông tin cá nhân</h3>
+                                            <div class="card-tools">
+                                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="ten">Họ và tên</label>
+                                                        @*<input type="text" class="form-control" id="ten" placeholder="Chưa có họ và tên">*@
+                                                        @Html.TextBoxFor(model => model.TaiKhoan.hovaten, new { @type = "text", @class = "form-control form-control-border", @id = "ten", @placeholder = "Chưa có họ và tên" })
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Giới tính</label>
+                                                        <div class="form-group row">
+                                                            <div class="form-control col-md-4" style="padding-left: 2.25rem; border:none;">
+                                                                @Html.RadioButtonFor(model => model.gioitinh, "Nam", new { @class = "form-check-input", @id = "nam", @style = "opacity: initial; width: auto; height:auto " })
+
+                                                                @*<input class="form-check-input" type="radio" id="nam" value="nam" name="gioitinh" style="opacity: initial; width: auto; height:auto ">*@
+                                                                <label class="form-check-label" for="nam">Nam</label>
+                                                            </div>
+                                                            <div class="form-control col-md-4" style="padding-left: 2.25rem; border:none;">
+                                                                @Html.RadioButtonFor(model => model.gioitinh, "Nữ", new { @class = "form-check-input", @id = "nu", @style = "opacity: initial; width: auto; height:auto " })
+                                                                <label class="form-check-label" for="nu">Nữ</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ngaysinh">Ngày sinh</label>
+                                                        @Html.TextBoxFor(model => model.ngaysinh, new { Value = Model.ngaysinh.Value.ToString("yyyy'-'MM'-'dd"), @type = "date", @class = "form-control form-control-border", @id = "ngaysinh" })
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- /.col -->
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group">
+                                                        <label for="diachi">Địa chỉ</label>
+                                                        @Html.TextBoxFor(model => model.diachi, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có địa chỉ" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        @Html.TextBoxFor(model => model.email, new { @type = "email", @class = "form-control form-control-border", @id = "email", @placeholder = "Chưa có email" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="sdt">Di động</label>
+                                                        @Html.TextBoxFor(model => model.sdt, new { @type = "number", @maxlength = "11", @class = "form-control form-control-border", @id = "sdt", @placeholder = "Chưa có số di động" })
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+                                        <!-- /.card-body -->
+                                        <div class="card-footer">
+                                            <button type="submit" class="btn btn-primary float-right" onclick="return confirm('Xác nhân cập nhật?')">Cập nhật</button>
+                                        </div>
+
+                                        <!-- /.card -->
+
+                                    </div>
+                                }
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="settings">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                        <div class="col-12">
+                                            @if (@Model.TaiKhoan.hinh != "")
+                                            {
+                                                <img src="~/@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
+                                            }
+                                            else
+                                            { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">
+                                               }
+                                                
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+
+                                        <div class="form-group">
+                                            <label for="diachi">Tên đăng nhập</label>
+                                            @Html.TextBoxFor(model => model.TaiKhoan.tenDangNhap, new { @type = "text", @class = "form-control form-control-border", @id = "tdn", @placeholder = "Chưa có tên đăng nhập", @readonly = "true" })
+                                        </div>
+                                        <div class="form-group">
+                                            @using (Html.BeginForm("Upimg", "Info", Model.TaiKhoan, FormMethod.Post, new { enctype = "multipart/form-data" ,@class="row"}))
+                                            {
+                                                <button type="submit" class="btn btn-info col-12 col-sm-6" onclick="return confirm('Xác nhận đổi ảnh đại diện')">Đổi ảnh đại diện</button>
+                                                <input type="file" class="form-control col-12 col-sm-6" placeholder="hình" name="img" required />
+                                            }
+
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="button" data-toggle="ajax-model" id="ModalMK" data-target="#modal-DoiMK" data-url="@Url.Action($"DoiMK/{Model.TaiKhoan.iD}")" class="btn btn-info">Đổi mật khẩu</button>
+                                        
+                                            @*<button type="button" data-toggle="ajax-model-edit" id="Modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")" class="btn dropdown-item">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>*@
+                                        </div>
+                                        <div class="form-group">
+                                            @using (Html.BeginForm("FaceTrain", "Info", new { id = Model.TaiKhoan.iD }, FormMethod.Post))
+                                            {
+                                                <button class="btn btn-info" type="submit">Thêm gương mặt</button>
+                                            }
+
+                                            
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="showModalMK"></div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+@section masterjs{
+    <script>
+        $(function () {            
+            var ShowModal = $('#showModalMK');
+            $('#ModalMK').click(function (event) {
+                var url = $(this).data('url');
+                alert(url);
+                $.get(url).done(function (data) {
+                    console.log(data);
+                    ShowModal.html(data);
+                    ShowModal.find('#modal-DoiMK').modal('show');
+                })
+            });
+
+        });   
+    </script>
+}
+

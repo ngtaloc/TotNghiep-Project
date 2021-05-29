@@ -43,7 +43,7 @@ namespace WebEng.Controllers
                         if (Roles.IsUserInRole(model.userName, "Admin"))
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "Admin/QLGiaoVien", "Admin");
+                            return RedirectToAction("", "Admin");
                         }
                         else
                         if(Roles.IsUserInRole(model.userName, "GiaoVien"))
@@ -54,7 +54,7 @@ namespace WebEng.Controllers
                         else
                         {
                             FormsAuthentication.SetAuthCookie(model.userName, model.rememberMe);
-                            return RedirectToAction("Index", "HocVien/Home");
+                            return RedirectToAction("Index", "HocVien/Tim");
                         }
                             
                     }
@@ -79,7 +79,7 @@ namespace WebEng.Controllers
                 string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
 
                 // python app to call 
-                string myPythonApp = @"C:\loc\TotNhiep\WebEng\WebEng\Python\detection.py";
+                string myPythonApp = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\detection.py";
 
                
 
@@ -96,7 +96,7 @@ namespace WebEng.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
-                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\WebEng\WebEng\Python\";
+                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\";
                 //using (Process process = Process.Start(myProcessStartInfo))
                 //{
                 //    using (StreamReader reader = process.StandardOutput)

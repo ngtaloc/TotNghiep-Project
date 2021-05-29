@@ -34,7 +34,7 @@ namespace WebEng.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new GiangVienDAO();
-                bool kt = dao.Update(giangvien);
+                bool kt = dao.Update(giangvien,giangvien.TaiKhoan.tenDangNhap);
                 if (kt)
                 {
                     ModelState.AddModelError("", "Cập nhât thành công");
