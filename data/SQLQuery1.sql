@@ -118,18 +118,25 @@ create table LoaiTaiLieu(
 );
 
 create table TaiLieu(	
-	ID INT IDENTITY(1,1) PRIMARY KEY,
+	ID INT IDENTITY(1,1) ,
+	ten nvarchar(50) NULL,  
+    FileSize int NULL, 
     link varchar(max) not null,
 	moTa ntext,
-	thoiGiang datetime,
+	thoiGian datetime,
 	trangThai int,
-	idLoaiTL int,
+	idKN int,
 	idLH int,
 	idTK int,
-	foreign key(idLoaiTL) references  LoaiTaiLieu(id) ON UPDATE NO ACTION ,
+	foreign key(idKN) references  kyNang(id) ON UPDATE NO ACTION ,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
 	foreign key(idTK) references  TaiKhoan(id) ON UPDATE NO ACTION ,
-);
+	CONSTRAINT [PK_AudioFiles] PRIMARY KEY CLUSTERED   
+(  
+    [ID] ASC  
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]  
+) ON [PRIMARY]  ;
+
 create table TaiLieuKyNang(	
      idKN int,
 	 idLoaiTL int,
@@ -259,6 +266,27 @@ begin
 	select @rec
 end
 
+
+GO
+CREATE procedure [dbo].[spAddNewAudioFile]  
+(  
+@ten nvarchar(50),  
+@FileSize int,  
+@link nvarchar(100)  
+)  
+as  
+begin  
+insert into tailieu (ten,FileSize,link)   
+values (@ten,@FileSize,@link)   
+end  
+
+  go
+
+CREATE procedure [dbo].[spGetAllAudioFile]  
+as  
+begin  
+select ID,ten,FileSize,link from tailieu
+end
 
 go
 dangnhap 'admin','admin'

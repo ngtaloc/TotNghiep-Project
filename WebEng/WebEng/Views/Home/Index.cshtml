@@ -15,6 +15,12 @@
             -webkit-box-orient: vertical;
             display: -webkit-box;
         }
+        img {
+            object-fit: cover;
+            width: 100%;
+            max-height: 250px;
+            min-height: 250px;
+        }
     </style>
     
 }
@@ -30,14 +36,21 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="~/chi-tiet/@item.ID" class="portfolio-link" data-toggle="modal">
+                    <a href="~/Home/chitiet/@item.ID" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
 
-                        <img src="@item.hinh" class="img-responsive" alt="">
+                        @if (!String.IsNullOrEmpty(item.hinh))
+                        {
+                            <img src="~/@item.hinh" class="img-responsive" alt="">
+                        }
+                        else
+
+                        {<img src="https://idevelopcourses.com/wp-content/uploads/2020/04/11220df81631c7737ade4809b87ed82a-online-degrees-form-of.jpg" class="img-responsive" alt="">}
+                        @*{<img src="https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3" class="img-responsive" alt="">}*@
                     </a>
                     <div class="portfolio-caption">
                         <h4>@item.tenLopHoc</h4>
@@ -46,6 +59,21 @@
                 </div>
             }
 
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="~/Home/chitiet/a" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+
+                   <img src="https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>aaaaaa</h4>
+                    <p class="text-muted">ssssdasdasd</p>
+                </div>
+            </div>
 
         </div>
     </div>

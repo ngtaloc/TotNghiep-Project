@@ -32,7 +32,18 @@ namespace WebEng.Controllers
 
         public ActionResult ChiTiet(int id)
         {
-            return View();
+            var dao = new LopHocDAO();
+            var model = dao.GetByID(id);
+            TimeSpan Time = model.ngayEnd.Value - model.ngayBegin.Value;
+            TempData["Sothang"] = (float.Parse(Time.Days.ToString()) / 30).ToString("#");
+            //ViewBag.hocvien = new HocVienDAO().FindByTDN(User.Identity.Name);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult binhluan(int id)
+        {           
+            TempData["testmsg"] = "bình luận!";
+            return RedirectToAction("chitiet/" + id, "Home");          
         }
 
     }

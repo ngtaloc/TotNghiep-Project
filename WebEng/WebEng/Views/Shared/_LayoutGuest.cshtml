@@ -11,7 +11,7 @@
 
     <title>Tiếng Anh Online</title>
     <!-- Bootstrap Core CSS -->
-    <link href="@Url.Content("~/Content/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
+    @*<link href="@Url.Content("~/Content/vendor/bootstrap/css/bootstrap.min.css")" rel="stylesheet">*@
 
     <!-- Custom Fonts -->
     <link href="@Url.Content("~/Content/vendor/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css">
@@ -29,6 +29,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
+    <link href="~/Content/css/st.css" rel="stylesheet" />
+   
     @RenderSection("css", required: false)
 </head>
 
@@ -36,9 +38,9 @@
     <header>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top affix">
-            <div class="container">
+            <div class="container col-md-12">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
+                <div class="navbar-header page-scroll col-md-6">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
@@ -46,24 +48,22 @@
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li>
+                <div class="collapse navbar-collapse col-md-6" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right col-md-12" style="display: -webkit-inline-box;">
+
+                        <li style="margin-right: 2%;">
                             @Html.ActionLink("Trang chủ", "Index", "Home")
                         </li>
-                        <li>
+                        <li style="margin-right: 2%;">
                             <a class="page-scroll" href="#portfolio">Khóa học</a>
                         </li>
-                        <li>
+                        <li style="margin-right: 2%;">
                             @Html.ActionLink("Liên hệ", "About", "Home")
                         </li>
-                        <li>
+                        <li style="margin-right: 2%;">
                             @Html.ActionLink("Đăng ký", "DKTaiKhoan", "DangKy")
                         </li>
-                        <li>
+                        <li style="margin-right: 2%;">
                             @Html.ActionLink("Đăng nhập", "Index", "Login")
                         </li>
 

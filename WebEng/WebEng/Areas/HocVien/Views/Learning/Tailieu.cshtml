@@ -1,0 +1,56 @@
+﻿@*@model IEnumerable<Models.Framework.LoaiTaiLieu>*@
+@model IEnumerable<Models.Framework.TaiLieu>
+<style>
+	.table {
+		margin-top: 30px;
+	}
+
+	.title {
+		background-color: gainsboro;
+	}
+
+	.noidung {
+		border-bottom: 1px solid gainsboro;
+	}
+</style>
+<table class="table table-hover">
+	<thead>
+		<tr class="title">
+			<th>Tài liệu</th>
+			<th>Tiêu đề</th>
+			<th>Được tạo bởi</th>
+			<th>Thời gian</th>
+		</tr>
+	</thead>
+    <tbody>
+        @*@foreach (var item in Model)
+        {
+            foreach (var it in item.TaiLieux)
+            {
+                <tr class="noidung">
+                    <td> @it.link</td>
+                    <td> @it.moTa </td>
+                    <td> @it.TaiKhoan.Giangviens.FirstOrDefault().hovaten  </td>
+                    <td> @it.LopHoc.tenLopHoc</td>
+                </tr>
+            }
+        }*@
+
+        @foreach (var it in Model)
+        {
+            <tr class="noidung">
+                <td> @it.link</td>
+                <td> @it.moTa </td>
+                <td> @it.TaiKhoan.hovaten  </td>
+                <td> @it.LopHoc.tenLopHoc</td>
+            </tr>
+        }
+        <tr class="noidung">
+            <td> đổ file tài liệu</td>
+            <td> đổ tên tài liệu </td>
+            <td> đổ tên người đăng  </td>
+            <td> đổ thời gian đăng</td>
+        </tr>
+
+    </tbody>
+</table>

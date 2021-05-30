@@ -63,6 +63,13 @@
                         <div class="widget-user-header bg-warning">
                             <div id="img" class="widget-user-image">
                                 <img src="@item.hinh" />
+                                @if (!String.IsNullOrEmpty(item.hinh))
+                                {
+                                    <img src="~/@item.hinh" >
+                                }
+                                else                                
+                                {<img src="https://idevelopcourses.com/wp-content/uploads/2020/04/11220df81631c7737ade4809b87ed82a-online-degrees-form-of.jpg">}
+
                             </div>
                             <buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>
                             @foreach (var item1 in item.KyNangLopHocs)
