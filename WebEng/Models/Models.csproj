@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="DAO\TaiLieuDAO.cs" />
     <Compile Include="DAO\DSLopHocDAO.cs" />
     <Compile Include="DAO\KyNangGiangVienDAO.cs" />
     <Compile Include="DAO\KyNangDAO.cs" />
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
+    <Content Include="NewFolder1\Hong-Nhan-Bac-Phan-Various-Artists.mp3" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

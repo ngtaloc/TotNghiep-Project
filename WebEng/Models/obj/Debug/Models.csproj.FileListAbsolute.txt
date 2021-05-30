@@ -13,3 +13,4 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\ob
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.pdb
+C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\Models\obj\Debug\Models.csprojAssemblyReference.cache

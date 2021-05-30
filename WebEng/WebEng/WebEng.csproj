@@ -166,6 +166,7 @@
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\NgheController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
@@ -2911,7 +2912,6 @@
     <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\GiaoVien\Edit.cshtml" />
-    <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Hoc\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
@@ -2920,6 +2920,7 @@
     <Content Include="Areas\HocVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\Nghe\UploadAudio.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
