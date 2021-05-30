@@ -110,6 +110,27 @@ namespace Models.Framework
         [StringLength(50)]
         public string ngay31 { get; set; }
 
+        [StringLength(50)]
+        public string thu2 { get; set; }
+
+        [StringLength(50)]
+        public string thu3 { get; set; }
+
+        [StringLength(50)]
+        public string thu4 { get; set; }
+
+        [StringLength(50)]
+        public string thu5 { get; set; }
+
+        [StringLength(50)]
+        public string thu6 { get; set; }
+
+        [StringLength(50)]
+        public string thu7 { get; set; }
+
+        [StringLength(50)]
+        public string chunhat { get; set; }
+
         public int? iDThang { get; set; }
 
         [StringLength(4)]
