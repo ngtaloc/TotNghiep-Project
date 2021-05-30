@@ -163,6 +163,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
@@ -2994,6 +2995,7 @@
     <Folder Include="Areas\Admin\Code\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\GiaoVien\Data\" />
+    <Folder Include="Areas\GiaoVien\Views\DayHoc\" />
     <Folder Include="Areas\GiaoVien\Views\Delete\" />
     <Folder Include="Areas\GiaoVien\Views\Home\" />
     <Folder Include="Areas\GiaoVien\Views\LopHoc\" />
