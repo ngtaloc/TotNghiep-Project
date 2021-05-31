@@ -98,19 +98,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @if (Model != null)
                         {
-                            <tr>
-                                <td>@item.ten</td>
-                                <td>
-                                    @item.TaiKhoan.hovaten
-                                </td>
-                                <td>@item.thoiGian</td>
-                                <td>
-                                    <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
-                                </td>
-                            </tr>
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ten</td>
+                                    <td>
+                                        @item.TaiKhoan.hovaten
+                                    </td>
+                                    <td>@item.thoiGian</td>
+                                    <td>
+                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
+                                    </td>
+                                </tr>
+                            }
                         }
+
                     </tbody>
                 </table>
             </div>

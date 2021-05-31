@@ -48,13 +48,8 @@ namespace WebEng.Areas.GiaoVien.Controllers
             //    }
             //}
             ViewBag.lophoc = lh;
-<<<<<<< HEAD
-            var audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN==1);
-=======
-            //var audiolist = lh.TaiLieux;
             IEnumerable<TaiLieu> audiolist = null;
-            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux; }
->>>>>>> 03e38355264e422afbd823bd0eeb4d3e2d11e0c7
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == 1); }
             return View(audiolist);
         }
         //Tạo phương thức hành động UploadAudio với [HttpPost] trong bộ điều khiển. 

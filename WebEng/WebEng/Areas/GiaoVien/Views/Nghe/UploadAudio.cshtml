@@ -84,20 +84,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @if (Model != null)
                             {
-                                <tr>
+                                foreach (var item in Model)
+                                {
+                                    <tr>
 
-                                    <td>@item.ID</td>
-                                    <td>@item.ten</td>
-                                    <td>@item.FileSize</td>
-                                    <td>
-                                        <audio controls>
-                                            <source src="@Url.Content(@item.link)" type="audio/ogg">
-                                        </audio>
-                                    </td>
-                                </tr>
+                                        <td>@item.ID</td>
+                                        <td>@item.ten</td>
+                                        <td>@item.FileSize</td>
+                                        <td>
+                                            <audio controls>
+                                                <source src="@Url.Content(@item.link)" type="audio/ogg">
+                                            </audio>
+                                        </td>
+                                    </tr>
+                                }
                             }
+
                         </tbody>
                     </table>
                 </div>

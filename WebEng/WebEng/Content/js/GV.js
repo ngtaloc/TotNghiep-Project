@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿/* tạo modal thời gian biểu
 =======
 ﻿// tạo modal thời gian biểu
