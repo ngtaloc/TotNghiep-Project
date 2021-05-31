@@ -78,10 +78,12 @@ D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\System.Web.WebPages.Ra
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\Newtonsoft.Json.xml
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\Antlr3.Runtime.pdb
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csprojAssemblyReference.cache
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CoreCompileInputs.cache
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+<<<<<<< HEAD
 D:\HK1_2020\TotNghiep\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csprojAssemblyReference.cache
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll.config
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\bin\WebEng.dll
@@ -168,3 +170,5 @@ C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\ob
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.dll
 C:\Users\ADMIN\Desktop\DATN\TotNghiep-Project\TotNghiep-Project\WebEng\WebEng\obj\Debug\WebEng.pdb
+=======
+>>>>>>> 8ca364cf8c1da80f28a65de0e0ed03f5df901e54

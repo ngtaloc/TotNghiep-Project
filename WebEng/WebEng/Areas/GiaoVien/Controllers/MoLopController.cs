@@ -90,6 +90,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt2.Replace(":", "-") + "-" + et2.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt2.Replace(":", "-") + "-" + et2.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu2 = bt2.Replace(":", "-") + "-" + et2.Replace(":", "-");
                             }
                             break;
                         case 3:
@@ -134,6 +135,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt3.Replace(":", "-") + "-" + et3.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt3.Replace(":", "-") + "-" + et3.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu3 = bt3.Replace(":", "-") + "-" + et3.Replace(":", "-");
                             }
                             break;
                         case 4:
@@ -178,6 +180,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt4.Replace(":", "-") + "-" + et4.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt4.Replace(":", "-") + "-" + et4.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu4 = bt4.Replace(":", "-") + "-" + et4.Replace(":", "-");
                             }
                             break;
                         case 5:
@@ -222,6 +225,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt5.Replace(":", "-") + "-" + et5.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt5.Replace(":", "-") + "-" + et5.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu5 = bt5.Replace(":", "-") + "-" + et5.Replace(":", "-");
                             }
                             break;
                         case 6:
@@ -266,6 +270,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt6.Replace(":", "-") + "-" + et6.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt6.Replace(":", "-") + "-" + et6.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu6 = bt6.Replace(":", "-") + "-" + et6.Replace(":", "-");
                             }
                            break;
                         case 7:
@@ -310,6 +315,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt7.Replace(":", "-") + "-" + et7.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bt7.Replace(":", "-") + "-" + et7.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.thu7 = bt7.Replace(":", "-") + "-" + et7.Replace(":", "-");
                             }
                            break;
                         case 1:
@@ -354,6 +360,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                     case 30: n.ngay30 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bcn.Replace(":", "-") + "-" + ecn.Replace(":", "-"); buoi ++; break;
                                     case 31: n.ngay31 = lophoc.ID.ToString() + "-" + NgayB.ToString().Split(' ')[0].Replace("/", "-") +"-" + bcn.Replace(":", "-") + "-" + ecn.Replace(":", "-"); buoi ++; break;
                                 }
+                                n.chunhat = bcn.Replace(":", "-") + "-" + ecn.Replace(":", "-");
                             }
                             break;
                     }
@@ -444,7 +451,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 {
                     
                     TempData["testmsg"] = "Cập nhât thành công.";
-                    return RedirectToAction("GiaoVien");
+                    return RedirectToAction("chitietlophoc/" + lophoc.ID, "MoLop");
                 }
                 else
                 {
@@ -452,7 +459,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                     
                 }
             }
-            return PartialView("GiaoVien");
+            return RedirectToAction("chitietlophoc/" + lophoc.ID, "MoLop");
         }
 
         [HttpGet]
@@ -462,7 +469,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var product = db.LopHocs.Where(s => s.ID == id).First();
             db.LopHocs.Remove(product);
             db.SaveChanges();
-            return RedirectToAction("GiaoVien");
+            return RedirectToAction("chitietlophoc/" + id, "MoLop");
         }
 
         public ActionResult ChiTietLopHoc(int id)

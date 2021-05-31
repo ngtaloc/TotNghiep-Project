@@ -210,6 +210,13 @@ create table Ngay(	--ngày
 	ngay29 Nvarchar(50),
 	ngay30 Nvarchar(50),
 	ngay31 Nvarchar(50),
+	thu2 Nvarchar(50),-- time begin - time end
+	thu3 Nvarchar(50),--	9-15-11-15
+	thu4 Nvarchar(50),
+	thu5 Nvarchar(50),
+	thu6 Nvarchar(50),
+	thu7 Nvarchar(50),
+	chunhat Nvarchar(50),
 	iDThang int,
 	nam char(4),
 	iDLopHoc int,
@@ -314,7 +321,7 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','Index',NULL,0),
+values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý lớp','QLLop',NULL,0),
 (N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
 (N'Tìm lớp học','Home',NULL,0),
@@ -356,9 +363,9 @@ values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https:
 (N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021',30,1,1);
 
 --insert thời khóa biểu
-insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc)
---ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE 
-values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021',1);
+insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)
+--ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE-BuổiHoc 
+values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00-11-00-3','1-27-4-2021-13-00-15-00-4','1-29-4-2021-9-00-11-00-5',4,'2021',1,'9-00-11-00','13-00-15-00');
 -- chat giữa học viên và giáo viên
 
 insert into DSLopHoc
@@ -413,3 +420,4 @@ values (3,1,N'Bình luận của học viên AAAAAA','4/20/2021 10:50',0),
 (2,1,N'Trả lời của giáo viên aaaaaa','5/15/2021 12:30',1),
 (2,1,N'Trả lời của giáo viên bbbbbb','5/15/2021 12:50',1),
 (2,1,N'Trả lời Bình luận của học viên zzzz','5/15/2021 10:50',2);
+
