@@ -59,19 +59,10 @@
         {
             <div class="item item1">
                 <div class="card card-widget widget-user-2 shadow-sm">
-                    <a class="card card-widget widget-user" href="~/GiaoVien/chi-tiet/@item.ID" style="color:black;">
-                        <div class="widget-user-header bg-warning">
-                            <div id="img" class="widget-user-image">
-                                <img src="@item.hinh" />
-                                @if (!String.IsNullOrEmpty(item.hinh))
-                                {
-                                    <img src="~/@item.hinh" >
-                                }
-                                else                                
-                                {<img src="https://idevelopcourses.com/wp-content/uploads/2020/04/11220df81631c7737ade4809b87ed82a-online-degrees-form-of.jpg">}
-
-                            </div>
-                            <buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>
+                    <a class="card card-widget widget-user" href="~/GiaoVien/chi-tiet/@item.ID" >
+                        <div class="widget-user-header bg-warning" style="background: url('../@item.hinh') center center; background-repeat: no-repeat; background-size: cover;">
+                          
+                            @*<buton onclick="location.href = '@Url.Action("Index", "Hoc")'" id="nameTeacher" class="widget-user-username">@item.Giangvien.TaiKhoan.hovaten</buton>*@
                             @foreach (var item1 in item.KyNangLopHocs)
                             {
                                 <h5 id="job" class="widget-user-desc">@item1.KyNang.tenKyNang </h5>
@@ -91,33 +82,177 @@
                             <li class="nav-item" style="color:black">
                                 <a id="numBers" class="nav-link" style="pointer-events:none">
                                     Số lượng
-                                    <span class="float-right badge bg-danger">@item.soluong</span>
+                                    <span class="float-right badge bg-danger"> @item.DSLopHocs.Count/@item.soluong</span>
                                 </a>
                             </li>
                             <li class="nav-item" style="color:black">
                                 <a id="startLearn" class="nav-link" style="pointer-events:none">
-                                    Khai giảng
-                                    <span class="float-right badge bg-danger">@item.ngayBegin.ToString().Split(' ')[0]</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" style="color:black">
-                                <a id="Due" class="nav-link" style="pointer-events:none">
-                                    Lịch học
-                                    <span class="float-right badge bg-danger">aaaa</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" style="color:black">
-                                <a id="Due" class="nav-link" style="pointer-events:none">
                                     Thời gian học
-                                    <span class="float-right badge bg-danger">@item.Giangvien.email</span>
+                                    <p class="float-right badge bg-danger">Bắt đầu:  @item.ngayBegin.ToString().Split(' ')[0]</p>
                                 </a>
+                                <a id="Due" class="nav-link" style="pointer-events:none; margin-bottom: 1.2rem;">
+                                    <span class="float-right badge bg-danger">Kết thúc: @item.ngayEnd.ToString().Split(' ')[0]</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item" style="color:black">
+
+                                @if (item.Ngays.Count != 0)
+                                {
+                                    bool first = true;
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu2))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu2;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none;">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 2: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+
+
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu3))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu3;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge bg-danger">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu4))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu4;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge bg-danger">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu5))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu5;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge bg-danger">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu6))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu6;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge bg-danger">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu7))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu7;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học
+                                                <span class="float-right badge bg-danger">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge bg-danger">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().chunhat))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().chunhat;
+
+                                        <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                            <span class="float-right badge bg-danger">Chủ nhật: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                        </a>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                        Lịch học
+                                        <span class="float-right badge bg-danger">Chưa có lịch học</span>
+                                    </a>
+
+                                }
                             </li>
                             <li class="nav-item" style="color:black">
-                                <a id="Due" class="nav-link" style="pointer-events:none">
-                                    Ngày kết thúc
-                                    <span class="float-right badge bg-danger">@item.ngayEnd.ToString().Split(' ')[0]</span>
+                                <a class="nav-link" style="pointer-events:none">
+                                    Trạng thái
+                                    @switch (@item.trangThai)
+                                    {
+                                        case 0:
+                                            {
+                                                <span class="float-right badge bg-danger">Đang tuyển sinh</span>
+                                                break;
+                                            }
+                                        case 1:
+                                            {
+                                                <span class="float-right badge bg-danger">Ngừng tuyển sinh</span>
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                <span class="float-right badge bg-danger">Đang học</span>
+                                                break;
+                                            }
+                                        case 3:
+                                            {
+                                                <span class="float-right badge bg-danger">Đã kết thúc</span>
+                                                break;
+                                            }
+                                    }
+
                                 </a>
                             </li>
+
                             <li class="nav-item" style="color:black; text-align:center">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
@@ -127,11 +262,11 @@
                                     </div>
                                     @*@using (Html.BeginForm("Delete", "MoLop", FormMethod.Get))*@
                                     {
-                                        <div class="col-lg-6 col-md-6">
-                                            <button id="xoa" formaction="@Url.Action("Delete","MoLop",new {id = item.ID})" type="submit">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <button id="xoa" formaction="@Url.Action("Delete","MoLop",new {id = item.ID})" type="submit">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
                                     }
                                 </div>
                             </li>

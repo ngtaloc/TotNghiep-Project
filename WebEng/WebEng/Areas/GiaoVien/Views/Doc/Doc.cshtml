@@ -1,0 +1,120 @@
+﻿@using Models.Framework
+@model IEnumerable<TaiLieu>   
+ @{
+     ViewBag.Title = "Doc";
+     Layout = "~/Views/Shared/_TemLayout.cshtml";
+     var lophoc = (LopHoc)ViewBag.lophoc;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+        $(function () {
+            var ShowModal = $('#showModal');
+            $('button[data-toggle="ajax-modal"]').click(function (event) {
+                var url = $(this).data('url');
+                $.get(url).done(function (data) {
+                    ShowModal.html(data);
+                    ShowModal.find('.modal').modal('show');
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    @if (TempData["testmsg"] != null)
+    {
+        <div class="alert alert-info col-md-8 offset-md-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+    }
+    }
+    <div class="container py-4">
+        <h3 class="text-center text-uppercase">Reading</h3>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <button style="margin-left: 27px;margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus-circle"></i> Add New
+                    </button>
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Tài liệu</h4>
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                </div>
+                                @using (Html.BeginForm("Doc", "Doc", new { idlh = lophoc.ID }, FormMethod.Post))
+                                {
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label>Tên tài liệu:</label>
+                                                <input type="text" name="ten" />
+                                            </div>
+                                            <textarea name="link"></textarea>
+                                            <script>
+                                                CKEDITOR.replace('link');
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger" id="doc">Lưu</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="showModal"></div>
+                <table id="dataTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Người tạo</th>
+                            <th>Thời gian tạo</th>
+                            <th>Tài liệu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ten</td>
+                                <td>
+                                    @item.TaiKhoan.hovaten
+                                </td>
+                                <td>@item.thoiGian</td>
+                                <td>
+                                    <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

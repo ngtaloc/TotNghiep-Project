@@ -22,32 +22,9 @@
 
     <!-- Select2 -->
     <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/select2/css/select2.min.css")">
-    <style>
-        /*.card-footer{
-            height:180px;
-        }
-        .widget-user .widget-user-username {
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            margin-top: -40px;
-            text-shadow: 0 1px 1px rgb(0 0 0 / 20%);
-        }
-        .widget-user-desc {
-            font-size: 19px;
 
-        }
-        .card-footer-footer {
-            background-color: #E6E6E6;
-            height: 40px;
-        }
-            .card-footer-footer .fter {
-                max-width: 124px;
-                padding: 8px 0px 8px 0px;
-                width: 100%;
-                background-color: red;
-                display: inline-block;
-            }*/
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>       
         .card-body {
             height: 160px;
             overflow: hidden;
@@ -59,6 +36,32 @@
 
         .widget-user .card-footer {
             padding-top: 0.75rem;
+        }
+        
+        .current {
+            color: green;
+        }
+
+        #pagin li {
+            display: inline-block;
+        }
+
+        .prev {
+            cursor: pointer;
+        }
+
+        .next {
+            cursor: pointer;
+        }
+
+        .last {
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .first {
+            cursor: pointer;
+            margin-right: 5px;
         }
     </style>
 }
@@ -152,7 +155,7 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
+        <div class="line-content col-md-4">
             <!-- Widget: user widget style 1 -->
             <a class="card card-widget widget-user" href="~/HocVien/chi-tiet/@item.ID" style="color:black;">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -193,6 +196,9 @@
 
     <!-- /.col -->
 </div>
+<div class="card-footer clearfix">
+<ul class="pagination pagination-lg m-0" id="pagin"></ul>
+    </div>
 <!-- /.row -->
 @section masterjs{
     <script>
@@ -208,6 +214,78 @@
 
         });
 
+
+        pageSize = 6;
+        incremSlide = 5;
+        startPage = 0;
+        numberPage = 0;
+
+        var pageCount = $(".line-content").length / pageSize;
+        var totalSlidepPage = Math.floor(pageCount / incremSlide);
+
+        for (var i = 0; i < pageCount; i++) {
+            $("#pagin").append('<li class="page-item"><a href="#">' + (i + 1) + '</a></li> ');
+            if (i > pageSize) {
+                $("#pagin li").eq(i).hide();
+            }
+        }
+
+        var prev = $("<li/>").addClass("prev").html("Prev").click(function () {
+            startPage -= 5;
+            incremSlide -= 5;
+            numberPage--;
+            slide();
+        });
+
+        prev.hide();
+
+        var next = $("<li/>").addClass("next").html("Next").click(function () {
+            startPage += 5;
+            incremSlide += 5;
+            numberPage++;
+            slide();
+        });
+
+        $("#pagin").prepend(prev).append(next);
+
+        $("#pagin li").first().find("a").addClass("current");
+
+        slide = function (sens) {
+            $("#pagin li").hide();
+
+            for (t = startPage; t < incremSlide; t++) {
+                $("#pagin li").eq(t + 1).show();
+            }
+            if (startPage == 0) {
+                next.show();
+                prev.hide();
+            } else if (numberPage == totalSlidepPage) {
+                next.hide();
+                prev.show();
+            } else {
+                next.show();
+                prev.show();
+            }
+
+
+        }
+
+        showPage = function (page) {
+            $(".line-content").hide();
+            $(".line-content").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        }
+
+        showPage(1);
+        $("#pagin li a").eq(0).addClass("current");
+
+        $("#pagin li a").click(function () {
+            $("#pagin li a").removeClass("current");
+            $(this).addClass("current");
+            showPage(parseInt($(this).text()));
+        });
     </script>
 
 

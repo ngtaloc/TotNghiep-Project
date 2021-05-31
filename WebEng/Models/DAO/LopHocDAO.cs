@@ -29,12 +29,15 @@ namespace Models.DAO
             {
                 var lh = db.LopHocs.Find(entity.ID);
                 lh.tenLopHoc = entity.tenLopHoc;
-                lh.hinh = entity.hinh;
+                if (!string.IsNullOrEmpty(entity.hinh)){
+                    lh.hinh = entity.hinh;
+                }                    
                 lh.mota = entity.mota;
-                lh.ngayBegin = entity.ngayBegin;
-                lh.ngayEnd = entity.ngayEnd;
+                        
                 lh.soluong = entity.soluong;
-                lh.soBuoi = entity.soBuoi;
+                if (!string.IsNullOrEmpty(entity.soBuoi.ToString())){
+                    lh.soBuoi = entity.soBuoi;
+                }
                 lh.trangThai = entity.trangThai;
                 lh.yeucau = entity.yeucau;
                 
