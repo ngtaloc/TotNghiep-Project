@@ -73,7 +73,7 @@ create table LopHoc(
 	ngayBegin date,
 	ngayEnd date,
 	soBuoi int,
-	trangThai int DEFAULT 1, --0:đóng 1:mở(Df) 2:đang học;
+	trangThai int DEFAULT 1, --0:Đang tuyển sinh	1:Ngừng tuyển sinh	2:Đang học	3:Đã kết thúc
 	idGV int,
 	
 	foreign key(idGV) references  GiangVien(id) ON DELETE CASCADE ,
@@ -321,15 +321,15 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','Index',NULL,0),
+values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý lớp','QLLop',NULL,0),
 (N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
-(N'Tìm lớp học','Home',NULL,0),
+(N'Tìm lớp học','Tim',NULL,0),
 (N'Lớp đã đăng ký','Learning',NULL,0),
 (N'Quản lý giáo viên','QLGiaoVien',NULL,0),
 (N'Quản lý học viên','QLHocVien',NULL,0),
 (N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
-(N'Thống kê lớp học','ThongKeLop',NULL,0),
+(N'Thống kê lớp học','ThongKe',NULL,0),
 (N'Cập nhật lớp','CapNhatLop',NULL,2),
 (N'Học','Hoc',NULL,2),
 (N'Thông tin cá nhân','Info',NULL,0),

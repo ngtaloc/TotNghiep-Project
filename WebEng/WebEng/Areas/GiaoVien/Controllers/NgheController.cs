@@ -12,12 +12,12 @@ using Models.DAO;
 
 namespace WebEng.Areas.GiaoVien.Controllers
 {
+
     public class NgheController : Controller
     {
         // GET: GiaoVien/Nghe
         public ActionResult Index()
         {
-
             return View();
         }
         //Tạo phương thức hành động UploadAudio với [HttpGet] trong bộ điều khiển.
@@ -48,7 +48,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             //    }
             //}
             ViewBag.lophoc = lh;
-            var audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name);
+            var audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN==1);
             return View(audiolist);
         }
         //Tạo phương thức hành động UploadAudio với [HttpPost] trong bộ điều khiển. 

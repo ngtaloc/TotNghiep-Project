@@ -168,6 +168,7 @@
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\NgheController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
@@ -2921,6 +2922,7 @@
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Nghe\UploadAudio.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\ThongKe\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
