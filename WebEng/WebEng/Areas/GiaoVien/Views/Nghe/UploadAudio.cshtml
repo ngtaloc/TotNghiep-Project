@@ -3,17 +3,13 @@
 @{
     ViewBag.Title = "UploadAudio";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
-    var lophoc = ViewBag.lophoc;
+    var lophoc =(LopHoc)ViewBag.lophoc;
 }
-
-    <h2>UploadAudio</h2>
-
     <!DOCTYPE html>
 
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>UploadAudio</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
         <script src="~/scripts/jquery-3.3.1.min.js"></script>
@@ -53,7 +49,7 @@
                                         <button type="button" class="close" data-dismiss="modal">×</button>
                                     </div>
                                     <div class="modal-body">
-                                        @using (Html.BeginForm("UploadAudio", "Nghe",@*new {lh=ViewBag.lophoc } ,*@FormMethod.Post, new { enctype = "multipart/form-data"}))
+                                        @using (Html.BeginForm("UploadAudio", "Nghe",new {idlh=lophoc.ID } ,FormMethod.Post, new { enctype = "multipart/form-data"}))
                                         {
 
                                             <div class="form-group">
