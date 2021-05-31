@@ -253,38 +253,40 @@
 
                                 @using (Html.BeginForm("Edit", "MoLop", FormMethod.Post))
                                 {
-                                    <div class="form-group">
-                                        <label for="diachi">Tên lớp học</label>
-                                        @Html.TextBoxFor(model => model.tenLopHoc, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có tên lớp" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="diachi">Mô tả</label>
-                                        @Html.TextBoxFor(model => model.mota, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có mô tả" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="diachi">Điều kiện vào lớp</label>
-                                        @Html.TextBoxFor(model => model.yeucau, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Bất kỳ ai" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="diachi">Số lượng học viên</label>
-                                        @Html.TextBoxFor(model => model.soluong, new { @type = "number", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có mô tả" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="diachi">Trạng thái</label> @* chuyển thành cbb *@
-                                       <select class="custom-select form-control-border border-width-2" id="status" name="trangthai">
-                                            <option value="0">Đang tuyển sinh</option>
-                                            <option value="1">Ngừng tuyển sinh</option>
-                                            <option value="2" disabled>Đang học</option>
-                                            <option value="3" disabled>Đã kết thúc</option>
-                                        </select>
-                                       
-                                    </div>
+                                    @Html.HiddenFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+
+                                <div class="form-group">
+                                    <label for="diachi">Tên lớp học</label>
+                                    @Html.TextBoxFor(model => model.tenLopHoc, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có tên lớp" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="diachi">Mô tả</label>
+                                    @Html.TextBoxFor(model => model.mota, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có mô tả" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="diachi">Điều kiện vào lớp</label>
+                                    @Html.TextBoxFor(model => model.yeucau, new { @type = "text", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Bất kỳ ai" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="diachi">Số lượng học viên</label>
+                                    @Html.TextBoxFor(model => model.soluong, new { @type = "number", @class = "form-control form-control-border", @id = "diachi", @placeholder = "Chưa có mô tả" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="diachi">Trạng thái</label> @* chuyển thành cbb *@
+                                    <select class="custom-select form-control-border border-width-2" id="status" name="trangthai">
+                                        <option value="0">Đang tuyển sinh</option>
+                                        <option value="1">Ngừng tuyển sinh</option>
+                                        <option value="2" disabled>Đang học</option>
+                                        <option value="3" disabled>Đã kết thúc</option>
+                                    </select>
+
+                                </div>
 
 
-                                    <button type="submit" class="btn btn-primary float-right" onclick="return confirm('Xác nhân cập nhật?')">Cập nhật</button>
+                                <button type="submit" class="btn btn-primary float-right" onclick="return confirm('Xác nhân cập nhật?')">Cập nhật</button>
 
 
-                                }
+                            }
 
                             </div>
                         </div>

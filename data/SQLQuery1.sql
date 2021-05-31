@@ -321,7 +321,7 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','Index',NULL,0),
+values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý lớp','QLLop',NULL,0),
 (N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
 (N'Tìm lớp học','Home',NULL,0),
@@ -364,8 +364,8 @@ values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https:
 
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)
---ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE 
-values ('1-15-4-2021-9-00-11-00','1-20-4-2021-13-00-15-00','1-22-4-2021-9-00-11-00','1-27-4-2021-13-00-15-00','1-29-4-2021-9-00-11-00',4,'2021',1,'9-00-11-00','13-00-15-00');
+--ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE-BuổiHoc 
+values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00-11-00-3','1-27-4-2021-13-00-15-00-4','1-29-4-2021-9-00-11-00-5',4,'2021',1,'9-00-11-00','13-00-15-00');
 -- chat giữa học viên và giáo viên
 
 insert into DSLopHoc
