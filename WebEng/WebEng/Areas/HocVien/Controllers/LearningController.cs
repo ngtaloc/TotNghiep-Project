@@ -51,12 +51,21 @@ namespace WebEng.Areas.HocVien.Controllers
 		}
 		public ActionResult Tailieu(LopHoc lopHoc, int idkn)
 		{
-            var dao = new KyNangDAO();
-            var model = dao.FindByLopHocKN(lopHoc, idkn);
+            var lh = new LopHocDAO().GetByID(lopHoc.ID);
+            IEnumerable<TaiLieu> model = null;
+            if (lh.TaiLieux.Count() > 0) { model = lh.TaiLieux.Where(x => x.idKN == idkn); }
             return View(model);
-
 		}
-		public ActionResult Baihoc(LopHoc lopHoc)
+        [HttpGet]
+        public ActionResult XemCK(int ID)
+        {
+            var dao = new TaiLieuDAO();
+            var model = dao.GetByID(ID);
+            return PartialView("XemCK", model);
+        }
+
+
+        public ActionResult Baihoc(LopHoc lopHoc)
 		{
 			return View(lopHoc);
 

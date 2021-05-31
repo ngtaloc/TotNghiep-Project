@@ -163,21 +163,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\NgheController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\ThongKeController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\VietController.cs" />
-
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
@@ -2931,14 +2925,12 @@
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Nghe\UploadAudio.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\ThongKe\Index.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\Doc\Doc.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Doc\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Viet.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Edit.cshtml" />
-
+    <Content Include="Areas\HocVien\Views\Learning\XemCK.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
