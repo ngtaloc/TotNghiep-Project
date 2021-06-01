@@ -24,7 +24,7 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string noiDung { get; set; }
 
-        public DateTime? thoiGian { get; set; }
+        public DateTime thoiGian { get; set; }
 
         public int? idCha { get; set; }
 

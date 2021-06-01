@@ -8,7 +8,7 @@ create table TaiKhoan(
 	hinh text,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
-	ngayDangKy datetime,
+	ngayDangKy datetime not null,
 	trangThai int DEFAULT 1, --0:khóa 1:mở
 	face int DEFAULT 0,--0:khóa 1:mở
 );
@@ -73,7 +73,7 @@ create table LopHoc(
 	yeucau nvarchar(50),
 	ngayBegin date,
 	ngayEnd date,
-	ngayDangKy datetime,
+	ngayDangKy datetime not null,
 	soBuoi int,
 	trangThai int DEFAULT 1, --0:Đang tuyển sinh	1:Ngừng tuyển sinh	2:Đang học	3:Đã kết thúc
 	idGV int,
@@ -84,7 +84,7 @@ create table LopHoc(
 create table DSLopHoc(	
 	 idHV int,
 	 idLH int,
-	 ngaydDangKy datetime,
+	 ngaydDangKy datetime not null,
 	 danhgia int,
 	 binhluan ntext,
 	 foreign key(idHV) references  HocVien(id)ON UPDATE NO ACTION ,
@@ -126,7 +126,7 @@ create table TaiLieu(
     FileSize int NULL, 
     link varchar(max) not null,
 	moTa ntext,
-	thoiGian datetime,
+	thoiGian datetime not null,
 	trangThai int, --0:dong 1:mo
 	idKN int,
 	idLH int,
@@ -152,7 +152,7 @@ create table BinhLuan(
 	idTK int,
 	idLH int,
 	noiDung ntext,
-	thoiGian Datetime,
+	thoiGian datetime not null,
 	idCha int,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
 	foreign key(idCha) references  BinhLuan(id) ON UPDATE NO ACTION NOT FOR REPLICATION ,
@@ -163,7 +163,7 @@ create table ThongBao(
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idTK int,
 	noiDung ntext,
-	ngay datetime,
+	ngay datetime not null,
 
 	link varchar(255),
 	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
@@ -248,7 +248,7 @@ create table ViTien(
 
 create table LichSuGD( --lịch sử giao dịch
 	iD INT IDENTITY(1,1) PRIMARY KEY,
-	ThoiGiangGD datetime,
+	ThoiGiangGD datetime not null,
 	TenGD Ntext,
 	LoaiGD int, -- 0: Nạp ; 1:Mở Lớp;
 	SoTienGD int,
@@ -362,8 +362,8 @@ insert into HocVien
 values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,1,1),
-(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,1,1);
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,3,1),
+(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
 
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)

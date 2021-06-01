@@ -13,8 +13,38 @@ namespace WebEng.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.begig = -1;
-            ViewBag.end = -1;
+            ViewBag.begig = 0;
+            ViewBag.end = 0;
+            WebEngDbContext db = new WebEngDbContext();
+            DateTime now = DateTime.Now.AddDays(-1).Date;
+            List<int> solieu = new List<int>();
+            IEnumerable<LichSuGD> gd = db.LichSuGDs.Where(x=>x.LoaiGD == 0);
+            int danhthu = 0;
+            foreach (var it in gd)
+            {
+                danhthu += it.SoTienGD;
+            }
+
+            IEnumerable<LopHoc> listLH = db.LopHocs;
+            IEnumerable<TaiKhoan> listTK = db.TaiKhoans;
+            IEnumerable<LichSuGD> listGD = db.LichSuGDs;
+
+            //Tương tác
+            solieu.Add(db.BinhLuans.Count()
+                + listTK.Count()
+                + listLH.Count()
+                + db.TaiLieux.Count()
+                + listGD.Count()
+                + db.DSLopHocs.Count());
+            
+            solieu.Add(danhthu);            //danh thu           
+            solieu.Add(listLH.Count());     //mở lớp 
+            solieu.Add(listTK.Count());     //new menber
+
+            ViewBag.thongkeDau = solieu;
+            ViewBag.listLH = listLH;
+            ViewBag.listTK = listTK;
+            ViewBag.listGD = listGD;
             return View();
         }
         [HttpPost]
@@ -24,8 +54,9 @@ namespace WebEng.Areas.Admin.Controllers
             DateTime end = DateTime.Parse(date.Split('-')[1]);
             DateTime now = DateTime.Now.Date;
             int result = DateTime.Compare(now, end);
-            if(result<0)
+            if(result<=0)
             {
+                TempData["testmsg"] = "Chọn ngày phải bé hơn ngày hiện tại.";
                 return RedirectToAction("Index", "QLBaoCao");
             }
             ViewBag.begig = (now - begin).TotalDays *(-1);
@@ -33,9 +64,34 @@ namespace WebEng.Areas.Admin.Controllers
 
             WebEngDbContext db = new WebEngDbContext();          
 
-            List<int> solieu = null;
-            solieu[0] = db.BinhLuans.Count()+db.TaiKhoans.Count()+db.LopHocs.Count()+db.TaiLieux.Count()+db.LichSuGDs.Count()+db.DSLopHocs.Count();
-            ViewBag.thongkeDau=0;
+            List<int> solieu = new List<int>();           
+            IEnumerable<LichSuGD> gd = db.LichSuGDs.Where(x => DateTime.Compare(begin, x.ThoiGiangGD) <=0 && DateTime.Compare(end, x.ThoiGiangGD)>=0 && x.LoaiGD == 0);
+            int danhthu = 0;
+             foreach (var it in gd)
+            {
+                danhthu += it.SoTienGD;
+            }
+
+            var listLH = db.LopHocs.Where(x => DateTime.Compare(begin, x.ngayDangKy) <= 0 && DateTime.Compare(end, x.ngayDangKy) >= 0);
+            var listTK = db.TaiKhoans.Where(x => DateTime.Compare(begin, x.ngayDangKy)<=0 && DateTime.Compare(end, x.ngayDangKy) >=0);
+            var listGD = db.LichSuGDs.Where(x => DateTime.Compare(begin, x.ThoiGiangGD) <= 0 && DateTime.Compare(end, x.ThoiGiangGD) >= 0);
+            //Tương tác
+            solieu.Add(db.BinhLuans.Where(x =>DateTime.Compare(begin, x.thoiGian)<=0 && DateTime.Compare(end, x.thoiGian)>=0).Count()
+                + listTK.Count()
+                + listLH.Count()
+                + db.TaiLieux.Where(x => DateTime.Compare(begin, x.thoiGian)<=0 && DateTime.Compare(end, x.thoiGian) >= 0).Count()
+                + listGD.Count()
+                + db.DSLopHocs.Where(x => DateTime.Compare(begin, x.ngaydDangKy) <= 0 && DateTime.Compare(end, x.ngaydDangKy) >= 0).Count());
+            //danh thu
+            solieu.Add(danhthu);
+            //mở lớp
+            solieu.Add(listLH.Count());
+            //new menber
+            solieu.Add(listTK.Count());
+            ViewBag.thongkeDau = solieu;
+            ViewBag.listLH = listLH;
+            ViewBag.listTK = listTK;
+            ViewBag.listGD = listGD;
             return View();
         }
     }
