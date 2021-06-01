@@ -24,7 +24,8 @@
                         <div class="form-group">
                             <label>Lớp học</label>
 
-                            @Html.BeginForm("Index", "ThongKe", FormMethod.Post){
+                            @using (Html.BeginForm("Index", "ThongKe", FormMethod.Post))
+                            {
                             <select id="status" class="form-control select2" style="width: 100%;" onchange="form.submit()" runat="server" name="lophoc">
                                 <option value="-1">Tất cả</option>
                                 <option value="0">Đang tuyển sinh</option>
