@@ -42,6 +42,8 @@ namespace Models.Framework
         [Column(TypeName = "date")]
         public DateTime? ngayEnd { get; set; }
 
+        public DateTime? ngayDangKy { get; set; }
+
         public int? soBuoi { get; set; }
 
         public int? trangThai { get; set; }

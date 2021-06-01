@@ -8,6 +8,7 @@ create table TaiKhoan(
 	hinh text,
 	tenDangNhap varchar(50) not null,
 	matKhau char(32) not null,	
+	ngayDangKy datetime,
 	trangThai int DEFAULT 1, --0:khóa 1:mở
 	face int DEFAULT 0,--0:khóa 1:mở
 );
@@ -72,6 +73,7 @@ create table LopHoc(
 	yeucau nvarchar(50),
 	ngayBegin date,
 	ngayEnd date,
+	ngayDangKy datetime,
 	soBuoi int,
 	trangThai int DEFAULT 1, --0:Đang tuyển sinh	1:Ngừng tuyển sinh	2:Đang học	3:Đã kết thúc
 	idGV int,
@@ -82,6 +84,7 @@ create table LopHoc(
 create table DSLopHoc(	
 	 idHV int,
 	 idLH int,
+	 ngaydDangKy datetime,
 	 danhgia int,
 	 binhluan ntext,
 	 foreign key(idHV) references  HocVien(id)ON UPDATE NO ACTION ,
@@ -124,7 +127,7 @@ create table TaiLieu(
     link varchar(max) not null,
 	moTa ntext,
 	thoiGian datetime,
-	trangThai int,
+	trangThai int, --0:dong 1:mo
 	idKN int,
 	idLH int,
 	idTK int,
@@ -311,10 +314,10 @@ insert into NhomQuyen
 	values ('Admin'),('GiaoVien'),('HocVien');
 
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
-	values (N'Nguyễn Tấn Lộc','','admin','21232f297a57a5a743894a0e4a801fc3',1,-1),
+	values (N'Nguyễn Tấn Lộc','','admin','21232f297a57a5a743894a0e4a801fc3','10/20/2020',1,-1),
 
-		(N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','gv','202cb962ac59075b964b07152d234b70',1,-1),
-		(N'Lê Học Viên','','hv','202cb962ac59075b964b07152d234b70',1,-1); 
+		(N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','gv','202cb962ac59075b964b07152d234b70','11/26/2020',1,-1),
+		(N'Lê Học Viên','','hv','202cb962ac59075b964b07152d234b70','12/21/2020',1,-1); 
 
 insert into TAIKHOAN_NHOMQUYEN
 	values (1,1),(2,2),(3,3);
@@ -359,8 +362,8 @@ insert into HocVien
 values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021',30,1,1),
-(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021',30,1,1);
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,1,1),
+(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,1,1);
 
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)
@@ -369,7 +372,7 @@ values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00
 -- chat giữa học viên và giáo viên
 
 insert into DSLopHoc
-values (1,1,4,N'bình luận abc');
+values (1,1,'2/20/2021',4,N'bình luận abc');
 
 insert into ThongBao
 values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0),
@@ -421,3 +424,15 @@ values (3,1,N'Bình luận của học viên AAAAAA','4/20/2021 10:50',0),
 (2,1,N'Trả lời của giáo viên bbbbbb','5/15/2021 12:50',1),
 (2,1,N'Trả lời Bình luận của học viên zzzz','5/15/2021 10:50',2);
 
+
+insert into TaiLieu
+values(
+	'ten' 
+    ,'120'
+    ,'link'
+	,'moTa ntext'
+	,'6/1/2021'
+	,1--0:dong 1:mo
+	,1
+	,1
+	,2)

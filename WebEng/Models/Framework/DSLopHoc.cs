@@ -19,6 +19,8 @@ namespace Models.Framework
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idLH { get; set; }
 
+        public DateTime? ngaydDangKy { get; set; }
+
         public int? danhgia { get; set; }
 
         [Column(TypeName = "ntext")]

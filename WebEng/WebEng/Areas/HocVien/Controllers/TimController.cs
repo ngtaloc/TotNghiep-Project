@@ -438,6 +438,7 @@ namespace WebEng.Areas.HocVien.Controllers
             var dslh = new DSLopHoc();
             dslh.idHV = hv.id;
             dslh.idLH = lh.ID;
+            dslh.ngaydDangKy = DateTime.Now;
             int kt = 0;
             try
             {

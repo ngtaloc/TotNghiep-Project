@@ -27,6 +27,7 @@ namespace WebEng.Controllers
             {
                 var daoHV = new HocVienDAO();
                 var daoTK = new TaiKhoanDAO();
+                taiKhoan.ngayDangKy = DateTime.Now;
                 int idtk = daoTK.Insert(taiKhoan);
                 int idhv = daoHV.Insert(hocVien);
                 if (idhv > 0)
