@@ -411,6 +411,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 
                 try {
                     lophoc.soBuoi = buoi;
+                    lophoc.ngayDangKy = DateTime.Now;
                     daoLH.Insert(lophoc);
                     ModelState.AddModelError("", "Tạo lớp thành công");
                     TempData["testmsg"] = "Tạo lớp thành công";

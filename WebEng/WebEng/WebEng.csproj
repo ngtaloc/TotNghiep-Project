@@ -163,9 +163,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\FileController.cs" />
+=======
+    <Compile Include="Areas\Admin\Controllers\QLBaoCaoController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
+>>>>>>> db0a5bcdf954e79e0df84cd28b52f61dc572cab9
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
@@ -2932,7 +2938,12 @@
     <Content Include="Areas\GiaoVien\Views\Doc\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Viet.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Edit.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\GiaoVien\Views\File\File.cshtml" />
+=======
+    <Content Include="Areas\HocVien\Views\Learning\XemCK.cshtml" />
+    <Content Include="Areas\Admin\Views\QLBaoCao\Index.cshtml" />
+>>>>>>> db0a5bcdf954e79e0df84cd28b52f61dc572cab9
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
