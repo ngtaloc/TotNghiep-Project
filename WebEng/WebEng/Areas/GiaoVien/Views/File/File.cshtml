@@ -1,0 +1,98 @@
+﻿@using Models.Framework
+@model IEnumerable<TaiLieu>
+@{
+    ViewBag.Title = "File";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    var lophoc = (LopHoc)ViewBag.lophoc;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('#dataTable').DataTable();
+            });
+    </script>
+</head>
+<body>
+    <div class="container py-4">
+        <h3 class="text-center text-uppercase">Bài Tập</h3>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <button style="margin-left: 27px;margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus-circle"></i> Add New
+                    </button>
+                    <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Upload New File</h4>
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    @using (Html.BeginForm("File", "File", new { idlh = lophoc.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+
+                                        <div class="form-group">
+                                            <label>Choose File:</label>
+                                            <div class="input-group">
+                                                <div>
+                                                    @Html.TextBox("file", "", new { type = "file" }) <br />
+                                                    <input type="submit" value="Upload" />
+                                                    @ViewBag.Message
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="dataTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>File Size(MB)</th>
+                            @*<th>Play Audio</th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.ten</td>
+                                    <td>
+                                        <a href="~/Content/img/@item.ten" download="">~/Content/img/@item.ten</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

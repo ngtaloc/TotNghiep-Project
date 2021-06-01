@@ -25,28 +25,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
         [HttpGet]
         public ActionResult UploadAudio(int id = 1)
         {
-            //List<TaiLieu> audiolist = new List<TaiLieu>();
             var lh = new LopHocDAO().GetByID(id);   
-            //string CS = ConfigurationManager.ConnectionStrings["WebEngDbContext"].ConnectionString;
-            //using (SqlConnection con = new SqlConnection(CS))
-            //{
-            //    
-            //    SqlCommand cmd = new SqlCommand("spGetAllAudioFile", con);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    con.Open();
-            //    SqlDataReader rdr = cmd.ExecuteReader();
-            //    while (rdr.Read())
-            //    {
-            //        TaiLieu audio = new TaiLieu();
-            //        audio.ID = Convert.ToInt32(rdr["ID"]);
-            //        audio.ten = rdr["ten"].ToString();
-            //        audio.FileSize = Convert.ToInt32(rdr["FileSize"]);
-            //        audio.link = rdr["link"].ToString();
-            //        audio.LopHoc = lh;
-            //        audio.TaiKhoan = lh.Giangvien.TaiKhoan;                   
-            //        audiolist.Add(audio);
-            //    }
-            //}
             ViewBag.lophoc = lh;
             IEnumerable<TaiLieu> audiolist = null;
             if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == 1); }
@@ -64,18 +43,6 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 int fileSize = fileupload.ContentLength;
                 int Size = fileSize / 1000000;
                 fileupload.SaveAs(Server.MapPath("~/" + fileName));
-
-                //string CS = ConfigurationManager.ConnectionStrings["WebEngDbContext"].ConnectionString;
-                //using (SqlConnection con = new SqlConnection(CS))
-                //{
-                //    SqlCommand cmd = new SqlCommand("spAddNewAudioFile", con);
-                //    cmd.CommandType = CommandType.StoredProcedure;
-                //    con.Open();
-                //    cmd.Parameters.AddWithValue("@ten", fileName);
-                //    cmd.Parameters.AddWithValue("@FileSize", Size);
-                //    cmd.Parameters.AddWithValue("link", "~/" + fileName);
-                //    cmd.ExecuteNonQuery();
-                //}
                 var dao = new TaiLieuDAO();
                 var tailieu = new TaiLieu();
                 tailieu.ten = fileName;
@@ -83,8 +50,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 tailieu.link = "~/" + fileName;
                 tailieu.idLH = lh.ID;
                 tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
-                tailieu.idKN = 1;
-                
+                tailieu.idKN = 1;            
                 dao.Insert(tailieu);
             }
             return RedirectToAction("UploadAudio");

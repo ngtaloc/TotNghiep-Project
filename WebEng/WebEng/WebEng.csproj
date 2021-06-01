@@ -163,21 +163,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
-
+    <Compile Include="Areas\GiaoVien\Controllers\FileController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\NgheController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\ThongKeController.cs" />
-
     <Compile Include="Areas\GiaoVien\Controllers\VietController.cs" />
-
     <Compile Include="Areas\HocVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\HocVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\HocVien\Controllers\LearningController.cs" />
@@ -262,6 +257,7 @@
     <Content Include="Content\img\team\1.jpg" />
     <Content Include="Content\img\team\2.jpg" />
     <Content Include="Content\img\team\3.jpg" />
+    <Content Include="Content\img\venus.txt" />
     <Content Include="Content\img\Viettel.png" />
     <Content Include="Content\img\Vinaphone.png" />
     <Content Include="Content\js\agency.js" />
@@ -2931,14 +2927,12 @@
     <Content Include="Areas\GiaoVien\Views\Info\DoiMK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\ChiTietLopHoc.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Nghe\UploadAudio.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\ThongKe\Index.cshtml" />
-
     <Content Include="Areas\GiaoVien\Views\Doc\Doc.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Doc\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Viet.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Viet\Edit.cshtml" />
-
+    <Content Include="Areas\GiaoVien\Views\File\File.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -3020,6 +3014,7 @@
     <Folder Include="Areas\HocVien\Models\" />
     <Folder Include="Areas\HocVien\Views\Home\" />
     <Folder Include="Content\Data\image\" />
+    <Folder Include="File\" />
     <Folder Include="Python\your_face\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
