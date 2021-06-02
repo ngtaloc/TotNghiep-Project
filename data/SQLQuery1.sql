@@ -88,6 +88,7 @@ create table DSLopHoc(
 	 danhgia int,
 	 binhluan ntext,
 	 ngayDanhGia datetime,
+	 trangthai int,--0: chưa xác nhận vào lớp. 1:đã vào lớp.  -1:bị kick 
 	 foreign key(idHV) references  HocVien(id)ON UPDATE NO ACTION ,
 	 foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION,
 	 primary key (idHV, idLH),
@@ -252,7 +253,7 @@ create table LichSuGD( --lịch sử giao dịch
 	ThoiGiangGD datetime not null,
 	TenGD Ntext,
 	LoaiGD int, -- 0: Nạp ; 1:Mở Lớp;
-	SoTienGD int,
+	SoTienGD int not null,
 	idVT int,
 	foreign key(idVT) references  ViTien(id),
 );
@@ -363,7 +364,7 @@ insert into HocVien
 values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content\Data\image\photo2.png',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,3,1),
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content\Data\image\photo2.png',40,N'không','4/15/2021','5/15/2021','1/15/2021',30,3,1),
 (N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
 
 --insert thời khóa biểu
@@ -373,7 +374,8 @@ values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00
 -- chat giữa học viên và giáo viên
 
 insert into DSLopHoc
-values (1,1,'2/20/2021',4,N'bình luận abc');
+values (1,1,'4/20/2021',4,N'bình luận abc','5/21/2021',1),
+(1,2,'6/20/2021','','','',0);
 
 insert into ThongBao
 values (3,N'dk hv mới','2021-04-24 10:00:00.000','#','fa fa-address-card',0),

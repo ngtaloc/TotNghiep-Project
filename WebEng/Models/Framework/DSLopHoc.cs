@@ -26,9 +26,12 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string binhluan { get; set; }
 
+        public DateTime? ngayDanhGia { get; set; }
+
+        public int? trangthai { get; set; }
+
         public virtual HocVien HocVien { get; set; }
 
         public virtual LopHoc LopHoc { get; set; }
-
     }
 }
