@@ -31,9 +31,22 @@ namespace Models.DAO
             }
             
         }
+        public DSLopHoc GetByID(int idlh, int idhv)
+        {
+            return db.DSLopHocs.FirstOrDefault(x=>x.idHV==idhv && x.idLH==idlh);
+        }
+        public bool Update(DSLopHoc entity)
+        {
+            var dslh = this.GetByID(entity.idLH,entity.idHV);
+            dslh.danhgia = entity.danhgia;
+            dslh.binhluan = entity.binhluan;
+            //dslh.ngayDanhGia = entity.ngayDanhGia;
+            db.SaveChanges();
+            return true;
 
-       
-      
+        }
+
+
         public IEnumerable<DSLopHoc> FindAll()
         {
             return db.DSLopHocs;

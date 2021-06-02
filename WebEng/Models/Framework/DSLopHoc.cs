@@ -29,5 +29,6 @@ namespace Models.Framework
         public virtual HocVien HocVien { get; set; }
 
         public virtual LopHoc LopHoc { get; set; }
+
     }
 }

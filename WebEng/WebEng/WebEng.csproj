@@ -2933,6 +2933,7 @@
     <Content Include="Areas\GiaoVien\Views\Viet\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\XemCK.cshtml" />
     <Content Include="Areas\Admin\Views\QLBaoCao\Index.cshtml" />
+    <Content Include="Areas\HocVien\Views\Tim\InfoGV.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

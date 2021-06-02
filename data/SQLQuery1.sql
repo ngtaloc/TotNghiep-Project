@@ -87,6 +87,7 @@ create table DSLopHoc(
 	 ngaydDangKy datetime not null,
 	 danhgia int,
 	 binhluan ntext,
+	 ngayDanhGia datetime,
 	 foreign key(idHV) references  HocVien(id)ON UPDATE NO ACTION ,
 	 foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION,
 	 primary key (idHV, idLH),
@@ -316,7 +317,7 @@ insert into NhomQuyen
 insert into TaiKhoan --trạng thái 1: mở  0:khóa  Phân quyền 1:admin ; 2Giao vien; 3 hoc vien
 	values (N'Nguyễn Tấn Lộc','','admin','21232f297a57a5a743894a0e4a801fc3','10/20/2020',1,-1),
 
-		(N'lê a','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3','gv','202cb962ac59075b964b07152d234b70','11/26/2020',1,-1),
+		(N'lê a','Content\Data\image\user7-128x128.jpg','gv','202cb962ac59075b964b07152d234b70','11/26/2020',1,-1),--https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3
 		(N'Lê Học Viên','','hv','202cb962ac59075b964b07152d234b70','12/21/2020',1,-1); 
 
 insert into TAIKHOAN_NHOMQUYEN
@@ -362,7 +363,7 @@ insert into HocVien
 values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,3,1),
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content\Data\image\photo2.png',40,N'không','4/15/2021','8/15/2021','1/15/2021',30,3,1),
 (N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
 
 --insert thời khóa biểu

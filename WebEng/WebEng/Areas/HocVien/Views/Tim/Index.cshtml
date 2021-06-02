@@ -63,6 +63,14 @@
             cursor: pointer;
             margin-right: 5px;
         }
+        .text-muted.widget-user-desc {
+            height: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+        }
     </style>
 }
 @section header{
@@ -75,7 +83,6 @@
         <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
         @TempData["testmsg"]
     </div>
-
 }
 <section class="content">
     <div class="container-fluid">
@@ -164,7 +171,7 @@
                 </div>
                 <div class="card-body">
                     <h3 class="widget-user">@item.tenLopHoc</h3>
-                    <h6 class="widget-user-desc"> @item.mota</h6>
+                    <h6 class="text-muted widget-user-desc"> @item.mota</h6>
                 </div>
                 <div class="card-footer">
                     <div class="row">
@@ -192,13 +199,14 @@
             </a>
             <!-- /.widget-user -->
         </div>
+        
     }
 
     <!-- /.col -->
 </div>
 <div class="card-footer clearfix">
-<ul class="pagination pagination-lg m-0" id="pagin"></ul>
-    </div>
+    <ul class="pagination pagination-sm m-0" id="pagin"></ul>
+</div>
 <!-- /.row -->
 @section masterjs{
     <script>
@@ -224,13 +232,13 @@
         var totalSlidepPage = Math.floor(pageCount / incremSlide);
 
         for (var i = 0; i < pageCount; i++) {
-            $("#pagin").append('<li class="page-item"><a href="#">' + (i + 1) + '</a></li> ');
+            $("#pagin").append('<li class="page-item"><a href="#" class="page-link">' + (i + 1) + '</a></li> ');
             if (i > pageSize) {
                 $("#pagin li").eq(i).hide();
             }
         }
 
-        var prev = $("<li/>").addClass("prev").html("Prev").click(function () {
+        var prev = $('<li class="page-item"/>').addClass("prev").html('<a href="#" class="page-link"> &laquo;').click(function () {
             startPage -= 5;
             incremSlide -= 5;
             numberPage--;
@@ -239,7 +247,7 @@
 
         prev.hide();
 
-        var next = $("<li/>").addClass("next").html("Next").click(function () {
+        var next = $('<li class="page-item"/>').addClass("next").html('<a href="#" class="page-link">&raquo;').click(function () {
             startPage += 5;
             incremSlide += 5;
             numberPage++;
