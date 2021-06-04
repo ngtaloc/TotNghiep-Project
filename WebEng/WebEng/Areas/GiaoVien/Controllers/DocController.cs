@@ -40,7 +40,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             tailieu.idLH = lh.ID;
             tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
             tailieu.idKN = 3;
-            tailieu.thoiGian = DateTime.Now.Date;
+            tailieu.thoiGian = DateTime.Now;
             dao.Insert(tailieu);
             return RedirectToAction("Doc/" + lh.ID, "Doc");
         }

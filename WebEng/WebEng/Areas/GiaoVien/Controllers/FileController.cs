@@ -21,7 +21,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var lh = new LopHocDAO().GetByID(id);
             ViewBag.lophoc = lh;
             IEnumerable<TaiLieu> audiolist = null;
-            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == 1002); }
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == 5); }
             return View(audiolist);
         }
         //Tạo phương thức hành động UploadAudio với [HttpPost] trong bộ điều khiển. 
@@ -45,8 +45,9 @@ namespace WebEng.Areas.GiaoVien.Controllers
                     tailieu.FileSize = Size;
                     tailieu.link = _path;
                     tailieu.idLH = lh.ID;
+                    tailieu.thoiGian = DateTime.Now;
                     tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
-                    tailieu.idKN = 1002;
+                    tailieu.idKN = 5;
                     dao.Insert(tailieu);                  
                 }
                 ViewBag.Message = "File Uploaded Successfully!!";

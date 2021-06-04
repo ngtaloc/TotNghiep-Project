@@ -1,7 +1,7 @@
 ﻿@using Models.Framework
 @model IEnumerable<TaiLieu>
 @{
-    ViewBag.Title = "File";
+    ViewBag.Title = "Noi";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
     var lophoc = (LopHoc)ViewBag.lophoc;
 }
@@ -25,7 +25,7 @@
 </head>
 <body>
     <div class="container py-4">
-        <h3 class="text-center text-uppercase">Bài Tập</h3>
+        <h3 class="text-center text-uppercase">Speaking</h3>
         <div class="card">
             <div class="card-header bg-primary text-white">
             </div>
@@ -42,7 +42,7 @@
                                     <button type="button" class="close" data-dismiss="modal">×</button>
                                 </div>
                                 <div class="modal-body">
-                                    @using (Html.BeginForm("File", "File", new { idlh = lophoc.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    @using (Html.BeginForm("Noi", "Noi", new { idlh = lophoc.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
                                     {
 
                                         <div class="form-group">
@@ -80,14 +80,14 @@
                         {
                             foreach (var item in Model)
                             {
-                        <tr>
-                            <td>@item.ID</td>
-                            <td>@item.ten</td>
-                            <td>@item.thoiGian</td>
-                            <td>
-                                <a href="~/Content/img/@item.ten" download="">Tải tài liệu</a>
-                            </td>
-                        </tr>
+                                <tr>
+                                    <td>@item.ID</td>
+                                    <td>@item.ten</td>
+                                    <td>@item.thoiGian</td>
+                                    <td>
+                                        <a href="~/Content/img/@item.ten" download="">Tải tài liệu</a>
+                                    </td>
+                                </tr>
                             }
                         }
 

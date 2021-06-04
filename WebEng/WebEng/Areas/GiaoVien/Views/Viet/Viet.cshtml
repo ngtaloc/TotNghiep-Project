@@ -91,7 +91,7 @@
                 <table id="dataTable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Tên tài liệu</th>
                             <th>Người tạo</th>
                             <th>Thời gian tạo</th>
                             <th>Tài liệu</th>
@@ -109,7 +109,7 @@
                                     </td>
                                     <td>@item.thoiGian</td>
                                     <td>
-                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
+                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-eye"></i></button>
                                     </td>
                                 </tr>
                             }

@@ -9,6 +9,7 @@
             </div>
             <div class="modal-body">
                 @*<textarea name="link"></textarea>*@
+                <label>Tên tài liệu </label>
                 @Html.TextAreaFor(model => model.ten, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.TextAreaFor(model => model.link, new { htmlAttributes = new { @class = "form-control", @id = "link", @name = "link" } })
                 @Html.ValidationMessageFor(Model => Model.link, "", new { @class = "text-danger", @id = "link", @name = "link" })

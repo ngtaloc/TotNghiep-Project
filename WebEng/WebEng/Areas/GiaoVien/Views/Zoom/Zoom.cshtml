@@ -1,9 +1,9 @@
 ﻿@using Models.Framework
-@model IEnumerable<TaiLieu>   
- @{
-     ViewBag.Title = "Doc";
-     Layout = "~/Views/Shared/_TemLayout.cshtml";
-     var lophoc = (LopHoc)ViewBag.lophoc;
+@model IEnumerable<TaiLieu>
+@{
+    ViewBag.Title = "Zoom";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    var lophoc = (LopHoc)ViewBag.lophoc;
 }
 
 <!DOCTYPE html>
@@ -46,9 +46,9 @@
         </div>
 
     }
-    }
+    
     <div class="container py-4">
-        <h3 class="text-center text-uppercase">Reading</h3>
+        <h3 class="text-center text-uppercase">Zoom</h3>
         <div class="card">
             <div class="card-header bg-primary text-white">
             </div>
@@ -61,21 +61,26 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Tài liệu</h4>
+                                    <h4 class="modal-title">Tạo cuộc họp</h4>
                                     <button type="button" class="close" data-dismiss="modal">×</button>
                                 </div>
-                                @using (Html.BeginForm("Doc", "Doc", new { idlh = lophoc.ID }, FormMethod.Post))
+                                @using (Html.BeginForm("Zoom", "Zoom", new { idlh = lophoc.ID }, FormMethod.Post))
                                 {
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vui lòng tạo lớp <a href="https://zoom.us/meeting/schedule" target="_blank">tại đây</a></p>
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <label>Tên tài liệu:</label>
+                                                <label>Tên cuộc họp:</label>
                                                 <input type="text" name="ten" />
                                             </div>
-                                            <textarea name="link"></textarea>
-                                            <script>
-                                                CKEDITOR.replace('link');
-                                            </script>
+                                            <div style="margin-top:5px" class="input-group">
+                                                <label>ID cuộc họp:&nbsp;&nbsp;&nbsp;</label>
+                                                <input type="text" name="trangthai" />
+                                            </div>
+                                            <div style="margin-top:5px" class="input-group">
+                                                      <label>Mã mời:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                <input type="text" name="ma" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -91,10 +96,11 @@
                 <table id="dataTable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Tên tài liệu</th>
+                            <th>Tên lớp học</th>
                             <th>Người tạo</th>
                             <th>Thời gian tạo</th>
-                            <th>Tài liệu</th>
+                            <th>ID cuộc họp</th>
+                            <th>Mã mời</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,9 +114,8 @@
                                         @item.TaiKhoan.hovaten
                                     </td>
                                     <td>@item.thoiGian</td>
-                                    <td>
-                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-eye"></i></button>
-                                    </td>
+                                    <td>@item.moTa</td>
+                                    <td>@item.link</td>
                                 </tr>
                             }
                         }
