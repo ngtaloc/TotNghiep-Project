@@ -17,7 +17,7 @@ namespace WebEng.Areas.GiaoVien
             context.MapRoute(
               "GiaoVien_chi-tiet",
               "GiaoVien/chi-tiet/{id}",
-              new { action = "ChiTietLopHoc", controller = "MoLop", id = UrlParameter.Optional },
+              new { action = "Index", controller = "QLLopHoc", id = UrlParameter.Optional },
               new[] { "WebEng.Areas.GiaoVien.Controllers" }
           );
             context.MapRoute(

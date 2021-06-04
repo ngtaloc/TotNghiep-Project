@@ -165,11 +165,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\QLBaoCaoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
-    <Compile Include="Areas\GiaoVien\Controllers\DayHocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\HomeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\InfoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\NgheController.cs" />
+    <Compile Include="Areas\GiaoVien\Controllers\QLLopHocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThoiKhoaBieuController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\ThongKeController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\VietController.cs" />
@@ -2934,6 +2934,15 @@
     <Content Include="Areas\HocVien\Views\Learning\XemCK.cshtml" />
     <Content Include="Areas\Admin\Views\QLBaoCao\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Tim\InfoGV.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Listening.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Speaking.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Reading.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Writing.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\OnlineClass.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\InfoLH.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Tailieu.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Baitap.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -3008,8 +3017,6 @@
     <Folder Include="Areas\Admin\Code\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\GiaoVien\Data\" />
-    <Folder Include="Areas\GiaoVien\Views\DayHoc\" />
-    <Folder Include="Areas\GiaoVien\Views\Delete\" />
     <Folder Include="Areas\GiaoVien\Views\Home\" />
     <Folder Include="Areas\GiaoVien\Views\LopHoc\" />
     <Folder Include="Areas\GiaoVien\Views\Shared\" />

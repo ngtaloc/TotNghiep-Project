@@ -327,7 +327,7 @@ insert into TAIKHOAN_NHOMQUYEN
 
 insert into ChucNang
 values (N'Mở Lớp','MoLop',NULL,0),
-(N'Quản lý lớp','QLLop',NULL,0),
+(N'Quản lý lớp','QLLopHoc',NULL,0),
 (N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
 (N'Tìm lớp học','Tim',NULL,0),
 (N'Lớp đã đăng ký','Learning',NULL,0),
@@ -335,8 +335,6 @@ values (N'Mở Lớp','MoLop',NULL,0),
 (N'Quản lý học viên','QLHocVien',NULL,0),
 (N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
 (N'Thống kê lớp học','ThongKe',NULL,0),
-(N'Cập nhật lớp','CapNhatLop',NULL,2),
-(N'Học','Hoc',NULL,2),
 (N'Thông tin cá nhân','Info',NULL,0),
 (N'Ví tiền','ViTien',NULL,0);
 
@@ -353,10 +351,8 @@ values (1,2),
 (8,1),
 (9,2),
 (10,2),
-(11,2),
-(12,2),
-(12,3),
-(13,2);
+(10,3),
+(11,2);
 insert into Giangvien
 values (N'123 NVL',N'Nữ','2/22/1999',N'Phó khoa ngoại ngữ đại học Duy Tân','lea@gmail.com','0123456789',2);
 
@@ -439,3 +435,11 @@ values(
 	,1
 	,1
 	,2)
+insert into KyNangLopHoc
+values
+(1,1,1),
+(2,1,1),
+(3,1,1),
+(4,1,1),
+(1,2,2),
+(3,2,2)

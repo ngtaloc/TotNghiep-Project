@@ -43,24 +43,37 @@
 				</ul>
 			</div>
 			<div class="card-body">
-				<div class="tab-content" id="custom-tabs-four-tabContent">
-					<div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-						@{Html.RenderAction("Listening", "Learning", Model);}
+                <div class="tab-content" id="custom-tabs-four-tabContent">
+                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 1).Count() > 0)
+                    {
+                        <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                            @{Html.RenderAction("Listening", "Learning", Model);}
 
-					</div>
-					<div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-						@{Html.RenderAction("Speaking", "Learning", Model);}
-					</div>
-					<div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-						@{Html.RenderAction("Reading", "Learning", Model);}
-					</div>
-					<div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-						@{Html.RenderAction("Writing", "Learning", Model);}
-					</div>
-					<div class="tab-pane fade" id="custom-tabs-four-onlineclasss" role="tabpanel" aria-labelledby="custom-tabs-four-onlineclasss">
-						@{Html.RenderAction("OnlineClass", "Learning", Model);}
-					</div>
-				</div>
+                        </div>
+                    }
+                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
+                    {
+                        <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                            @{Html.RenderAction("Speaking", "Learning", Model);}
+                        </div>
+                    }
+                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 3).Count() > 0)
+                    {
+                        <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
+                            @{Html.RenderAction("Reading", "Learning", Model);}
+                        </div>
+                    }
+
+                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
+                    {
+                        <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
+                            @{Html.RenderAction("Writing", "Learning", Model);}
+                        </div>
+                    }
+                    <div class="tab-pane fade" id="custom-tabs-four-onlineclasss" role="tabpanel" aria-labelledby="custom-tabs-four-onlineclasss">
+                        @{Html.RenderAction("OnlineClass", "Learning", Model);}
+                    </div>
+                </div>
 			</div>
 
 		</div>
