@@ -3001,6 +3001,7 @@
     <Content Include="Views\Shared\_LayoutGuest.cshtml" />
     <Content Include="Views\DangKy\Index.cshtml" />
     <Content Include="Views\DangKy\DangKyThanhCong.cshtml" />
+    <Content Include="Views\Home\InfoGV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

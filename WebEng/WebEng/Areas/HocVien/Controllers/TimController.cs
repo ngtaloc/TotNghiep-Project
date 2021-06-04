@@ -58,7 +58,8 @@ namespace WebEng.Areas.HocVien.Controllers
             {
                 foreach(var it in item.DSLopHocs)
                 {
-                    if (!String.IsNullOrEmpty(it.danhgia.ToString())){
+                    if (!String.IsNullOrEmpty(it.danhgia.ToString()) && it.danhgia.Value != 0)
+                    {
                         danhgiaSo++;
                         int dg= int.Parse(it.danhgia.ToString());
                         danhgiaTong += dg;
@@ -142,7 +143,7 @@ namespace WebEng.Areas.HocVien.Controllers
             }
             dslh.danhgia = rating;
             dslh.binhluan = nhanxet;
-            //dslh.ngayDanhGia = DateTime.Now();
+            dslh.ngayDanhGia = DateTime.Now;
             bool kt = new DSLopHocDAO().Update(dslh);
 
             TempData["testmsg"] = "Đánh giá & nhận xét thành công .";

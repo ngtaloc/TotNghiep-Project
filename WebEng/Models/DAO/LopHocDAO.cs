@@ -22,7 +22,23 @@ namespace Models.DAO
             db.SaveChanges();
             return entity.ID;
         }
-
+        public void upload()
+        {
+            var listlh = db.LopHocs;
+            foreach (var item in listlh)
+            {
+                string begin = item.ngayBegin.ToString();
+                if (!string.IsNullOrEmpty(begin))
+                {
+                    if (DateTime.Compare(DateTime.Parse(begin), DateTime.Now) <= 0 && item.trangThai < 2)
+                    {
+                        item.trangThai = 2;
+                        
+                    }
+                }
+            }
+            db.SaveChanges();
+        }
         public bool Update(LopHoc entity)
         {
             try
