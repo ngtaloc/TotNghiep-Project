@@ -268,7 +268,7 @@
                                             </li>
                                             <li>
                                                 <i class="fas fa-users"></i> &nbsp; &nbsp;
-                                                <span>Sỗ chỗ còn lại: @{int? sl = Model.soluong - Model.DSLopHocs.Count();<strong>@sl</strong>}</span>
+                                                <span>Sỗ chỗ còn lại: @{int? sl = Model.soluong.Value - Model.DSLopHocs.Count();<strong>@sl</strong>}</span>
                                             </li>
 
                                             <li>
@@ -506,18 +506,21 @@
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    @if (Model.Giangvien.TaiKhoan.hinh != null)
-                    {
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="~/@Model.Giangvien.TaiKhoan.hinh"
-                             alt="User profile picture">
-                    }
-                    else
-                    {
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="~/Content/Template/dist/img/avatar5.png"
-                             alt="User profile picture">
-                    }
+                    <a href="~/Home/InfoGV/@Model.Giangvien.ID">
+                        @if (Model.Giangvien.TaiKhoan.hinh != null)
+                        {
+                            <img class="profile-user-img img-fluid img-circle"
+                                 src="~/@Model.Giangvien.TaiKhoan.hinh"
+                                 alt="User profile picture">
+                        }
+                        else
+                        {
+                            <img class="profile-user-img img-fluid img-circle"
+                                 src="~/Content/Template/dist/img/avatar5.png"
+                                 alt="User profile picture">
+                        }
+
+                    </a>
                 </div>
                 <h3 class="profile-username text-center">@Model.Giangvien.TaiKhoan.hovaten</h3>
 

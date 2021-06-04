@@ -1,0 +1,528 @@
+﻿@model Models.Framework.Giangvien
+@{
+    ViewBag.Title = "Thông tin giáo viên";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    decimal trungbinhDG = (decimal)ViewBag.TrungBinh;
+    decimal soLuongDG = (decimal)ViewBag.SoDG;
+    List<int> ListDG = (List<int>)ViewBag.ListDG;
+}
+
+<style>
+    /* HIDE RADIO */
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+        /* IMAGE STYLES */
+        [type=radio] + img {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            outline: 2px solid #f00;
+        }
+
+
+    rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center
+    }
+
+    .rating > input {
+        display: none
+    }
+
+    .rating > label {
+        position: relative;
+        width: 1em;
+        font-size: 2.5rem;
+        color: #FFD600;
+        cursor: pointer;
+        float:right;
+    }
+
+        .rating > label::before {
+            content: "\2605";
+            position: absolute;
+            opacity: 0
+        }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before {
+            opacity: 1 !important
+        }
+
+    .rating > input:checked ~ label:before {
+        opacity: 1
+    }
+
+    .rating:hover > input:checked ~ label:before {
+        opacity: 0.4
+    }
+    .col-12.form-group > p {
+        margin-top: 1rem;
+        margin-bottom:auto;
+    }
+    .text-muted.widget-user-desc {
+        height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+    }
+</style>
+<!-- Content Header (Page header) -->
+<!-- Main content -->
+<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+@section header{
+    @if (TempData["testmsg"] != null)
+    {
+
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+    }
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            @if (Model.TaiKhoan.hinh != "")
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="~/@Model.TaiKhoan.hinh"
+                                     alt="User profile picture">
+                            }
+                            else
+                            {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="https://i.imgur.com/q52cLwE.png"
+                                     alt="User profile picture">
+                            }
+
+                        </div>
+                        <h3 class="profile-username text-center">@Model.TaiKhoan.hovaten</h3>
+                        <p class="text-muted text-center">Giáo viên anh văn</p>
+
+                        <div class="row col-12">
+                            <div class="col-6 form-group ">
+                                <h3 class="text-warning">@trungbinhDG <i class="fas fa-star"></i></h3>
+                                <small class="text-muted">@soLuongDG đánh giá & nhận xét</small>
+                            </div>
+                            <div class="col-6 form-group  ">
+                                <button type="button" class="btn btn-block btn-warning" onclick="focusMethod()">Gửi đánh giá</button>
+
+                            </div>
+                           
+                        </div>
+                        <hr />
+                        <!-- /Thông tin đánh giá-->
+                        <div class="row col-12">
+                            <div class="col-12 form-group">
+                                <p style="margin-top:0"><code>5 Sao</code><code class="float-right">@ListDG[9]</code></p>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar bg-warning progress-bar-danger progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@ListDG[8]" aria-valuemin="0" aria-valuemax="100" style="width: @ListDG[8]%">
+                                        <span class="sr-only">@ListDG[8]% Complete (warning)</span>
+                                    </div>
+                                </div>
+                                <p><code>4 Sao</code><code class="float-right">@ListDG[7]</code></p>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar bg-warning progress-bar-danger progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@ListDG[6]" aria-valuemin="0" aria-valuemax="100" style="width: @ListDG[6]%">
+                                        <span class="sr-only">@ListDG[6]% Complete (warning)</span>
+                                    </div>
+                                </div>
+                                <p><code>3 Sao</code><code class="float-right">@ListDG[5]</code></p>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar bg-warning progress-bar-danger progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@ListDG[4]" aria-valuemin="0" aria-valuemax="100" style="width: @ListDG[4]%">
+                                        <span class="sr-only">@ListDG[4]% Complete (warning)</span>
+                                    </div>
+                                </div>
+                                <p><code>2 Sao</code><code class="float-right">@ListDG[3]</code></p>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar bg-warning progress-bar-danger progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@ListDG[2]" aria-valuemin="0" aria-valuemax="100" style="width: @ListDG[2]%">
+                                        <span class="sr-only">@ListDG[2]% Complete (warning)</span>
+                                    </div>
+                                </div>
+                                <p><code>1 Sao</code><code class="float-right">@ListDG[1]</code></p>
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar bg-warning progress-bar-danger progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@ListDG[0]" aria-valuemin="0" aria-valuemax="100" style="width: @ListDG[0]%">
+                                        <span class="sr-only">@ListDG[0]% Complete (warning)</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Thông tin giáo viên -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <strong><i class="fas fa-venus-mars"></i> Giới tính</strong>
+                        <p class="text-muted">
+                            @Model.gioitinh
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-calendar-day"></i> Ngày sinh</strong>
+                        <p class="text-muted">
+                            @Model.ngaysinh.ToString().Split(' ')[0]
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-envelope-open-text"></i> Email</strong>
+                        <p class="text-muted">
+                            @Model.email
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-phone-square-alt"></i> Số điện thoại</strong>
+                        <p class="text-muted">
+                            @Model.sdt
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-book mr-1"></i> Giới thiệu</strong>
+                        <p class="text-muted">
+                            @Model.gioithieu
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Địa chỉ</strong>
+                        <p class="text-muted">@Model.diachi</p>
+                        <hr>
+
+                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                        <p class="text-muted">
+                            @foreach (var item in Model.KyNangGiangViens)
+                            {
+                            <p class="tag tag-info">@item.KyNang.tenKyNang : @item.CapDo.tenCapDo</p>
+                        }
+
+                            </p>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    
+                </div>
+                
+            <div class="col-md-9">
+
+                <!-- List lớp học -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title">Các lớp học của giáo viên</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            @foreach (var item in Model.LopHocs)
+                            {
+                                <div class="line-content col-md-4">
+                                    <!-- Widget: user widget style 1 -->
+                                    <a class="card card-widget widget-user" href="~/HocVien/chi-tiet/@item.ID" style="color:black;">
+                                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                                        <div class="widget-user-header bg-info" style="background: url('../@item.hinh') center center; background-repeat: no-repeat; background-size: cover;">
+
+                                        </div>
+                                        <div class="card-body">
+                                            <h3 class="widget-user">@item.tenLopHoc</h3>
+                                            <h6 class="text-muted widget-user-desc"> @item.mota</h6>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-sm-6 border-right">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">@item.Giangvien.TaiKhoan.hovaten</h5>
+                                                        <span class="description-text">Giáo viên</span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                                <!-- /.col -->
+                                                <div class="col-sm-6">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">
+                                                            @{int? sl = item.soluong - item.DSLopHocs.Count();<span>@sl</span>}/@item.soluong
+                                                        </h5>
+                                                        <span class="description-text">Số lượng</span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- /.widget-user -->
+                                </div>
+                            }
+                        </div>
+                       
+                    </div>
+                    <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm m-0" id="pagin"></ul>
+                    </div>
+                    <!-- /.card-body -->
+                   
+                </div>
+
+
+                <!-- Nhận xét và đánh giá -->
+                <section class="content">
+                    <!-- Default box -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Nhận xét và đánh giá</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            @foreach(var item in Model.LopHocs)
+                                            {
+                                                foreach(var it in item.DSLopHocs)
+                                                {
+                                                    <div class="post">
+                                                        <div class="user-block">
+                                                            @if (it.HocVien.TaiKhoan.hinh != "")
+                                                            {
+                                                                <img class="img-circle img-bordered-sm" src="~/@it.HocVien.TaiKhoan.hinh" alt="user image">
+                                                            }
+                                                            else
+                                                            {<img class="img-circle img-bordered-sm" src="https://i.imgur.com/q52cLwE.png" alt="user image">}
+                                                            <span class="username">
+                                                                <a href="#">@it.HocVien.TaiKhoan.hovaten</a>
+                                                            </span>
+                                                            <span class="description">Lớp: @item.tenLopHoc - @it.ngayDanhGia</span>
+                                                        </div>
+                                                        <!-- /.user-block -->
+                                                        <p>
+                                                            @it.binhluan
+                                                        </p>
+                                                        <p>
+                                                            <a href="#" class="text-warning text-sm">
+                                                                @for (int i = 0; i < it.danhgia;i++)
+                                                                {
+                                                                    <i class="fas fa-star"></i>
+                                                                }
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                }
+                                            }
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                                    @using (Html.BeginForm("InfoGV", "Tim",new { idgv=Model.ID}, FormMethod.Post))
+                                    {
+                                        <h3 class="text-primary"><i class="fas fa-paint-brush"></i> Gửi đánh giá</h3>
+                                        <h6 class="mt-5 text-muted">Đánh giá của bạn</h6>
+                                        <div class="text-muted">
+                                            <div class="rating" style="font-size: 1rem; float:left;">
+                                                <input type="radio" name="rating" value="5" id="5" checked>
+                                                <label for="5">☆</label>
+                                                <input type="radio" name="rating" value="4" id="4">
+                                                <label for="4">☆</label>
+                                                <input type="radio" name="rating" value="3" id="3">
+                                                <label for="3">☆</label>
+                                                <input type="radio" name="rating" value="2" id="2">
+                                                <label for="2">☆</label>
+                                                <input type="radio" name="rating" value="1" id="1">
+                                                <label for="1">☆</label>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <h6 class="mt-5 text-muted">Nhận xét của bạn</h6>
+
+                                        <div class="text-muted">
+                                            <textarea class="form-control" rows="3" id="comment" name="nhanxet"></textarea>
+                                        </div>
+                                        <h6 class="mt-5 text-muted">Bạn đã học lớp nào của giáo viên này?</h6>                                        
+                                        <select class="form-control" name="idlh">
+                                            @foreach (var item in Model.LopHocs.Where(x=>x.trangThai==3))
+                                            {
+                                                <option value="@item.ID">@item.tenLopHoc</option>
+                                            }
+                                        </select>
+                                        
+                                        <div class="text-center mt-5 mb-3">
+                                            <button class="btn btn-sm btn-warning" type="submit">Gửi đi</button>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </section>
+                <!-- /.content -->
+            </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+    @section masterjs{
+        <script>
+            $(".form-check-input.skill").click(function () {
+                if (this.checked) {
+                    $(this).val('TRUE');
+                    $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').removeAttr("disabled");
+                } else {
+                    $(this).val('FALSE');
+                    $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true);
+                }
+            });
+            $(function () {
+
+                var ShowModal = $('#showModalMK');
+                $('#ModalMK1').click(function (event) {
+                    var url = $(this).data('url');
+                   // alert(url);
+                    $.get(url).done(function (data) {
+                        console.log(data);
+                        ShowModal.html(data);
+                        ShowModal.find('#modal-DoiMK').modal('show');
+                    })
+                });
+
+                $('.form-check-input.skill').checked.closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true)
+            if ($('.form-check-input.skill').checked) {
+                //alert('1');
+                $(this).closest('.form-check').find('.custom-select.form-control-border.col-md-5').removeAttr("disabled");
+
+            } else {
+                //alert(2);
+                $('.form-check-input.skill').closest('.form-check').find('.custom-select.form-control-border.col-md-5').attr("disabled", true);
+
+            }
+
+
+
+            });
+
+
+            focusMethod = function getFocus() {
+                document.getElementById("comment").focus();
+            }
+
+
+
+            pageSize = 6;
+            incremSlide = 5;
+            startPage = 0;
+            numberPage = 0;
+
+            var pageCount = $(".line-content").length / pageSize;
+            var totalSlidepPage = Math.floor(pageCount / incremSlide);
+
+            for (var i = 0; i < pageCount; i++) {
+                $("#pagin").append('<li class="page-item"><a href="#" class="page-link">' + (i + 1) + '</a></li> ');
+                if (i > pageSize) {
+                    $("#pagin li").eq(i).hide();
+                }
+            }
+
+            var prev = $('<li class="page-item"/>').addClass("prev").html('<a href="#" class="page-link"> &laquo;').click(function () {
+                startPage -= 5;
+                incremSlide -= 5;
+                numberPage--;
+                slide();
+            });
+
+            prev.hide();
+
+            var next = $('<li class="page-item"/>').addClass("next").html('<a href="#" class="page-link">&raquo;').click(function () {
+                startPage += 5;
+                incremSlide += 5;
+                numberPage++;
+                slide();
+            });
+
+            $("#pagin").prepend(prev).append(next);
+
+            $("#pagin li").first().find("a").addClass("current");
+
+            slide = function (sens) {
+                $("#pagin li").hide();
+
+                for (t = startPage; t < incremSlide; t++) {
+                    $("#pagin li").eq(t + 1).show();
+                }
+                if (startPage == 0) {
+                    next.show();
+                    prev.hide();
+                } else if (numberPage == totalSlidepPage) {
+                    next.hide();
+                    prev.show();
+                } else {
+                    next.show();
+                    prev.show();
+                }
+
+
+            }
+
+            showPage = function (page) {
+                $(".line-content").hide();
+                $(".line-content").each(function (n) {
+                    if (n >= pageSize * (page - 1) && n < pageSize * page)
+                        $(this).show();
+                });
+            }
+
+            showPage(1);
+            $("#pagin li a").eq(0).addClass("current");
+
+            $("#pagin li a").click(function () {
+                $("#pagin li a").removeClass("current");
+                $(this).addClass("current");
+                showPage(parseInt($(this).text()));
+            });
+        </script>
+
+
+    }
+

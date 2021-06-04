@@ -74,10 +74,34 @@
                                                 <td>@item.DSLopHocs.Count()/@item.soluong</td>
                                                 
                                                 <td>@item.yeucau</td>
-                                                <td>@item.ngayBegin</td>
-                                                <td>@item.ngayEnd</td>
+                                                <td>@item.ngayBegin.Value.ToString().Split(' ')[0]</td>
+                                                <td>@item.ngayEnd.Value.ToString().Split(' ')[0]</td>
                                                 <td>@item.soBuoi</td>
-                                                <td>@item.trangThai</td>
+                                                <td>
+                                                    @switch (@item.trangThai)
+                                                    {
+                                                        case 0:
+                                                            {
+                                                                <span class="float-right badge bg-info">Đang tuyển sinh</span>
+                                                                break;
+                                                            }
+                                                        case 1:
+                                                            {
+                                                                <span class="float-right badge bg-secondary">Ngừng tuyển sinh</span>
+                                                                break;
+                                                            }
+                                                        case 2:
+                                                            {
+                                                                <span class="float-right badge bg-success">Đang học</span>
+                                                                break;
+                                                            }
+                                                        case 3:
+                                                            {
+                                                                <span class="float-right badge bg-danger">Đã kết thúc</span>
+                                                                break;
+                                                            }
+                                                    }
+                                                </td>
                                             </tr>
                                         }
 

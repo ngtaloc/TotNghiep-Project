@@ -19,12 +19,16 @@ namespace Models.Framework
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idLH { get; set; }
 
-        public DateTime? ngaydDangKy { get; set; }
+        public DateTime ngaydDangKy { get; set; }
 
         public int? danhgia { get; set; }
 
         [Column(TypeName = "ntext")]
         public string binhluan { get; set; }
+
+        public DateTime? ngayDanhGia { get; set; }
+
+        public int? trangthai { get; set; }
 
         public virtual HocVien HocVien { get; set; }
 

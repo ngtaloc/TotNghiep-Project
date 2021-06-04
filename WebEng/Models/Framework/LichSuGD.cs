@@ -11,14 +11,14 @@ namespace Models.Framework
     {
         public int iD { get; set; }
 
-        public DateTime? ThoiGiangGD { get; set; }
+        public DateTime ThoiGiangGD { get; set; }
 
         [Column(TypeName = "ntext")]
         public string TenGD { get; set; }
 
         public int? LoaiGD { get; set; }
 
-        public int? SoTienGD { get; set; }
+        public int SoTienGD { get; set; }
 
         public int? idVT { get; set; }
 

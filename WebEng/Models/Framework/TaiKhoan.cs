@@ -37,7 +37,7 @@ namespace Models.Framework
         [StringLength(32)]
         public string matKhau { get; set; }
 
-        public DateTime? ngayDangKy { get; set; }
+        public DateTime ngayDangKy { get; set; }
 
         public int? trangThai { get; set; }
 

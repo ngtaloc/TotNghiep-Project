@@ -22,7 +22,7 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string moTa { get; set; }
 
-        public DateTime? thoiGian { get; set; }
+        public DateTime thoiGian { get; set; }
 
         public int? trangThai { get; set; }
 

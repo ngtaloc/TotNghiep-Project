@@ -42,6 +42,115 @@ namespace WebEng.Areas.HocVien.Controllers
             return View(model);
 		}
 		
+        [HttpGet]
+        public ActionResult InfoGV(int id)
+        {
+            var model = new GiangVienDAO().GetByID(id);
+            decimal danhgiaTong = 0;
+            decimal danhgiaSo = 0;
+            decimal dg1 = 0;
+            decimal dg2 = 0;
+            decimal dg3 = 0;
+            decimal dg4 = 0;
+            decimal dg5 = 0;
+            List<int> danhgia = new List<int>();
+            foreach (var item in model.LopHocs)
+            {
+                foreach(var it in item.DSLopHocs)
+                {
+                    if (!String.IsNullOrEmpty(it.danhgia.ToString()) && it.danhgia.Value != 0)
+                    {
+                        danhgiaSo++;
+                        int dg= int.Parse(it.danhgia.ToString());
+                        danhgiaTong += dg;
+                        switch (dg)
+                        {
+                            case 1:
+                                {
+                                    dg1++;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    dg2++;
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    dg3++;
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    dg4++;
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    dg5++;
+                                    break;
+                                }
+                        }
+                    }
+                        
+                }
+            }
+            danhgia.Add(Convert.ToInt32(decimal.Round(dg1 / danhgiaSo, 2) * 100));
+            danhgia.Add(Convert.ToInt32(dg1));
+            danhgia.Add(Convert.ToInt32(decimal.Round(dg2 / danhgiaSo, 2) * 100));
+            danhgia.Add(Convert.ToInt32(dg2));
+            danhgia.Add(Convert.ToInt32(decimal.Round(dg3 / danhgiaSo, 2) * 100));
+            danhgia.Add(Convert.ToInt32(dg3));
+            danhgia.Add(Convert.ToInt32(decimal.Round(dg4 / danhgiaSo, 2) * 100));
+            danhgia.Add(Convert.ToInt32(dg4));
+            danhgia.Add(Convert.ToInt32(decimal.Round(dg5 / danhgiaSo, 2) * 100));
+            danhgia.Add(Convert.ToInt32(dg5));
+            ViewBag.TrungBinh = decimal.Round(danhgiaTong / danhgiaSo, 2);
+            ViewBag.SoDG = danhgiaSo;
+            ViewBag.ListDG = danhgia;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult InfoGV(int idgv,int rating=0, string nhanxet=null, int idlh=0)
+        {
+            if (idlh == 0)
+            {
+                TempData["testmsg"] = "Giáo viên này chưa có lớp học nào hoàng thành.";
+                return RedirectToAction("InfoGV/" + idgv, "Tim");;
+            }
+            if (rating == 0)
+            {
+                TempData["testmsg"] = "Vui lòng chọn điểm đánh giá .";
+                return RedirectToAction("InfoGV/" + idgv, "Tim");;
+            }
+            if(nhanxet == null)
+            {
+                TempData["testmsg"] = "Vui lòng cho vài lời nhận xét.";
+                return RedirectToAction("InfoGV/" + idgv, "Tim");;
+            }
+            var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
+            var lh = new LopHocDAO().GetByID(idlh);
+            var dslh = lh.DSLopHocs.FirstOrDefault(x => x.HocVien.TaiKhoan.tenDangNhap == User.Identity.Name && x.idLH == idlh);
+            if (dslh == null)
+            {
+                TempData["testmsg"] = "Bạn hãy hoành thành lớp học "+lh.tenLopHoc+" của giáo viên để có thể đánh giá.";
+                return RedirectToAction("InfoGV/" + idgv, "Tim");;
+            }
+            if (!string.IsNullOrEmpty(dslh.danhgia.ToString()))
+            {
+                TempData["testmsg"] = "Bạn đã đánh giá & nhận xét rồi.";
+                return RedirectToAction("InfoGV/" + idgv, "Tim");;
+            }
+            dslh.danhgia = rating;
+            dslh.binhluan = nhanxet;
+            dslh.ngayDanhGia = DateTime.Now;
+            bool kt = new DSLopHocDAO().Update(dslh);
+
+            TempData["testmsg"] = "Đánh giá & nhận xét thành công .";
+            return RedirectToAction("InfoGV/" + idgv, "Tim");
+        }
+       
+
         [HttpPost]
         public ActionResult BinhLuan(int idlh, string noidung,int idtk, int idcha=0)
         {
