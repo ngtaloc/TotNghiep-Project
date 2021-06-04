@@ -1,0 +1,31 @@
+﻿
+@model Models.Framework.TaiLieu
+<div class="modal fade" id="modal-edit-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            @using (Html.BeginForm("Edit", "QLLopHoc", FormMethod.Post))
+            {
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @*<textarea name="link"></textarea>*@
+                    <label>Tên tài liệu</label>
+                    @Html.TextAreaFor(model => model.ten, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.link, new { htmlAttributes = new { @class = "form-control", @id = "link", @name = "link" } })
+                    @Html.ValidationMessageFor(Model => Model.link, "", new { @class = "text-danger", @id = "link", @name = "link" })
+                    <script>
+                    CKEDITOR.replace('link');
+                    </script>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Xác nhận thay đổi?')">Lưu thay đổi</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+

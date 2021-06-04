@@ -163,7 +163,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\FileController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLBaoCaoController.cs" />
     <Compile Include="Areas\GiaoVien\Controllers\DocController.cs" />
@@ -2951,6 +2950,9 @@
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\InfoLH.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Tailieu.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Baitap.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Edit.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\Chitietbaitap.cshtml" />
+    <Content Include="Areas\HocVien\Views\Learning\ChuaDK.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,28 +1,42 @@
-﻿
+﻿@using Models.Framework
+@model IEnumerable<TaiLieu>
+@{
+    ViewBag.Title = "Zoom";
+    var lophoc = (LopHoc)ViewBag.lophoc;
+}
 <style>
-	.table{
-		margin-top:30px;
-	}
-	 .title{
-		background-color:gainsboro;
-	}
-	.noidung {
-		border-bottom: 1px solid gainsboro;
-	}
+    .table {
+        margin-top: 30px;
+    }
+
+    .title {
+        background-color: gainsboro;
+    }
+
+    .noidung {
+        border-bottom: 1px solid gainsboro;
+    }
 </style>
 <table class="table table-hover">
-	<thead>
-		<tr class="title">
-			<th>Thời gian bắt đầu</th>
-			<th>Chủ đề</th>
-			<th>Meeting ID</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="noidung">
-			<td> đổ thời gian vào chỗ này</td>
-			<td> đổ tiêu đề(reading, writing ..) </td>
-			<td> đổ link và id của zoom</td>
-		</tr>
-	</tbody>
+    <thead>
+        <tr class="title">
+            <th>Thời gian bắt đầu</th>
+            <th>Chủ đề</th>
+            <th>Meeting ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr class="=noidung">
+                    
+                    <td>@item.thoiGian</td>
+                    <td>@item.ten</td>
+                    <td><a href="@item.link">@item.moTa</a></td>
+                </tr>
+            }
+        }
+    </tbody>
 </table>

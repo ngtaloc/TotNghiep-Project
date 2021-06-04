@@ -13,21 +13,33 @@
         border-bottom: 1px solid gainsboro;
     }
 </style>
+<div>
+
+
+</div>
+
+
+
 <table class="table table-hover">
     <thead>
         <tr class="title">
-            <th>Tên bài học</th>
-            <th>File</th>
+            <th>Bài tập</th>
+            <th>Ngày đăng </th>
+            <th>Ngày nộp</th>
             <th>Ghi chú</th>
-            <th>Thời gian</th>
+
         </tr>
     </thead>
     <tbody>
         <tr class="noidung">
-            <td> đổ tên bài học</td>
-            <td> đổ file (video, pdf... về bài đã học) </td>
+            @*kích vào mỗi tr(row) chuyển sang trang chứa file và bài tập*@
+            <td>
+                @Html.ActionLink("đỗ tên bài tập ", "Chitietbaitap")
+
+            </td>
+            <td> đổ  thời gian úp file </td>
+            <td> đổ thời gian </td>
             <td> chú thích  nếu cần </td>
-            <td> đổ thời gian đăng</td>
         </tr>
     </tbody>
 </table>

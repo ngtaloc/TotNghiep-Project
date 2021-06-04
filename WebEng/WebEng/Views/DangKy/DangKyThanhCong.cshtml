@@ -14,11 +14,12 @@
     <div>
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        Bạn đã đăng ký thành công tài khoản 
+        Bạn đã đăng ký thành công tài khoản bạn có thể thêm gương mặt để đăng nhập thuận tiện hơn. Bấm  @Html.ActionLink(" Đăng nhập ", "Index", "Login") để bỏ qua bước này
         @using (Html.BeginForm("DangKyThanhCong", "DangKy", FormMethod.Post))
         {
-            <button type="submit" name="id" value="3">pyhton</button>
+            <button type="submit" name="id" value="3">Thêm gương mặt</button>
         }
-        </div>
+       
+    </div>
 </body>
 </html>

@@ -12,14 +12,23 @@ namespace WebEng.Areas.HocVien.Controllers
     public class LearningController : Controller
     {
         // GET: HocVien/Learning
-        public ActionResult Index(int id=1)
+        public ActionResult Index(int id=0)
         {
+            if (id == 0)
+            {
+                return RedirectToAction("ChuaDK", "Learning");
+            }
             var dao = new LopHocDAO();
             var model = dao.GetByID(id);
             return View(model);
 
         }
-		 public ActionResult Listening(LopHoc lopHoc)
+        public ActionResult ChuaDK()
+        {
+            return View();
+
+        }
+        public ActionResult Listening(LopHoc lopHoc)
         {
             return View(lopHoc);
 
@@ -44,11 +53,35 @@ namespace WebEng.Areas.HocVien.Controllers
 			return View(lopHoc);
 
 		}
-		public ActionResult Meeting(LopHoc lopHoc)
+		public ActionResult Meeting(LopHoc lopHoc, int tt) //tt=1 sắm tới : -1:cũ ; 0:all
 		{
-			return View(lopHoc);
+            var lh = new LopHocDAO().GetByID(lopHoc.ID);
+            ViewBag.lophoc = lh;
+            DateTime date;
+            IEnumerable<TaiLieu> audiolist = null;
+            if (lh.TaiLieux.Count() > 0)
+            {
+                audiolist = lh.TaiLieux.Where(x => x.idLH==lh.ID && x.idKN == null).OrderBy(x=>x.thoiGian);
+               
+                if (tt == 1)
+                {
+                    foreach (var item in audiolist)
+                    {
+                        if (DateTime.Compare(item.thoiGian.Date, DateTime.Now.Date) >= 0)
+                        {
+                            date = item.thoiGian;
+                            List<TaiLieu> list = new List<TaiLieu>();
+                            list.Add(item);
+                            audiolist = list;
+                            return View(audiolist);
+                        }                           
+                    }
+                }       
+            }
+            return View(audiolist);
 
-		}
+
+        }
 		public ActionResult Tailieu(LopHoc lopHoc, int idkn)
 		{
             var lh = new LopHocDAO().GetByID(lopHoc.ID);
@@ -82,6 +115,12 @@ namespace WebEng.Areas.HocVien.Controllers
             var dao = new LopHocDAO();
             var model = dao.FindLopHocHocVien(User.Identity.Name);
             return PartialView("~/Areas/HocVien/Views/Shared/LopDaDK.cshtml",model);
+        }
+
+        public ActionResult Chitietbaitap(LopHoc lopHoc)
+        {
+            return View(lopHoc);
+
         }
 
     }

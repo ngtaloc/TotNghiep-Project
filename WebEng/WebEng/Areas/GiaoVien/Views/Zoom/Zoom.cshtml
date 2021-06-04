@@ -1,8 +1,7 @@
 ﻿@using Models.Framework
 @model IEnumerable<TaiLieu>
 @{
-    ViewBag.Title = "Zoom";
-    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    ViewBag.Title = "Zoom";    
     var lophoc = (LopHoc)ViewBag.lophoc;
 }
 
@@ -47,17 +46,22 @@
 
     }
     
-    <div class="container py-4">
-        <h3 class="text-center text-uppercase">Zoom</h3>
+    <div class="container-onlineclass">
+        <div class="header1">
+            <div class="logo1">
+                <img src="~/Content/img/logos/zoom.png" width="110" /><br />
+                <p>TiengAnhOnline.com</p>
+            </div>
+        </div>
         <div class="card">
             <div class="card-header bg-primary text-white">
             </div>
             <div class="card-body">
                 <div class="row">
-                    <button style="margin-left: 27px;margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModal">
+                    <button style="margin-left: 27px;margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModalZOOM">
                         <i class="fa fa-plus-circle"></i> Add New
                     </button>
-                    <div class="modal fade" id="myModal">
+                    <div class="modal fade" id="myModalZOOM">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">

@@ -1,0 +1,102 @@
+﻿@model Models.Framework.LopHoc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/HocVien/Views/Shared/layout_2.cshtml";
+}
+<style>
+    .container-chitetbt {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .conten-bt {
+        margin-left: 30px;
+    }
+
+    .form-group {
+        max-width: 285px;
+        margin-bottom: 2rem;
+    }
+
+    h6 span {
+    }
+
+    .title {
+        background-color: darkgray;
+    }
+
+    .conten-tb {
+        background-color: #D8D8D8;
+    }
+
+    hr {
+        border: 1px solid gray;
+    }
+</style>
+<div class="container-chitetbt">
+    <br />
+    <h5><b>Tiếng anh cơ bản </b> </h5> @*đỗ dữ liệu tên lớp học *@
+    <h6><b> <u>Kỹ năng: </u></b><span> Listening</span> </h6> @*đỗ dữ liệu tên kỹ năng trong thẻ span *@
+    <div class="conten-bt ">
+        <h6><b>Tiêu đề:</b> <span> Bài tập tổng hợp</span> </h6>@*đỗ dữ liệu tên bài tập trong thẻ span *@
+        <h6><b>Học viên:</b> <span> Lê Văn A</span> </h6>@*đỗ dữ liệu tên học viên trong thẻ span *@
+        <h6><b>Ngày nộp:</b>  <span> thời gian</span> </h6>  @*đỗ dữ liệu thời gian trong thẻ span *@
+    </div>
+    <h6><b><u> Hướng dẫn:</u></b></h6>
+    <div class="conten-bt ">
+        <h6>- Xem bài tập trong file đinh kèm</h6>
+        <h6>- Làm bài nộp dưới phần trả lời</h6>
+    </div>
+    <h6><b><u>File bài tập: </u></b></h6>
+    <div class="conten-bt ">
+
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="title">
+                <th>Bài tập</th>
+                <th>Ngày đăng </th>
+                <th>Ngày nộp</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody class="conten-tb">
+            <tr class="noidung">
+                <td> đổ file tập</td>
+                <td> đổ  thời gian úp file </td>
+                <td> đổ thời gian </td>
+                <td> chú thích  nếu cần </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <hr />
+    <h6><b><u>Nộp bài:  </u></b></h6>
+
+    <div class="form-group">
+        <label for="exampleInputFile">Chọn tệp:</label>
+        <div class="input-group">
+            <div class="custom-file">
+                @Html.TextBoxFor(model => model.hinh, new { @class = "form-control", @type = "file", @id = "exampleInputFile" })
+                <label class="custom-file-label" for="exampleInputFile">Chọn từ trong máy của bạn</label>
+            </div>
+        </div>
+        <button>Submit</button>
+    </div><br />
+    <table class="table table-hover">
+        <thead>
+            <tr class="title">
+                <th>Bài tập</th>
+                <th>Thời gian nộp </th>
+            </tr>
+        </thead>
+        <tbody class="conten-tb">
+            <tr class="noidung">
+                <td> đổ file tập </td>
+                <td> đổ thời gian học viên submit</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

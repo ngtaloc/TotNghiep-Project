@@ -1,5 +1,10 @@
-﻿@*@model IEnumerable<Models.Framework.LoaiTaiLieu>*@
-@model IEnumerable<Models.Framework.TaiLieu>
+﻿@using Models.Framework
+@model IEnumerable<TaiLieu>
+@{
+    ViewBag.Title = "File";
+    var lophoc = (LopHoc)ViewBag.lophoc;
+    int idkn = (int)ViewBag.idkn;
+}
 <style>
     .table {
         margin-top: 30px;
@@ -13,6 +18,12 @@
         border-bottom: 1px solid gainsboro;
     }
 </style>
+
+   
+<button style="margin-left: 2rem;margin-top:1rem;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#modal_@idkn">
+    <i class="fa fa-plus-circle"></i> Add New
+</button>
+
 <table class="table table-hover">
     <thead>
         <tr class="title">
@@ -23,19 +34,7 @@
         </tr>
     </thead>
     <tbody>
-        @*@foreach (var item in Model)
-            {
-                foreach (var it in item.TaiLieux)
-                {
-                    <tr class="noidung">
-                        <td> @it.link</td>
-                        <td> @it.moTa </td>
-                        <td> @it.TaiKhoan.Giangviens.FirstOrDefault().hovaten  </td>
-                        <td> @it.LopHoc.tenLopHoc</td>
-                    </tr>
-                }
-            }*@
-
+       
         @if (Model != null)
         {
             foreach (var it in Model)
@@ -50,10 +49,10 @@
                         }
                         else if (it.link.ToString().Contains("</p>"))
                         {
-                            <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"XemCK/{it.ID}")">  <i class="fa fa-pen"></i>Xem</button>
+                            <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal_@idkn" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{it.ID}")">  <i class="fa fa-pen"></i>Sửa</button>
                         }
                         else
-                        {<span>@it.link</span>}
+                        {<a href="~/Content/img/@it.ten" download="">Tải tài liệu</a>}
 
                     </td>
                     <td> @it.ten </td>
@@ -65,15 +64,45 @@
 
     </tbody>
 </table>
-<div id="showModal"></div>
+<div class="modal fade" id="modal_@idkn">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload New File</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Tailieu", "QLLopHoc", new { idlh = lophoc.ID , idkn}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    <div class="form-group">
+                        <label>Choose File:</label>
+                        <div class="input-group">
+                            <div>
+                                @Html.TextBox("file", "", new { type = "file" }) <br />
+                                <input type="submit" value="Upload" />
+                                @ViewBag.Message
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="showModal_@idkn"></div>
 <script>
 
     $(document).ready(function () {
         $('#dataTable').DataTable();
     });
     $(function () {
-        var ShowModal = $('#showModal');
-        $('button[data-toggle="ajax-modal"]').click(function (event) {
+        var ShowModal = $('#showModal_@idkn');
+        $('button[data-toggle="ajax-modal_@idkn"]').click(function (event) {
             var url = $(this).data('url');
             $.get(url).done(function (data) {
                 ShowModal.html(data);

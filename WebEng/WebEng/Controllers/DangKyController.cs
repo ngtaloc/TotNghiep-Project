@@ -125,6 +125,8 @@ namespace WebEng.Controllers
                     var md5pass = EncryptorMD5.MD5Hash(taiKhoan.matKhau);
                     taiKhoan.matKhau = md5pass;
                     taiKhoan.trangThai = 1;
+                    taiKhoan.face = -1;
+                    taiKhoan.ngayDangKy = DateTime.Now;
                     var quyen = new TAIKHOAN_NHOMQUYEN();
                     quyen.TaiKhoan = taiKhoan;
                     quyen.IDNHOMQUYEN = 3; //3 là quyền học viên
@@ -146,7 +148,7 @@ namespace WebEng.Controllers
                     }
                     catch (Exception e)
                     {
-                        ModelState.AddModelError("", "Lỗi đăng ký học viên: " + e.ToString());
+                        ModelState.AddModelError("", "Lỗi đăng ký học viên: " + e.Message);
                         
                     }
                 }

@@ -17,7 +17,10 @@ namespace Models.DAO
 
         public int Insert(HocVien entity)
         {
+            //db.TaiKhoans.Add(entity.TaiKhoan);
             db.HocViens.Add(entity);
+            
+            //db.TAIKHOAN_NHOMQUYEN.Add(entity.TaiKhoan.TAIKHOAN_NHOMQUYEN);
             db.SaveChanges();
             return entity.id;
         }

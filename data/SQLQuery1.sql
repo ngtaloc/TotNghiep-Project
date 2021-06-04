@@ -10,7 +10,7 @@ create table TaiKhoan(
 	matKhau char(32) not null,	
 	ngayDangKy datetime not null,
 	trangThai int DEFAULT 1, --0:khóa 1:mở
-	face int DEFAULT 0,--0:khóa 1:mở
+	face int DEFAULT 0,--0:đang quét 1:có	-1:chưa có
 );
 
 CREATE TABLE TAIKHOAN_NHOMQUYEN(
