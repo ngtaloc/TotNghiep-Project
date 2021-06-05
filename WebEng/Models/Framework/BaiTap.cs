@@ -6,47 +6,40 @@ namespace Models.Framework
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("HocVien")]
-    public partial class HocVien
+    [Table("BaiTap")]
+    public partial class BaiTap
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HocVien()
+        public BaiTap()
         {
-            DSLopHocs = new HashSet<DSLopHoc>();
+            CauHois = new HashSet<CauHoi>();
             fileTraLois = new HashSet<fileTraLoi>();
-            TraLois = new HashSet<TraLoi>();
+            TaiLieux = new HashSet<TaiLieu>();
         }
 
-        public int id { get; set; }
+        public int ID { get; set; }
 
-        [StringLength(100)]
-        public string diachi { get; set; }
+        [StringLength(200)]
+        public string tenBT { get; set; }
 
-        [StringLength(3)]
-        public string gioitinh { get; set; }
+        public DateTime? ngayNop { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? ngaysinh { get; set; }
+        [Column(TypeName = "ntext")]
+        public string ghiChu { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string email { get; set; }
+        public DateTime? ngayDang { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string sdt { get; set; }
+        public int? trangThai { get; set; }
 
-        public int idTK { get; set; }
+        public int? thoiGianLamBai { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DSLopHoc> DSLopHocs { get; set; }
+        public virtual ICollection<CauHoi> CauHois { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<fileTraLoi> fileTraLois { get; set; }
 
-        public virtual TaiKhoan TaiKhoan { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TraLoi> TraLois { get; set; }
+        public virtual ICollection<TaiLieu> TaiLieux { get; set; }
     }
 }

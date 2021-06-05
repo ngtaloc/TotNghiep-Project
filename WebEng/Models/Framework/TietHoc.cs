@@ -13,7 +13,7 @@ namespace Models.Framework
 
         public int? idLopHoc { get; set; }
 
-        public int? ngayHoc { get; set; }
+        public int? idngayHoc { get; set; }
 
         public int? buoiHoc { get; set; }
 

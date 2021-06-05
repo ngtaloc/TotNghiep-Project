@@ -12,10 +12,13 @@ namespace Models.Framework
         {
         }
 
+        public virtual DbSet<BaiTap> BaiTaps { get; set; }
         public virtual DbSet<BinhLuan> BinhLuans { get; set; }
         public virtual DbSet<CapDo> CapDoes { get; set; }
+        public virtual DbSet<CauHoi> CauHois { get; set; }
         public virtual DbSet<ChucNang> ChucNangs { get; set; }
         public virtual DbSet<DSLopHoc> DSLopHocs { get; set; }
+        public virtual DbSet<fileTraLoi> fileTraLois { get; set; }
         public virtual DbSet<Giangvien> Giangviens { get; set; }
         public virtual DbSet<HocVien> HocViens { get; set; }
         public virtual DbSet<KyNang> KyNangs { get; set; }
@@ -34,10 +37,26 @@ namespace Models.Framework
         public virtual DbSet<Thang> Thangs { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
         public virtual DbSet<TietHoc> TietHocs { get; set; }
+        public virtual DbSet<TraLoi> TraLois { get; set; }
         public virtual DbSet<ViTien> ViTiens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BaiTap>()
+                .HasMany(e => e.CauHois)
+                .WithOptional(e => e.BaiTap)
+                .HasForeignKey(e => e.idBT);
+
+            modelBuilder.Entity<BaiTap>()
+                .HasMany(e => e.fileTraLois)
+                .WithOptional(e => e.BaiTap)
+                .HasForeignKey(e => e.idBT);
+
+            modelBuilder.Entity<BaiTap>()
+                .HasMany(e => e.TaiLieux)
+                .WithOptional(e => e.BaiTap)
+                .HasForeignKey(e => e.idBT);
+
             modelBuilder.Entity<BinhLuan>()
                 .HasMany(e => e.BinhLuan1)
                 .WithOptional(e => e.BinhLuan2)
@@ -54,6 +73,11 @@ namespace Models.Framework
                 .WithOptional(e => e.CapDo)
                 .HasForeignKey(e => e.idCD);
 
+            modelBuilder.Entity<CauHoi>()
+                .HasMany(e => e.TraLois)
+                .WithOptional(e => e.CauHoi)
+                .HasForeignKey(e => e.idCauHoi);
+
             modelBuilder.Entity<ChucNang>()
                 .Property(e => e.tenFile)
                 .IsUnicode(false);
@@ -66,6 +90,10 @@ namespace Models.Framework
                 .HasMany(e => e.ChucNang1)
                 .WithOptional(e => e.ChucNang2)
                 .HasForeignKey(e => e.iDCha);
+
+            modelBuilder.Entity<fileTraLoi>()
+                .Property(e => e.link)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Giangvien>()
                 .Property(e => e.email)
@@ -99,6 +127,16 @@ namespace Models.Framework
                 .WithRequired(e => e.HocVien)
                 .HasForeignKey(e => e.idHV)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<HocVien>()
+                .HasMany(e => e.fileTraLois)
+                .WithOptional(e => e.HocVien)
+                .HasForeignKey(e => e.idHV);
+
+            modelBuilder.Entity<HocVien>()
+                .HasMany(e => e.TraLois)
+                .WithOptional(e => e.HocVien)
+                .HasForeignKey(e => e.idHV);
 
             modelBuilder.Entity<KyNang>()
                 .HasMany(e => e.KyNangGiangViens)
@@ -175,7 +213,7 @@ namespace Models.Framework
             modelBuilder.Entity<Ngay>()
                 .HasMany(e => e.TietHocs)
                 .WithOptional(e => e.Ngay)
-                .HasForeignKey(e => e.ngayHoc);
+                .HasForeignKey(e => e.idngayHoc);
 
             modelBuilder.Entity<NhomQuyen>()
                 .HasMany(e => e.TAIKHOAN_NHOMQUYEN)

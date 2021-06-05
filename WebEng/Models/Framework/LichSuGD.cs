@@ -13,7 +13,7 @@ namespace Models.Framework
 
         public DateTime ThoiGiangGD { get; set; }
 
-        [Column(TypeName = "ntext")]
+        [StringLength(200)]
         public string TenGD { get; set; }
 
         public int? LoaiGD { get; set; }

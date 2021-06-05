@@ -1,4 +1,5 @@
-﻿create table NhomQuyen(	
+﻿
+create table NhomQuyen(	
     ID INT IDENTITY(1,1) PRIMARY KEY, -- 0:admin 1:GV 2: HV
 	tenNhomQuyen nvarchar(50), 
 );
@@ -282,11 +283,11 @@ create table Ngay(	--ngày
 create table TietHoc(	
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idLopHoc int,
-	ngayHoc date,
+	idngayHoc int,
 	buoiHoc int, --buổi học thứ mấy
 	siso int
 	foreign key(idLopHoc) references  lopHoc(id),
-	foreign key(ngayHoc) references  ngay(id),
+	foreign key(idngayHoc) references  ngay(id),
 );
 create table ViTien(
 	iD INT IDENTITY(1,1) PRIMARY KEY,
@@ -483,7 +484,7 @@ values(
 	,1--0:dong 1:mo
 	,1
 	,1
-	,2)
+	,2,'')
 insert into KyNangLopHoc
 values
 (1,1,1),
