@@ -12,9 +12,10 @@ namespace WebEng.Areas.HocVien.Controllers
     public class LearningController : Controller
     {
         // GET: HocVien/Learning
-        public ActionResult Index(int id=0)
+        public ActionResult Index(int id=1)
         {
-            if (id == 0)
+            var md = new LopHocDAO().FindLopHocHocVien(User.Identity.Name);
+            if (md.Count() <= 0)
             {
                 return RedirectToAction("ChuaDK", "Learning");
             }

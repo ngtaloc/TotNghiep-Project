@@ -122,6 +122,53 @@ create table LoaiTaiLieu(
 	tenLoaiTaiLieu nvarchar(50), --video doc mp3
 );
 
+create table BaiTap(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	tenBT nvarchar(200),
+	ngayNop datetime,
+	ghiChu ntext,
+	ngayDang datetime,
+	trangThai int,	--0: đóng 1:mở
+	thoiGianLamBai int, --phút
+);
+create table CauHoi(
+	ID INT IDENTITY(1,1) PRIMARY KEY,	
+	idBT int,
+	CauHoi Ntext,
+	DapAn Nvarchar(200),
+	A Nvarchar(200),
+	B Nvarchar(200),
+	C Nvarchar(200),
+	D Nvarchar(200),
+	E Nvarchar(200),
+	foreign key(idBT) references  BaiTap(id) ON UPDATE NO ACTION ,
+	);
+
+create table TraLoi(
+	ID INT IDENTITY(1,1) PRIMARY KEY,	
+	idCauHoi int,
+	idHV int,
+	DapAn Nvarchar(200),	
+	foreign key(idCauHoi) references CauHoi(id) ON UPDATE NO ACTION ,
+	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
+);
+create table fileTraLoi(
+	ID INT IDENTITY(1,1) ,
+	ten nvarchar(50) NULL,  
+	FileSize int NULL,
+	link varchar(max) not null,
+	thoiGian datetime not null,
+	trangThai int, --0:dong 1:mo
+	idBT int,
+	idHV int,
+	foreign key(idBT) references  BaiTap(id) ON UPDATE NO ACTION ,
+	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
+	CONSTRAINT [PK_FilesTL] PRIMARY KEY CLUSTERED   
+(  
+    [ID] ASC  
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]  
+) ON [PRIMARY]  ;
+
 create table TaiLieu(	
 	ID INT IDENTITY(1,1) ,
 	ten nvarchar(50) NULL,  
@@ -133,9 +180,11 @@ create table TaiLieu(
 	idKN int,
 	idLH int,
 	idTK int,
+	idBT int
 	foreign key(idKN) references  kyNang(id) ON UPDATE NO ACTION ,
 	foreign key(idLH) references  LopHoc(id) ON UPDATE NO ACTION ,
 	foreign key(idTK) references  TaiKhoan(id) ON UPDATE NO ACTION ,
+	foreign key(idBT) references  BaiTap(id) ON UPDATE NO ACTION ,
 	CONSTRAINT [PK_AudioFiles] PRIMARY KEY CLUSTERED   
 (  
     [ID] ASC  
@@ -233,7 +282,7 @@ create table Ngay(	--ngày
 create table TietHoc(	
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	idLopHoc int,
-	ngayHoc int,
+	ngayHoc date,
 	buoiHoc int, --buổi học thứ mấy
 	siso int
 	foreign key(idLopHoc) references  lopHoc(id),
@@ -251,7 +300,7 @@ create table ViTien(
 create table LichSuGD( --lịch sử giao dịch
 	iD INT IDENTITY(1,1) PRIMARY KEY,
 	ThoiGiangGD datetime not null,
-	TenGD Ntext,
+	TenGD Nvarchar(200),
 	LoaiGD int, -- 0: Nạp ; 1:Mở Lớp;
 	SoTienGD int not null,
 	idVT int,
