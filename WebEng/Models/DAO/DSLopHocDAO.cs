@@ -43,7 +43,14 @@ namespace Models.DAO
             //dslh.ngayDanhGia = entity.ngayDanhGia;
             db.SaveChanges();
             return true;
-
+        }
+        public bool UpdateStatus(DSLopHoc entity)
+        {
+            var dslh = this.GetByID(entity.idLH, entity.idHV);
+            dslh.trangthai = entity.trangthai;
+            //dslh.ngayDanhGia = entity.ngayDanhGia;
+            db.SaveChanges();
+            return true;
         }
 
 

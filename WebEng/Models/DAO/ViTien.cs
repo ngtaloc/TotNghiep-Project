@@ -48,8 +48,6 @@ namespace Models.DAO
             return db.ViTiens.Find(id);
         }
 
-      
-
         public IEnumerable<ViTien> FindByTDN(string tdn)
         {
             return db.ViTiens.Where(x => x.TaiKhoan.tenDangNhap == tdn);           
