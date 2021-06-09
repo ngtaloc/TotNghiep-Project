@@ -17,6 +17,8 @@ namespace WebEng.Areas.GiaoVien.Controllers
         [HttpGet]
         public ActionResult Zoom(int id = 1)
         {
+            var zc = new NgayDAO().FindByLopHoc(id);
+            ViewBag.Zoom = zc;
             var lh = new LopHocDAO().GetByID(id);
             ViewBag.lophoc = lh;
 
@@ -28,7 +30,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
         //Viết đoạn mã sau để chèn dữ liệu vào cơ sở dữ liệu và tải tệp lên trong thư mục AudioFileUpload của dự án.
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Zoom(string ten, string trangthai,string ma, int idlh)
+        public ActionResult Zoom(string ten, string trangthai,string ma, int idlh, string thoigian)
         {
             var lh = new LopHocDAO().GetByID(idlh);
             var dao = new TaiLieuDAO();
@@ -39,9 +41,21 @@ namespace WebEng.Areas.GiaoVien.Controllers
             tailieu.idLH = lh.ID;
             tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
             //tailieu.idKN = 6;
-            tailieu.thoiGian = DateTime.Now;
+            tailieu.thoiGian = DateTime.Parse(thoigian);
             dao.Insert(tailieu);
             return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
         }
+        //[HttpGet]
+        //public ActionResult Ngay(int id, int idLH, string date, string thu)
+        //{
+        //    var lh = new NgayDAO().GetByID(id);
+        //    ViewBag.lophoc = lh;
+        //    IEnumerable<Ngay> audiolist1 = null;
+        //    var ngay = new Ngay();
+        //    ngay.iDLopHoc = idLH;
+        //    ngay.ngay27 = date;
+
+        //    return View(audiolist1);
+        //}
     }
 }

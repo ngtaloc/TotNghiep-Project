@@ -68,7 +68,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 {
                     foreach (var item in audiolist)
                     {
-                        if (DateTime.Compare(item.thoiGian.Date, DateTime.Now.Date) >= 0)
+                        if (DateTime.Compare(item.thoiGian, DateTime.Now) >= 0)
                         {
                             date = item.thoiGian;
                             List<TaiLieu> list = new List<TaiLieu>();
@@ -77,6 +77,7 @@ namespace WebEng.Areas.HocVien.Controllers
                             return View(audiolist);
                         }                           
                     }
+                    return View(audiolist);
                 }       
             }
             return View(audiolist);

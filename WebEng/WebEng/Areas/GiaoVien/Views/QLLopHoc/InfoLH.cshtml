@@ -572,39 +572,42 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var item in Model.DSLopHocs)
+                        {
                         <tr>
-                            <td><button class="btn btn-block btn-outline-success btn-xs">Confirm</button></td>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum </td>
-
+                            @using (Html.BeginForm("InfoLH", "QLLopHoc",item, FormMethod.Post)) {
+                            if (item.trangthai == 1)
+                            {
+                                    <td><button type="submit" class="btn btn-block btn-outline-success btn-xs">Xác nhận</button></td>
+                            }
+                            else if (item.trangthai == 2)
+                            {
+                                    <td><button type="submit" class="btn btn-block btn-outline-danger btn-xs">Khóa</button></td>
+                            }
+                            else
+                            {
+                                    <td><button type="submit" class="btn btn-block btn-outline-secondary btn-xs">Mở khóa</button></td>
+                            }
+                            <td>@item.idHV</td>
+                            <td>@item.HocVien.TaiKhoan.hovaten</td>
+                            <td>@item.ngaydDangKy</td>
+                            if (item.trangthai == 1)
+                            {
+                                <td><span class="tag tag-success">Chờ</span></td>
+                            }
+                            else if (item.trangthai == 2)
+                            {
+                                <td><span class="tag tag-success">Đang học</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="tag tag-success">Bị khóa</span></td>
+                            }
+                            <td><span class="tag tag-success">@item.HocVien.sdt</span></td>
+                            <td>@item.HocVien.email</td>
+                                }
                         </tr>
-                        <tr>
-                            <td><button class="btn btn-block btn-outline-danger btn-xs">Kick</button></td>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum </td>
-                        </tr>
-                        <tr>
-                            <td><button class="btn btn-block btn-outline-success btn-xs">Confirm</button></td>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum </td>
-                        </tr>
-                        <tr>
-                            <td><button class="btn btn-block btn-outline-danger btn-xs">Kick</button></td>
-                            <td>183</td>
-                            <td>John Doe</td>
-                            <td>11-7-2014</td>
-                            <td><span class="tag tag-success">Approved</span></td>
-                            <td>Bacon ipsum </td>
-                        </tr>
+                        }                        
                     </tbody>
                 </table>
             </div>
@@ -620,9 +623,9 @@
     $(function () {
 
         $('#status option[value="@Model.trangThai"]').attr("selected", true);
-        if (@Model.trangThai > 1) {
+                            if (@Model.trangThai > 1) {
             $('#status').attr("disabled", true);
-        }
-    });
+                            }
+                        });
 
     </script>

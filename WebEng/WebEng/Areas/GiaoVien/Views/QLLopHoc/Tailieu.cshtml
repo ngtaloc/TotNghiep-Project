@@ -18,7 +18,14 @@
         border-bottom: 1px solid gainsboro;
     }
 </style>
+<script>
+    $("audio").on("play", function () {
+        $("audio").not(this).each(function (index, audio) {
+            audio.pause();
+        });
 
+    });
+</script>
    
 <button style="margin-left: 2rem;margin-top:1rem;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#modal_@idkn">
     <i class="fa fa-plus-circle"></i> Add New

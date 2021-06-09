@@ -18,10 +18,31 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var model = new LopHocDAO().GetByID(id);
             return View(model);
         }
+        [HttpGet]
         public ActionResult InfoLH(LopHoc lopHoc)
         {
             return View(lopHoc);
 
+        }
+        [HttpPost]
+        public ActionResult InfoLH(DSLopHoc ds)
+        {
+            var dao = new DSLopHocDAO();
+            if(ds.trangthai == 1)
+            {
+                ds.trangthai = 2;
+            }
+            else if(ds.trangthai == 2)
+            {
+                ds.trangthai = 3;
+            }
+            else
+            {
+                ds.trangthai = 1;
+            }
+            dao.UpdateStatus(ds);
+            var lh = new LopHocDAO().GetByID(ds.idLH);
+            return View(lh);
         }
         public ActionResult Listening(LopHoc lopHoc)
         {
@@ -43,6 +64,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             return View(lopHoc);
 
         }
+        [ValidateInput(false)]
         public ActionResult OnlineClass(LopHoc lopHoc)
         {
             return View(lopHoc);
@@ -75,7 +97,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 var tailieu = new TaiLieu();
                 tailieu.ten = _FileName;
                 tailieu.FileSize = Size;
-                tailieu.link = _path;
+                tailieu.link = "~/" + _FileName;
                 tailieu.idLH = lh.ID;
                 tailieu.thoiGian = DateTime.Now;
                 tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
