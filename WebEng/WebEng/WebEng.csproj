@@ -2953,6 +2953,8 @@
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Chitietbaitap.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\ChuaDK.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\CreateBTq.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\CreateBT.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

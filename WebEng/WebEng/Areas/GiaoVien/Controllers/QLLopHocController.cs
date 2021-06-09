@@ -54,7 +54,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var lh = new LopHocDAO().GetByID(lopHoc.ID);
             ViewBag.lophoc = lh;
             IEnumerable<TaiLieu> audiolist = null;
-            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.idLH==lh.ID && x.idKN == idkn); }
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.idLH==lh.ID && x.idKN == idkn && string.IsNullOrEmpty(x.idBT.ToString())); }
             ViewBag.idkn = idkn;
             return View(audiolist);
         }
@@ -128,7 +128,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             ViewBag.lophoc = lh;
             ViewBag.idkn = idkn;
             IEnumerable<TaiLieu> audiolist = null;
-            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == idkn); }
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == idkn && !string.IsNullOrEmpty(x.idBT.ToString())); }
             return View(audiolist);
         }
         //Tạo phương thức hành động UploadAudio với [HttpPost] trong bộ điều khiển. 
@@ -149,5 +149,57 @@ namespace WebEng.Areas.GiaoVien.Controllers
             dao.Insert(tailieu);
             return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
         }
+        [HttpGet]
+        public ActionResult CreateBT(int idlh, int idkn, int stn)
+        {
+            var lh = new LopHocDAO().GetByID(idlh);
+            ViewBag.lophoc = lh;
+            ViewBag.idkn = idkn;
+            var bt = new BaiTap();
+            for (int i = 0; i < stn; i++)
+            {
+                var ch = new CauHoi();
+                bt.CauHois.Add(ch);
+            }           
+            return View("CreateBT", bt); 
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult CreateBT(List<CauHoi> cauhoi, HttpPostedFileBase file, BaiTap baitap, string tuluan, int idlh, int idkn)
+        {
+            var lh = new LopHocDAO().GetByID(idlh);
+            var dao = new BaiTapDAO();
+            if (file.ContentLength > 0)
+            {                
+                string _FileName = Path.GetFileName(file.FileName);
+                string _path = Path.Combine(Server.MapPath("~/Content/img/"), _FileName);
+                file.SaveAs(_path);
+                int fileSize = file.ContentLength;
+                int Size = fileSize / 1000000;                
+                var tailieu = new TaiLieu();
+                tailieu.ten = _FileName;
+                tailieu.FileSize = Size;
+                tailieu.link = "~/"+_FileName;
+                tailieu.idLH = lh.ID;
+                tailieu.thoiGian = DateTime.Now;
+                tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
+                tailieu.idKN = idkn;
+                tailieu.idBT = baitap.ID;
+                baitap.TaiLieux.Add(tailieu);
+            }
+            baitap.CauHois = cauhoi;
+            try
+            {
+                dao.Insert(baitap);
+                TempData["testmsg"] = "Thêm bài tập thành công.";
+            }
+            catch
+            {
+                TempData["testmsg"] = "Thêm bài tập không thành công.";
+            }
+            return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
+        }
+       
     }
 }

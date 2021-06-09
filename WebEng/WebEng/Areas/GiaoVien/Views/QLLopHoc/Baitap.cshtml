@@ -4,6 +4,7 @@
     ViewBag.Title = "Viet";
     int idkn = (int)ViewBag.idkn;
     var lophoc = (LopHoc)ViewBag.lophoc;
+    int sdt = 1;
 }
 
 <!DOCTYPE html>
@@ -26,14 +27,20 @@
         });
         $(function () {
             var ShowModal = $('#showModal');
-            $('button[data-toggle="ajax-modal"]').click(function (event) {
+            $('button[data-toggle="ajax-modal"]').click(function (event) {  
+                alert('a');
                 var url = $(this).data('url');
                 $.get(url).done(function (data) {
                     ShowModal.html(data);
-                    ShowModal.find('.modal').modal('show');
+                    ShowModal.find('#myModalBT_bt').modal('show');
                 })
             })
         });
+        $("#stn").change(function () {
+            alert("Handler for .change() called.");
+           
+        });
+        
     </script>
 </head>
 <body>
@@ -54,36 +61,29 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <button style="margin-left: 27px;margin-bottom:10px;" type="button" class="btn btn-primary rounded-0" data-toggle="modal" data-target="#myModalBT_@idkn">
-                        <i class="fa fa-plus-circle"></i> Add New
+
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-sm">
+                        Tạo bài tập
                     </button>
-                    <div class="modal fade" id="myModalBT_@idkn">
-                        <div class="modal-dialog">
+                    <div class="modal fade" id="modal-sm">
+                        <div class="modal-dialog modal-sm">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Tài liệu</h4>
-                                    <button type="button" class="close" data-dismiss="modal">×</button>
-                                </div>
-                                @using (Html.BeginForm("Baitap", "QLLopHoc", new { idlh = lophoc.ID ,idkn}, FormMethod.Post))
+                                @using (Html.BeginForm("CreateBT", "QLLopHoc", FormMethod.Get))
                                 {
+                                    <input value="@lophoc.ID" name="idlh" hidden/>
+                                    <input value="@idkn" name="idkn" hidden/>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <div class="input-group">
-                                                <label>Tên tài liệu:</label>
-                                                <input type="text" name="ten" required/>
-                                            </div>
-                                            <textarea name="link" required></textarea>
-                                            <script>
-                                                CKEDITOR.replace('link');
-                                            </script>
+                                            <input type="number" name="stn" autofocus required class="form-control form-control-border border-width-2 focus" id="inputbt" placeholder="Số câu trắc nghiệm">
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger">Lưu</button>
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Next</button>
                                     </div>
                                 }
                             </div>
+                            <!-- /.modal-content -->
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                                     </td>
                                     <td>@item.thoiGian</td>
                                     <td>
-                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-eye"></i></button>
+                                        @*<button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-eye"></i></button>*@
                                     </td>
                                 </tr>
                             }

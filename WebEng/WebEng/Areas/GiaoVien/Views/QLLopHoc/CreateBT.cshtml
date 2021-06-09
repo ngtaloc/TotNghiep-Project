@@ -1,0 +1,117 @@
+﻿@using Models.Framework
+@model BaiTap
+@{
+    ViewBag.Title = "CreateBT";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    int idkn = (int)ViewBag.idkn;
+    int d = 0;
+    var lophoc = (LopHoc)ViewBag.lophoc;
+    List<CauHoi> cauhoi = Model.CauHois.ToList();
+}
+<script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+
+<div class="card card-light">
+    <div class="card-header">
+        <h3 class="card-title">Bài tập</h3>
+    </div>
+    @using (Html.BeginForm("CreateBT", "QLLopHoc", cauhoi, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input value="@lophoc.ID" name="idlh"hidden />
+        <input value="@idkn" name="idkn"  hidden/>
+    <div class="card-body">
+
+        <div class="form-group">
+            <label>Tên bài tập:</label>
+            @*<input type="text" name="ten" required />*@
+            @Html.TextBoxFor(model => model.tenBT, new { @class = "form-control form-control-border", @placeholder = "Nhập câu A" })
+
+        </div>
+
+        <div class="card card-light">           
+            <div class="card-body">
+                
+                <div class="form-group">
+                    <label>Choose File:</label>
+                    <div class="input-group">
+                        <div>
+                            @Html.TextBox("file", "", new { type = "file" }) <br />
+                            
+                            @ViewBag.Message
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">Trắc nghiệm</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                @*@for (var i = 0; i < Model.CauHois.Count(); i++) {*@
+                @foreach (var item in Model.CauHois)
+                {
+                    d++;
+                    <div class="form-group">
+                        <label for="exampleInputBorder">Câu: @d</label>
+                        @Html.TextBoxFor(x => cauhoi[d - 1].CauHoi1, new { @class = "form-control form-control-border", @id = "exampleInputBorder", @placeholder = "Nhập câu hỏi" })
+                        <div class="row col-12">
+                            <div class="form-check col-3">
+                                @*<input class="form-check-input" type="radio" id="A_@d" name="radio_@d" checked>*@
+                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "A", new { @class = "form-check-input", @id = "A_" + d, @checked = "true" })
+                                <label for="A_@d"><code>A</code></label>
+                                @*<input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu A">*@
+                                @Html.TextBoxFor(x => cauhoi[d - 1].A, new { @class = "form-control form-control-border", @placeholder = "Nhập câu A" })
+
+                            </div>
+                            <div class="form-check col-3">
+                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "B", new { @class = "form-check-input", @id = "B_" + d })
+                                <label for="B_@d"><code>B</code></label>
+                                @Html.TextBoxFor(x => cauhoi[d - 1].B, new { @class = "form-control form-control-border", @placeholder = "Nhập câu B" })
+
+                            </div>
+                            <div class="form-check col-3">
+                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "C", new { @class = "form-check-input", @id = "C_" + d })
+                                <label for="C_@d"><code>C</code></label>
+                                @Html.TextBoxFor(x => cauhoi[d - 1].C, new { @class = "form-control form-control-border", @placeholder = "Nhập câu C" })
+                            </div>
+                            <div class="form-check col-3">
+                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "D", new { @class = "form-check-input", @id = "D_" + d })
+                                <label for="D_@d"><code>D</code></label>
+                                @Html.TextBoxFor(x => cauhoi[d - 1].D, new { @class = "form-control form-control-border", @placeholder = "Nhập câu D" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">Tự luận</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <div class="form-group">
+                    <textarea name="tuluan" required></textarea>
+                    <script>
+                        CKEDITOR.replace('tuluan');
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+        <div class="card-footer float-right">
+            <button type="submit" class="btn btn-danger">Lưu</button>
+        </div>
+    }
+</div>
+        
+
+
+

@@ -115,6 +115,7 @@ namespace WebEng.Areas.HocVien.Controllers
         {
             var dao = new LopHocDAO();
             var model = dao.FindLopHocHocVien(User.Identity.Name);
+            
             return PartialView("~/Areas/HocVien/Views/Shared/LopDaDK.cshtml",model);
         }
 

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Models.Framework.CauHoi>
+@{ 
+    int d = 0;
+}
+
+    <div class="modal fade" id="myModalBT_bt">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tài liệu</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                @*@using (Html.BeginForm("Baitap", "QLLopHoc", new { idlh = lophoc.ID, idkn }, FormMethod.Post))*@
+                {
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label>Tên bài tập:</label>
+                                <input type="text" name="ten" required />
+                                &emsp;
+                                
+
+
+
+
+
+                            </div>
+                            <div class="card card-light">
+                                <div class="card-header">
+                                    <h3 class="card-title">Trắc nghiệm</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+
+                                    @foreach (var item in Model)
+                                    {
+                                        d++;
+                                        <div class="form-group">
+                                            <label for="exampleInputBorder">Câu: @d</label>
+                                            <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu hỏi">
+                                            <div class="row col-12">
+                                                <div class="form-check col-3">
+                                                    <input class="form-check-input" type="radio" id="A_@d" name="radio_@d" checked>
+                                                    <label for="A_@d"><code>A</code></label>
+                                                    <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu A">
+                                                </div>
+                                                <div class="form-check col-3">
+                                                    <input class="form-check-input" type="radio" id="B_@d" name="radio_@d">
+                                                    <label for="B_@d"><code>B</code></label>
+                                                    <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu B">
+                                                </div>
+                                                <div class="form-check col-3">
+                                                    <input class="form-check-input" type="radio" id="C_@d" name="radio_@d">
+                                                    <label for="C_@d"><code>C</code></label>
+                                                    <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu C">
+                                                </div>
+                                                <div class="form-check col-3">
+                                                    <input class="form-check-input" type="radio" id="D_@d" name="radio_@d">
+                                                    <label for="D_@d"><code>D</code></label>
+                                                    <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu D">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <div class="card card-light">
+                                <div class="card-header">
+                                    <h3 class="card-title">Tự luận</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <textarea name="link" required></textarea>
+                                        <script>
+                                                            CKEDITOR.replace('link');
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Lưu</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
