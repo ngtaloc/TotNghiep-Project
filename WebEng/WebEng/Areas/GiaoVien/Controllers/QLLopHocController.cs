@@ -30,19 +30,22 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var dao = new DSLopHocDAO();
             if(ds.trangthai == 1)
             {
+                TempData["testmsg"] = "Xác nhận thành công.";
                 ds.trangthai = 2;
             }
             else if(ds.trangthai == 2)
             {
+                TempData["testmsg"] = "Khóa thành công.";
                 ds.trangthai = 3;
             }
             else
             {
+                TempData["testmsg"] = "Mở khóa thành công.";
                 ds.trangthai = 1;
             }
             dao.UpdateStatus(ds);
             var lh = new LopHocDAO().GetByID(ds.idLH);
-            return View(lh);
+            return RedirectToAction("Index/" + ds.idLH, "QLLopHoc");
         }
         public ActionResult Listening(LopHoc lopHoc)
         {
@@ -192,7 +195,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
         {
             var lh = new LopHocDAO().GetByID(idlh);
             var dao = new BaiTapDAO();
-            if (file.ContentLength > 0)
+            if (file != null && file.ContentLength > 0 )
             {                
                 string _FileName = Path.GetFileName(file.FileName);
                 string _path = Path.Combine(Server.MapPath("~/Content/img/"), _FileName);
