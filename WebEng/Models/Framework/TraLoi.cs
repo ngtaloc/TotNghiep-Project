@@ -21,5 +21,7 @@ namespace Models.Framework
         public virtual CauHoi CauHoi { get; set; }
 
         public virtual HocVien HocVien { get; set; }
+
+        public DateTime thoiGian { get; set; }
     }
 }

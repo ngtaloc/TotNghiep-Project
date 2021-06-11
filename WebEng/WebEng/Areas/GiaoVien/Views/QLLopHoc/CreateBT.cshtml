@@ -8,7 +8,64 @@
     var lophoc = (LopHoc)ViewBag.lophoc;
     List<CauHoi> cauhoi = Model.CauHois.ToList();
 }
+<!-- date-range-picker -->
+<script src="~/Content/Template/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<!-- daterange picker -->
+<link rel="stylesheet" href="~/Content/Template/plugins/daterangepicker/daterangepicker.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="~/Content/Template/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="~/Content/Template/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/Content/Template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<!-- Bootstrap4 Duallistbox -->
+<link rel="stylesheet" href="~/Content/Template/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+<!-- BS Stepper -->
+<link rel="stylesheet" href="~/Content/Template/plugins/bs-stepper/css/bs-stepper.min.css">
+<!-- dropzonejs -->
+<link rel="stylesheet" href="~/Content/Template/plugins/dropzone/min/dropzone.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/Template/dist/css/adminlte.min.css">
+<!-- jQuery -->
+<script src="~/Content/Template/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Content/Template/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="~/Content/Template/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="~/Content/Template/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="~/Content/Template/plugins/moment/moment.min.js"></script>
+<script src="~/Content/Template/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="~/Content/Template/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="~/Content/Template/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="~/Content/Template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="~/Content/Template/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="~/Content/Template/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="~/Content/Template/plugins/dropzone/min/dropzone.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Content/Template/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/Content/Template/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        //Date and time picker
+        $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+    });
+
+</script>
+
 
 <div class="card card-light">
     <div class="card-header">
@@ -16,102 +73,119 @@
     </div>
     @using (Html.BeginForm("CreateBT", "QLLopHoc", cauhoi, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <input value="@lophoc.ID" name="idlh"hidden />
-        <input value="@idkn" name="idkn"  hidden/>
-    <div class="card-body">
+        <input value="@lophoc.ID" name="idlh" hidden />
+        <input value="@idkn" name="idkn" hidden />
+        <div class="card-body">
 
-        <div class="form-group">
-            <label>Tên bài tập:</label>
-            @*<input type="text" name="ten" required />*@
-            @Html.TextBoxFor(model => model.tenBT, new { @class = "form-control form-control-border", @placeholder = "Nhập câu A" })
+            <div class="form-group col-12 row">
+                <div class="col-6">
+                    <label>Tên bài tập:</label>
+                    @*<input type="text" name="ten" required />*@
+                    @Html.TextBoxFor(model => model.tenBT, new { @class = "form-control form-control-border", @placeholder = "Nhập tên bài tập", @required="true" })
 
-        </div>
+                    <label>Hạn nộp bài</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" name="ngaynop" required/>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <label>Thời gian làm bài (phút) :</label>
+                    @Html.TextBoxFor(model => model.thoiGianLamBai, new { @class = "form-control form-control-border", @placeholder = "60", @type = "number" })
+                </div>
+                <div class="col-6">
+                    <label>Ghi chú:</label>
+                    @Html.TextBoxFor(model => model.ghiChu, new { @class = "form-control form-control-border", @placeholder = "Ghi chú (Nếu có)", @type = "text" })
+                    <div class="card card-light">
+                        <div class="card-body">
 
-        <div class="card card-light">           
-            <div class="card-body">
+                            <div class="form-group">
+                                <label>Choose File:</label>
+                                <div class="input-group">
+                                    <div>
+                                        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+                                        @ViewBag.Message
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
                 
-                <div class="form-group">
-                    <label>Choose File:</label>
-                    <div class="input-group">
-                        <div>
-                            @Html.TextBox("file", "", new { type = "file" }) <br />
-                            
-                            @ViewBag.Message
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
 
-        <div class="card card-light">
-            <div class="card-header">
-                <h3 class="card-title">Trắc nghiệm</h3>
+            
+
+            <div class="card card-light">
+                <div class="card-header">
+                    <h3 class="card-title">Trắc nghiệm</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @*@for (var i = 0; i < Model.CauHois.Count(); i++) {*@
+                    @foreach (var item in Model.CauHois)
+                    {
+                        d++;
+                        <div class="form-group">
+                            <label for="exampleInputBorder">Câu: @d</label>
+                            @Html.TextBoxFor(x => cauhoi[d - 1].CauHoi1, new { @class = "form-control form-control-border", @id = "exampleInputBorder", @placeholder = "Nhập câu hỏi" })
+                            <div class="row col-12">
+                                <div class="form-check col-3">
+                                    @*<input class="form-check-input" type="radio" id="A_@d" name="radio_@d" checked>*@
+                                    @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "A", new { @class = "form-check-input", @id = "A_" + d, @checked = "true" })
+                                    <label for="A_@d"><code>A</code></label>
+                                    @*<input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu A">*@
+                                    @Html.TextBoxFor(x => cauhoi[d - 1].A, new { @class = "form-control form-control-border", @placeholder = "Nhập câu A" })
+
+                                </div>
+                                <div class="form-check col-3">
+                                    @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "B", new { @class = "form-check-input", @id = "B_" + d })
+                                    <label for="B_@d"><code>B</code></label>
+                                    @Html.TextBoxFor(x => cauhoi[d - 1].B, new { @class = "form-control form-control-border", @placeholder = "Nhập câu B" })
+
+                                </div>
+                                <div class="form-check col-3">
+                                    @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "C", new { @class = "form-check-input", @id = "C_" + d })
+                                    <label for="C_@d"><code>C</code></label>
+                                    @Html.TextBoxFor(x => cauhoi[d - 1].C, new { @class = "form-control form-control-border", @placeholder = "Nhập câu C" })
+                                </div>
+                                <div class="form-check col-3">
+                                    @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "D", new { @class = "form-check-input", @id = "D_" + d })
+                                    <label for="D_@d"><code>D</code></label>
+                                    @Html.TextBoxFor(x => cauhoi[d - 1].D, new { @class = "form-control form-control-border", @placeholder = "Nhập câu D" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                @*@for (var i = 0; i < Model.CauHois.Count(); i++) {*@
-                @foreach (var item in Model.CauHois)
-                {
-                    d++;
+            <div class="card card-light">
+                <div class="card-header">
+                    <h3 class="card-title">Tự luận</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputBorder">Câu: @d</label>
-                        @Html.TextBoxFor(x => cauhoi[d - 1].CauHoi1, new { @class = "form-control form-control-border", @id = "exampleInputBorder", @placeholder = "Nhập câu hỏi" })
-                        <div class="row col-12">
-                            <div class="form-check col-3">
-                                @*<input class="form-check-input" type="radio" id="A_@d" name="radio_@d" checked>*@
-                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "A", new { @class = "form-check-input", @id = "A_" + d, @checked = "true" })
-                                <label for="A_@d"><code>A</code></label>
-                                @*<input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Nhập câu A">*@
-                                @Html.TextBoxFor(x => cauhoi[d - 1].A, new { @class = "form-control form-control-border", @placeholder = "Nhập câu A" })
-
-                            </div>
-                            <div class="form-check col-3">
-                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "B", new { @class = "form-check-input", @id = "B_" + d })
-                                <label for="B_@d"><code>B</code></label>
-                                @Html.TextBoxFor(x => cauhoi[d - 1].B, new { @class = "form-control form-control-border", @placeholder = "Nhập câu B" })
-
-                            </div>
-                            <div class="form-check col-3">
-                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "C", new { @class = "form-check-input", @id = "C_" + d })
-                                <label for="C_@d"><code>C</code></label>
-                                @Html.TextBoxFor(x => cauhoi[d - 1].C, new { @class = "form-control form-control-border", @placeholder = "Nhập câu C" })
-                            </div>
-                            <div class="form-check col-3">
-                                @Html.RadioButtonFor(x => cauhoi[d - 1].DapAn, "D", new { @class = "form-check-input", @id = "D_" + d })
-                                <label for="D_@d"><code>D</code></label>
-                                @Html.TextBoxFor(x => cauhoi[d - 1].D, new { @class = "form-control form-control-border", @placeholder = "Nhập câu D" })
-                            </div>
-                        </div>
+                        <textarea name="tuluan" required></textarea>
+                        <script>
+                            CKEDITOR.replace('tuluan');
+                        </script>
                     </div>
-                }
-
-
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <div class="card card-light">
-            <div class="card-header">
-                <h3 class="card-title">Tự luận</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                <div class="form-group">
-                    <textarea name="tuluan" required></textarea>
-                    <script>
-                        CKEDITOR.replace('tuluan');
-                    </script>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
         <div class="card-footer float-right">
             <button type="submit" class="btn btn-danger">Lưu</button>
         </div>
     }
 </div>
-        
+
 
 
 

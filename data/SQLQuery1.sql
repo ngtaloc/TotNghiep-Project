@@ -39,8 +39,7 @@ create table ChucNangNhomQuyen(
 	primary key (idCN, IDNHOMQUYEN),
 );
 create table HocVien(	
-	id INT IDENTITY(1,1) PRIMARY KEY,
-    diachi nvarchar(100) ,
+	id INT IDENTITY(1,1) PRIMARY KEY,diachi nvarchar(100) ,
 	gioitinh nvarchar(3) ,
 	ngaysinh date,
 	email varchar(50) not null,
@@ -131,6 +130,7 @@ create table BaiTap(
 	ngayDang datetime,
 	trangThai int,	--0: đóng 1:mở
 	thoiGianLamBai int, --phút
+	tuLuan ntext,
 );
 create table CauHoi(
 	ID INT IDENTITY(1,1) PRIMARY KEY,	
@@ -150,6 +150,7 @@ create table TraLoi(
 	idCauHoi int,
 	idHV int,
 	DapAn Nvarchar(200),	
+	thoiGian datetime not null,
 	foreign key(idCauHoi) references CauHoi(id) ON UPDATE NO ACTION ,
 	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
 );
@@ -157,7 +158,7 @@ create table fileTraLoi(
 	ID INT IDENTITY(1,1) ,
 	ten nvarchar(50) NULL,  
 	FileSize int NULL,
-	link varchar(max) not null,
+	link nvarchar(256) not null,
 	thoiGian datetime not null,
 	trangThai int, --0:dong 1:mo
 	idBT int,
@@ -174,7 +175,7 @@ create table TaiLieu(
 	ID INT IDENTITY(1,1) ,
 	ten nvarchar(50) NULL,  
     FileSize int NULL, 
-    link varchar(max) not null,
+    link nvarchar(256) not null,
 	moTa ntext,
 	thoiGian datetime not null,
 	trangThai int, --0:dong 1:mo
@@ -217,7 +218,7 @@ create table ThongBao(
 	noiDung ntext,
 	ngay datetime not null,
 
-	link varchar(255),
+	link nvarchar(255),
 	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
 	trangThai int, --0:chưa đọc ; 1:đã đọc
 
@@ -493,3 +494,6 @@ values
 (4,1,1),
 (1,2,2),
 (3,2,2)
+
+ALTER TABLE fileTraloi
+ALTER COLUMN link nvarchar(256)

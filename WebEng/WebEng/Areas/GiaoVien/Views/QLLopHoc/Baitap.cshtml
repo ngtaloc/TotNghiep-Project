@@ -1,7 +1,7 @@
 ﻿@using Models.Framework
 @model IEnumerable<TaiLieu>
 @{
-    ViewBag.Title = "Viet";
+    ViewBag.Title = "Bài tập";
     int idkn = (int)ViewBag.idkn;
     var lophoc = (LopHoc)ViewBag.lophoc;
     int sdt = 1;
@@ -43,17 +43,7 @@
         
     </script>
 </head>
-<body>
-    @if (TempData["testmsg"] != null)
-    {
-        <div class="alert alert-info col-md-8 offset-md-1">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
-            @TempData["testmsg"]
-        </div>
-
-    }
-    
+<body>   
     <div class="container py-4">
         <h3 class="text-center text-uppercase">Bài tập</h3>
         <div class="card">
@@ -70,8 +60,8 @@
                             <div class="modal-content">
                                 @using (Html.BeginForm("CreateBT", "QLLopHoc", FormMethod.Get))
                                 {
-                                    <input value="@lophoc.ID" name="idlh" hidden/>
-                                    <input value="@idkn" name="idkn" hidden/>
+                                    <input value="@lophoc.ID" name="idlh" hidden />
+                                    <input value="@idkn" name="idkn" hidden />
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <input type="number" name="stn" autofocus required class="form-control form-control-border border-width-2 focus" id="inputbt" placeholder="Số câu trắc nghiệm">
@@ -87,14 +77,16 @@
                         </div>
                     </div>
                 </div>
-                <div id="showModal"></div>
-                <table id="dataTable" class="table table-bordered table-striped">
+                <div id="showModal"></div>                
+                <table class="table table-hover">
                     <thead>
-                        <tr>
-                            <th>Tên tài liệu</th>
-                            <th>Người tạo</th>
-                            <th>Thời gian tạo</th>
-                            <th>Tài liệu</th>
+                        <tr class="title">
+                            <th>Bài tập</th>
+                            <th>Ngày đăng </th>
+                            <th>Ngày nộp</th>
+                            <th>Submit</th>
+                            <th>Trạng thái</th>
+                            <th>Ghi chú</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,21 +94,23 @@
                         {
                             foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>@item.ten</td>
-                                    <td>
-                                        @item.TaiKhoan.hovaten
-                                    </td>
-                                    <td>@item.thoiGian</td>
-                                    <td>
-                                        @*<button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-eye"></i></button>*@
-                                    </td>
-                                </tr>
+                            <tr class="noidung">
+                                @*kích vào mỗi tr(row) chuyển sang trang chứa file và bài tập*@
+                                <td>
+                                    @Html.ActionLink(item.BaiTap.tenBT, "Chitietbaitap",new {idbt =item.idBT})
+                                </td>
+                                <td> @item.BaiTap.ngayDang</td>
+                                <td> @item.BaiTap.ngayNop </td>
+                                <td>@item.LopHoc.DSLopHocs.Where(x=>x.trangthai==2).Count() (HV) </td>
+                                <td>@if (item.BaiTap.trangThai == 1) { <p class="text-success">"Mở"</p> } else { <p class="text-danger">"Đóng"</p> } </td>
+                                <td>@item.BaiTap.ghiChu </td>
+                            </tr>
                             }
                         }
-
+                        
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>

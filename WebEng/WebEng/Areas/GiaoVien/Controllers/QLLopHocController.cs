@@ -92,7 +92,9 @@ namespace WebEng.Areas.GiaoVien.Controllers
             {
                 var lh = new LopHocDAO().GetByID(idlh);
                 string _FileName = Path.GetFileName(file.FileName);
-                string _path = Path.Combine(Server.MapPath("~/Content/img/"), _FileName);
+                string path = "Content/Data/tailieu/lh" + idlh + "/kn" + idkn + "/";
+                string _path = Path.Combine(Server.MapPath(path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
                 file.SaveAs(_path);
                 int fileSize = file.ContentLength;
                 int Size = fileSize / 1000000;
@@ -100,8 +102,8 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 var tailieu = new TaiLieu();
                 tailieu.ten = _FileName;
                 tailieu.FileSize = Size;
-                tailieu.link = "~/" + _FileName;
-                tailieu.idLH = lh.ID;
+                tailieu.link = path + _FileName;
+                tailieu.idLH = lh.ID;                
                 tailieu.thoiGian = DateTime.Now;
                 tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
                 tailieu.idKN = idkn;
@@ -146,34 +148,16 @@ namespace WebEng.Areas.GiaoVien.Controllers
             return RedirectToAction("Index/" + tailieu.LopHoc.ID+ "#custom-tabs-four-onlineclasss", "QLLopHoc");
         }
        
-        [HttpGet]
         public ActionResult Baitap(LopHoc lopHoc, int idkn)
         {
             var lh = new LopHocDAO().GetByID(lopHoc.ID);
             ViewBag.lophoc = lh;
             ViewBag.idkn = idkn;
             IEnumerable<TaiLieu> audiolist = null;
-            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.TaiKhoan.tenDangNhap == User.Identity.Name && x.idKN == idkn && !string.IsNullOrEmpty(x.idBT.ToString())); }
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.idLH == lopHoc.ID && x.idKN == idkn && !string.IsNullOrEmpty(x.idBT.ToString())); }
             return View(audiolist);
         }
-        //Tạo phương thức hành động UploadAudio với [HttpPost] trong bộ điều khiển. 
-        //Viết đoạn mã sau để chèn dữ liệu vào cơ sở dữ liệu và tải tệp lên trong thư mục AudioFileUpload của dự án.
-        [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Baitap(string ten, string link, int idlh, int idkn)
-        {
-            var lh = new LopHocDAO().GetByID(idlh);
-            var dao = new TaiLieuDAO();
-            var tailieu = new TaiLieu();
-            tailieu.ten = ten;
-            tailieu.link = link;
-            tailieu.idLH = lh.ID;
-            tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
-            tailieu.idKN = idkn;
-            tailieu.thoiGian = DateTime.Now;
-            dao.Insert(tailieu);
-            return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
-        }
+        
         [HttpGet]
         public ActionResult CreateBT(int idlh, int idkn, int stn)
         {
@@ -191,21 +175,23 @@ namespace WebEng.Areas.GiaoVien.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult CreateBT(List<CauHoi> cauhoi, HttpPostedFileBase file, BaiTap baitap, string tuluan, int idlh, int idkn)
+        public ActionResult CreateBT(List<CauHoi> cauhoi, HttpPostedFileBase file, BaiTap baitap, string tuluan, int idlh, int idkn, string ngaynop)
         {
             var lh = new LopHocDAO().GetByID(idlh);
             var dao = new BaiTapDAO();
             if (file != null && file.ContentLength > 0 )
             {                
                 string _FileName = Path.GetFileName(file.FileName);
-                string _path = Path.Combine(Server.MapPath("~/Content/img/"), _FileName);
+                string path = "Content/Data/baitap/lh" + idlh + "/kn"+idkn+"/";
+                string _path = Path.Combine(Server.MapPath(path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
                 file.SaveAs(_path);
                 int fileSize = file.ContentLength;
                 int Size = fileSize / 1000000;                
                 var tailieu = new TaiLieu();
                 tailieu.ten = _FileName;
                 tailieu.FileSize = Size;
-                tailieu.link = "~/"+_FileName;
+                tailieu.link = path + _FileName;
                 tailieu.idLH = lh.ID;
                 tailieu.thoiGian = DateTime.Now;
                 tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
@@ -213,18 +199,43 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 tailieu.idBT = baitap.ID;
                 baitap.TaiLieux.Add(tailieu);
             }
+            else
+            {
+                var tailieu = new TaiLieu();
+                tailieu.idLH = lh.ID;
+                tailieu.thoiGian = DateTime.Now;
+                tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
+                tailieu.idKN = idkn;
+                tailieu.idBT = baitap.ID;
+                tailieu.link = baitap.tenBT + baitap.ID;
+                baitap.TaiLieux.Add(tailieu);
+            }
+            baitap.ngayDang =DateTime.Now;
+            baitap.ngayNop =DateTime.Parse(ngaynop);
+            baitap.tuLuan = tuluan;
             baitap.CauHois = cauhoi;
+            baitap.trangThai = 1;       //0:đóng 1:mở
             try
             {
                 dao.Insert(baitap);
                 TempData["testmsg"] = "Thêm bài tập thành công.";
             }
-            catch
+            catch (Exception ex)
             {
-                TempData["testmsg"] = "Thêm bài tập không thành công.";
+                TempData["testmsg"] = "Thêm bài tập không thành công.\n"+ex.Message;
             }
             return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
         }
-       
+
+        public ActionResult Chitietbaitap(int idbt)
+        {
+            var dao = new BaiTapDAO();
+            var model = dao.GetByID(idbt);
+            ViewBag.CountSubmit = dao.CountSubmit(idbt);
+            var listhv = dao.ListHV_BT(idbt);
+            ViewBag.listhv = listhv;
+            return View(model);
+
+        }
     }
 }
