@@ -494,6 +494,3 @@ values
 (4,1,1),
 (1,2,2),
 (3,2,2)
-
-ALTER TABLE fileTraloi
-ALTER COLUMN link nvarchar(256)

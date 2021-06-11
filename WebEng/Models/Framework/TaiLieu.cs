@@ -17,6 +17,7 @@ namespace Models.Framework
         public int? FileSize { get; set; }
 
         [Required]
+        [StringLength(256)]
         public string link { get; set; }
 
         [Column(TypeName = "ntext")]

@@ -17,6 +17,7 @@ namespace Models.Framework
         public int? FileSize { get; set; }
 
         [Required]
+        [StringLength(256)]
         public string link { get; set; }
 
         public DateTime thoiGian { get; set; }
