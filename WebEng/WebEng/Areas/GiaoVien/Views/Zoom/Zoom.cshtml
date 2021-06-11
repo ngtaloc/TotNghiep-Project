@@ -37,15 +37,7 @@
     </script>
 </head>
 <body>
-    @if (TempData["testmsg"] != null)
-    {
-        <div class="alert alert-info col-md-8 offset-md-1">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
-            @TempData["testmsg"]
-        </div>
-
-    }
+ 
     <div class="container-onlineclass">
         <div class="header1">
             <div class="logo1">
@@ -78,11 +70,11 @@
                                                 <input type="text" name="ten" />
                                             </div>
                                             <div style="margin-top:5px" class="input-group">
-                                                <label>ID cuộc họp:&nbsp;&nbsp;&nbsp;</label>
+                                                <label>Meeting ID:&nbsp;&nbsp;&nbsp;</label>
                                                 <input type="text" name="trangthai" />
                                             </div>
                                             <div style="margin-top:5px" class="input-group">
-                                                <label>Mã mời:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                <label>Invite Link:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <input type="text" name="ma" />
                                             </div>
                                             <div style="margin-top:5px" class="input-group">

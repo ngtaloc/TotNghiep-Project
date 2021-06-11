@@ -78,7 +78,7 @@
                     }
                     @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
                     {
-                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "ab-pane fade"; }
+                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "tab-pane fade"; }
                         <div class="@active" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
                             @{Html.RenderAction("Speaking", "Learning", Model);}
                         </div>
@@ -86,7 +86,7 @@
                     }
                     @if (Model.KyNangLopHocs.Where(x => x.idKN == 3).Count() > 0)
                     {
-                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "ab-pane fade"; }
+                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "tab-pane fade"; }
                         <div class="@active" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
                             @{Html.RenderAction("Reading", "Learning", Model);}
                         </div>
@@ -95,7 +95,7 @@
 
                     @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
                     {
-                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "ab-pane fade"; }
+                        if (d == 1) { active = "tab-pane fade show active"; } else { active = "tab-pane fade"; }
                         <div class="@active" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
                             @{Html.RenderAction("Writing", "Learning", Model);}
                         </div>

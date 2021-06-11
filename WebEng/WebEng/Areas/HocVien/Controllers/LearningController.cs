@@ -202,6 +202,6 @@ namespace WebEng.Areas.HocVien.Controllers
             TempData["testmsg"] = "Nộp bài thành công.";
             return RedirectToAction("Chitietbaitap/"+idbt, "Learning");
         }
-        //Show TRẢ LỜI Bên GIÁO VIÊN & THỜI GIAN LÀM BÀI
+        //Show THỜI GIAN LÀM BÀI 
     }
 }

@@ -41,9 +41,18 @@ namespace WebEng.Areas.GiaoVien.Controllers
             tailieu.idLH = lh.ID;
             tailieu.idTK = lh.Giangvien.TaiKhoan.iD;
             //tailieu.idKN = 6;
-            tailieu.thoiGian = DateTime.Parse(thoigian);
-            dao.Insert(tailieu);
-            return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
+            try
+            {
+                tailieu.thoiGian = DateTime.Parse(thoigian);
+                dao.Insert(tailieu);
+                TempData["testmsg"] = "Tạo phòng ZOOM thành công.";
+            }
+            catch (Exception ex)
+            {
+                TempData["testmsg"] = "Lỗi tạo phòng ZOOM: "+ex.Message;
+            }
+            
+            return RedirectToAction("Index/" + lh.ID , "QLLopHoc");
         }
         //[HttpGet]
         //public ActionResult Ngay(int id, int idLH, string date, string thu)

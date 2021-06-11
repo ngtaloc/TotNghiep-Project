@@ -93,8 +93,8 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 var lh = new LopHocDAO().GetByID(idlh);
                 string _FileName = Path.GetFileName(file.FileName);
                 string path = "Content/Data/tailieu/lh" + idlh + "/kn" + idkn + "/";
-                string _path = Path.Combine(Server.MapPath(path), _FileName);
-                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
+                string _path = Path.Combine(Server.MapPath("~/"+path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath("~/"+path)));
                 file.SaveAs(_path);
                 int fileSize = file.ContentLength;
                 int Size = fileSize / 1000000;
