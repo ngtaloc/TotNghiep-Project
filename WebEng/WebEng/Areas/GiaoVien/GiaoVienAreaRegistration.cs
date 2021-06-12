@@ -17,13 +17,13 @@ namespace WebEng.Areas.GiaoVien
             context.MapRoute(
               "GiaoVien_chi-tiet",
               "GiaoVien/chi-tiet/{id}",
-              new { action = "Index", controller = "QLLopHoc", id = UrlParameter.Optional },
+              new { action = "ChiTiet", controller = "QLLopHoc", id = UrlParameter.Optional },
               new[] { "WebEng.Areas.GiaoVien.Controllers" }
           );
             context.MapRoute(
                 "GiaoVien_default",
                 "GiaoVien/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional, controller = "MoLop" },
+                new { action = "Index", id = UrlParameter.Optional, controller = "QLLopHoc" },
                 new[] { "WebEng.Areas.GiaoVien.Controllers" }
             );
         }

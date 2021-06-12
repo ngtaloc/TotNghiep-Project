@@ -2940,7 +2940,7 @@
     <Content Include="Areas\GiaoVien\Views\Zoom\Zoom.cshtml" />
     <Content Include="Areas\GiaoVien\Views\Noi\Noi.cshtml" />
     <Content Include="Areas\HocVien\Views\Tim\InfoGV.cshtml" />
-    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\ChiTiet.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Listening.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Speaking.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Reading.cshtml" />
@@ -2954,6 +2954,8 @@
     <Content Include="Areas\HocVien\Views\Learning\ChuaDK.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\CreateBT.cshtml" />
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Chitietbaitap.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Index.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Create.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

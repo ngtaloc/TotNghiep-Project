@@ -1,106 +1,474 @@
-﻿@model Models.Framework.LopHoc
+﻿@model IEnumerable<Models.Framework.LopHoc>
+
+
 @{
-    ViewBag.Title = "Quản lý lớp học";
+    ViewBag.Title = "GiaoVien";
     Layout = "~/Views/Shared/_TemLayout.cshtml";
 }
-
-
 @section css{
-    <!-- SweetAlert2 -->
-    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/sweetalert2/sweetalert2.min.css")">
-    <!-- Toastr -->
-    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/toastr/toastr.min.css")">
-    <style>
-        .card-body {
-            min-height: 515px;
-        }
-    </style>
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css")">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 }
 @section header{
-    @Model.tenLopHoc
+    <div class="col-md-3">
+        Giáo viên
+    </div>
+
+    @if (TempData["testmsg"] != null)
+    {
+        <div class="alert alert-info col-md-8 offset-md-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
+            @TempData["testmsg"]
+        </div>
+
+    }
 }
 
+
+<div id="showModalGV"></div>
+<div id="ShoweditModal"></div>
 <div class="row">
-    <div class="col-12 col-sm-12">
-        <div class="card card-primary card-outline card-outline-tabs">
-            <div class="card-header p-0 border-bottom-0">
-                <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="custom-tabs-four-Infoclasss-tab" data-toggle="pill" href="#custom-tabs-four-Infoclasss" role="tab" aria-controls="custom-tabs-four-Infoclasss" aria-selected="true">Info Class</a>
-                    </li>
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 1).Count() > 0)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Listening</a>
-                        </li>
-                    }
-
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Speaking</a>
-                        </li>
-                    }
-
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 3).Count() > 0)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Reading</a>
-                        </li>
-                    }
-
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 4).Count() > 0)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" id="custom-tabs-four-settings-tab" data-toggle="pill" href="#custom-tabs-four-settings" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Writing</a>
-                        </li>
-                    }
-
-                    <li class="nav-item">
-                        <a class="nav-link" id="custom-tabs-four-settings-tab" data-toggle="pill" href="#custom-tabs-four-onlineclasss" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Online Class</a>
-                    </li>
-                </ul>
+    <div class="col-lg-6">
+        <button type="button" data-toggle="ajax-model" id="Modal" data-target="#modal-create-lg" data-url="@Url.Action("Create")" class="btn dropdown-item">
+            <i style="margin-left:50px">Tạo lớp học</i>
+            <i class="fas fa-plus-square"></i>
+        </button>
+    </div>
+    <div class="container-fluid col-lg-6">
+        @using (Html.BeginForm("Tim", "QLLopHoc"))
+        {
+            <div class="input-group">
+                <input type="search" name="tim" class="form-control form-control-lg" placeholder="Search">
+                <div class="input-group-append" style="width:50px">
+                    <button type="submit" class="btn btn-lg btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="tab-content" id="custom-tabs-four-tabContent">
-                    <div class="tab-pane fade show active" id="custom-tabs-four-Infoclasss" role="tabpanel" aria-labelledby="custom-tabs-four-Infoclasss-tab">
-                        @{Html.RenderAction("InfoLH", "QLLopHoc", Model);}
-                    </div>
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 1).Count() > 0)
-                    {
-                        <div class="tab-pane fade " id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                            @{Html.RenderAction("Listening", "QLLopHoc", Model);}
+        }
+    </div>
+</div>
+<div class="card-body">
+    <div id="wrap" class="wrapper" style="display: grid; grid-gap:15px;grid-template-columns: 400px 400px 400px">
+        @foreach (var item in Model)
+        {
+            <div class="item item1">
+                <div class="card card-widget widget-user-2 shadow-sm">
+                    <a class="card card-widget widget-user" href="~/GiaoVien/chi-tiet/@item.ID">
+                        @if (!string.IsNullOrEmpty(item.hinh))
+                        {
+                            <div class="widget-user-header bg-info" style="background: url('../@item.hinh') center center; background-repeat: no-repeat; background-size: cover;"></div>
+                        }
+                        else
+                        {
+                            <div class="widget-user-header bg-info" style="background: url('https://idevelopcourses.com/wp-content/uploads/2020/04/11220df81631c7737ade4809b87ed82a-online-degrees-form-of.jpg') center center; background-repeat: no-repeat; background-size: cover;"></div>
+                        }
 
-                        </div>
-                    }
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
-                    {
-                        <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                            @{Html.RenderAction("Speaking", "QLLopHoc", Model);}
-                        </div>
-                    }
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 3).Count() > 0)
-                    {
-                        <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                            @{Html.RenderAction("Reading", "QLLopHoc", Model);}
-                        </div>
-                    }
+                    </a>
 
-                    @if (Model.KyNangLopHocs.Where(x => x.idKN == 2).Count() > 0)
-                    {
-                        <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                            @{Html.RenderAction("Writing", "QLLopHoc", Model);}
-                        </div>
-                    }
-                    <div class="tab-pane fade" id="custom-tabs-four-onlineclasss" role="tabpanel" aria-labelledby="custom-tabs-four-onlineclasss">
-                        @{  Html.RenderAction("Zoom", "Zoom", Model.ID);}
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item" style="color:black">
+                                <a id="nameClass" class="nav-link" style="pointer-events:none">
+                                    Lớp học:
+                                    <span class="float-right badge ">@item.tenLopHoc</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="numBers" class="nav-link" style="pointer-events:none">
+                                    Số lượng:
+                                    <span class="float-right badge "> @item.DSLopHocs.Count/@item.soluong</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a id="startLearn" class="nav-link" style="pointer-events:none">
+                                    Thời gian học:
+                                    <span class="float-right badge ">Đến: @item.ngayEnd.ToString().Split(' ')[0]</span>
+                                    <p class="float-right badge ">Từ:  @item.ngayBegin.ToString().Split(' ')[0]</p>
+
+                                </a>
+                                @*<a id="Due" class="nav-link" style="pointer-events:none; margin-bottom: 1.2rem;">
+                                        <span class="float-right badge ">Kết thúc: @item.ngayEnd.ToString().Split(' ')[0]</span>
+                                    </a>*@
+                            </li>
+
+                            <li class="nav-item" style="color:black">
+
+                                @if (item.Ngays.Count != 0)
+                                {
+                                    bool first = true;
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu2))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu2;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none;">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 2: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+
+
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu3))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu3;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge ">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu4))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu4;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge ">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu5))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu5;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge ">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu6))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu6;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge ">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().thu7))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().thu7;
+                                        if (first)
+                                        {
+                                            first = false;
+                                            <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                                <span class="float-right badge ">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                            </a>
+                                        }
+                                    }
+                                    if (!string.IsNullOrEmpty(item.Ngays.FirstOrDefault().chunhat))
+                                    {
+                                        var i = item.Ngays.FirstOrDefault().chunhat;
+
+                                        <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
+                                            <span class="float-right badge bg-danger">Chủ nhật: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                        </a>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <a id="numberMonths" class="nav-link" style="pointer-events:none">
+                                        Lịch học:
+                                        <span class="float-right badge ">Chưa có lịch học</span>
+                                    </a>
+
+                                }
+                            </li>
+                            <li class="nav-item" style="color:black">
+                                <a class="nav-link" style="pointer-events:none">
+                                    Trạng thái:
+                                    @switch (@item.trangThai)
+                                    {
+                                        case 0:
+                                            {
+                                                <span class="float-right badge bg-info">Đang tuyển sinh</span>
+                                                break;
+                                            }
+                                        case 1:
+                                            {
+                                                <span class="float-right badge bg-secondary">Ngừng tuyển sinh</span>
+                                                break;
+                                            }
+                                        case 2:
+                                            {
+                                                <span class="float-right badge bg-success">Đang học</span>
+                                                break;
+                                            }
+                                        case 3:
+                                            {
+                                                <span class="float-right badge bg-danger">Đã kết thúc</span>
+                                                break;
+                                            }
+                                    }
+
+                                </a>
+                            </li>
+
+                            @*<li class="nav-item" style="color:black; text-align:center">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6">
+                                            <button type="button" data-toggle="ajax-model-edit" id="Modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")" class="btn dropdown-item">
+                                                <i class="fas fa-user-edit"></i>
+                                            </button>
+                                        </div>
+                                          @using (Html.BeginForm("Delete", "MoLop", FormMethod.Get))
+                                        {
+                                        <div class="col-lg-6 col-md-6">
+                                            <button id="xoa" formaction="@Url.Action("Delete","MoLop",new {id = item.ID})" type="submit">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                        }
+                                    </div>
+                                </li>*@
+                        </ul>
                     </div>
                 </div>
             </div>
+        }
 
-        </div>
     </div>
+    <div class="content__product" id="product">
+        @*phân trang*@
+    </div>
+
 </div>
 
+@section masterjs
+        {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/jszip/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/pdfmake/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/datatables-buttons/js/buttons.colVis.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/moment/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/fullcalendar/main.js")"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+    <script src="~/Content/js/GV.js"></script>
+    <script src="@Url.Content("~/Content/Template/plugins/bs-custom-file-input/bs-custom-file-input.min.js")"></script>
+    <script>
+
+        $(function () {
+            var ShowModal = $('#showModalGV');
+            $('button[data-toggle="ajax-model"]').click(function (event) {
+                var url = $(this).data('url');
+
+                $.get(url).done(function (data) {
+                    console.log(data);
+                    ShowModal.html(data);
+                    ShowModal.find('#modal-create-lg').modal('show');
+                })
+            });
+
+            var ShowModaledit = $('#ShoweditModal');
+            $('button[data-toggle="ajax-model-edit"]').click(function (event) {
+                var url = $(this).data('url');
+                //var decodeUrl = decodeURIComponent(url);
+                $.get(url).done(function (data) {
+                    ShowModaledit.html(data);
+
+                    ShowModaledit.find('#modal-edit-lg').modal('show');
+                })
+            })
+        });
+
+
+        // tạo modal thời gian biểu
+        function myFunction() {
+            for (var i = 1; i <= parseInt($("#numbersofweek").val()); i++) {
+                var stt_lesson = document.createElement("label");
+                stt_lesson.textContent = "buổi " + i;
+                var div_stt = document.getElementById("child");
+                div_stt.appendChild(stt_lesson);
+
+                var p = document.createElement("select");
+                var div = document.getElementById("child");
+                div.appendChild(p);
+                p.style.height = "30px";
+                p.style.marginLeft = "10px";
+                p.name = "day";
+                for (var day = 1; day <= 7; day++) {
+                    var option = document.createElement("option");
+                    option.value = day;
+                    switch (day) {
+                        case 1: option.innerHTML = "Thứ hai";
+                            break;
+                        case 2: option.innerHTML = "Thứ ba";
+                            break
+                        case 3: option.innerHTML = "Thứ tư";
+                            break;
+                        case 4: option.innerHTML = "Thứ năm";
+                            break
+                        case 5: option.innerHTML = "Thứ sáu";
+                            break;
+                        case 6: option.innerHTUrlL = "Thứ bảy";
+                            break;
+                        case 7: option.innerHTML = "Chủ nhật";
+                            break;
+                    }
+                    p.appendChild(option);
+                }
+                var startday = document.createElement("input");
+                startday.type = "time";
+                startday.style.height = "30px";
+                startday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(startday);
+
+                var endday = document.createElement("input");
+                endday.type = "time";
+                endday.style.height = "30px";
+                endday.style.marginLeft = "20px";
+                var div_input = document.getElementById("child");
+                div_input.appendChild(endday);
+
+                var br = document.createElement("br");
+                var br1 = document.getElementById("child");
+                br1.appendChild(br);
+            }
+        }
+
+        let perPage = 6;
+        let currentPage = 1;
+        let start = 0;
+        let end = perPage;
+
+        let productArr = [];
+        let showAdd = false;
+
+        const image = document.getElementById('img');
+        const nameTeacher = document.getElementById('nameTeacher');
+        const job = document.getElementById('job');
+        const nameClass = document.getElementById('nameClass');
+        const numBers = document.getElementById('numBers');
+        const startLearn = document.getElementById("startLearn");
+        const Due = document.getElementById("Due");
+        const numberMonths = document.getElementById("numberMonths");;
+        const endLearn = document.getElementById("endLearn");
+        const btnNext = document.querySelector('.btn-next');
+        const btnPrev = document.querySelector('.btn-prev');
+
+
+        function getCurrentPage(currentPage) {
+            start = (currentPage - 1) * perPage;
+            end = currentPage * perPage;
+        }
+        const totalPages = Math.ceil(product.length / perPage);
+        btnNext.addEventListener('click', () => {
+            currentPage++;
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            getCurrentPage(currentPage);
+            renderProduct();
+        })
+
+        btnPrev.addEventListener('click', () => {
+            currentPage--;
+            if (currentPage <= 1) {
+                currentPage = 1;
+            }
+            getCurrentPage(currentPage);
+            renderProduct();
+        })
+
+        function renderListpage() {
+            let html = '';
+            html += '<li  class="active">';
+            html += '<a>' + 1 + '</a>';
+            html += '</li>';
+            for (let i = 2; i <= totalPages; i++) {
+                html += '<li  class="active">';
+                html += '<a>' + i + '</a>';
+                html += '</li>';
+            }
+            document.getElementById('number-page').innerHTML = html;
+        }
+        renderListpage();
+
+        function changePages() {
+            const currentPages = document.querySelectorAll('.number-page li')
+            for (let i = 0; i <= currentPages.length; i++) {
+                currentPages[i].addEventListener('click', () => {
+                    const value = i + 1;
+                    currentPage = value;
+                    getCurrentPage(currentPage);
+                    renderProduct();
+                })
+            }
+        }
+        changePages();
+
+        $("#xoa").click(function () {
+            $("div").remove();
+        });
+    </script>
+}

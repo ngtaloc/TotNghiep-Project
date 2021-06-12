@@ -246,7 +246,7 @@
                                         <img src="https://static.vecteezy.com/system/resources/previews/001/881/787/non_2x/online-classes-virtual-classroom-concept-vector.jpg" class="product-image" alt="Product Image">
                                     }
                                 </div>
-                                @using (Html.BeginForm("UpimgLop", "MoLop", Model, FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
+                                @using (Html.BeginForm("UpimgLop", "QLLopHoc", Model, FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
                                 {
                                     <button type="submit" class="btn btn-info col-12 col-sm-6" onclick="return confirm('Xác nhận đổi ảnh')">Đổi ảnh lớp học</button>
                                     <input type="file" class="form-control col-12 col-sm-6" placeholder="hình" name="img" required />
@@ -254,7 +254,7 @@
                             </div>
                             <div class="col-12 col-sm-6">
 
-                                @using (Html.BeginForm("Edit", "MoLop", FormMethod.Post))
+                                @using (Html.BeginForm("Editlh", "QLLopHoc", FormMethod.Post))
                                 {
                                     @Html.HiddenFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
 
@@ -284,7 +284,16 @@
                                         </select>
 
                                     </div>
+                                    <div class="form-group">
+                                        <label for="diachi">Các kỹ năng: </label>
+                                        @foreach (var item in Model.KyNangLopHocs)
+                                        {
+                                        <span>@item.KyNang.tenKyNang:@item.CapDo.tenCapDo &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                            
+                                        }
+                                    </div>
 
+                                  
 
                                     <button type="submit" class="btn btn-primary float-right" onclick="return confirm('Xác nhân cập nhật?')">Cập nhật</button>
 
@@ -297,7 +306,7 @@
                             <nav class="w-100">
                                 <div class="nav nav-tabs" id="product-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
-                                    <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
+                                    <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Danh sách lớp</a>
                                 </div>
                             </nav>
                             <div class="tab-content p-3" id="nav-tabContent">
@@ -307,7 +316,7 @@
                                         @*<div class="d-flex flex-row add-comment-section mt-4 mb-4 border-bottom px-4">*@
                                         @*<div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">*@
 
-                                        @using (Html.BeginForm("BinhLuan", "MoLop", new { idlh = Model.ID, idtk = Model.Giangvien.TaiKhoan.iD }, FormMethod.Post, new { @class = "d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" }))
+                                        @using (Html.BeginForm("BinhLuan", "QLLopHoc", new { idlh = Model.ID, idtk = Model.Giangvien.TaiKhoan.iD }, FormMethod.Post, new { @class = "d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" }))
                                         {
                                             if (!string.IsNullOrEmpty(Model.Giangvien.TaiKhoan.hinh))
                                             {
@@ -322,7 +331,7 @@
 
                                         <div class="coment-bottom bg-white p-2 px-4">
 
-                                            @foreach (var item in Model.BinhLuans)
+                                            @foreach (var item in Model.BinhLuans.OrderByDescending(x=>x.thoiGian))
                                             {
                                                 if (item.BinhLuan2 == null)
                                                 {
@@ -450,7 +459,7 @@
                                                         }
                                                     }
                                                     <div class="traloi">
-                                                        @using (Html.BeginForm("BinhLuan", "MoLop", new { tk = Model.Giangvien.TaiKhoan, lh = Model, idcha = item.ID }, FormMethod.Post))
+                                                        @using (Html.BeginForm("BinhLuan", "QLLopHoc", new { tk = Model.Giangvien.TaiKhoan, lh = Model, idcha = item.ID }, FormMethod.Post))
                                                         {
                                                             <textarea placeholder='Bình luận công khai...' name="noidung"></textarea>
                                                             <div class="btn1">
@@ -468,7 +477,82 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
+                                <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                                    <!-- danh sách lớp: click tr -> info HV -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title font-weight-bold">Danh sách lớp</h3>
+                                            <div class="card-tools">
+                                                <div class="input-group input-group-sm" style="width: 150px;">
+                                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-default">
+                                                            <i class="fas fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card-header -->
+                                        <div class="card-body table-responsive p-0">
+                                            <table class="table table-hover text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>ID</th>
+                                                        <th>Họ & Tên</th>
+                                                        <th>Ngày đăng ký</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Số điện thoại</th>
+                                                        <th>Email</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.DSLopHocs)
+                                                    {
+                                                        <tr>
+                                                            @using (Html.BeginForm("InfoLH", "QLLopHoc", item, FormMethod.Post))
+                                                            {
+                                                                if (item.trangthai == 1)
+                                                                {
+                                                                    <td><button type="submit" class="btn btn-block btn-outline-success btn-xs">Xác nhận</button></td>
+                                                                }
+                                                                else if (item.trangthai == 2)
+                                                                {
+                                                                    <td><button type="submit" class="btn btn-block btn-outline-danger btn-xs">Khóa</button></td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td><button type="submit" class="btn btn-block btn-outline-secondary btn-xs">Mở khóa</button></td>
+                                                                }
+                                                                <td>@item.idHV</td>
+                                                                <td>@item.HocVien.TaiKhoan.hovaten</td>
+                                                                <td>@item.ngaydDangKy</td>
+                                                                if (item.trangthai == 1)
+                                                                {
+                                                                    <td><span class="tag tag-success">Chờ</span></td>
+                                                                }
+                                                                else if (item.trangthai == 2)
+                                                                {
+                                                                    <td><span class="tag tag-success">Đang học</span></td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td><span class="tag tag-success">Bị khóa</span></td>
+                                                                }
+                                                                <td><span class="tag tag-success">@item.HocVien.sdt</span></td>
+                                                                <td>@item.HocVien.email</td>
+                                                            }
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.widget-user -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -548,79 +632,7 @@
         </div>
 
 
-        <!-- danh sách lớp: click tr -> info HV -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title font-weight-bold">Danh sách lớp</h3>
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>ID</th>
-                            <th>Họ & Tên</th>
-                            <th>Ngày đăng ký</th>
-                            <th>Trạng thái</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.DSLopHocs)
-                        {
-                        <tr>
-                            @using (Html.BeginForm("InfoLH", "QLLopHoc",item, FormMethod.Post)) {
-                            if (item.trangthai == 1)
-                            {
-                                    <td><button type="submit" class="btn btn-block btn-outline-success btn-xs">Xác nhận</button></td>
-                            }
-                            else if (item.trangthai == 2)
-                            {
-                                    <td><button type="submit" class="btn btn-block btn-outline-danger btn-xs">Khóa</button></td>
-                            }
-                            else
-                            {
-                                    <td><button type="submit" class="btn btn-block btn-outline-secondary btn-xs">Mở khóa</button></td>
-                            }
-                            <td>@item.idHV</td>
-                            <td>@item.HocVien.TaiKhoan.hovaten</td>
-                            <td>@item.ngaydDangKy</td>
-                            if (item.trangthai == 1)
-                            {
-                                <td><span class="tag tag-success">Chờ</span></td>
-                            }
-                            else if (item.trangthai == 2)
-                            {
-                                <td><span class="tag tag-success">Đang học</span></td>
-                            }
-                            else
-                            {
-                                <td><span class="tag tag-success">Bị khóa</span></td>
-                            }
-                            <td><span class="tag tag-success">@item.HocVien.sdt</span></td>
-                            <td>@item.HocVien.email</td>
-                                }
-                        </tr>
-                        }                        
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-        </div>
-        <!-- /.widget-user -->
+        
     </div>
 
 </div>

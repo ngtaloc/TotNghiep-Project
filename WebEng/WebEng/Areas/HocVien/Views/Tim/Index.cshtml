@@ -166,9 +166,14 @@
             <!-- Widget: user widget style 1 -->
             <a class="card card-widget widget-user" href="~/HocVien/chi-tiet/@item.ID" style="color:black;">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div class="widget-user-header bg-info" style="background: url('../@item.hinh') center center; background-repeat: no-repeat; background-size: cover;">
-
-                </div>
+                @if (!string.IsNullOrEmpty(item.hinh))
+                {
+                    <div class="widget-user-header bg-info" style="background: url('../@item.hinh') center center; background-repeat: no-repeat; background-size: cover;"></div>
+                }
+                else
+                {
+                    <div class="widget-user-header bg-info" style="background: url('https://static.vecteezy.com/system/resources/previews/001/881/787/non_2x/online-classes-virtual-classroom-concept-vector.jpg') center center; background-repeat: no-repeat; background-size: cover;"></div>
+                }
                 <div class="card-body">
                     <h3 class="widget-user">@item.tenLopHoc</h3>
                     <h6 class="text-muted widget-user-desc"> @item.mota</h6>

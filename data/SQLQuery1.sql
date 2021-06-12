@@ -377,17 +377,17 @@ insert into TAIKHOAN_NHOMQUYEN
 
 
 insert into ChucNang
-values (N'Mở Lớp','MoLop',NULL,0),
-(N'Quản lý lớp','QLLopHoc',NULL,0),
-(N'Thời khóa biểu','ThoiKhoaBieu',NULL,0),
-(N'Tìm lớp học','Tim',NULL,0),
-(N'Quản lý tiết học','Learning',NULL,0),
-(N'Quản lý giáo viên','QLGiaoVien',NULL,0),
-(N'Quản lý học viên','QLHocVien',NULL,0),
-(N'Quản lý Báo cáo thống kê','QLBaoCao',NULL,0),
-(N'Thống kê lớp học','ThongKe',NULL,0),
-(N'Thông tin cá nhân','Info',NULL,0),
-(N'Ví tiền','ViTien',NULL,0);
+values (N'Mở Lớp','MoLop','fas fa-edit',0),
+(N'Quản lý lớp','QLLopHoc','fas fa-school',0),
+(N'Thời khóa biểu','ThoiKhoaBieu','fas fa-calendar-alt',0),
+(N'Tìm lớp học','Tim','fas fa-search',0),
+(N'Quản lý tiết học','Learning','fas fa-clock',0),
+(N'Quản lý giáo viên','QLGiaoVien','fas fa-chalkboard-teacher',0),
+(N'Quản lý học viên','QLHocVien','fas fa-user-graduate',0),
+(N'Quản lý Báo cáo thống kê','QLBaoCao','fas fa-chart-bar',0),
+(N'Thống kê lớp học','ThongKe','fas fa-chart-bar',0),
+(N'Thông tin cá nhân','Info','fas fa-user-graduate',0),
+(N'Quản lý ví tiền','ViTien','fas fa-folder-open',0);
 
 
 insert into ChucNangNhomQuyen

@@ -1,14 +1,11 @@
 ﻿@model  Models.Framework.LopHoc
-@{
-    ViewBag.Title = "GiaoVien";
-    Layout = "~/Views/Shared/_TemLayout.cshtml";
-}
 
-@using (Html.BeginForm("Index", "MoLop", FormMethod.Post))
+@using (Html.BeginForm("Create", "QLLopHoc", FormMethod.Post))
 {
-    <div class="card card-primary card-outline">
-            
-                <div class="card-header">
+    <div class="modal fade" id="modal-create-lg" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div style="margin:auto" class="modal-header">
                     <h4 style="text-align:center" class="modal-title">Tạo lớp học</h4>
                 </div>
                 @Html.AntiForgeryToken()
@@ -196,52 +193,54 @@
                         </div>
                     </div>
 
-
                 </div>
                 <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-md btn-secondary" data-dismiss="modal" onclick="return confirm('Xác nhận đóng')">Đóng</button>
                     <button type="submit" class="btn btn-md btn-primary" onclick="return confirm('Xác nhận tạo lớp')">Tạo</button>
-                </div>
+                   </div>
 
-</div>
-  
+            </div>
+        </div>
+    </div>
+
 }
 <script>
-    $(document).ready(function () {
-        $('.js-example-basic-multiple').select2();
-    });
-
-    $(".custom-control-input").click(function () {
-        if (this.checked) {
-            $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').removeAttr("disabled");
-        } else {
-            $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').attr("disabled", true);
-
-        }
-
-    });
-
-    $(function () {
-        bsCustomFileInput.init();
-    });
-
-    $(function () {
-        $('#exampleInputFile').on('change', function () {
-            var filePath = $(this).val();
-            alert(filePath);
-            console.log(filePath);
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
         });
-    });
+
+        $(".custom-control-input").click(function () {
+           if (this.checked) {
+                $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').removeAttr("disabled");
+            } else {
+                $(this).closest('.custom-control.custom-checkbox.col-md-3').find('.form-control.form-control-sm.col-md-5').attr("disabled", true);
+
+            }
+
+        });
+
+        $(function () {
+            bsCustomFileInput.init();
+        });
+
+        $(function () {
+            $('#exampleInputFile').on('change', function () {
+                var filePath = $(this).val();
+                alert(filePath);
+                console.log(filePath);
+            });
+        });
 
 
-    $(".form-check-input").click(function () {
-        if (this.checked) {
-            $(this).val("TRUE");
-            $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').removeAttr("disabled");
-        } else {
-            $(this).val("FALSE");
-            $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').attr("disabled", true);
-        }
-    });
+        $(".form-check-input").click(function () {
+            if (this.checked) {
+                $(this).val("TRUE");
+                $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').removeAttr("disabled");
+            } else {
+                $(this).val("FALSE");
+                $(this).closest('.form-check.col-md-3').closest('.form-group.row.offset-md-1').find('.time').attr("disabled", true);
+            }
+        });
 
         //$(".time").change(function () {
         //    alert($(this).val());

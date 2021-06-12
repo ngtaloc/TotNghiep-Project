@@ -42,7 +42,11 @@
             {
                 <tr class="noidung">
                     <td>
-                        @if (it.link.ToString().Split('.')[it.link.ToString().Split('.').Count() - 1] == "mp3")
+                        @if (it.trangThai == 0)
+                        {
+                            <span>Đã đóng</span>
+                        }else
+                        if (it.link.ToString().Split('.')[it.link.ToString().Split('.').Count() - 1] == "mp3")
                         {
                             <audio controls>
                                 <source src="@Url.Content(it.link)" type="audio/ogg">
@@ -54,7 +58,7 @@
                         }
                         else
                         {<a href="~/@it.link" download=""><i class="fas fa-download"></i></a>}
-                        
+
                     </td>
                     <td> @it.ten </td>
                     <td> @it.TaiKhoan.hovaten  </td>

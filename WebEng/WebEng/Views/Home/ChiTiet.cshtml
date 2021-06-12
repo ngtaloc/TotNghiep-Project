@@ -251,7 +251,7 @@
                                     <div class="card-header row col-md-12 text-center">
                                         @using (Html.BeginForm("Index", "DangKy"))
                                         {
-                                            <button type="submit" class="btn-block btn-warning btn-lg">Đăng ký Học Ngay</button>
+                                            <button type="submit" class="btn-block btn-warning btn-lg" onclick="return confirm('Bạn chưa có tài khoản, bạn có muốn đăng ký ?')">Đăng ký Học Ngay</button>
                                         }
 
                                     </div>
