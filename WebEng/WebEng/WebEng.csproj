@@ -2921,7 +2921,6 @@
     <Content Include="Areas\GiaoVien\Views\Info\ThongBao.cshtml" />
     <Content Include="Areas\GiaoVien\Views\ThoiKhoaBieu\Index.cshtml" />
     <Content Include="Areas\HocVien\Views\Info\Index.cshtml" />
-    <Content Include="Areas\GiaoVien\Views\GiaoVien\Edit.cshtml" />
     <Content Include="Areas\GiaoVien\Views\MoLop\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baihoc.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Baitap.cshtml" />
@@ -2953,6 +2952,8 @@
     <Content Include="Areas\GiaoVien\Views\QLLopHoc\Edit.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\Chitietbaitap.cshtml" />
     <Content Include="Areas\HocVien\Views\Learning\ChuaDK.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\CreateBT.cshtml" />
+    <Content Include="Areas\GiaoVien\Views\QLLopHoc\Chitietbaitap.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

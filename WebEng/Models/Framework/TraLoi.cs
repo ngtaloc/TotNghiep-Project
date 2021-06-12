@@ -18,6 +18,8 @@ namespace Models.Framework
         [StringLength(200)]
         public string DapAn { get; set; }
 
+        public DateTime thoiGian { get; set; }
+
         public virtual CauHoi CauHoi { get; set; }
 
         public virtual HocVien HocVien { get; set; }

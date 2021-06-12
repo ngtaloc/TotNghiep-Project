@@ -39,8 +39,7 @@ create table ChucNangNhomQuyen(
 	primary key (idCN, IDNHOMQUYEN),
 );
 create table HocVien(	
-	id INT IDENTITY(1,1) PRIMARY KEY,
-    diachi nvarchar(100) ,
+	id INT IDENTITY(1,1) PRIMARY KEY,diachi nvarchar(100) ,
 	gioitinh nvarchar(3) ,
 	ngaysinh date,
 	email varchar(50) not null,
@@ -131,6 +130,7 @@ create table BaiTap(
 	ngayDang datetime,
 	trangThai int,	--0: đóng 1:mở
 	thoiGianLamBai int, --phút
+	tuLuan ntext,
 );
 create table CauHoi(
 	ID INT IDENTITY(1,1) PRIMARY KEY,	
@@ -150,6 +150,7 @@ create table TraLoi(
 	idCauHoi int,
 	idHV int,
 	DapAn Nvarchar(200),	
+	thoiGian datetime not null,
 	foreign key(idCauHoi) references CauHoi(id) ON UPDATE NO ACTION ,
 	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
 );
@@ -157,7 +158,7 @@ create table fileTraLoi(
 	ID INT IDENTITY(1,1) ,
 	ten nvarchar(50) NULL,  
 	FileSize int NULL,
-	link varchar(max) not null,
+	link nvarchar(256) not null,
 	thoiGian datetime not null,
 	trangThai int, --0:dong 1:mo
 	idBT int,
@@ -174,7 +175,7 @@ create table TaiLieu(
 	ID INT IDENTITY(1,1) ,
 	ten nvarchar(50) NULL,  
     FileSize int NULL, 
-    link varchar(max) not null,
+    link nvarchar(256) not null,
 	moTa ntext,
 	thoiGian datetime not null,
 	trangThai int, --0:dong 1:mo
@@ -217,7 +218,7 @@ create table ThongBao(
 	noiDung ntext,
 	ngay datetime not null,
 
-	link varchar(255),
+	link nvarchar(255),
 	icon varchar(255), --0:học viên đăng ký lớp học: "fa fa-address-card";  bình luận: "fa fa-comment" ; đánh giá :"fa fa-star" 
 	trangThai int, --0:chưa đọc ; 1:đã đọc
 
@@ -416,7 +417,8 @@ values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Conten
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)
 --ngày: IDlớpHọc-giờB-PhútB-GiờE-PhútE-BuổiHoc 
-values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00-11-00-3','1-27-4-2021-13-00-15-00-4','1-29-4-2021-9-00-11-00-5',4,'2021',1,'9-00-11-00','13-00-15-00');
+values ('1-15-4-2021-9-00-11-00-1','1-20-4-2021-13-00-15-00-2','1-22-4-2021-9-00-11-00-3','1-27-4-2021-13-00-15-00-4','1-29-4-2021-9-00-11-00-5',4,'2021',1,'9-00-11-00','13-00-15-00')
+,('1-15-6-2021-9-00-11-00-1','1-20-6-2021-13-00-15-00-2','1-22-6-2021-9-00-11-00-3','1-27-6-2021-13-00-15-00-4','1-29-6-2021-9-00-11-00-5',6,'2021',2,'9-00-11-00','13-00-15-00');
 -- chat giữa học viên và giáo viên
 
 insert into DSLopHoc
@@ -474,6 +476,17 @@ values (3,1,N'Bình luận của học viên AAAAAA','4/20/2021 10:50',0),
 (2,1,N'Trả lời Bình luận của học viên zzzz','5/15/2021 10:50',2);
 
 
+
+insert into KyNangLopHoc
+values
+(1,1,1),
+(2,1,1),
+(3,1,1),
+(4,1,1),
+(1,2,2),
+(3,2,2)
+
+
 insert into TaiLieu
 values(
 	'ten' 
@@ -485,11 +498,3 @@ values(
 	,1
 	,1
 	,2,'')
-insert into KyNangLopHoc
-values
-(1,1,1),
-(2,1,1),
-(3,1,1),
-(4,1,1),
-(1,2,2),
-(3,2,2)

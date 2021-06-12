@@ -67,6 +67,20 @@ namespace Models.DAO
             }
         }
 
-      
+        public int CountSubmit(int idbt)
+        {
+            int tn = db.TraLois.Where(x => x.CauHoi.BaiTap.ID == idbt).GroupBy(x => x.idHV).Count();
+            if (tn == 0)
+            {
+                tn = db.fileTraLois.Where(x => x.BaiTap.ID == idbt).GroupBy(x => x.idHV).Count();
+            }
+            return tn;
+        }
+
+
+        public IEnumerable<HocVien> ListHV_BT(int idbt)
+        {
+            return db.HocViens.Where(x => x.TraLois.Where(y => y.CauHoi.BaiTap.ID == idbt).Count() > 0);
+        }
     }
 }

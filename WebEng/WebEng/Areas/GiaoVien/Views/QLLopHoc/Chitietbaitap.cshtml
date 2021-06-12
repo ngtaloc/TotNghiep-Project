@@ -1,0 +1,186 @@
+﻿@using Models.Framework
+@model BaiTap
+@{
+    ViewBag.Title = "Chitietbaitap";
+    Layout = "~/Views/Shared/_TemLayout.cshtml";
+    int CountSubmit = (int)ViewBag.CountSubmit;
+    IEnumerable<HocVien> listhv = (IEnumerable<HocVien>)ViewBag.listhv;
+    int dem= 0;
+}
+<style>
+
+
+
+    h6 span {
+    }
+
+    .conten-tb {
+        background-color: #D8D8D8;
+    }
+
+    hr {
+        border: 1px solid gray;
+    }
+</style>
+
+
+<div class="card card-light">
+    <div class="card-header" style="background-color: transparent">
+        <h5><b>Bài tập: @Model.tenBT</b> </h5> @*đỗ dữ liệu tên lớp học *@
+    </div>
+    <div class="card-body" style="background-color: #f8f9fa">
+        <div class="card-group col-12">
+            <div class="col-4">
+                <div class="card card-primary card-outline">
+                    <div class="card-body">
+                        <h6><b>Kỹ năng: </b><span> @Model.TaiLieux.FirstOrDefault().KyNang.tenKyNang</span> </h6> @*đỗ dữ liệu tên kỹ năng trong thẻ span *@
+                        <h6><b>Lớp :</b> <span> @Model.TaiLieux.FirstOrDefault().LopHoc.tenLopHoc</span> </h6>@*đỗ dữ liệu tên bài tập trong thẻ span *@
+                        <h6><b>Học viên đã nộp: </b> <span> @CountSubmit</span> / <span>@Model.TaiLieux.FirstOrDefault().LopHoc.DSLopHocs.Count()</span> </h6>
+                        <h6><b>Ngày nộp: </b>  <span> @Model.ngayNop</span> </h6>  @*đỗ dữ liệu thời gian trong thẻ span *@
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-8">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">File bài tập</h3>
+                        <div class="card-tools">
+                            <ul class="pagination pagination-sm float-right">
+                                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tải về</th>
+                                    <th>Tên tài liệu</th>
+                                    <th>Ngày đăng </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.TaiLieux.Where(x => !string.IsNullOrEmpty(x.ten)))
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (item.link.ToString().Split('.')[item.link.ToString().Split('.').Count() - 1] == "mp3")
+                                            {
+                                                <audio controls>
+                                                    <source src="@Url.Content(item.link)" type="audio/ogg">
+                                                </audio>
+                                            }
+                                            else if (item.link.ToString().Contains("</p>"))
+                                            {
+                                                <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"XemCK/{item.ID}")">  <i class="fa fa-pen"></i>Xem</button>
+                                            }
+                                            else
+                                            {<a href="~/@item.link" download=""><i class="fas fa-download"></i></a>}
+
+                                        </td>
+                                        <td> @item.ten </td>
+                                        <td> @item.thoiGian</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+
+
+            </div>
+
+        </div>
+        <div class="card-group">
+
+            <div class="card card-secondary card-outline">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách học viên nộp bài</h3>
+                    <div class="card-tools">
+                        <ul class="pagination pagination-sm float-right">
+                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Mã HV</th>
+                                <th>Tên Học Hiên</th>
+                                <th>Ngày Submit</th>
+                                <th>Trắc nghiệm</th>
+                                <th>File tự luận</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var hv in listhv)
+                            {
+                                dem++;
+                            <tr>
+                                <td>@dem.</td>
+                                <td>@hv.id</td>
+                                <td>@hv.TaiKhoan.hovaten</td>
+                                <td>@hv.TraLois.FirstOrDefault(x => x.CauHoi.BaiTap.ID == Model.ID).thoiGian</td>
+                                <td>@{string diem = new Models.DAO.TraLoiDAO().Diem(Model.ID, hv.id); <span class="badge bg-danger">@diem</span> }</td>
+                                <td>
+                                    @{var file = hv.fileTraLois.Where(x => x.idBT == Model.ID);
+                                        foreach (var it in file)
+                                        {
+                                        <a href="~/@it.link" download=""><i class="fas fa-download"></i> @it.ten</a>
+
+                                        }
+                                    }
+                                </td>
+
+
+
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>
+
+
+
+<div id="showModal"></div>
+<script>
+
+    $(document).ready(function () {
+        $('#dataTable').DataTable();
+    });
+    $(function () {
+        var ShowModal = $('#showModal');
+        $('button[data-toggle="ajax-modal"]').click(function (event) {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                ShowModal.html(data);
+                ShowModal.find('.modal').modal('show');
+            })
+        })
+    });
+</script>
+
+

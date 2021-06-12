@@ -33,6 +33,9 @@ namespace Models.Framework
 
         public int? thoiGianLamBai { get; set; }
 
+        [Column(TypeName = "ntext")]
+        public string tuLuan { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CauHoi> CauHois { get; set; }
 

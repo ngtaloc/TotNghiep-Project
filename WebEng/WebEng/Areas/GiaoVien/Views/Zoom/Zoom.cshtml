@@ -1,8 +1,9 @@
 ﻿@using Models.Framework
 @model IEnumerable<TaiLieu>
 @{
-    ViewBag.Title = "Zoom";    
+    ViewBag.Title = "Zoom";
     var lophoc = (LopHoc)ViewBag.lophoc;
+    var zoom = (IEnumerable<Ngay>)ViewBag.Zoom;
 }
 
 <!DOCTYPE html>
@@ -36,16 +37,7 @@
     </script>
 </head>
 <body>
-    @if (TempData["testmsg"] != null)
-    {
-        <div class="alert alert-info col-md-8 offset-md-1">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-exclamation-triangle"></i> Thông báo!</h5>
-            @TempData["testmsg"]
-        </div>
-
-    }
-    
+ 
     <div class="container-onlineclass">
         <div class="header1">
             <div class="logo1">
@@ -78,12 +70,265 @@
                                                 <input type="text" name="ten" />
                                             </div>
                                             <div style="margin-top:5px" class="input-group">
-                                                <label>ID cuộc họp:&nbsp;&nbsp;&nbsp;</label>
+                                                <label>Meeting ID:&nbsp;&nbsp;&nbsp;</label>
                                                 <input type="text" name="trangthai" />
                                             </div>
                                             <div style="margin-top:5px" class="input-group">
-                                                      <label>Mã mời:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                <label>Invite Link:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                 <input type="text" name="ma" />
+                                            </div>
+                                            <div style="margin-top:5px" class="input-group">
+                                                <label>Thời gian:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                <select name="thoigian" style="width:185px">
+                                                    @foreach (var item in zoom)
+                                                    {
+                                                        if (!string.IsNullOrEmpty(item.ngay1))
+                                                        {
+                                                            string tam = item.ngay1.Split('-')[1] + '/' + item.ngay1.Split('-')[2] + '/' + item.ngay1.Split('-')[3] + ' ' + item.ngay1.Split('-')[4] + ':' + item.ngay1.Split('-')[5] + ':' + item.ngay1.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay2))
+                                                        {
+                                                            string tam = item.ngay2.Split('-')[1] + '/' + item.ngay2.Split('-')[2] + '/' + item.ngay2.Split('-')[3] + ' ' + item.ngay2.Split('-')[4] + ':' + item.ngay2.Split('-')[5] + ':' + item.ngay2.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay3))
+                                                        {
+                                                            string tam = item.ngay3.Split('-')[1] + '/' + item.ngay3.Split('-')[2] + '/' + item.ngay3.Split('-')[3] + ' ' + item.ngay3.Split('-')[4] + ':' + item.ngay3.Split('-')[5] + ':' + item.ngay3.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay4))
+                                                        {
+                                                            string tam = item.ngay4.Split('-')[1] + '/' + item.ngay4.Split('-')[2] + '/' + item.ngay4.Split('-')[3] + ' ' + item.ngay4.Split('-')[4] + ':' + item.ngay4.Split('-')[5] + ':' + item.ngay4.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay5))
+                                                        {
+                                                            string tam = item.ngay5.Split('-')[1] + '/' + item.ngay5.Split('-')[2] + '/' + item.ngay5.Split('-')[3] + ' ' + item.ngay5.Split('-')[4] + ':' + item.ngay5.Split('-')[5] + ':' + item.ngay5.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay6))
+                                                        {
+                                                            string tam = item.ngay6.Split('-')[1] + '/' + item.ngay6.Split('-')[2] + '/' + item.ngay6.Split('-')[3] + ' ' + item.ngay6.Split('-')[4] + ':' + item.ngay6.Split('-')[5] + ':' + item.ngay6.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay7))
+                                                        {
+                                                            string tam = item.ngay7.Split('-')[1] + '/' + item.ngay7.Split('-')[2] + '/' + item.ngay7.Split('-')[3] + ' ' + item.ngay7.Split('-')[4] + ':' + item.ngay7.Split('-')[5] + ':' + item.ngay7.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay8))
+                                                        {
+                                                            string tam = item.ngay8.Split('-')[1] + '/' + item.ngay8.Split('-')[2] + '/' + item.ngay8.Split('-')[3] + ' ' + item.ngay8.Split('-')[4] + ':' + item.ngay8.Split('-')[5] + ':' + item.ngay8.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay9))
+                                                        {
+                                                            string tam = item.ngay9.Split('-')[1] + '/' + item.ngay9.Split('-')[2] + '/' + item.ngay9.Split('-')[3] + ' ' + item.ngay9.Split('-')[4] + ':' + item.ngay9.Split('-')[5] + ':' + item.ngay9.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay10))
+                                                        {
+                                                            string tam = item.ngay10.Split('-')[1] + '/' + item.ngay10.Split('-')[2] + '/' + item.ngay10.Split('-')[3] + ' ' + item.ngay10.Split('-')[4] + ':' + item.ngay10.Split('-')[5] + ':' + item.ngay10.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay11))
+                                                        {
+                                                            string tam = item.ngay11.Split('-')[1] + '/' + item.ngay11.Split('-')[2] + '/' + item.ngay11.Split('-')[3] + ' ' + item.ngay11.Split('-')[4] + ':' + item.ngay11.Split('-')[5] + ':' + item.ngay11.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay12))
+                                                        {
+                                                            string tam = item.ngay12.Split('-')[1] + '/' + item.ngay12.Split('-')[2] + '/' + item.ngay12.Split('-')[3] + ' ' + item.ngay12.Split('-')[4] + ':' + item.ngay12.Split('-')[5] + ':' + item.ngay12.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay13))
+                                                        {
+                                                            string tam = item.ngay13.Split('-')[1] + '/' + item.ngay13.Split('-')[2] + '/' + item.ngay13.Split('-')[3] + ' ' + item.ngay13.Split('-')[4] + ':' + item.ngay13.Split('-')[5] + ':' + item.ngay13.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay14))
+                                                        {
+                                                            string tam = item.ngay14.Split('-')[1] + '/' + item.ngay14.Split('-')[2] + '/' + item.ngay14.Split('-')[3] + ' ' + item.ngay14.Split('-')[4] + ':' + item.ngay14.Split('-')[5] + ':' + item.ngay14.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay15))
+                                                        {
+                                                            string tam = item.ngay15.Split('-')[1] + '/' + item.ngay15.Split('-')[2] + '/' + item.ngay15.Split('-')[3] + ' ' + item.ngay15.Split('-')[4] + ':' + item.ngay15.Split('-')[5] + ':' + item.ngay15.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay16))
+                                                        {
+                                                            string tam = item.ngay16.Split('-')[1] + '/' + item.ngay16.Split('-')[2] + '/' + item.ngay16.Split('-')[3] + ' ' + item.ngay16.Split('-')[4] + ':' + item.ngay16.Split('-')[5] + ':' + item.ngay16.Split('-')[6];
+                                                            <option value="@tam">@tam</option>
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay17))
+                                                        {
+                                                            string tam = item.ngay17.Split('-')[1] + '/' + item.ngay17.Split('-')[2] + '/' + item.ngay17.Split('-')[3] + ' ' + item.ngay17.Split('-')[4] + ':' + item.ngay17.Split('-')[5] + ':' + item.ngay17.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay18))
+                                                        {
+                                                            string tam = item.ngay18.Split('-')[1] + '/' + item.ngay18.Split('-')[2] + '/' + item.ngay18.Split('-')[3] + ' ' + item.ngay18.Split('-')[4] + ':' + item.ngay18.Split('-')[5] + ':' + item.ngay18.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay19))
+                                                        {
+                                                            string tam = item.ngay19.Split('-')[1] + '/' + item.ngay19.Split('-')[2] + '/' + item.ngay19.Split('-')[3] + ' ' + item.ngay19.Split('-')[4] + ':' + item.ngay19.Split('-')[5] + ':' + item.ngay19.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay20))
+                                                        {
+                                                            string tam = item.ngay20.Split('-')[1] + '/' + item.ngay20.Split('-')[2] + '/' + item.ngay20.Split('-')[3] + ' ' + item.ngay20.Split('-')[4] + ':' + item.ngay20.Split('-')[5] + ':' + item.ngay20.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay21))
+                                                        {
+                                                            string tam = item.ngay21.Split('-')[1] + '/' + item.ngay21.Split('-')[2] + '/' + item.ngay21.Split('-')[3] + ' ' + item.ngay21.Split('-')[4] + ':' + item.ngay21.Split('-')[5] + ':' + item.ngay21.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay22))
+                                                        {
+                                                            string tam = item.ngay22.Split('-')[1] + '/' + item.ngay22.Split('-')[2] + '/' + item.ngay22.Split('-')[3] + ' ' + item.ngay22.Split('-')[4] + ':' + item.ngay22.Split('-')[5] + ':' + item.ngay22.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay23))
+                                                        {
+                                                            string tam = item.ngay23.Split('-')[1] + '/' + item.ngay23.Split('-')[2] + '/' + item.ngay23.Split('-')[3] + ' ' + item.ngay23.Split('-')[4] + ':' + item.ngay23.Split('-')[5] + ':' + item.ngay23.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay24))
+                                                        {
+                                                            string tam = item.ngay24.Split('-')[1] + '/' + item.ngay24.Split('-')[2] + '/' + item.ngay24.Split('-')[3] + ' ' + item.ngay24.Split('-')[4] + ':' + item.ngay24.Split('-')[5] + ':' + item.ngay24.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay25))
+                                                        {
+                                                            string tam = item.ngay25.Split('-')[1] + '/' + item.ngay25.Split('-')[2] + '/' + item.ngay25.Split('-')[3] + ' ' + item.ngay25.Split('-')[4] + ':' + item.ngay25.Split('-')[5] + ':' + item.ngay25.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay26))
+                                                        {
+                                                            string tam = item.ngay26.Split('-')[1] + '/' + item.ngay26.Split('-')[2] + '/' + item.ngay26.Split('-')[3] + ' ' + item.ngay26.Split('-')[4] + ':' + item.ngay26.Split('-')[5] + ':' + item.ngay26.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay27))
+                                                        {
+                                                            string tam = item.ngay27.Split('-')[1] + '/' + item.ngay27.Split('-')[2] + '/' + item.ngay27.Split('-')[3] + ' ' + item.ngay27.Split('-')[4] + ':' + item.ngay27.Split('-')[5] + ':' + item.ngay27.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay28))
+                                                        {
+                                                            string tam = item.ngay28.Split('-')[1] + '/' + item.ngay28.Split('-')[2] + '/' + item.ngay28.Split('-')[3] + ' ' + item.ngay28.Split('-')[4] + ':' + item.ngay28.Split('-')[5] + ':' + item.ngay28.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay29))
+                                                        {
+                                                            string tam = item.ngay29.Split('-')[1] + '/' + item.ngay29.Split('-')[2] + '/' + item.ngay29.Split('-')[3] + ' ' + item.ngay29.Split('-')[4] + ':' + item.ngay29.Split('-')[5] + ':' + item.ngay29.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay30))
+                                                        {
+                                                            string tam = item.ngay30.Split('-')[1] + '/' + item.ngay30.Split('-')[2] + '/' + item.ngay30.Split('-')[3] + ' ' + item.ngay30.Split('-')[4] + ':' + item.ngay30.Split('-')[5] + ':' + item.ngay30.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                        if (!string.IsNullOrEmpty(item.ngay31))
+                                                        {
+                                                            string tam = item.ngay31.Split('-')[1] + '/' + item.ngay31.Split('-')[2] + '/' + item.ngay31.Split('-')[3] + ' ' + item.ngay31.Split('-')[4] + ':' + item.ngay31.Split('-')[5] + ':' + item.ngay31.Split('-')[6];
+                                                            if (DateTime.Parse(tam) > DateTime.Now)
+                                                            {
+                                                                <option value="@tam">@tam</option>
+                                                            }
+                                                        }
+                                                    }
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -105,6 +350,7 @@
                             <th>Thời gian tạo</th>
                             <th>ID cuộc họp</th>
                             <th>Mã mời</th>
+                            <th>Thời gian</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -120,6 +366,7 @@
                                     <td>@item.thoiGian</td>
                                     <td>@item.moTa</td>
                                     <td>@item.link</td>
+                                    <td>abc</td>
                                 </tr>
                             }
                         }

@@ -1,4 +1,11 @@
-﻿
+﻿@using Models.Framework
+@model IEnumerable<TaiLieu>
+@{
+    ViewBag.Title = "Bài tập";
+    int idkn = (int)ViewBag.idkn;
+    var lophoc = (LopHoc)ViewBag.lophoc;
+}
+
 
 <style>
     .table {
@@ -26,20 +33,34 @@
             <th>Bài tập</th>
             <th>Ngày đăng </th>
             <th>Ngày nộp</th>
+            <th>Submit</th>
+            <th>Trạng thái</th>
             <th>Ghi chú</th>
-
         </tr>
     </thead>
     <tbody>
-        <tr class="noidung">
-            @*kích vào mỗi tr(row) chuyển sang trang chứa file và bài tập*@
-            <td>
-                @Html.ActionLink("đỗ tên bài tập ", "Chitietbaitap")
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr class="noidung">
+                    @*kích vào mỗi tr(row) chuyển sang trang chứa file và bài tập*@
+                    <td>
+                        @Html.ActionLink(item.BaiTap.tenBT, "Chitietbaitap", new { idbt = item.idBT })
+                    </td>
+                    <td> @item.BaiTap.ngayDang</td>
+                    <td> @item.BaiTap.ngayNop </td>
+                    <td>@item.LopHoc.DSLopHocs.Where(x => x.trangthai == 2).Count() (HV) </td>
+                    <td>
+                        @if (item.BaiTap.trangThai == 1)
+                        {<p class="text-success">"Mở"</p> }
+                        else
+                        { <p class="text-danger">"Đóng"</p>}
+                </td>
+                <td>@item.BaiTap.ghiChu </td>
+            </tr>
+        }
+    }
 
-            </td>
-            <td> đổ  thời gian úp file </td>
-            <td> đổ thời gian </td>
-            <td> chú thích  nếu cần </td>
-        </tr>
     </tbody>
 </table>

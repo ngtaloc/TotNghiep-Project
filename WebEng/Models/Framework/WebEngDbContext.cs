@@ -91,10 +91,6 @@ namespace Models.Framework
                 .WithOptional(e => e.ChucNang2)
                 .HasForeignKey(e => e.iDCha);
 
-            modelBuilder.Entity<fileTraLoi>()
-                .Property(e => e.link)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Giangvien>()
                 .Property(e => e.email)
                 .IsUnicode(false);
@@ -275,18 +271,10 @@ namespace Models.Framework
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.idTK);
 
-            modelBuilder.Entity<TaiLieu>()
-                .Property(e => e.link)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Thang>()
                 .HasMany(e => e.Ngays)
                 .WithOptional(e => e.Thang)
                 .HasForeignKey(e => e.iDThang);
-
-            modelBuilder.Entity<ThongBao>()
-                .Property(e => e.link)
-                .IsUnicode(false);
 
             modelBuilder.Entity<ThongBao>()
                 .Property(e => e.icon)

@@ -2,6 +2,7 @@
 using Models.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -68,7 +69,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 {
                     foreach (var item in audiolist)
                     {
-                        if (DateTime.Compare(item.thoiGian.Date, DateTime.Now.Date) >= 0)
+                        if (DateTime.Compare(item.thoiGian, DateTime.Now) >= 0)
                         {
                             date = item.thoiGian;
                             List<TaiLieu> list = new List<TaiLieu>();
@@ -77,6 +78,7 @@ namespace WebEng.Areas.HocVien.Controllers
                             return View(audiolist);
                         }                           
                     }
+                    return View(audiolist);
                 }       
             }
             return View(audiolist);
@@ -104,25 +106,102 @@ namespace WebEng.Areas.HocVien.Controllers
 			return View(lopHoc);
 
 		}
-		public ActionResult Baitap(LopHoc lopHoc)
+		public ActionResult Baitap(LopHoc lopHoc, int idkn)
 		{
-			return View(lopHoc);
+            var lh = new LopHocDAO().GetByID(lopHoc.ID);
+            ViewBag.lophoc = lh;
+            ViewBag.idkn = idkn;
+            IEnumerable<TaiLieu> audiolist = null;
+            if (lh.TaiLieux.Count() > 0) { audiolist = lh.TaiLieux.Where(x => x.idLH==lopHoc.ID && x.idKN == idkn && !string.IsNullOrEmpty(x.idBT.ToString())); }
+            return View(audiolist);
 
-		}
+        }
 
 		[ChildActionOnly]
         public ActionResult LopDaDK()
         {
             var dao = new LopHocDAO();
             var model = dao.FindLopHocHocVien(User.Identity.Name);
+            
             return PartialView("~/Areas/HocVien/Views/Shared/LopDaDK.cshtml",model);
         }
 
-        public ActionResult Chitietbaitap(LopHoc lopHoc)
+        [HttpGet]
+        public ActionResult Chitietbaitap(int idbt)
         {
-            return View(lopHoc);
-
+            var dao = new BaiTapDAO();
+            var model = dao.GetByID(idbt);
+            ViewBag.CountSubmit = dao.CountSubmit(idbt);
+            var hv= new HocVienDAO().FindByTDN(User.Identity.Name);
+            ViewBag.hv = hv;
+            List<TraLoi> tralois = new List<TraLoi>();
+            foreach(var i in model.CauHois)
+            {
+                var tl = new TraLoi();
+                tl.CauHoi = i;
+                tl.idCauHoi = i.ID;
+                tl.HocVien = hv;
+                tl.idHV = hv.id;
+                tralois.Add(tl);
+            }
+            ViewBag.tralois = tralois;
+            string d =null;
+            DateTime timenop;
+            if(hv.fileTraLois.Where(x=>x.idBT==idbt).Count()>0 || hv.TraLois.Where(x=>x.CauHoi.idBT==idbt).Count() > 0)
+            {
+                d = new TraLoiDAO().Diem(idbt, hv.id);
+                try
+                {
+                    timenop = hv.fileTraLois.Where(x => x.idBT == idbt).FirstOrDefault().thoiGian;
+                    ViewBag.timenop = timenop;
+                }
+                catch
+                {
+                    timenop = hv.TraLois.Where(x => x.CauHoi.idBT == idbt).FirstOrDefault().thoiGian;
+                    ViewBag.timenop = timenop;
+                }
+            }
+            ViewBag.diem = d;
+            
+            return View(model);
         }
-
+        [HttpPost]
+        public ActionResult Chitietbaitap(List<TraLoi> tralois, HttpPostedFileBase file, int idbt)
+        {
+            var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
+            if (file != null && file.ContentLength > 0)
+            {
+                var dao = new fileTraLoiDAO();
+                string _FileName = Path.GetFileName(file.FileName);
+                string path = "Content/Data/traloi/hv" + hv.id+"/bt" + idbt + "/";
+                string _path = Path.Combine(Server.MapPath(path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
+                file.SaveAs(_path);
+                int fileSize = file.ContentLength;
+                int Size = fileSize / 1000000;
+                var filetl = new fileTraLoi();
+                filetl.ten = _FileName;
+                filetl.FileSize = Size;
+                filetl.link = "~/" + _FileName;
+                filetl.idBT = idbt;
+                filetl.thoiGian = DateTime.Now;
+                filetl.idHV = hv.id;
+                filetl.trangThai = 1;           //0:dong 1:mo
+                dao.Insert(filetl);
+            }
+            var daotl = new TraLoiDAO();
+            foreach (var item in tralois)
+            {
+                var tl = new TraLoi();
+                tl.idCauHoi = item.idCauHoi;
+                tl.DapAn = item.DapAn;
+                tl.idHV = hv.id;
+                tl.thoiGian = DateTime.Now;
+                daotl.Insert(tl);
+            }
+            TempData["testmsg"] = "Nộp bài thành công.";
+            return RedirectToAction("Chitietbaitap/"+idbt, "Learning");
+        }
+        //Show THỜI GIAN LÀM BÀI 
     }
 }

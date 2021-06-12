@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="DAO\TraLoiDAO.cs" />
+    <Compile Include="DAO\fileTraLoiDAO.cs" />
     <Compile Include="DAO\BaiTapDAO.cs" />
     <Compile Include="DAO\TaiLieuDAO.cs" />
     <Compile Include="DAO\DSLopHocDAO.cs" />
