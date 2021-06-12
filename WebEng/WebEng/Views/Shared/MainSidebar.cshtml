@@ -1,6 +1,17 @@
 ﻿@using Models.Framework
 @model TaiKhoan
 
+<style>
+	.menu-con{
+		margin-right:20px;
+		list-style:none;
+		display:none;
+	}
+	
+	.menu-cha:hover .menu-con{
+		display:block;
+	}
+</style>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -39,8 +50,6 @@
                 <a href="http://localhost:52790/@Roles.GetRolesForUser().FirstOrDefault()/Info" class="d-block">
                     @(Model !=null ? Model.hovaten :"Xin Chào")
                 </a>
-
-                @Html.ActionLink("Đăng xuất", "Logout", "Home")
             </div>
         </div>
 
@@ -58,7 +67,7 @@
 
 							<li class="nav-item">
 								<a href="http://localhost:52790/@role/@i.tenFile" class="nav-link">
-									<i class="far fa-circle nav-icon"></i>
+									<i class="@item.icon" style="margin-right:10px;" ></i>
 									<p>
 										@i.tenChucNang
 										@if (i.ChucNang1.Count != 0)
@@ -80,7 +89,7 @@
 						{
 							<li class="nav-item">
 								<a href="http://localhost:52790/@it.NhomQuyen.tenNhomQuyen/@item.tenFile" class="nav-link">
-									<i class="nav-icon fas fa-user-graduate"></i>
+									<i class="@item.icon" style="margin-right:10px;" ></i>
 									<p>
 										@item.tenChucNang
 										@if (item.ChucNang1.Count != 0)
@@ -100,13 +109,23 @@
 				
 
 				
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-user-graduate"></i>
+				<li class="nav-item menu-cha">
+					<a  class="nav-link">
+						<i class="nav-icon fas fa-users-cog" style="margin-right:10px;" ></i>
 						<p>
 						Tài khoản
 						</p>
 					</a>
+					<ul class="menu-con">
+						<li class="nav-item row">
+						
+								<i class="nav-icon fas fa-cog" style="margin-right:10px; color:#c2c7d0; margin-top:4px;"></i>
+								<p>
+									  @Html.ActionLink("Đăng xuất","Logout", "Home")
+								</p>
+							
+						</li>
+					</ul>
 				</li>
 
 

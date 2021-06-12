@@ -75,24 +75,26 @@
                         <ul class="nav flex-column">
                             <li class="nav-item" style="color:black">
                                 <a id="nameClass" class="nav-link" style="pointer-events:none">
-                                    Lớp học
-                                    <span class="float-right badge bg-danger">@item.tenLopHoc</span>
+                                    Lớp học:
+                                    <span class="float-right badge ">@item.tenLopHoc</span>
                                 </a>
                             </li>
                             <li class="nav-item" style="color:black">
                                 <a id="numBers" class="nav-link" style="pointer-events:none">
-                                    Số lượng
-                                    <span class="float-right badge bg-danger"> @item.DSLopHocs.Count/@item.soluong</span>
+                                    Số lượng:
+                                    <span class="float-right badge "> @item.DSLopHocs.Count/@item.soluong</span>
                                 </a>
                             </li>
                             <li class="nav-item" style="color:black">
-                                <a id="startLearn" class="nav-link" style="pointer-events:none">
-                                    Thời gian học
-                                    <p class="float-right badge bg-danger">Bắt đầu:  @item.ngayBegin.ToString().Split(' ')[0]</p>
-                                </a>
-                                <a id="Due" class="nav-link" style="pointer-events:none; margin-bottom: 1.2rem;">
-                                    <span class="float-right badge bg-danger">Kết thúc: @item.ngayEnd.ToString().Split(' ')[0]</span>
-                                </a>
+								<a id="startLearn" class="nav-link" style="pointer-events:none">
+									Thời gian học:
+									<span class="float-right badge ">Đến: @item.ngayEnd.ToString().Split(' ')[0]</span>
+									<p class="float-right badge ">Từ:  @item.ngayBegin.ToString().Split(' ')[0]</p>
+
+								</a>
+                                @*<a id="Due" class="nav-link" style="pointer-events:none; margin-bottom: 1.2rem;">
+                                    <span class="float-right badge ">Kết thúc: @item.ngayEnd.ToString().Split(' ')[0]</span>
+                                </a>*@
                             </li>
 
                             <li class="nav-item" style="color:black">
@@ -107,8 +109,8 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none;">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 2: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 2: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
 
@@ -121,14 +123,14 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                         else
                                         {
                                             <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
-                                                <span class="float-right badge bg-danger">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                <span class="float-right badge ">Thứ 3: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                     }
@@ -139,14 +141,14 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                         else
                                         {
                                             <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
-                                                <span class="float-right badge bg-danger">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                <span class="float-right badge ">Thứ 4: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                     }
@@ -157,14 +159,14 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                         else
                                         {
                                             <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
-                                                <span class="float-right badge bg-danger">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                <span class="float-right badge ">Thứ 5: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                     }
@@ -175,14 +177,14 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                         else
                                         {
                                             <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
-                                                <span class="float-right badge bg-danger">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                <span class="float-right badge ">Thứ 6: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                     }
@@ -193,14 +195,14 @@
                                         {
                                             first = false;
                                             <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                                Lịch học
-                                                <span class="float-right badge bg-danger">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                Lịch học:
+                                                <span class="float-right badge ">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                         else
                                         {
                                             <a id="endLearn" class="nav-link" style="pointer-events:none ; margin-bottom: 1.2rem;">
-                                                <span class="float-right badge bg-danger">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
+                                                <span class="float-right badge ">Thứ 7: @i.Split('-')[0]:@i.Split('-')[1] - @i.Split('-')[2]:@i.Split('-')[3]</span>
                                             </a>
                                         }
                                     }
@@ -217,15 +219,15 @@
                                 else
                                 {
                                     <a id="numberMonths" class="nav-link" style="pointer-events:none">
-                                        Lịch học
-                                        <span class="float-right badge bg-danger">Chưa có lịch học</span>
+                                        Lịch học:
+                                        <span class="float-right badge ">Chưa có lịch học</span>
                                     </a>
 
                                 }
                             </li>
                             <li class="nav-item" style="color:black">
                                 <a class="nav-link" style="pointer-events:none">
-                                    Trạng thái
+                                    Trạng thái:
                                     @switch (@item.trangThai)
                                     {
                                         case 0:
@@ -253,14 +255,14 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item" style="color:black; text-align:center">
+                            @*<li class="nav-item" style="color:black; text-align:center">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <button type="button" data-toggle="ajax-model-edit" id="Modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")" class="btn dropdown-item">
                                             <i class="fas fa-user-edit"></i>
                                         </button>
                                     </div>
-                                    @*@using (Html.BeginForm("Delete", "MoLop", FormMethod.Get))*@
+                                      @using (Html.BeginForm("Delete", "MoLop", FormMethod.Get))
                                     {
                                     <div class="col-lg-6 col-md-6">
                                         <button id="xoa" formaction="@Url.Action("Delete","MoLop",new {id = item.ID})" type="submit">
@@ -269,7 +271,7 @@
                                     </div>
                                     }
                                 </div>
-                            </li>
+                            </li>*@
                         </ul>
                     </div>
                 </div>
@@ -278,17 +280,9 @@
 
     </div>
     <div class="content__product" id="product">
+		@*phân trang*@
     </div>
-    <div class="content__paging">
-        <div class="page">
-            <ul>
-                <li class="btn-prev btn-active fas fa-angle-left"></li>
-                <div class="number-page" id="number-page">
-                </div>
-                <li class="btn-next fas fa-angle-right"></li>
-            </ul>
-        </div>
-    </div>
+    
 </div>
 
 @section masterjs
