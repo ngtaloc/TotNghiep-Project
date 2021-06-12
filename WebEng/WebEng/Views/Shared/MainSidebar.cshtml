@@ -18,19 +18,19 @@
             <div class="image">
                 @try
                 {
-                    if (Model.hinh != "" && Model != null)
+                    if (!string.IsNullOrEmpty(Model.hinh))
                     {
                         <img src="~/@Model.hinh" class="img-circle elevation-2" alt="User Image">
                     }
                     else
                     {
-                        <img src="~/Content/Template/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="https://i.imgur.com/q52cLwE.png" class="img-circle elevation-2" alt="User Image">
 
                     }
                 }
                 catch
                 {
-                    <img src="~/Content/Template/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+                    <img src="https://i.imgur.com/q52cLwE.png" class="img-circle elevation-2" alt="User Image">
                 }
 
             </div>

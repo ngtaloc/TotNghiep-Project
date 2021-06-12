@@ -27,7 +27,7 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string ghiChu { get; set; }
 
-        public DateTime? ngayDang { get; set; }
+        public DateTime ngayDang { get; set; }
 
         public int? trangThai { get; set; }
 

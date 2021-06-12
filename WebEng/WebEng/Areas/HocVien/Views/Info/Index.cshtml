@@ -50,7 +50,7 @@
                     <div class="card-body box-profile">
                         <div class="text-center">
 
-                            @if (Model.TaiKhoan.hinh != "")
+                            @if (!string.IsNullOrEmpty(Model.TaiKhoan.hinh))
                             {
                                 <img class="profile-user-img img-fluid img-circle"
                                      src="~/@Model.TaiKhoan.hinh"
@@ -199,13 +199,14 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-6">
                                         <div class="col-12">
-                                            @if (@Model.TaiKhoan.hinh != "")
+                                            @if (!string.IsNullOrEmpty(Model.TaiKhoan.hinh))
                                             {
                                                 <img src="~/@Model.TaiKhoan.hinh" class="product-image" alt="Product Image">
                                             }
                                             else
-                                            { <img src="https://i.imgur.com/q52cLwE.png" class="product-image" alt="Product Image">
-                                               }
+                                            { 
+                                                <img src="https://drive.google.com/uc?id=1-YHva9USCRV-OC4JuU7cr3xrcPjCo2hd" class="product-image" alt="Product Image">
+                                            }
                                                 
                                         </div>
                                     </div>
@@ -266,7 +267,7 @@
             var ShowModal = $('#showModalMK');
             $('#ModalMK').click(function (event) {
                 var url = $(this).data('url');
-                alert(url);
+                //alert(url);
                 $.get(url).done(function (data) {
                     console.log(data);
                     ShowModal.html(data);

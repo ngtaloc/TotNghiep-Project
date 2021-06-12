@@ -25,7 +25,7 @@ namespace Models.DAO
         {
             try
             {
-                var tk = db.TaiKhoans.Find(entity.iD);
+                var tk = db.TaiKhoans.SingleOrDefault(x => x.iD == entity.iD);
                 tk.matKhau = entity.matKhau;
                 db.SaveChanges();
                 return true;
@@ -39,7 +39,7 @@ namespace Models.DAO
         {
             try
             {
-                var tk = db.TaiKhoans.Find(entity.iD);
+                var tk = db.TaiKhoans.SingleOrDefault(x => x.iD == entity.iD);
                 tk.hovaten = entity.hovaten;
                 tk.hinh = entity.hinh;
                 db.SaveChanges();

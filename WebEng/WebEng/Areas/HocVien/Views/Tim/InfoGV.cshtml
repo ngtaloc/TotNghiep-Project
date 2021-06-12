@@ -103,7 +103,7 @@
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            @if (Model.TaiKhoan.hinh != "")
+                            @if (!string.IsNullOrWhiteSpace(Model.TaiKhoan.hinh))
                             {
                                 <img class="profile-user-img img-fluid img-circle"
                                      src="~/@Model.TaiKhoan.hinh"
@@ -314,39 +314,43 @@
                                 <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
                                     <div class="row">
                                         <div class="col-12">
-                                            @foreach(var item in Model.LopHocs)
+                                            @foreach (var item in Model.LopHocs)
                                             {
-                                                foreach(var it in item.DSLopHocs)
+                                                foreach (var it in item.DSLopHocs)
                                                 {
-                                                    <div class="post">
-                                                        <div class="user-block">
-                                                            @if (it.HocVien.TaiKhoan.hinh != "")
-                                                            {
-                                                                <img class="img-circle img-bordered-sm" src="~/@it.HocVien.TaiKhoan.hinh" alt="user image">
-                                                            }
-                                                            else
-                                                            {<img class="img-circle img-bordered-sm" src="https://i.imgur.com/q52cLwE.png" alt="user image">}
-                                                            <span class="username">
-                                                                <a href="#">@it.HocVien.TaiKhoan.hovaten</a>
-                                                            </span>
-                                                            <span class="description">Lớp: @item.tenLopHoc - @it.ngayDanhGia</span>
-                                                        </div>
-                                                        <!-- /.user-block -->
-                                                        <p>
-                                                            @it.binhluan
-                                                        </p>
-                                                        <p>
-                                                            <a href="#" class="text-warning text-sm">
-                                                                @for (int i = 0; i < it.danhgia;i++)
+                                                    if (!string.IsNullOrEmpty(it.danhgia.ToString()) && it.danhgia!=0)
+                                                    {
+                                                        <div class="post">
+                                                            <div class="user-block">
+                                                                @if (!string.IsNullOrEmpty(it.HocVien.TaiKhoan.hinh))
                                                                 {
-                                                                    <i class="fas fa-star"></i>
+                                                                    <img class="img-circle img-bordered-sm" src="~/@it.HocVien.TaiKhoan.hinh" alt="user image">
                                                                 }
-                                                            </a>
-                                                        </p>
-                                                    </div>
+                                                                else
+                                                                {<img class="img-circle img-bordered-sm" src="https://i.imgur.com/q52cLwE.png" alt="user image">}
+                                                                <span class="username">
+                                                                    <a href="#">@it.HocVien.TaiKhoan.hovaten</a>
+                                                                </span>
+                                                                <span class="description">Lớp: @item.tenLopHoc - @it.ngayDanhGia</span>
+                                                            </div>
+                                                            <!-- /.user-block -->
+                                                            <p>
+                                                                @it.binhluan
+                                                            </p>
+                                                            <p>
+                                                                <a href="#" class="text-warning text-sm">
+                                                                    @for (int i = 0; i < it.danhgia; i++)
+                                                                    {
+                                                                        <i class="fas fa-star"></i>
+                                                                    }
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                    }
+
                                                 }
                                             }
-                                            
+
                                         </div>
                                     </div>
                                 </div>

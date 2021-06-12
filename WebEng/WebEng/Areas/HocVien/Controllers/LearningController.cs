@@ -13,14 +13,18 @@ namespace WebEng.Areas.HocVien.Controllers
     public class LearningController : Controller
     {
         // GET: HocVien/Learning
-        public ActionResult Index(int id=1)
+        public ActionResult Index(int id=0)
         {
-            var md = new LopHocDAO().FindLopHocHocVien(User.Identity.Name);
+            var dao = new LopHocDAO();
+            var md = dao.FindLopHocHocVien(User.Identity.Name);
             if (md.Count() <= 0)
             {
                 return RedirectToAction("ChuaDK", "Learning");
             }
-            var dao = new LopHocDAO();
+            if (id == 0)
+            {                
+                return View(md.First());
+            }
             var model = dao.GetByID(id);
             return View(model);
 

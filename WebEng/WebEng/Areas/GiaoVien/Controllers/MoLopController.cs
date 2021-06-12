@@ -54,7 +54,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if(DateTime.Compare(DateTime.Parse(bt2), DateTime.Parse(et2)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 2.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -99,7 +99,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bt3), DateTime.Parse(et3)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 3.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -144,7 +144,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bt4), DateTime.Parse(et4)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 4.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -189,7 +189,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bt5), DateTime.Parse(et5)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 5.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -234,7 +234,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bt6), DateTime.Parse(et6)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 6.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -279,7 +279,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bt7), DateTime.Parse(et7)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại thứ 7.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -324,7 +324,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                                 if (DateTime.Compare(DateTime.Parse(bcn), DateTime.Parse(ecn)) >= 0)
                                 {
                                     TempData["testmsg"] = "Lỗi ngày bắt đầu lớp hơn ngày kết thúc tại chủ nhật.";
-                                    return RedirectToAction("Index", "GiaoVien");
+                                    return RedirectToAction("Index", "MoLop");
                                 }
                                 switch (NgayB.Day)
                                 {
@@ -410,24 +410,25 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 }
                 
                 try {
+                    lophoc.trangThai = 0;   //--0:Đang tuyển sinh	1:Ngừng tuyển sinh	2:Đang học	3:Đã kết thúc
                     lophoc.soBuoi = buoi;
                     lophoc.ngayDangKy = DateTime.Now;
                     daoLH.Insert(lophoc);
                     ModelState.AddModelError("", "Tạo lớp thành công");
                     TempData["testmsg"] = "Tạo lớp thành công";
-                    return RedirectToAction("Index", "GiaoVien");
+                    return RedirectToAction("Index", "MoLop");
                 }
                 catch (Exception e)
                 {
                     TempData["testmsg"] = "Có lỗi trong quá trình tạo lớp: " + e.Message.ToString();
-                    return RedirectToAction("Index", "GiaoVien");
+                    return RedirectToAction("Index", "MoLop");
                 }
                
             }
             else
             {
                 TempData["testmsg"] = "Thông tin lớp không đúng định dạng.";
-                return RedirectToAction("Index", "GiaoVien");
+                return RedirectToAction("Index", "MoLop");
             }
             
         }

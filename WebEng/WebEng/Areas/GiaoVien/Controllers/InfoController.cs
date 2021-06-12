@@ -126,20 +126,28 @@ namespace WebEng.Areas.GiaoVien.Controllers
             return PartialView("DoiMK", model);
         }
         [HttpPost]
-        public ActionResult DoiMK(TaiKhoan tk, string matkhau, string matkhaumoi)
+        public ActionResult DoiMK(TaiKhoan tk, string matkhau, string matkhaumoi, string reMKmoi)
         {
-            if (tk.matKhau == matkhaumoi)
+            if (tk.matKhau == matkhau)
             {
                 tk.matKhau = EncryptorMD5.MD5Hash(matkhaumoi);
-                var doi = new TaiKhoanDAO().DoiMK(tk);
-                if (doi)
+                if (matkhaumoi == reMKmoi)
                 {
-                    TempData["testmsg"] = "Đổi mật khẩu thành công.";
+                    var doi = new TaiKhoanDAO().DoiMK(tk);
+                    if (doi)
+                    {
+                        TempData["testmsg"] = "Đổi mật khẩu thành công.";
+                    }
+                    else
+                    {
+                        TempData["testmsg"] = "Có lỗi trong quá trình Đổi mật khẩu. Vui lòng thử lại sau.";
+                    }
                 }
                 else
                 {
-                    TempData["testmsg"] = "Có lỗi trong quá trình Đổi mật khẩu. Vui lòng thử lại sau.";
+                    TempData["testmsg"] = "Xác nhận lại mật khẩu không đúng.";
                 }
+
             }
             else
             {

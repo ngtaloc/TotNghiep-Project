@@ -237,7 +237,14 @@
                             <div class="col-12 col-sm-6">
                                 <h3 class="d-inline-block d-sm-none">@Model.tenLopHoc</h3>
                                 <div class="col-12">
-                                    <img src="~/@Model.hinh" class="product-image" alt="Product Image">
+                                    @if (!string.IsNullOrEmpty(Model.hinh))
+                                    {
+                                        <img src="~/@Model.hinh" class="product-image" alt="Product Image">
+                                    }
+                                    else
+                                    {
+                                        <img src="https://static.vecteezy.com/system/resources/previews/001/881/787/non_2x/online-classes-virtual-classroom-concept-vector.jpg" class="product-image" alt="Product Image">
+                                    }
                                 </div>
                                 @using (Html.BeginForm("UpimgLop", "MoLop", Model, FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
                                 {
@@ -302,7 +309,7 @@
 
                                         @using (Html.BeginForm("BinhLuan", "MoLop", new { idlh = Model.ID, idtk = Model.Giangvien.TaiKhoan.iD }, FormMethod.Post, new { @class = "d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" }))
                                         {
-                                            if (Model.Giangvien.TaiKhoan.hinh != "")
+                                            if (!string.IsNullOrEmpty(Model.Giangvien.TaiKhoan.hinh))
                                             {
                                                 <img class="img-fluid img-responsive rounded-circle mr-2" src="~/@Model.Giangvien.TaiKhoan.hinh" width="50">
                                             }
@@ -323,7 +330,7 @@
                                                         <div class="d-flex flex-row align-items-center commented-user">
 
                                                             <h5 class="mr-2">
-                                                                @if (item.TaiKhoan.hinh != "")
+                                                                @if (!string.IsNullOrEmpty(item.TaiKhoan.hinh))
                                                                 {
                                                                     <img class="img-fluid img-responsive rounded-circle mr-2" src="~/@item.TaiKhoan.hinh" width="38">
                                                                 }
@@ -385,7 +392,7 @@
                                                                 <div class="commented-section mt-2">
                                                                     <div class="d-flex flex-row align-items-center commented-user">
                                                                         <h5 class="mr-2">
-                                                                            @if (it.TaiKhoan.hinh != "")
+                                                                            @if (!string.IsNullOrEmpty(it.TaiKhoan.hinh))
                                                                             {
                                                                                 <img class="img-fluid img-responsive rounded-circle mr-2" src="~/@it.TaiKhoan.hinh" width="38">
                                                                             }
@@ -481,7 +488,7 @@
             <div class="card-body box-profile">
                 <a href="~/GiaoVien/Info" class="d-block">
                     <div class="text-center">
-                        @if (Model.Giangvien.TaiKhoan.hinh != null)
+                        @if (!string.IsNullOrEmpty(Model.Giangvien.TaiKhoan.hinh ))
                         {
                             <img class="profile-user-img img-fluid img-circle"
                                  src="~/@Model.Giangvien.TaiKhoan.hinh"
@@ -490,7 +497,7 @@
                         else
                         {
                             <img class="profile-user-img img-fluid img-circle"
-                                 src="~/Content/Template/dist/img/avatar5.png"
+                                 src="https://i.imgur.com/q52cLwE.png"
                                  alt="User profile picture">
                         }
                     </div>

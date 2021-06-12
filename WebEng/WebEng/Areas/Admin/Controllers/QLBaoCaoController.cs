@@ -35,7 +35,10 @@ namespace WebEng.Areas.Admin.Controllers
                 + listLH.Count()
                 + db.TaiLieux.Count()
                 + listGD.Count()
-                + db.DSLopHocs.Count());
+                + db.DSLopHocs.Count()
+                + db.BaiTaps.Count()
+                + db.TraLois.GroupBy(x=>new { x.idHV, x.CauHoi.BaiTap}).Count()
+                + db.fileTraLois.Count());
             
             solieu.Add(danhthu);            //danh thu           
             solieu.Add(listLH.Count());     //mở lớp 
@@ -81,7 +84,10 @@ namespace WebEng.Areas.Admin.Controllers
                 + listLH.Count()
                 + db.TaiLieux.Where(x => DateTime.Compare(begin, x.thoiGian)<=0 && DateTime.Compare(end, x.thoiGian) >= 0).Count()
                 + listGD.Count()
-                + db.DSLopHocs.Where(x => DateTime.Compare(begin, x.ngaydDangKy) <= 0 && DateTime.Compare(end, x.ngaydDangKy) >= 0).Count());
+                + db.DSLopHocs.Where(x => DateTime.Compare(begin, x.ngaydDangKy) <= 0 && DateTime.Compare(end, x.ngaydDangKy) >= 0).Count()
+                + db.BaiTaps.Where(x => DateTime.Compare(begin, x.ngayDang) <= 0 && DateTime.Compare(end, x.ngayDang) >= 0).Count()
+                + db.TraLois.Where(x => DateTime.Compare(begin, x.thoiGian) <= 0 && DateTime.Compare(end, x.thoiGian) >= 0).GroupBy(x => new { x.idHV, x.CauHoi.BaiTap }).Count()
+                + db.fileTraLois.Where(x => DateTime.Compare(begin, x.thoiGian) <= 0 && DateTime.Compare(end, x.thoiGian) >= 0).Count());
             //danh thu
             solieu.Add(danhthu);
             //mở lớp

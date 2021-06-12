@@ -489,12 +489,14 @@ values
 
 insert into TaiLieu
 values(
-	'ten' 
+	N'Huỳnh_Đình_Quốc.pdf' 
     ,'120'
-    ,'link'
+    ,N'Content/Data/tailieu/lh1/kn1/Huỳnh_Đình_Quốc.pdf'
 	,'moTa ntext'
 	,'6/1/2021'
 	,1--0:dong 1:mo
 	,1
 	,1
 	,2,'')
+
+--Thời gian làm bài && thống kê tương tác & trangthai tài liệu

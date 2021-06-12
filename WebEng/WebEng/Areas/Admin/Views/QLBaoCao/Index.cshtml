@@ -306,7 +306,7 @@
                             @foreach (var tk in listTK)
                             {
                                 <li>
-                                    @if (tk.hinh != "")
+                                    @if (!string.IsNullOrEmpty(tk.hinh))
                                     {
                                         <img src="~/@tk.hinh" alt="User profile picture">
                                     }
