@@ -412,7 +412,7 @@ values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
 values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content/Data/image/photo2.png',40,N'không','4/15/2021','5/15/2021','1/15/2021',30,3,1),
-(N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
+(N'Nâng cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
 
 --insert thời khóa biểu
 insert into Ngay(ngay15,ngay20,ngay22,ngay27,ngay29,iDThang,nam,iDLopHoc,thu5,thu3)

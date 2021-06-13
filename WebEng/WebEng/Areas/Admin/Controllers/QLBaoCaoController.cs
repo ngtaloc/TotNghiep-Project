@@ -28,7 +28,12 @@ namespace WebEng.Areas.Admin.Controllers
             IEnumerable<LopHoc> listLH = db.LopHocs;
             IEnumerable<TaiKhoan> listTK = db.TaiKhoans;
             IEnumerable<LichSuGD> listGD = db.LichSuGDs;
-
+            int tl = 0;
+            try
+            {
+                tl = db.TraLois.GroupBy(x => new { x.idHV, x.CauHoi.BaiTap }).Count();
+            }
+            catch { }
             //Tương tác
             solieu.Add(db.BinhLuans.Count()
                 + listTK.Count()
@@ -37,7 +42,7 @@ namespace WebEng.Areas.Admin.Controllers
                 + listGD.Count()
                 + db.DSLopHocs.Count()
                 + db.BaiTaps.Count()
-                + db.TraLois.GroupBy(x=>new { x.idHV, x.CauHoi.BaiTap}).Count()
+                + tl
                 + db.fileTraLois.Count());
             
             solieu.Add(danhthu);            //danh thu           
