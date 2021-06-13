@@ -11,23 +11,28 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function () {
-			$(".content-comment").hide()
-			$(".traloi").hide()
+            $(".content-comment").hide()
+            $(".traloi").hide()
 
-			$(".fa-sort-up").click(function () {
-				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment").hide();
+            $(".fa-sort-up").click(function () {
+                $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment").hide();
 
-			});
+            });
 
-			$(".fa-sort-down").click(function () {
-				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment ").show();
-			});
+            $(".fa-sort-down").click(function () {
+                $(".content-comment").hide();
+                $(".traloi").hide();
+                $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment ").show();
+            });
 
-			$(".mt-1").click(function () {
-				$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").toggle();
-				$(".text").focus();
+            $(".mt-1").click(function () {
+                if ($(".traloi").show()) {
+                    $(".traloi").hide();
+                };
+                $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").toggle();
+                $(".text").focus();
 
-			});
+            });
 		});
 
 		var feild = document.querySelector('textarea');
@@ -52,13 +57,13 @@
 		//	$(".traloi").hide()
 		//}
 
-		$("#clear").click(function () {
-			$(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();
-			btn.style.display = 'none';
-			feild.value = '';
+
+        $(".clear").click(function () {
+            $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();
+            feild.value = '';
 
 
-		});
+        });
 	</script>
 }
 
@@ -188,7 +193,7 @@
 		float: right;
 	}
 
-	#clear {
+	.clear {
 		padding: 10px 15px;
 		border: none;
 		outline: none;
@@ -521,11 +526,11 @@
 														}
 													}
 													<div class="traloi">
-														@using (Html.BeginForm("BinhLuan", "Tim", new { tk = hocvien.TaiKhoan, lh = Model, idcha = item.ID }, FormMethod.Post))
+														@using (Html.BeginForm("BinhLuan", "Tim", new { tk = hocvien.TaiKhoan.iD, lh = Model.ID, idcha = item.ID }, FormMethod.Post))
 														{
 															<textarea placeholder='Bạn nghĩ gì về khóa học này?' name="noidung"></textarea>
 															<div class="btn1">
-																<button id='clear'>Hủy</button>
+																<button class='clear'>Hủy</button>
 																<input id="binhluan" type="submit" value='Bình Luận'>
 															</div>
 														}
@@ -541,7 +546,7 @@
 
 									</div>
 								</div>
-								<div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
+								
 							</div>
 						</div>
 					</div>

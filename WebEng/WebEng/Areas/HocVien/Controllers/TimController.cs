@@ -203,6 +203,11 @@ namespace WebEng.Areas.HocVien.Controllers
             var dao = new DSLopHocDAO();
             var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
             var lophoc = new LopHocDAO().GetByID(lh.ID);
+            if (lophoc.trangThai == 1)
+            {
+                TempData["testmsg"] = "Lớp học nãy đã Ngừng Tuyển Sinh, vui lòng đăng ký lơp học khác.";
+                return RedirectToAction("chitietlophoc/" + lophoc.ID, "Tim");
+            }
             if (lophoc.trangThai == 2 )
             {
                 TempData["testmsg"] = "Lớp học nãy đã Bắt Đầu, vui lòng đăng ký lơp học khác.";

@@ -42,11 +42,11 @@
             this.style.borderColor = '#aaa'
         }
 
-        clear.onclick = function () {
-            btn.style.display = 'none';
+
+        $(".clear").click(function () {
+            $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();
             feild.value = '';
-            $(".traloi").hide()
-        }
+        });
     </script>
 }
 
@@ -176,7 +176,7 @@
         float: right;
     }
 
-    #clear {
+    .clear {
         padding: 10px 15px;
         border: none;
         outline: none;
@@ -458,7 +458,7 @@
                                                         {
                                                             <textarea placeholder='Bình luận công khai...' name="noidung"></textarea>
                                                             <div class="btn1">
-                                                                <button id='clear'>Hủy</button>
+                                                                <button class='clear'>Hủy</button>
                                                                 <input id="binhluan" type="submit" value='Bình Luận'>
                                                             </div>
                                                         }

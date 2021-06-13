@@ -411,7 +411,7 @@ insert into HocVien
 values (N'123lê lợi',N'Nam','1998-05-23','hv@gmail.com','0987654321',3);
 
 insert into LopHoc
-values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content\Data\image\photo2.png',40,N'không','4/15/2021','5/15/2021','1/15/2021',30,3,1),
+values (N'Cơ bản',N'lớp học cho người mất gốc tiếng anh','Content/Data/image/photo2.png',40,N'không','4/15/2021','5/15/2021','1/15/2021',30,3,1),
 (N'Nân cao',N'lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh lớp học cho người mất gốc tiếng anh','https://drive.google.com/thumbnail?id=14433w0Qp2tnteaXBxQGt5wqInOR6b5O3',40,N'không','5/15/2021','8/15/2021','2/19/2021',30,2,1);
 
 --insert thời khóa biểu
@@ -487,16 +487,5 @@ values
 (3,2,2)
 
 
-insert into TaiLieu
-values(
-	N'Huỳnh_Đình_Quốc.pdf' 
-    ,'120'
-    ,N'Content/Data/tailieu/lh1/kn1/Huỳnh_Đình_Quốc.pdf'
-	,'moTa ntext'
-	,'6/1/2021'
-	,1--0:dong 1:mo
-	,1
-	,1
-	,2,'')
 
 --Thời gian làm bài && thống kê tương tác & trangthai tài liệu

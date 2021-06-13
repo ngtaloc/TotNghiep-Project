@@ -148,7 +148,7 @@
         float: right;
     }
 
-    #clear {
+    .clear {
         padding: 10px 15px;
         border: none;
         outline: none;
@@ -483,7 +483,7 @@
                                                         <textarea class="text" name="noidung"></textarea>
                                                         <div class="btn1">
                                                             @*<button id='clear'>Hủy</button>*@
-                                                            <input type="button" id='clear' value="Hủy" />
+                                                            <input type="button" class='clear' value="Hủy" />
                                                             <input id="binhluan" type="submit" value='Bình Luận'>
                                                         </div>
                                                     </div>
@@ -671,11 +671,16 @@
                 });
 
                 $(".fa-sort-down").click(function () {
+                    $(".content-comment").hide();
+                    $(".traloi").hide();
                     $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".content-comment ").show();
                 });
 
                 $(".mt-1").click(function () {
-                    $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").show();
+                    if ($(".traloi").show()) {
+                        $(".traloi").hide();
+                    };
+                    $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").toggle();
                     $(".text").focus();
 
                 });
@@ -703,9 +708,8 @@
             //	$(".traloi").hide()
             //}
 
-            $("#clear").click(function () {
-                $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();
-                btn.style.display = 'none';
+            $(".clear").click(function () {
+                $(this).closest(".coment-bottom.bg-white.p-2.px-4").find(".traloi").hide();                
                 feild.value = '';
 
 
