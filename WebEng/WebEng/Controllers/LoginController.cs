@@ -76,10 +76,10 @@ namespace WebEng.Controllers
             try
             {
                 // full path of python interpreter 
-                string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
+                string python = @"C:\Users\ADMIN\Desktop\khkt\doancn\venv\Scripts\python.exe";
 
                 // python app to call 
-                string myPythonApp = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\detection.py";
+                string myPythonApp = @"C:\Users\ADMIN\Desktop\DATN\quoc\TotNghiep-Project\WebEng\WebEng\Python\detection.py";
 
                
 
@@ -96,7 +96,7 @@ namespace WebEng.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
-                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\";
+                myProcessStartInfo.WorkingDirectory = @"C:\Users\ADMIN\Desktop\DATN\quoc\TotNghiep-Project\WebEng\WebEng\Python\";
                 //using (Process process = Process.Start(myProcessStartInfo))
                 //{
                 //    using (StreamReader reader = process.StandardOutput)
@@ -146,7 +146,7 @@ namespace WebEng.Controllers
             int id = -1;
             try
             {
-                id = int.Parse(idtk);
+                id = int.Parse(idtk.Split('\\')[0]);
             }
             catch (Exception e)
             {
@@ -176,7 +176,7 @@ namespace WebEng.Controllers
                     else
                     {
                         FormsAuthentication.SetAuthCookie(user.tenDangNhap, false);
-                        return RedirectToAction("Index", "HocVien/Home");
+                        return RedirectToAction("Index", "HocVien");
                     }
 
                 }

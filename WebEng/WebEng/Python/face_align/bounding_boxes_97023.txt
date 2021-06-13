@@ -1,0 +1,201 @@
+face_align\2\0.png
+face_align\2\1.png
+face_align\2\10.png
+face_align\2\100.png 171 44 440 380
+face_align\2\101.png 181 40 441 379
+face_align\2\102.png 189 52 443 371
+face_align\2\103.png 193 46 446 372
+face_align\2\104.png 189 41 444 367
+face_align\2\105.png 191 39 446 368
+face_align\2\106.png 187 41 442 366
+face_align\2\107.png 188 37 445 366
+face_align\2\108.png 189 38 444 366
+face_align\2\109.png 186 55 433 364
+face_align\2\11.png
+face_align\2\110.png 190 54 435 362
+face_align\2\111.png 198 51 440 352
+face_align\2\112.png 191 46 432 362
+face_align\2\113.png 195 48 439 368
+face_align\2\114.png 201 59 441 366
+face_align\2\115.png 206 57 453 382
+face_align\2\116.png 212 44 464 376
+face_align\2\117.png 213 39 468 380
+face_align\2\118.png 203 40 464 378
+face_align\2\119.png 202 35 468 385
+face_align\2\12.png
+face_align\2\120.png 202 34 469 395
+face_align\2\121.png 202 35 468 393
+face_align\2\122.png 198 46 465 390
+face_align\2\123.png 206 42 468 402
+face_align\2\124.png 206 42 476 396
+face_align\2\125.png 215 48 485 404
+face_align\2\126.png 219 53 485 408
+face_align\2\127.png 209 46 481 406
+face_align\2\128.png 196 41 481 407
+face_align\2\129.png 187 40 478 417
+face_align\2\13.png
+face_align\2\130.png 178 33 477 425
+face_align\2\131.png 168 30 470 426
+face_align\2\132.png 157 19 469 424
+face_align\2\133.png 160 24 464 420
+face_align\2\134.png 158 27 463 418
+face_align\2\135.png 160 24 460 415
+face_align\2\136.png 155 28 456 416
+face_align\2\137.png 153 24 454 412
+face_align\2\138.png 153 26 448 402
+face_align\2\139.png 148 25 444 400
+face_align\2\14.png
+face_align\2\140.png 143 25 441 410
+face_align\2\141.png 150 37 443 426
+face_align\2\142.png 140 48 441 429
+face_align\2\143.png 140 60 441 436
+face_align\2\144.png 148 63 445 449
+face_align\2\145.png 141 83 450 459
+face_align\2\146.png 142 86 448 464
+face_align\2\147.png 139 91 450 471
+face_align\2\148.png 136 93 448 474
+face_align\2\149.png 125 75 439 479
+face_align\2\15.png
+face_align\2\150.png 113 68 421 463
+face_align\2\151.png 105 66 413 453
+face_align\2\152.png 102 66 401 448
+face_align\2\153.png 105 48 402 442
+face_align\2\154.png 107 44 403 431
+face_align\2\155.png 109 36 402 421
+face_align\2\156.png 109 39 397 422
+face_align\2\157.png 120 51 405 432
+face_align\2\158.png 131 49 416 437
+face_align\2\159.png 138 46 426 438
+face_align\2\16.png
+face_align\2\160.png 139 44 432 438
+face_align\2\161.png 142 66 420 429
+face_align\2\162.png 145 62 427 432
+face_align\2\163.png 148 51 426 418
+face_align\2\164.png 147 30 429 405
+face_align\2\165.png 145 29 431 400
+face_align\2\166.png 137 23 430 390
+face_align\2\167.png 144 19 429 379
+face_align\2\168.png 136 14 430 379
+face_align\2\169.png 147 15 434 370
+face_align\2\17.png
+face_align\2\170.png 159 25 435 362
+face_align\2\171.png 159 26 440 375
+face_align\2\172.png 166 21 445 373
+face_align\2\173.png 173 23 453 371
+face_align\2\174.png 173 17 457 379
+face_align\2\175.png 189 28 479 390
+face_align\2\176.png 222 24 503 409
+face_align\2\177.png 234 32 512 397
+face_align\2\178.png 233 36 509 399
+face_align\2\179.png 229 37 504 402
+face_align\2\18.png
+face_align\2\180.png 219 37 503 413
+face_align\2\181.png 216 67 496 437
+face_align\2\182.png 211 74 497 444
+face_align\2\183.png 208 74 500 448
+face_align\2\184.png 206 70 497 446
+face_align\2\185.png 203 69 495 450
+face_align\2\186.png 204 75 494 448
+face_align\2\187.png 199 73 495 452
+face_align\2\188.png 198 61 495 458
+face_align\2\189.png 192 83 487 459
+face_align\2\19.png
+face_align\2\190.png 185 83 484 461
+face_align\2\191.png 167 76 471 464
+face_align\2\192.png 159 70 470 472
+face_align\2\193.png 155 70 471 479
+face_align\2\194.png 163 86 471 474
+face_align\2\195.png 155 66 464 469
+face_align\2\196.png 155 49 465 456
+face_align\2\197.png 156 45 459 430
+face_align\2\198.png 161 33 454 423
+face_align\2\199.png 163 38 451 400
+face_align\2\2.png
+face_align\2\20.png 272 0 514 270
+face_align\2\200.png 162 33 452 399
+face_align\2\21.png 184 0 414 238
+face_align\2\22.png 148 0 388 241
+face_align\2\23.png 131 0 387 246
+face_align\2\24.png 136 0 398 275
+face_align\2\25.png 139 0 421 340
+face_align\2\26.png 144 0 433 356
+face_align\2\27.png 148 3 445 369
+face_align\2\28.png 154 12 460 376
+face_align\2\29.png 165 14 467 386
+face_align\2\3.png
+face_align\2\30.png 169 44 464 406
+face_align\2\31.png 169 64 456 429
+face_align\2\32.png 169 79 450 432
+face_align\2\33.png 172 73 446 433
+face_align\2\34.png 185 113 446 447
+face_align\2\35.png 191 119 451 450
+face_align\2\36.png 201 111 461 440
+face_align\2\37.png 210 118 461 444
+face_align\2\38.png 219 105 473 434
+face_align\2\39.png 227 91 475 413
+face_align\2\4.png
+face_align\2\40.png 232 84 481 405
+face_align\2\41.png 235 80 483 405
+face_align\2\42.png 237 74 483 393
+face_align\2\43.png 237 61 475 367
+face_align\2\44.png 238 56 467 353
+face_align\2\45.png 232 54 465 357
+face_align\2\46.png 228 59 468 365
+face_align\2\47.png 228 55 467 363
+face_align\2\48.png 221 55 463 366
+face_align\2\49.png 220 56 465 373
+face_align\2\5.png
+face_align\2\50.png 212 46 456 365
+face_align\2\51.png 190 43 434 357
+face_align\2\52.png 161 44 403 348
+face_align\2\53.png 160 46 392 337
+face_align\2\54.png 192 35 426 323
+face_align\2\55.png 223 29 453 320
+face_align\2\56.png 232 41 465 336
+face_align\2\57.png 232 49 469 345
+face_align\2\58.png 220 58 467 367
+face_align\2\59.png 212 43 472 376
+face_align\2\6.png
+face_align\2\60.png 199 44 472 393
+face_align\2\61.png 191 36 478 411
+face_align\2\62.png 171 25 475 420
+face_align\2\63.png 162 21 473 427
+face_align\2\64.png 166 29 479 426
+face_align\2\65.png 171 26 478 417
+face_align\2\66.png 177 41 470 408
+face_align\2\67.png 199 52 469 398
+face_align\2\68.png 207 58 476 392
+face_align\2\69.png 213 28 467 359
+face_align\2\7.png
+face_align\2\70.png 206 30 449 329
+face_align\2\71.png 213 37 442 317
+face_align\2\72.png 227 41 444 314
+face_align\2\73.png 234 45 444 314
+face_align\2\74.png 229 47 440 316
+face_align\2\75.png 232 50 449 327
+face_align\2\76.png 239 46 471 351
+face_align\2\77.png 243 52 499 385
+face_align\2\78.png 266 66 528 395
+face_align\2\79.png 289 85 537 388
+face_align\2\8.png
+face_align\2\80.png 250 52 505 391
+face_align\2\81.png 230 57 491 399
+face_align\2\82.png 204 47 481 408
+face_align\2\83.png 183 32 465 393
+face_align\2\84.png 177 44 458 413
+face_align\2\85.png 170 39 464 413
+face_align\2\86.png 169 31 464 417
+face_align\2\87.png 145 38 451 438
+face_align\2\88.png 145 43 439 441
+face_align\2\89.png 140 44 446 435
+face_align\2\9.png
+face_align\2\90.png 146 59 453 446
+face_align\2\91.png 156 82 458 458
+face_align\2\92.png 148 66 455 450
+face_align\2\93.png 153 61 448 449
+face_align\2\94.png 152 49 461 441
+face_align\2\95.png 172 60 459 423
+face_align\2\96.png 171 53 446 396
+face_align\2\97.png 171 46 442 392
+face_align\2\98.png 169 52 436 382
+face_align\2\99.png 167 47 436 381

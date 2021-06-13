@@ -42,8 +42,10 @@ def add_overlays(frame, faces, frame_rate, colors, confidence=0.55):
             face_bb = face.bounding_box.astype(int)
             cv2.rectangle(frame, (face_bb[0], face_bb[1]), (face_bb[2], face_bb[3]), colors[idx], 2)
             if face.name and face.prob:
+                class_name = 'Unknow'
                 if face.prob > confidence:
                     class_name = face.name
+                    #print(face.prob)
                     return class_name
                 else:
                     class_name = 'Unknow'

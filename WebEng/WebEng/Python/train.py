@@ -53,13 +53,13 @@ class DBConnet():
             conn = pyodbc.connect('Driver={ODBC Driver 17 for SQL Server};'
                                   # Loc
                                   # 'Server=DESKTOP-4UPPHLQ\SQLEXPRESS;' 'Database=TotNghiep;'
-                                  'Server=(LocalDB)\MSSQLLocalDB;' 'Database=TotNghiep;'
+                                  #'Server=(LocalDB)\MSSQLLocalDB;' 'Database=TotNghiep;'
 
                                   # Hau
                                   # 'Server=DESKTOP-LM0C49R\SQLEXPRESS;' 'Database=DOAN_CHUYENNGANH;'
 
                                   # QUOC
-                                  # 'Server=DESKTOP-TD9R29S;' 'Database=chuyen_nganh;'
+                                   'Server=DESKTOP-TD9R29S;' 'Database=DoAnTotNghiep;'
                                   'Trusted_Connection=Yes'
                                   )
             return conn
@@ -210,7 +210,7 @@ def cutface2(idtk):
             cv2.imwrite('your_face/'+idtk+'/' + str(sampleNum) + '.jpg', frame)
             sampleNum += 1
 
-        if sampleNum > 20:
+        if sampleNum > 200:
             break
         add_overlays(frame, faces, frame_rate, colors)
 
@@ -228,7 +228,7 @@ if __name__ == '__main__':
     cursor = conn.execute(query)
     idtk = None
     for row in cursor:  # kiểm tra trong data đã thêm chưa
-       if row[6] == 0:
+       if row[7] == 0:
             idtk = row[0]
 
     if idtk != None:

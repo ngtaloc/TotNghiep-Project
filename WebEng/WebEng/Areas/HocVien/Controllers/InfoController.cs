@@ -115,10 +115,10 @@ namespace WebEng.Areas.HocVien.Controllers
             {
 
                 // full path of python interpreter 
-                string python = @"C:\loc\DACN\doancn\venv\Scripts\python.exe";
+                string python = @"C:\Users\ADMIN\Desktop\khkt\doancn\venv\Scripts\python.exe";
 
                 // python app to call 
-                string myPythonApp = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\train.py";
+                string myPythonApp = @"C:\Users\ADMIN\Desktop\DATN\quoc\TotNghiep-Project\WebEng\WebEng\Python\train.py";
 
 
 
@@ -134,7 +134,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 // 2nd and 3rd are actual arguments we want to send 
                 //myProcessStartInfo.Arguments = myPythonApp + " " + x + " " + y;
                 myProcessStartInfo.Arguments = myPythonApp;
-                myProcessStartInfo.WorkingDirectory = @"C:\loc\TotNhiep\TotNghiep-Project\WebEng\WebEng\Python\";
+                myProcessStartInfo.WorkingDirectory = @"C:\Users\ADMIN\Desktop\DATN\quoc\TotNghiep-Project\WebEng\WebEng\Python\";
 
 
                 Process myProcess = new Process();

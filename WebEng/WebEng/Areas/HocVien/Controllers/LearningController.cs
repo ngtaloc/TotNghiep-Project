@@ -131,6 +131,7 @@ namespace WebEng.Areas.HocVien.Controllers
         }
 
         [HttpGet]
+        [ValidateInput(false)]
         public ActionResult Chitietbaitap(int idbt)
         {
             var dao = new BaiTapDAO();
@@ -167,9 +168,26 @@ namespace WebEng.Areas.HocVien.Controllers
             }
             ViewBag.diem = d;
             
+            if (string.IsNullOrEmpty(Session[idbt.ToString()] as string)) 
+            {
+                try
+                {
+                    DateTime dt = DateTime.Now.AddMinutes(double.Parse(model.thoiGianLamBai.ToString()));
+                    Session[idbt.ToString()] = dt.ToString();
+                }
+                catch
+                {
+                    Session[idbt.ToString()] = "";
+                }
+                
+            }
+           
+            string ttt = Session[idbt.ToString()].ToString();
+
             return View(model);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Chitietbaitap(List<TraLoi> tralois, HttpPostedFileBase file, int idbt)
         {
             var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
@@ -178,8 +196,8 @@ namespace WebEng.Areas.HocVien.Controllers
                 var dao = new fileTraLoiDAO();
                 string _FileName = Path.GetFileName(file.FileName);
                 string path = "Content/Data/traloi/hv" + hv.id+"/bt" + idbt + "/";
-                string _path = Path.Combine(Server.MapPath(path), _FileName);
-                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
+                string _path = Path.Combine(Server.MapPath("~/" + path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath("~/" + path)));
                 file.SaveAs(_path);
                 int fileSize = file.ContentLength;
                 int Size = fileSize / 1000000;
@@ -193,6 +211,17 @@ namespace WebEng.Areas.HocVien.Controllers
                 filetl.trangThai = 1;           //0:dong 1:mo
                 dao.Insert(filetl);
             }
+            //else
+            //{
+            //    var dao = new fileTraLoiDAO();
+
+            //    var filetl = new fileTraLoi();
+            //    filetl.idBT = idbt;
+            //    filetl.thoiGian = DateTime.Now;
+            //    filetl.idHV = hv.id;
+            //    filetl.trangThai = 1;           //0:dong 1:mo
+            //    dao.Insert(filetl);
+            //}
             var daotl = new TraLoiDAO();
             foreach (var item in tralois)
             {
@@ -204,7 +233,9 @@ namespace WebEng.Areas.HocVien.Controllers
                 daotl.Insert(tl);
             }
             TempData["testmsg"] = "Nộp bài thành công.";
-            return RedirectToAction("Chitietbaitap/"+idbt, "Learning");
+            return RedirectToAction("Chitietbaitap", "Learning", new { idbt = idbt });
+            //return RedirectToAction("Index", "Learning");
+
         }
         //Show THỜI GIAN LÀM BÀI 
     }

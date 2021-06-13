@@ -1,4 +1,5 @@
-﻿using Models.DAO;
+﻿using HtmlAgilityPack;
+using Models.DAO;
 using Models.Framework;
 using System;
 using System.Collections.Generic;
@@ -705,8 +706,8 @@ namespace WebEng.Areas.GiaoVien.Controllers
             {                
                 string _FileName = Path.GetFileName(file.FileName);
                 string path = "Content/Data/baitap/lh" + idlh + "/kn"+idkn+"/";
-                string _path = Path.Combine(Server.MapPath(path), _FileName);
-                Directory.CreateDirectory(Path.Combine(Server.MapPath(path)));
+                string _path = Path.Combine(Server.MapPath("~/" + path), _FileName);
+                Directory.CreateDirectory(Path.Combine(Server.MapPath("~/"+path)));
                 file.SaveAs(_path);
                 int fileSize = file.ContentLength;
                 int Size = fileSize / 1000000;                
@@ -757,7 +758,6 @@ namespace WebEng.Areas.GiaoVien.Controllers
             var listhv = dao.ListHV_BT(idbt);
             ViewBag.listhv = listhv;
             return View(model);
-
         }
     }
 }
