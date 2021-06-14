@@ -52,10 +52,10 @@
             <div class="card-body">
                 <div class="row">
 
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-sm">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-sm_@idkn">
                         Tạo bài tập
                     </button>
-                    <div class="modal fade" id="modal-sm">
+                    <div class="modal fade" id="modal-sm_@idkn">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
                                 @using (Html.BeginForm("CreateBT", "QLLopHoc", FormMethod.Get))
@@ -83,8 +83,7 @@
                         <tr class="title">
                             <th>Bài tập</th>
                             <th>Ngày đăng </th>
-                            <th>Ngày nộp</th>
-                            <th>Submit</th>
+                            <th>Hạn nộp</th>
                             <th>Trạng thái</th>
                             <th>Ghi chú</th>
                         </tr>
@@ -97,11 +96,10 @@
                             <tr class="noidung">
                                 @*kích vào mỗi tr(row) chuyển sang trang chứa file và bài tập*@
                                 <td>
-                                    @Html.ActionLink(item.BaiTap.tenBT, "Chitietbaitap",new {idbt =item.idBT})
+                                    @Html.ActionLink(item.BaiTap.tenBT, "Chitietbaitap",new {idbt =item.idBT},new { @onclick = "return confirm('Bắt đầu làm bài tập?')" })
                                 </td>
                                 <td> @item.BaiTap.ngayDang</td>
                                 <td> @item.BaiTap.ngayNop </td>
-                                <td>@item.LopHoc.DSLopHocs.Where(x=>x.trangthai==2).Count() (HV) </td>
                                 <td>@if (item.BaiTap.trangThai == 1) { <p class="text-success">"Mở"</p> } else { <p class="text-danger">"Đóng"</p> } </td>
                                 <td>@item.BaiTap.ghiChu </td>
                             </tr>

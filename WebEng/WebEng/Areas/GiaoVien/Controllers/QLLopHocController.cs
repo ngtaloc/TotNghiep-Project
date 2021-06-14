@@ -485,7 +485,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             }
             dao.UpdateStatus(ds);
             var lh = new LopHocDAO().GetByID(ds.idLH);
-            return RedirectToAction("chitiet/" + ds.idLH, "QLLopHoc");
+            return RedirectToAction("chitietlophoc/" + ds.idLH, "QLLopHoc");
         }
         public ActionResult Listening(LopHoc lopHoc)
         {
@@ -605,7 +605,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
 
                 }
             }
-            return RedirectToAction("chitiet/" + lophoc.ID, "QLLopHoc");
+            return RedirectToAction("chitietlophoc/" + lophoc.ID, "QLLopHoc");
         }
 
      
@@ -623,7 +623,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 else TempData["testmsg"] = "Có lỗi trong quá trình đổi ảnh đại diện. Vui long thử lại sau.";
             }
 
-            return RedirectToAction("chitiet/" + lh.ID, "QLLopHoc");
+            return RedirectToAction("chitietlophoc/" + lh.ID, "QLLopHoc");
         }
 
         [HttpPost]
@@ -656,18 +656,18 @@ namespace WebEng.Areas.GiaoVien.Controllers
             catch (Exception e)
             {
                 TempData["testmsg"] = "Có lỗi trong quá trình bình luận. Vui lòng thử lại sau. \nLỗi: " + e.Message;
-                return RedirectToAction("chitiet/" + idlh, "QLLopHoc");
+                return RedirectToAction("chitietlophoc/" + idlh, "QLLopHoc");
             }
 
             if (kt != 0)
             {
                 TempData["testmsg"] = "Bình luận thành công.";
-                return RedirectToAction("chitiet/" + idlh, "QLLopHoc");
+                return RedirectToAction("chitietlophoc/" + idlh, "QLLopHoc");
             }
             else
             {
                 TempData["testmsg"] = "Có lỗi trong quá trình bình luận. Vui lòng thử lại sau.";
-                return RedirectToAction("chitiet/" + idlh, "QLLopHoc");
+                return RedirectToAction("chitietlophoc/" + idlh, "QLLopHoc");
             }
         }
 
@@ -734,7 +734,16 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 baitap.TaiLieux.Add(tailieu);
             }
             baitap.ngayDang =DateTime.Now;
-            baitap.ngayNop =DateTime.Parse(ngaynop);
+           //06/14/2021 10:33 PM
+            string ngay = ngaynop.Split(' ')[0];
+            string gio = ngaynop.Split(' ')[1];
+            string tt = ngaynop.Split(' ')[2];
+            int h = int.Parse(gio.Split(':')[0]);
+            if (tt == "PM") h += 12;
+           
+            DateTime tnn = new DateTime(int.Parse(ngay.Split('/')[2]), int.Parse(ngay.Split('/')[0]), int.Parse(ngay.Split('/')[1]),h , int.Parse(gio.Split(':')[1]),0, DateTimeKind.Utc);
+            baitap.ngayNop = tnn;
+
             baitap.tuLuan = tuluan;
             baitap.CauHois = cauhoi;
             baitap.trangThai = 1;       //0:đóng 1:mở

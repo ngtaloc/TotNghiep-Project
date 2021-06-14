@@ -151,6 +151,7 @@ create table TraLoi(
 	idHV int,
 	DapAn Nvarchar(200),	
 	thoiGian datetime not null,
+	tgLamBai int,
 	foreign key(idCauHoi) references CauHoi(id) ON UPDATE NO ACTION ,
 	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
 );
@@ -163,6 +164,7 @@ create table fileTraLoi(
 	trangThai int, --0:dong 1:mo
 	idBT int,
 	idHV int,
+	tgLamBai int,
 	foreign key(idBT) references  BaiTap(id) ON UPDATE NO ACTION ,
 	foreign key(idHV) references  HocVien(id) ON UPDATE NO ACTION ,
 	CONSTRAINT [PK_FilesTL] PRIMARY KEY CLUSTERED   

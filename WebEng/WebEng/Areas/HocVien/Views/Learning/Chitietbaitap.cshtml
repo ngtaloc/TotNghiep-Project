@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/HocVien/Views/Shared/layout_2.cshtml";
     // int CountSubmit = (int)ViewBag.CountSubmit;
-    string timenop=null ;
+    string timenop = null;
+    int timeLam = (int)ViewBag.timeLam;
     try
     {
         DateTime t = (DateTime)ViewBag.timenop;
-        timenop = t.ToString();
+        timenop = t.ToString();        
     }
     catch
     {
@@ -54,188 +55,200 @@
 
     .clock {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        float: right;
+        right:0.5%;
         transform: translateX(-50%) translateY(-50%);
-        color: #17D4FE;
-        font-size: 60px;
+        color: #0026ff;
         font-family: Orbitron;
         letter-spacing: 7px;
     }
 </style>
-<div class="container-chitetbt">
-    @using (Html.BeginForm("ChitietbaitapSubmit", "Learning", tralois, FormMethod.Post, new { enctype = "multipart/form-data" ,@id="formsm"}))
-    {
-        <br />
-        <div class="col-12 row">
-            <div class="col-4">
-                <h5><b>@Model.TaiLieux.FirstOrDefault().LopHoc.tenLopHoc</b> </h5> @*đỗ dữ liệu tên lớp học *@
-                <h6><b> <u>Kỹ năng: </u></b><span> @Model.TaiLieux.FirstOrDefault().KyNang.tenKyNang</span> </h6> @*đỗ dữ liệu tên kỹ năng trong thẻ span *@
-                <div class="conten-bt ">
-                    <h6><b>Tiêu đề: </b> <span> @Model.tenBT</span> </h6>@*đỗ dữ liệu tên bài tập trong thẻ span *@
-                    <h6><b>Học viên: </b> <span> @hocvien.TaiKhoan.hovaten</span> </h6>@*đỗ dữ liệu tên học viên trong thẻ span *@
-                    <h6><b>Ngày nộp: </b>  <span>@Model.ngayNop</span> </h6>  @*đỗ dữ liệu thời gian trong thẻ span *@
-                </div>
-                <h6><b><u> Hướng dẫn:</u></b></h6>
-                <div class="conten-bt ">
-                    <h6>- Xem bài tập trong file đinh kèm</h6>
-                    <h6>- Làm bài nộp dưới phần trả lời</h6>
-                </div>
-            </div>
-            <div class="col-8">
-
-                <h6><b><u>File bài tập: </u></b></h6>
-                <div class="conten-bt ">
-
-                </div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr class="title">
-                            <th>Bài tập</th>
-                            <th>Ngày đăng </th>
-                            <th>Ngày nộp</th>
-                            <th>Ghi chú</th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="conten-tb">
-                        <tr class="noidung">
-                            <td> đổ file tập</td>
-                            <td> đổ  thời gian úp file </td>
-                            <td> đổ thời gian </td>
-                            <td> chú thích  nếu cần </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <hr />
-        if (timenop == null)
-        {
-            <h6><b><u>Trắc nghiệm:  </u></b>
-                <b style="float:right;">
-                    <u>Thời giam submit: </u>
-                       
-                    <span id="timeSubmit">@tt.ToString("hh:mm:ss tt")</span>
-                </b>
-            </h6>
-            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
-            foreach (var item in tralois)
-            {
-                d++;
-                <h6><b>Câu @d: </b> <span> @tralois[d - 1].CauHoi.CauHoi1</span> </h6>
-                <div class="clearfix col-12">
-                    @Html.HiddenFor(x => tralois[d - 1].idCauHoi, new { htmlAttributes = new { @class = "form-control", @value = tralois[d - 1].idCauHoi } })
-                    <div class="icheck-success d-inline col-3">
-                        @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "A", new { @class = "form-check-input", @id = "A_" + d })
-                        @*<input type="radio" id="A_@d" name="@d" value="">*@
-                        <label for="A_@d">
-                            A:
-                        </label> @item.CauHoi.B
-                    </div>
-                    <div class="icheck-success d-inline col-3">
-                        @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "B", new { @class = "form-check-input", @id = "B_" + d })
-                        <label for="B_@d">
-                            B:
-                        </label> @item.CauHoi.B
-                    </div>
-                    <div class="icheck-success d-inline col-3">
-                        @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "C", new { @class = "form-check-input", @id = "C_" + d })
-                        <label for="C_@d">
-                            C:
-                        </label> @item.CauHoi.C
-                    </div>
-                    <div class="icheck-success d-inline col-3">
-                        @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "D", new { @class = "form-check-input", @id = "D_" + d })
-                        <label for="D_@d">
-                            D:
-                        </label> @item.CauHoi.D
-                    </div>
-                </div>
-                <br />
-            }
-            <hr />
-
-            <h6><b><u>Tự Luận:  </u></b></h6>
-            @Html.Raw(Model.tuLuan)
-            <div class="form">
-                <label>Choose File:</label>
-                <div>
-                    @Html.TextBox("file", "", new { @class = "form-control col-4", @type = "file" }) <br />
-                    <input name="idbt" value="@Model.ID" hidden />
-                </div>
-
-            </div>
-            <button type="submit">Submit</button>
-        }
-        else
-        {
-            <h6><b><u>Thông tin bài làm:  </u></b></h6>
-            <table class="table table-hover">
-                <thead>
-                    <tr class="title">
-                        <th>Bài tập</th>
-                        <th>Ngày nộp</th>
-                        <th>Thời gian làm bài</th>
-                        <th>Điểm</th>
-                    </tr>
-                </thead>
-
-                <tbody class="conten-tb">
-                    <tr class="noidung">
-                        <td> @Model.tenBT</td>
-                        <td> @timenop </td>
-                        <td> đổ thời gian </td>
-                        <td> @diem </td>
-                    </tr>
-                </tbody>
-            </table>
-        }
-
-    }
-</div>
-
 
 <script>
     var dd = 0;
-    function showTime(){
-    var date = new Date();
-    var h = date.getHours(); // 0 - 23
-    var m = date.getMinutes(); // 0 - 59
-    var s = date.getSeconds(); // 0 - 59
-    var session = "AM";
-       
-    if(h == 0){
-        h = 12;
-    }
+    //$('#baitap').hide();
+    function showTime() {
+        //$('#baitap').show();
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
 
-    if(h > 12){
-        h = h - 12;
-        session = "PM";
-    }
+        if (h == 0) {
+            h = 12;
+        }
 
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
+        if (h > 12) {
+            h = h - 12;
+            session = "PM";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
         s = (s < 10) ? "0" + s : s;
-        
+
         var time = h + ":" + m + ":" + s + " " + session;
 
         var time1 = $('#timeSubmit').text();
 
+        //alert(time+ '--' + time1);
         if (time > time1) {
             if (dd === 0) {
+                alert(time + '-dd-' + time1);
                 dd = 1;
                 $("#formsm").submit();
             }
-            
-            
+
+
         }
         document.getElementById("MyClockDisplay").innerText = time;
         document.getElementById("MyClockDisplay").textContent = time;
 
         setTimeout(showTime, 1000);
 
-}
+    }
 
-showTime();
+
 </script>
+<div class="container-chitetbt">
+
+    <br />
+    <div class="col-12 row">
+        <div class="col-4">
+            <h5><b>@Model.TaiLieux.FirstOrDefault().LopHoc.tenLopHoc</b> </h5> @*đỗ dữ liệu tên lớp học *@
+            <h6><b> <u>Kỹ năng: </u></b><span> @Model.TaiLieux.FirstOrDefault().KyNang.tenKyNang</span> </h6> @*đỗ dữ liệu tên kỹ năng trong thẻ span *@
+            <div class="conten-bt ">
+                <h6><b>Tiêu đề: </b> <span> @Model.tenBT</span> </h6>@*đỗ dữ liệu tên bài tập trong thẻ span *@
+                <h6><b>Học viên: </b> <span> @hocvien.TaiKhoan.hovaten</span> </h6>@*đỗ dữ liệu tên học viên trong thẻ span *@
+                <h6><b>Ngày nộp: </b>  <span>@Model.ngayNop</span> </h6>  @*đỗ dữ liệu thời gian trong thẻ span *@
+            </div>
+            <h6><b><u> Hướng dẫn:</u></b></h6>
+            <div class="conten-bt ">
+                <h6>- Xem bài tập trong file đinh kèm</h6>
+                <h6>- Làm bài nộp dưới phần trả lời</h6>
+            </div>
+        </div>
+        <div class="col-8">
+
+            <h6><b><u>File bài tập: </u></b></h6>
+            <div class="conten-bt ">
+
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="title">
+                        <th>Bài tập</th>
+                        <th>Ngày đăng </th>
+                        <th>Ngày nộp</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+
+                <tbody class="conten-tb">
+                    <tr class="noidung">
+                        <td> đổ file tập</td>
+                        <td> đổ  thời gian úp file </td>
+                        <td> đổ thời gian </td>
+                        <td> chú thích  nếu cần </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr />
+    @if (timenop == null)
+    {
+
+        using (Html.BeginForm("ChitietbaitapSubmit", "Learning", tralois, FormMethod.Post, new { enctype = "multipart/form-data", @id = "formsm" }))
+        {
+            
+            <div id="baitap">
+                <h6>
+                    <b><u>Trắc nghiệm:  </u></b>
+                    <b style="float:right;">
+                        <u>Thời giam submit: </u>
+
+                        <span id="timeSubmit">@tt.ToString("hh:mm:ss tt")</span>
+                    </b>
+                </h6>
+                <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                @foreach (var item in tralois)
+                {
+                    d++;
+                    <h6><b>Câu @d: </b> <span> @tralois[d - 1].CauHoi.CauHoi1</span> </h6>
+                    <div class="clearfix col-12">
+                        @Html.HiddenFor(x => tralois[d - 1].idCauHoi, new { htmlAttributes = new { @class = "form-control", @value = tralois[d - 1].idCauHoi } })
+                        <div class="icheck-success d-inline col-3">
+                            @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "A", new { @class = "form-check-input", @id = "A_" + d })
+                            @*<input type="radio" id="A_@d" name="@d" value="">*@
+                            <label for="A_@d">
+                                A:
+                            </label> @item.CauHoi.B
+                        </div>
+                        <div class="icheck-success d-inline col-3">
+                            @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "B", new { @class = "form-check-input", @id = "B_" + d })
+                            <label for="B_@d">
+                                B:
+                            </label> @item.CauHoi.B
+                        </div>
+                        <div class="icheck-success d-inline col-3">
+                            @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "C", new { @class = "form-check-input", @id = "C_" + d })
+                            <label for="C_@d">
+                                C:
+                            </label> @item.CauHoi.C
+                        </div>
+                        <div class="icheck-success d-inline col-3">
+                            @Html.RadioButtonFor(x => tralois[d - 1].DapAn, "D", new { @class = "form-check-input", @id = "D_" + d })
+                            <label for="D_@d">
+                                D:
+                            </label> @item.CauHoi.D
+                        </div>
+                    </div>
+                    <br />
+                }
+                <hr />
+
+                <h6><b><u>Tự Luận:  </u></b></h6>
+                @Html.Raw(Model.tuLuan)
+                <div class="form">
+                    <label>Choose File:</label>
+                    <div>
+                        @Html.TextBox("file", "", new { @class = "form-control col-4", @type = "file" }) <br />
+                        <input name="idbt" value="@Model.ID" hidden />
+                    </div>
+
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        }
+        <script>
+            showTime();
+        </script>
+    }
+    else
+    {
+        <h6><b><u>Thông tin bài làm:  </u></b></h6>
+        <table class="table table-hover">
+            <thead>
+                <tr class="title">
+                    <th>Bài tập</th>
+                    <th>Ngày nộp</th>
+                    <th>Thời gian làm bài</th>
+                    <th>Điểm</th>
+                </tr>
+            </thead>
+
+            <tbody class="conten-tb">
+                <tr class="noidung">
+                    <td> @Model.tenBT</td>
+                    <td> @timenop </td>
+                    <td> @timeLam (phút) / @Model.thoiGianLamBai (phút) </td>
+                    <td> @diem </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+</div>
+

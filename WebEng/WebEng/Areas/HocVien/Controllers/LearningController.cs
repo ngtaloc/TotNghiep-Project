@@ -131,7 +131,6 @@ namespace WebEng.Areas.HocVien.Controllers
         }
 
         [HttpGet]
-        [ValidateInput(false)]
         public ActionResult Chitietbaitap(int idbt)
         {
             var dao = new BaiTapDAO();
@@ -152,6 +151,7 @@ namespace WebEng.Areas.HocVien.Controllers
             ViewBag.tralois = tralois;
             string d =null;
             DateTime timenop;
+            int timeLam=0;
             if(hv.fileTraLois.Where(x=>x.idBT==idbt).Count()>0 || hv.TraLois.Where(x=>x.CauHoi.idBT==idbt).Count() > 0)
             {
                 d = new TraLoiDAO().Diem(idbt, hv.id);
@@ -159,11 +159,15 @@ namespace WebEng.Areas.HocVien.Controllers
                 {
                     timenop = hv.fileTraLois.Where(x => x.idBT == idbt).FirstOrDefault().thoiGian;
                     ViewBag.timenop = timenop;
+                    timeLam =Convert.ToInt32(hv.fileTraLois.Where(x => x.idBT == idbt).FirstOrDefault().tgLamBai);
+                    ViewBag.timeLam = timeLam;
                 }
                 catch
                 {
                     timenop = hv.TraLois.Where(x => x.CauHoi.idBT == idbt).FirstOrDefault().thoiGian;
                     ViewBag.timenop = timenop;
+                    timeLam = Convert.ToInt32(hv.TraLois.Where(x => x.CauHoi.idBT == idbt).FirstOrDefault().tgLamBai);
+                    ViewBag.timeLam = timeLam;
                 }
             }
             ViewBag.diem = d;
@@ -184,13 +188,16 @@ namespace WebEng.Areas.HocVien.Controllers
            
             string ttt = Session[idbt.ToString()].ToString();
 
-            return View(model);
+            return View("Chitietbaitap", model);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Chitietbaitap(List<TraLoi> tralois, HttpPostedFileBase file, int idbt)
+        public ActionResult ChitietbaitapSubmit(List<TraLoi> tralois, HttpPostedFileBase file, int idbt)
         {
             var hv = new HocVienDAO().FindByTDN(User.Identity.Name);
+            DateTime now = DateTime.Now;
+            DateTime tsubmit = DateTime.Parse(Session[idbt.ToString()].ToString());
+            double phut = tsubmit.Subtract(now).TotalMinutes;
             if (file != null && file.ContentLength > 0)
             {
                 var dao = new fileTraLoiDAO();
@@ -209,6 +216,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 filetl.thoiGian = DateTime.Now;
                 filetl.idHV = hv.id;
                 filetl.trangThai = 1;           //0:dong 1:mo
+                filetl.tgLamBai = Convert.ToInt32(phut);
                 dao.Insert(filetl);
             }
             //else
@@ -230,9 +238,11 @@ namespace WebEng.Areas.HocVien.Controllers
                 tl.DapAn = item.DapAn;
                 tl.idHV = hv.id;
                 tl.thoiGian = DateTime.Now;
+                tl.tgLamBai = Convert.ToInt32(phut);
                 daotl.Insert(tl);
             }
             TempData["testmsg"] = "Nộp bài thành công.";
+            Session.Clear();
             return RedirectToAction("Chitietbaitap", "Learning", new { idbt = idbt });
             //return RedirectToAction("Index", "Learning");
 

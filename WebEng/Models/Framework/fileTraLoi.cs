@@ -28,6 +28,8 @@ namespace Models.Framework
 
         public int? idHV { get; set; }
 
+        public int? tgLamBai { get; set; }
+
         public virtual BaiTap BaiTap { get; set; }
 
         public virtual HocVien HocVien { get; set; }

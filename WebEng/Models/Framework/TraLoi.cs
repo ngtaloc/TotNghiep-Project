@@ -20,6 +20,8 @@ namespace Models.Framework
 
         public DateTime thoiGian { get; set; }
 
+        public int? tgLamBai { get; set; }
+
         public virtual CauHoi CauHoi { get; set; }
 
         public virtual HocVien HocVien { get; set; }
