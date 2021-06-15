@@ -74,7 +74,7 @@ namespace Models.DAO
             try
             {
                 var giangvien = db.Giangviens.Find(id);
-                if(giangvien.TaiKhoan.trangThai == 0)
+                if(string.IsNullOrEmpty(giangvien.TaiKhoan.trangThai.ToString()) || giangvien.TaiKhoan.trangThai == 0)
                 {
                     giangvien.TaiKhoan.trangThai = 1;
                 }
@@ -94,6 +94,12 @@ namespace Models.DAO
         public Giangvien FindByTDN(string tdn)
         {
             return db.Giangviens.FirstOrDefault(x => x.TaiKhoan.tenDangNhap == tdn);
+        }
+
+        public IEnumerable<Giangvien> Tim(string tim)
+        {
+            return db.Giangviens.Where(x => x.email.Contains(tim) || x.diachi.Contains(tim) || x.gioithieu.Contains(tim)
+            || x.sdt.Contains(tim) || x.gioitinh.Contains(tim) || x.TaiKhoan.hovaten.Contains(tim));
         }
     }
 }

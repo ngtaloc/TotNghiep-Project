@@ -1,0 +1,76 @@
+var CHART_DASHBOARD_WEEK = {
+      data_week: {
+        chart_week: {
+          label:  @Html.Raw(Json.Serialize(r3_key_week)),
+          value: @Html.Raw(Json.Serialize(r3_data_week))
+        }
+      },
+      renderChart_week: function () {
+        var ctx_week = document.getElementById('dashboard-thang').getContext('2d');
+        var chart_week = new Chart(ctx_week, {
+          type: 'bar',
+          data_week: {
+            labels: CHART_DASHBOARD_WEEK.data_week.chart_week.value,
+            options: {
+              legend: {
+                position: 'top',
+                display: false
+              },
+            },
+            datasets: [{
+              label: '',
+              backgroundColor: '#007BFF',
+              borderColor: '#007BFF',
+              barPercentage: 0.1,
+              barThickness: 6,
+              maxBarThickness: 8,
+              minBarLength: 2,
+              data: CHART_DASHBOARD_WEEK.data_week.chart_week.label
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'top',
+              display: false
+            },
+            title: {
+              display: false,
+              text: ''
+            },
+            scales: {
+              xAxes: [{
+                barPercentage: 0.5
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  maxTicksLimit: 5,
+                  stepSize: Math.ceil(CHART_DASHBOARD_WEEK.data_week.maxValue ),
+                  max: CHART_DASHBOARD_WEEK.data_week.maxValue,
+                  callback: function (label, index, labels) {
+                    return Intl.NumberFormat().format(label);
+                    return Intl.NumberFormat('hi', {
+                      style: 'currency', currency: 'VNĐ', minimumFractionDigits: 0,
+                    }).format(label).replace(/^(\D+)/, '$1 ');
+                  }
+                }
+              }]
+            },
+            tooltips: {
+              callbacks: {
+                label: function (tooltipItem, data) {
+                  return Intl.NumberFormat().format(tooltipItem.yLabel) + " lượt ký";
+                  return Intl.NumberFormat('hi', {
+                    style: 'currency', currency: 'VNĐ', minimumFractionDigits: 0,
+                  }).format(tooltipItem.yLabel).replace(/^(\D+)/, '$1 ');
+                }
+              }
+            }
+          }
+        });
+      },
+      renderAll: function () {
+        this.renderChart_week();
+      }
+    }

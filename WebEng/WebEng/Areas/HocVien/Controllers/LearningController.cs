@@ -171,7 +171,7 @@ namespace WebEng.Areas.HocVien.Controllers
                 }
             }
             ViewBag.diem = d;
-            
+            ViewBag.timeLam = timeLam;
             if (string.IsNullOrEmpty(Session[idbt.ToString()] as string)) 
             {
                 try

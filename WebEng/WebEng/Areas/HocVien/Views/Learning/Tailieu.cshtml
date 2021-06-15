@@ -49,7 +49,7 @@
                         if (it.link.ToString().Split('.')[it.link.ToString().Split('.').Count() - 1] == "mp3")
                         {
                             <audio controls>
-                                <source src="@Url.Content(it.link)" type="audio/ogg">
+                                <source src="~/@Url.Content(it.link)" type="audio/ogg">
                             </audio>
                         }
                         else if (it.link.ToString().Contains("</p>"))

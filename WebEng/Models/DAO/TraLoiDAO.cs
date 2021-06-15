@@ -69,7 +69,7 @@ namespace Models.DAO
             var bt = new BaiTapDAO().GetByID(idbt);
             var hv = new HocVienDAO().GetByID(idhv);
             int d = 0;
-            foreach(var item in hv.TraLois)
+            foreach(var item in hv.TraLois.Where(x=>x.CauHoi.idBT == bt.ID))
             {
                 if (item.DapAn == item.CauHoi.DapAn) d++;
             }

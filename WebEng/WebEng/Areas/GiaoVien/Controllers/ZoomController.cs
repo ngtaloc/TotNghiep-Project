@@ -52,7 +52,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 TempData["testmsg"] = "Lỗi tạo phòng ZOOM: "+ex.Message;
             }
             
-            return RedirectToAction("Index/" + lh.ID , "QLLopHoc");
+            return RedirectToAction("ChiTiet/" + lh.ID , "QLLopHoc");
         }
         //[HttpGet]
         //public ActionResult Ngay(int id, int idLH, string date, string thu)

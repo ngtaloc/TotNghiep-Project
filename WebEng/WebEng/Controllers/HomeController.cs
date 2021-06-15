@@ -10,6 +10,7 @@ namespace WebEng.Controllers
 {
     public class HomeController : LayoutController
     {
+        [HttpGet]
         public ActionResult Index()
         {
             //update data            
@@ -18,7 +19,15 @@ namespace WebEng.Controllers
             var model = dao.FindAll();
             return View(model);
         }
-
+        [HttpPost]
+        public ActionResult Index(string tim)
+        {
+            //update data            
+            var dao = new LopHocDAO();
+            dao.upload();
+            var model = dao.TimLopHoc(tim);
+            return View(model);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -64,6 +64,14 @@ namespace Models.DAO
                 return false;
             }
         }
+
+        public int updateAll(LopHoc entity)
+        {
+            var lh = db.LopHocs.Find(entity.ID);
+            lh = entity;
+            db.SaveChanges();
+            return lh.ID;
+        }
         public IEnumerable<LopHoc> listAllPageList(int page, int pageSize)
         {
             return db.LopHocs.OrderByDescending(x => x.ID).ToPagedList(page,pageSize);
@@ -93,6 +101,11 @@ namespace Models.DAO
             return db.LopHocs.Where(x => x.DSLopHocs.FirstOrDefault(z=>z.HocVien.TaiKhoan.tenDangNhap == tdn).HocVien.TaiKhoan.tenDangNhap==tdn);
         }
 
+        public IEnumerable<LopHoc> TimLopHoc(string tim)
+        {
+            return db.LopHocs.Where(x => x.tenLopHoc.Contains(tim) || x.Giangvien.TaiKhoan.hovaten.Contains(tim)
+                           || x.KyNangLopHocs.FirstOrDefault(y => y.KyNang.tenKyNang.Contains(tim)) != null);
+        }
         public IEnumerable<LopHoc> FindLopHocIndex(string tim, bool Listening, bool Speaking, bool Reading, bool Writing, string lvListening, string lvSpeaking, string lvReading, string lvWriting)
         {
 

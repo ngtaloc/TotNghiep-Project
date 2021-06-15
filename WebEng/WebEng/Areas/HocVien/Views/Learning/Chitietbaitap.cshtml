@@ -6,10 +6,11 @@
     // int CountSubmit = (int)ViewBag.CountSubmit;
     string timenop = null;
     int timeLam = (int)ViewBag.timeLam;
+    timeLam = Convert.ToInt32(Model.thoiGianLamBai) - timeLam;
     try
     {
         DateTime t = (DateTime)ViewBag.timenop;
-        timenop = t.ToString();        
+        timenop = t.ToString();
     }
     catch
     {
@@ -57,10 +58,10 @@
         position: absolute;
         float: right;
         right:0.5%;
-        transform: translateX(-50%) translateY(-50%);
+        
         color: #0026ff;
         font-family: Orbitron;
-        letter-spacing: 7px;
+        
     }
 </style>
 
@@ -138,20 +139,45 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="title">
-                        <th>Bài tập</th>
-                        <th>Ngày đăng </th>
-                        <th>Ngày nộp</th>
-                        <th>Ghi chú</th>
+                        <th>Tài liệu</th>
+                        <th>Tiêu đề</th>
+                        <th>Được tạo bởi</th>
+                        <th>Thời gian</th>
                     </tr>
                 </thead>
 
                 <tbody class="conten-tb">
-                    <tr class="noidung">
-                        <td> đổ file tập</td>
-                        <td> đổ  thời gian úp file </td>
-                        <td> đổ thời gian </td>
-                        <td> chú thích  nếu cần </td>
-                    </tr>
+                    @if (Model != null)
+                    {
+                        foreach (var it in Model.TaiLieux)
+                        {
+                            <tr class="noidung">
+                                <td>
+                                    @if (it.trangThai == 0)
+                                    {
+                                        <span>Đã đóng</span>
+                                    }
+                                    else
+                                    if (it.link.ToString().Split('.')[it.link.ToString().Split('.').Count() - 1] == "mp3")
+                                    {
+                                        <audio controls>
+                                            <source src="~/@Url.Content(it.link)" type="audio/ogg">
+                                        </audio>
+                                    }
+                                    else if (it.link.ToString().Contains("</p>"))
+                                    {
+                                        <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"XemCK/{it.ID}")">  <i class="fa fa-pen"></i>Xem</button>
+                                    }
+                                    else
+                                    {<a href="~/@it.link" download=""><i class="fas fa-download"></i></a>}
+
+                                </td>
+                                <td> @it.ten </td>
+                                <td> @it.TaiKhoan.hovaten  </td>
+                                <td> @it.thoiGian</td>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>
@@ -167,9 +193,9 @@
                 <h6>
                     <b><u>Trắc nghiệm:  </u></b>
                     <b style="float:right;">
-                        <u>Thời giam submit: </u>
+                        <u>Thời gian nộp bài:</u>
 
-                        <span id="timeSubmit">@tt.ToString("hh:mm:ss tt")</span>
+                        <span id="timeSubmit">&nbsp;&nbsp; @tt.ToString("hh:mm:ss tt")</span>
                     </b>
                 </h6>
                 <div id="MyClockDisplay" class="clock" onload="showTime()"></div>

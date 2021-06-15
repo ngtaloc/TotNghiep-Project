@@ -54,7 +54,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             string bt2 = null, string et2 = null, string bt3 = null, string et3 = null, string bt4 = null, string et4 = null, string bt5 = null, string et5 = null, string bt6 = null, string et6 = null, string bt7 = null, string et7 = null, string bcn = null, string ecn = null)
         {
 
-
+            var gv = new GiangVienDAO().FindByTDN(User.Identity.Name);
             if (ModelState.IsValid)
             {
                 var NgayB = lophoc.ngayBegin.Value;
@@ -396,7 +396,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                     }
                 }
                 var daoLH = new LopHocDAO();
-                lophoc.idGV = new GiangVienDAO().FindByTDN(User.Identity.Name).ID;
+                lophoc.idGV = gv.ID;
                 if (Listening)
                 {
                     var knlh = new KyNangLopHoc();
@@ -436,6 +436,13 @@ namespace WebEng.Areas.GiaoVien.Controllers
                     lophoc.soBuoi = buoi;
                     lophoc.ngayDangKy = DateTime.Now;
                     int idlh=daoLH.Insert(lophoc);
+                    LichSuGD lsgd = new LichSuGD();
+                    lsgd.idVT = gv.TaiKhoan.ViTiens.FirstOrDefault().iD;
+                    lsgd.LoaiGD = 1;
+                    lsgd.SoTienGD = 100000;
+                    lsgd.TenGD = "Có tên " + lophoc.tenLopHoc + " và mã lớp LH" + lophoc.ID + " với giá 100.000 VNĐ";
+                    lsgd.ThoiGiangGD = DateTime.Now;
+                    int idgd = new LichSuGDDAO().Insert(lsgd);
                     ModelState.AddModelError("", "Tạo lớp thành công");
                     TempData["testmsg"] = "Tạo lớp thành công";
                     return RedirectToAction("ChiTiet/" + idlh, "QLLopHoc");
@@ -550,7 +557,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 dao.Insert(tailieu);
             }
             ViewBag.Message = "File Uploaded Successfully!!";
-            return RedirectToAction("Index/" + idlh, "QLLopHoc");
+            return RedirectToAction("ChiTiet/" + idlh, "QLLopHoc");
             //}
             //catch
             //{
@@ -756,7 +763,7 @@ namespace WebEng.Areas.GiaoVien.Controllers
             {
                 TempData["testmsg"] = "Thêm bài tập không thành công.\n"+ex.Message;
             }
-            return RedirectToAction("Index/" + lh.ID, "QLLopHoc");
+            return RedirectToAction("ChiTiet/" + lh.ID, "QLLopHoc");
         }
 
         public ActionResult Chitietbaitap(int idbt)

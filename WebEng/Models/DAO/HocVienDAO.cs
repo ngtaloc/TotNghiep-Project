@@ -60,5 +60,37 @@ namespace Models.DAO
                 return false;
             }
         }
+        public bool Khoa(int id)
+        {
+            try
+            {
+                var hocVien = db.HocViens.Find(id);
+                if (hocVien.TaiKhoan.trangThai == 0)
+                {
+                    hocVien.TaiKhoan.trangThai = 1;
+                }
+                else
+                if (hocVien.TaiKhoan.trangThai == 1)
+                {
+                    hocVien.TaiKhoan.trangThai = 0;
+                }
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public IEnumerable<HocVien> FindAll()
+        {
+            return db.HocViens;
+        }
+
+        public IEnumerable<HocVien> Tim(string tim)
+        {
+            return db.HocViens.Where(x => x.email.Contains(tim) || x.diachi.Contains(tim)
+            || x.sdt.Contains(tim) || x.gioitinh.Contains(tim) || x.TaiKhoan.hovaten.Contains(tim));
+        }
     }
 }

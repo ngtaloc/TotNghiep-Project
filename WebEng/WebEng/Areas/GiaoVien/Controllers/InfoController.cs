@@ -47,12 +47,15 @@ namespace WebEng.Areas.GiaoVien.Controllers
                 gv.TaiKhoan.ViTiens.FirstOrDefault().TongNap += 100000;
                 dao.Insert(GD);
                 var vt = new ViTienDAO().Update(gv.TaiKhoan.ViTiens.FirstOrDefault());
-                
-                return RedirectToAction("ThongBao", "Info", new { mes = "Bạn đã nạp thành công " + tien + " VNĐ vào ví của mình." ,type=1});
+                TempData["testmsg"] = "Bạn đã nạp thành công " + tien + " VNĐ vào ví của mình.";
+                //return RedirectToAction("ThongBao", "Info", new { mes = "Bạn đã nạp thành công " + tien + " VNĐ vào ví của mình." ,type=1});
+                return RedirectToAction("Index", "Info");
             }
             catch (Exception ex)
             {
-                return RedirectToAction("ThongBao", "Info",new { mes= "Có lỗi trong quá trình nạp: " + ex.Message.ToString(), type=-1});
+                TempData["testmsg"] = "Có lỗi trong quá trình nạp: " + ex.Message.ToString();
+                return RedirectToAction("Index", "Info");
+                //return RedirectToAction("ThongBao", "Info",new { mes= "Có lỗi trong quá trình nạp: " + ex.Message.ToString(), type=-1});
             }
            
         }

@@ -79,7 +79,12 @@ namespace WebEng.Areas.Admin.Controllers
             {
                 danhthu += it.SoTienGD;
             }
-
+            int tl = 0;
+            try
+            {
+                tl = db.TraLois.Where(x => DateTime.Compare(begin, x.thoiGian) <= 0 && DateTime.Compare(end, x.thoiGian) >= 0).GroupBy(x => new { x.idHV, x.CauHoi.BaiTap }).Count();
+            }
+            catch { }
             var listLH = db.LopHocs.Where(x => DateTime.Compare(begin, x.ngayDangKy) <= 0 && DateTime.Compare(end, x.ngayDangKy) >= 0);
             var listTK = db.TaiKhoans.Where(x => DateTime.Compare(begin, x.ngayDangKy)<=0 && DateTime.Compare(end, x.ngayDangKy) >=0);
             var listGD = db.LichSuGDs.Where(x => DateTime.Compare(begin, x.ThoiGiangGD) <= 0 && DateTime.Compare(end, x.ThoiGiangGD) >= 0);
@@ -91,7 +96,7 @@ namespace WebEng.Areas.Admin.Controllers
                 + listGD.Count()
                 + db.DSLopHocs.Where(x => DateTime.Compare(begin, x.ngaydDangKy) <= 0 && DateTime.Compare(end, x.ngaydDangKy) >= 0).Count()
                 + db.BaiTaps.Where(x => DateTime.Compare(begin, x.ngayDang) <= 0 && DateTime.Compare(end, x.ngayDang) >= 0).Count()
-                + db.TraLois.Where(x => DateTime.Compare(begin, x.thoiGian) <= 0 && DateTime.Compare(end, x.thoiGian) >= 0).GroupBy(x => new { x.idHV, x.CauHoi.BaiTap }).Count()
+                + tl
                 + db.fileTraLois.Where(x => DateTime.Compare(begin, x.thoiGian) <= 0 && DateTime.Compare(end, x.thoiGian) >= 0).Count());
             //danh thu
             solieu.Add(danhthu);

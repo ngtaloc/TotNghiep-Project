@@ -44,7 +44,7 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="http://localhost:52790">TiengAnhOnline.Com </a>
             </div>
-
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -65,6 +65,12 @@
                     </li>
                     <li>
                         @Html.ActionLink("Đăng nhập", "Index", "Login")
+                    </li>
+                    <li style="margin-top:1rem;"> 
+                        @using (Html.BeginForm("", "")) {
+                        <input name="tim" style="background:none; color:snow;" placeholder="Tìm lớp học"/>
+                        <button style="background:none; color:snow;"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                        }
                     </li>
 
 

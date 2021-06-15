@@ -94,7 +94,7 @@
                 <div class="input-group">
                     <div class="form-group col-sm-4">
                         <!-- select -->
-                        <label class="form-control-label">Lọc theo: </label>
+                        @*<label class="form-control-label">Lọc theo: </label>
 
                         <select class="col-sm-9 form-control" style="display:inline-block;">
                             <option>option 1</option>
@@ -102,21 +102,11 @@
                             <option>option 3</option>
                             <option>option 4</option>
                             <option>option 5</option>
-                        </select>
+                        </select>*@
 
                     </div>
                     <div class="col-md-6 offset-md-2">
-                        <form>
-                            <div class="input-group">
-
-                                <input type="search" class="form-control form-control-xl" placeholder="Tìm kiếm">
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-xl btn-default">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        
                     </div>
                 </div>
 
@@ -148,7 +138,7 @@
                                                     <th>Số điện thoại</th>
                                                     <th>Tên đăng nhập</th>
                                                     <th>Trạng thái</th>
-                                                    <th></th>
+                                                    @*<th></th>*@
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -156,7 +146,7 @@
                                                 @foreach (var item in Model)
                                                 {
                                                     <tr>
-                                                        <td>GV <p name="id">@item.ID</p></td>
+                                                        <td><p name="id">GV @item.ID</p></td>
                                                         <td>@item.TaiKhoan.hovaten</td>
                                                         <td>
                                                             @if (!string.IsNullOrEmpty(item.TaiKhoan.hinh))
@@ -175,10 +165,10 @@
                                                         <td>@item.sdt</td>
                                                         <td>@item.TaiKhoan.tenDangNhap</td>
                                                         <td>@(item.TaiKhoan.trangThai == 1 ? "Mở" : "Khóa") </td>
-                                                        <td>
+                                                        @*<td>
 
                                                             <button type="button" class="btn-sm btn-primary" data-toggle="ajax-modal" data-target="#modal-edit-lg" data-url="@Url.Action($"Edit/{item.ID}")">  <i class="fa fa-pen"></i> Sửa</button>
-                                                        </td>
+                                                        </td>*@
                                                         <td>
                                                             @if (item.TaiKhoan.trangThai == 1)
                                                             {
@@ -188,7 +178,7 @@
                                                             }
                                                             else
                                                             {
-                                                                <a class="btn-sm btn-danger" href="/Admin/QLGiaoVien/Lock/@item.ID" onclick="return confirm('Bạn chắc chắn MỞ tài khoản này?')">
+                                                                <a class="btn-sm btn-success" href="/Admin/QLGiaoVien/Lock/@item.ID" onclick="return confirm('Bạn chắc chắn MỞ tài khoản này?')">
                                                                     <i class="fa fa-unlock"></i> Mở
                                                                 </a>
                                                             }

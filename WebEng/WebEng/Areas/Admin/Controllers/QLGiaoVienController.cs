@@ -20,7 +20,15 @@ namespace WebEng.Areas.Admin.Controllers
             return View(model);
         }
 
-       [HttpGet]
+        public ActionResult Tim(string tim)
+        {
+            var dao = new GiangVienDAO();
+            var model = dao.Tim(tim);
+
+            return View("Index",model);
+        }
+
+        [HttpGet]
         public ActionResult Edit(int ID)
         {
             var dao = new GiangVienDAO();
